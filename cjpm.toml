@@ -1,0 +1,13 @@
+[dependencies]
+
+[package]
+  cjc-version = "0.53.18"
+  compile-option = ""
+  description = ""
+  link-option = ""
+  name = "cj_money"
+  output-type = "executable"
+  src-dir = ""
+  target-dir = ""
+  version = "0.1.0"
+  package-configuration = {}
