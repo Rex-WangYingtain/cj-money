@@ -3,6 +3,7 @@ package cj_money
 
 import std.collection.*
 import std.math.*
+import std.math.numeric.*
 
 
 main(): Int64 {
@@ -105,6 +106,68 @@ main(): Int64 {
     // deserializeAll将 amount|code|numericCode|fraction|grapheme|template|decimal|thousand 字符串反序列化为Money对象，不定义separator将默认为"|"
     let m15: Money = deserializeAll("970|ZWD|716|2|Z$|$1|.|,", separator: "|")
     println(m15.display())
+
+    /* bigMoney的使用与Money的使用相似 */
+    let bm1: BigMoney = BigMoney(BigInt("189732178342819734281273941864375134261342871234783429182347673843234"), currency)
+    let bm2: BigMoney = BigMoney("-6428273457845568738192746871923498173429871346871349213464328756.134123412", "CNY")
+    let bm3: BigMoney = BigMoney("109348913248914327879134287134281394281432731287944513312489.132413242134", "CNY")
+
+    println(bm1.display())
+    println(bm2.display())
+
+    println(bm1.sameCurrency(bm2))
+    println(bm2.sameCurrency(bm3))
+
+    println(bm2.compareAmount(bm3))
+    println(bm2.greaterThan(bm3))
+    println(bm2.greaterThanOrEqual(bm3))
+    println(bm2.lessThan(bm3))
+    println(bm2.lessThanOrEqual(bm3))
+    println(bm2.equals(bm3))
+
+    println(bm1.isZero())
+    println(bm1.isPositive())
+    println(bm1.isNegative())
+
+    bm1.negative()
+    println(bm1.display())
+    bm1.absolute()
+    println(bm1.display())
+
+    println(bm1.asMajorUnits())
+
+    let bm4: BigMoney = calculator.calculate(bm2, bm3, add)
+    println(bm4.display())
+    let bm5: BigMoney = calculator.calculate(bm2, bm3, subtract)
+    println(bm5.display())
+    let bm6: BigMoney = calculator.calculate(bm2, bm3, multiply)
+    println(bm6.display())
+    let bm7: BigMoney = calculator.calculate(bm2, bm3, divide)
+    println(bm7.display())
+    let bm8: BigMoney = calculator.calculate(bm2, bm3, modulus)
+    println(bm8.display())
+    let bm9: BigMoney = calculator.calculate(bm1, absolute)
+    println(bm9.display())
+    let bm10: BigMoney = calculator.calculate(bm1, negative)
+    println(bm10.display())
+
+    let bm11: BigMoney = calculator.allocate(bm1, 1, 3)
+    println(bm11.display())
+    let bm12: ArrayList<BigMoney> = calculator.allocate(bm1, [1, 2, 3])
+    println(bm12[0].display())
+    println(bm12[1].display())
+    println(bm12[2].display())
+
+    let bm13: BigMoney = calculator.round(bm1, 2)
+    println(bm13.display())
+
+    println(serializeByCode(bm1, separator: "|"))
+    println(serializeAll(bm1, separator: "|"))
+
+    let bm14: BigMoney = deserializeBigMoneyByCode("99143123412344534325645656575462243512345456657568776765635443212349|GYD", separator: "|")
+    println(bm14.display())
+    let bm15: BigMoney = deserializeBigMoneyAll("92452352344352345324654549877877534743272834743498327824357423428742387970|ZWD|716|2|Z$|$1|.|,", separator: "|")
+    println(bm15.display())
 
     return 0
 }

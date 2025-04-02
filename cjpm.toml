@@ -9,5 +9,5 @@
   output-type = "executable"
   src-dir = ""
   target-dir = ""
-  version = "0.1.0"
+  version = "0.2.0"
   package-configuration = {}

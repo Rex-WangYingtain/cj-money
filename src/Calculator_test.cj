@@ -4,8 +4,11 @@ import std.unittest.*
 import std.unittest.testmacro.*
 import std.collection.*
 
+import std.math.numeric.*
+
 @Test
 class addTest {
+    // Money
     @TestCase
     public func test1() {
         let m1: Money = Money(-12.3, "AED")
@@ -69,6 +72,64 @@ class addTest {
         let calculator: Calculator = Calculator()
         @ExpectThrows[CurrencyNotSameException]({
             let m: Money = calculator.calculate(m1, m2, add)
+        })
+    }
+    // BigMoney
+    @TestCase
+    public func test9() {
+        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, add)
+        @Expect(m.amount, BigInt(0))
+    }
+    @TestCase
+    public func test10() {
+        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, add)
+        @Expect(m.amount, BigInt("-8972222947842960358202067802600"))
+    }
+    @TestCase
+    public func test11() {  // 3
+        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, add)
+        @Expect(m.amount, BigInt("121234144020509992800971228068"))
+    }
+    @TestCase
+    public func test12() {
+        let m1: BigMoney = BigMoney("0.0", "JEP")
+        let m2: BigMoney = BigMoney("0.0", "JEP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, add)
+        @Expect(m.amount, BigInt(0))
+    }
+    @TestCase
+    public func test13() {
+        let m1: BigMoney = BigMoney("11342144425123412444455555555555553253411342.0153545124124123444444444444413234112", "PHP")
+        let m2: BigMoney = BigMoney("0.0", "PHP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, add)
+        @Expect(m.amount, BigInt("1134214442512341244445555555555555325341134202"))
+    }
+    @TestCase
+    public func test14() {
+        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, add)
+        @Expect(m.amount, BigInt("-16243575867119067685449707476787963"))
+    }
+    @TestCase
+    public func test15() {
+        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
+        let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
+        let calculator: Calculator = Calculator()
+        @ExpectThrows[CurrencyNotSameException]({
+            let m: BigMoney = calculator.calculate(m1, m2, add)
         })
     }
 }
@@ -140,6 +201,64 @@ class subtractTest {
             let m: Money = calculator.calculate(m1, m2, subtract)
         })
     }
+    // BigMoney
+    @TestCase
+    public func test9() {
+        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+        @Expect(m.amount, BigInt("26282508262887072915331531124870684264938"))
+    }
+    @TestCase
+    public func test10() {
+        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+        @Expect(m.amount, BigInt("-8976913599131611007267096889046"))
+    }
+    @TestCase
+    public func test11() {  // 3
+        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+        @Expect(m.amount, BigInt("121234506488778477849681696538"))
+    }
+    @TestCase
+    public func test12() {
+        let m1: BigMoney = BigMoney("0.0", "JEP")
+        let m2: BigMoney = BigMoney("0.0", "JEP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+        @Expect(m.amount, BigInt(0))
+    }
+    @TestCase
+    public func test13() {
+        let m1: BigMoney = BigMoney("11342144425123412444455555555555553253411342.0153545124124123444444444444413234112", "PHP")
+        let m2: BigMoney = BigMoney("0.0", "PHP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+        @Expect(m.amount, BigInt("1134214442512341244445555555555555325341134202"))
+    }
+    @TestCase
+    public func test14() {
+        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+        @Expect(m.amount, BigInt("16243329038007779217201198772097115"))
+    }
+    @TestCase
+    public func test15() {
+        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
+        let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
+        let calculator: Calculator = Calculator()
+        @ExpectThrows[CurrencyNotSameException]({
+            let m: BigMoney = calculator.calculate(m1, m2, subtract)
+        })
+    }
 }
 
 @Test
@@ -207,6 +326,64 @@ class multiplyTest {
         let calculator: Calculator = Calculator()
         @ExpectThrows[CurrencyNotSameException]({
             let m: Money = calculator.calculate(m1, m2, multiply)
+        })
+    }
+    // BigMoney
+    @TestCase
+    public func test9() {
+        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+        @Expect(m.amount, BigInt("-1726925601471818157742954212185406518843668026250390972878265272374586563440360"))
+    }
+    @TestCase
+    public func test10() {
+        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+        @Expect(m.amount, BigInt("-210482851185581836477635665284479800915983370836146670075"))
+    }
+    @TestCase
+    public func test11() {  // 3
+        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+        @Expect(m.amount, BigInt("-21971797978002054031917875765532458497894733462543"))
+    }
+    @TestCase
+    public func test12() {
+        let m1: BigMoney = BigMoney("0.0", "JEP")
+        let m2: BigMoney = BigMoney("0.0", "JEP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+        @Expect(m.amount, BigInt(0))
+    }
+    @TestCase
+    public func test13() {
+        let m1: BigMoney = BigMoney("11342144425123412444455555555555553253411342.0153545124124123444444444444413234112", "PHP")
+        let m2: BigMoney = BigMoney("0.0", "PHP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+        @Expect(m.amount, BigInt("0"))
+    }
+    @TestCase
+    public func test14() {
+        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+        @Expect(m.amount, BigInt("20046784665613598801663038482248773622429610047523647371675915"))
+    }
+    @TestCase
+    public func test15() {
+        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
+        let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
+        let calculator: Calculator = Calculator()
+        @ExpectThrows[CurrencyNotSameException]({
+            let m: BigMoney = calculator.calculate(m1, m2, multiply)
         })
     }
 }
@@ -279,6 +456,48 @@ class modulusTest {
             let m: Money = calculator.calculate(m1, m2, modulus)
         })
     }
+    // BigMoney
+    @TestCase
+    public func test9() {
+        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, modulus)
+        @Expect(m.amount, BigInt(0))
+    }
+    @TestCase
+    public func test10() {
+        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, modulus)
+        @Expect(m.amount, BigInt("992967345731303198574568598"))
+    }
+    @TestCase
+    public func test11() {  // 3
+        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, modulus)
+        @Expect(m.amount, BigInt("-74037281521816352230127"))
+    }
+    @TestCase
+    public func test12() {
+        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, modulus)
+        @Expect(m.amount, BigInt("-123414555644234124254352345424"))
+    }
+    @TestCase
+    public func test13() {
+        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
+        let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
+        let calculator: Calculator = Calculator()
+        @ExpectThrows[CurrencyNotSameException]({
+            let m: BigMoney = calculator.calculate(m1, m2, modulus)
+        })
+    }
 }
 
 @Test
@@ -349,10 +568,53 @@ class divideTest {
             let m: Money = calculator.calculate(m1, m2, divide)
         })
     }
+    // BigMoney
+    @TestCase
+    public func test9() {
+        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, divide)
+        @Expect(m.amount, BigInt(-100))
+    }
+    @TestCase
+    public func test10() {
+        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, divide)
+        @Expect(m.amount, BigInt("-382658"))
+    }
+    @TestCase
+    public func test11() {  // 3
+        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, divide)
+        @Expect(m.amount, BigInt("-668937591"))
+    }
+    @TestCase
+    public func test12() {
+        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+        let calculator: Calculator = Calculator()
+        let m: BigMoney = calculator.calculate(m1, m2, divide)
+        @Expect(m.amount, BigInt(0))
+    }
+    @TestCase
+    public func test13() {
+        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
+        let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
+        let calculator: Calculator = Calculator()
+        @ExpectThrows[CurrencyNotSameException]({
+            let m: BigMoney = calculator.calculate(m1, m2, divide)
+        })
+    }
 }
 
 @Test
 class absoluteTest {
+    // Money
     @TestCase
     public func test1() {
         let m1: Money = Money(-12.3, "AED")
@@ -402,10 +664,33 @@ class absoluteTest {
         let m2: Money = calculator.calculate(m1, absolute)
         @Expect(m2.amount, 1639)
     }
+    // BigMoney
+    @TestCase
+    public func test8() {
+        let m1: BigMoney = BigMoney("11345443412352344235356444444465444444413435234532532522.30541324413241234122222333", "KWD")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.calculate(m1, absolute)
+        @Expect(m2.amount, BigInt("11345443412352344235356444444465444444413435234532532522305"))
+    }
+    @TestCase
+    public func test9() {
+        let m1: BigMoney = BigMoney("000000.00", "PLN")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.calculate(m1, absolute)
+        @Expect(m2.amount, BigInt("0"))
+    }
+    @TestCase
+    public func test10() {
+        let m1: BigMoney = BigMoney("-794859823475872345892345823489578923458243657647.2345283975892734587328947598324", "PLN")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.calculate(m1, absolute)
+        @Expect(m2.amount, BigInt("79485982347587234589234582348957892345824365764723"))
+    }
 }
 
 @Test
 class negativeTest {
+    // Money
     @TestCase
     public func test1() {
         let m1: Money = Money(-12.3, "AED")
@@ -455,10 +740,33 @@ class negativeTest {
         let m2: Money = calculator.calculate(m1, negative)
         @Expect(m2.amount, 1639)
     }
+    // BigMoney
+    @TestCase
+    public func test8() {
+        let m1: BigMoney = BigMoney("11345443412352344235356444444465444444413435234532532522.30541324413241234122222333", "KWD")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.calculate(m1, negative)
+        @Expect(m2.amount, BigInt("-11345443412352344235356444444465444444413435234532532522305"))
+    }
+    @TestCase
+    public func test9() {
+        let m1: BigMoney = BigMoney("000000.00", "PLN")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.calculate(m1, negative)
+        @Expect(m2.amount, BigInt("0"))
+    }
+    @TestCase
+    public func test10() {
+        let m1: BigMoney = BigMoney("-794859823475872345892345823489578923458243657647.2345283975892734587328947598324", "PLN")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.calculate(m1, negative)
+        @Expect(m2.amount, BigInt("79485982347587234589234582348957892345824365764723"))
+    }
 }
 
 @Test
 class allocateTest {
+    // Money
     @TestCase
     public func test1() {
         let m1: Money = Money(-12.3, "AED")
@@ -593,10 +901,77 @@ class allocateTest {
             let ms: ArrayList<Money> = calculator.allocate(m, [0, 9, -1])
         })
     }
+
+    // BigMoney
+    @TestCase
+    public func test18() {
+        let m1: BigMoney = BigMoney("248792374509827345872943578923578293472834.2432432345", "AED")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.allocate(m1, 1, 2)
+        @Expect(m2.amount, BigInt("12439618725491367293647178946178914673641712"))
+    }
+    @TestCase
+    public func test19() {
+        let m1: BigMoney = BigMoney("-84973252498376987234863426136491238475648739568347282362843.2342532252353254325", "COP")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.allocate(m1, 5, 13)
+        @Expect(m2.amount, BigInt("-3268202019168345662879362543711201479832643829551818552417047"))
+    }
+    @TestCase
+    public func test20() {
+        let m1: BigMoney = BigMoney("0.00", "COP")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.allocate(m1, 5, 13)
+        @Expect(m2.amount, BigInt(0))
+    }
+    @TestCase
+    public func test21() {
+        let m1: BigMoney = BigMoney("-1324531432453256.32544234523588", "TJS")
+        let calculator: Calculator = Calculator()
+        @ExpectThrows[IllegalArgumentException]({
+            let m2: BigMoney = calculator.allocate(m1, 0, -1)
+        })
+    }
+
+    @TestCase
+    public func test22() {
+        let m: BigMoney = BigMoney("54328798964283462879435872328346328767328757834758347856324876578234.234523532532534322334", "KWD")
+        let calculator: Calculator = Calculator()
+        let ms: ArrayList<BigMoney> = calculator.allocate(m, [2, 3, 2])
+        @Expect(ms[0].amount, BigInt("15522513989795275108410249236670379647808216524216670816092821879495496"))
+        @Expect(ms[1].amount, BigInt("23283770984692912662615373855005569471712324786325006224139232819243244"))
+        @Expect(ms[2].amount, BigInt("15522513989795275108410249236670379647808216524216670816092821879495495"))
+    }
+    @TestCase
+    public func test23() {
+        let m: BigMoney = BigMoney("-724382786724386734587324578925027984328747328562347857824378.1284542345234234", "PLN")
+        let calculator: Calculator = Calculator()
+        let ms: ArrayList<BigMoney> = calculator.allocate(m, [0, 1, 2])
+        @Expect(ms[0].amount, BigInt("-1"))
+        @Expect(ms[1].amount, BigInt("-24146092890812891152910819297500932810958244285411595260812604"))
+        @Expect(ms[2].amount, BigInt("-48292185781625782305821638595001865621916488570823190521625208"))
+    }
+    @TestCase
+    public func test24() {
+        let m: BigMoney = BigMoney("-18724378234786234563287452345782362738972783458342765327856.323422222222222223542352388", "TJS")
+        let calculator: Calculator = Calculator()
+        @ExpectThrows[IllegalArgumentException]({
+            let ms: ArrayList<BigMoney> = calculator.allocate(m, [])
+        })
+    }
+    @TestCase
+    public func test25() {
+        let m: BigMoney = BigMoney("-1423543253252354325325235334562533455463634565425325234436.423432423335634663436534535688", "TJS")
+        let calculator: Calculator = Calculator()
+        @ExpectThrows[IllegalArgumentException]({
+            let ms: ArrayList<BigMoney> = calculator.allocate(m, [0, 9, -1])
+        })
+    }
 }
 
 @Test
 class roundTest {
+    // Money
     @TestCase
     public func test1() {
         let m1: Money = Money(-12.3, "AED")
@@ -654,6 +1029,28 @@ class roundTest {
         @ExpectThrows[IllegalArgumentException]({
             let m2: Money = calculator.round(m1, 0)
         })
+    }
+    // BigMoney
+    @TestCase
+    public func test9() {
+        let m1: BigMoney = BigMoney("-1782538723487872363268234542353253253253253252345234575634272.32345325325786783426785322", "AED")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.round(m1, 2)
+        @Expect(m2.amount, BigInt("-178253872348787236326823454235325325325325325234523457563427200"))
+    }
+    @TestCase
+    public func test10() {
+        let m1: BigMoney = BigMoney("-167342785432785432767342785437843278734743276346832674876342643287634284312.98435235734279789437734287938794387905", "COP")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.round(m1, 1)
+        @Expect(m2.amount, BigInt("-16734278543278543276734278543784327873474327634683267487634264328763428431300"))
+    }
+    @TestCase
+    public func test11() {
+        let m1: BigMoney = BigMoney("19243809478293582937832097328932897328973289893278932893289732853285892322.3054333", "KWD")
+        let calculator: Calculator = Calculator()
+        let m2: BigMoney = calculator.round(m1, 1)
+        @Expect(m2.amount, BigInt("19243809478293582937832097328932897328973289893278932893289732853285892322310"))
     }
 }
 
@@ -736,6 +1133,43 @@ class splitTest {
         let calculator: Calculator = Calculator()
         @ExpectThrows[IllegalArgumentException]({
             let ms: ArrayList<Money> = calculator.split(m, 0)
+        })
+    }
+    // BigMoney
+    @TestCase
+    public func test9() {
+        let m: BigMoney = BigMoney("-28793546872437852634532875382753212534325325235879679672.243532532532532513223", "AED")
+        let calculator: Calculator = Calculator()
+        let ms: ArrayList<BigMoney> = calculator.split(m, 3)
+        @Expect(ms[0].amount, BigInt("-959784895747928421151095846091773751144177507862655989075"))
+        @Expect(ms[1].amount, BigInt("-959784895747928421151095846091773751144177507862655989075"))
+        @Expect(ms[2].amount, BigInt("-959784895747928421151095846091773751144177507862655989074"))
+    }
+    @TestCase
+    public func test10() {
+        let m: BigMoney = BigMoney("278457823687232873627368726782473887258723587275437827867457878287465.1345235325325324332", "PLN")
+        let calculator: Calculator = Calculator()
+        let ms: ArrayList<BigMoney> = calculator.split(m, 4)
+        @Expect(ms[0].amount, BigInt("6961445592180821840684218169561847181468089681885945696686446957186629"))
+        @Expect(ms[1].amount, BigInt("6961445592180821840684218169561847181468089681885945696686446957186628"))
+        @Expect(ms[2].amount, BigInt("6961445592180821840684218169561847181468089681885945696686446957186628"))
+        @Expect(ms[3].amount, BigInt("6961445592180821840684218169561847181468089681885945696686446957186628"))
+    }
+    @TestCase
+    public func test11() {
+        let m: BigMoney = BigMoney("0.0", "JEP")
+        let calculator: Calculator = Calculator()
+        let ms: ArrayList<BigMoney> = calculator.split(m, 142)
+        for (i in ms) {
+            @Expect(i.amount, BigInt("0"))
+        }
+    }
+    @TestCase
+    public func test12() {
+        let m: BigMoney = BigMoney("-12345325235322353223532235343425435634647666666655557423244444444444566.325342353252388", "TJS")
+        let calculator: Calculator = Calculator()
+        @ExpectThrows[IllegalArgumentException]({
+            let ms: ArrayList<BigMoney> = calculator.split(m, 0)
         })
     }
 }

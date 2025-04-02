@@ -2,6 +2,7 @@ package cj_money
 
 import std.math.abs
 import std.math.pow
+import std.math.numeric.*
 
 class Formatter {
     public Formatter(
@@ -20,8 +21,36 @@ class Formatter {
          *
          * @return     转换生成的字符串
          */
-        let abs_amount: Int64 = abs(amount)
-        var sa: String = abs_amount.toString()
+        return this.format(amount.toString())
+    }
+
+    public func format(amount: BigInt): String {
+        /**
+         * @brief      使用给定的货币模板返回格式化的字符串。
+         *
+         * @param      amount   需要转换的BigInt。
+         *
+         * @return     转换生成的字符串
+         */
+        return this.format(amount.toString())
+    }
+
+    private func format(amount: String): String {
+        /**
+         * @brief      使用给定的货币模板返回格式化的字符串。
+         *
+         * @param      amount   需要转换的String。
+         *
+         * @return     转换生成的字符串
+         */
+        var flag: Bool = false
+        var sa: String
+        if (amount[0] == b'-'){
+            flag = true
+            sa = amount[1..amount.size]
+        }else {
+            sa = amount
+        }
 
         if (sa.size <= this.fraction) {
             sa = "0" * (this.fraction - sa.size + 1) + sa
@@ -40,7 +69,7 @@ class Formatter {
         sa = this.template.replace("1", sa)
         sa = sa.replace("$", this.grapheme)
 
-        if (amount < 0) {
+        if (flag) {
             sa = "-" + sa
         }
 
@@ -60,6 +89,21 @@ class Formatter {
         }
 
         return Float64(amount) / pow(10.0, this.fraction)
+    }
+
+    public func toMajorUnits(amount: BigInt): Decimal {
+        /**
+         * @brief      返回Decimal，表示使用货币数据的子单元的值。
+         *
+         * @param      amount   需要计算的BigInt。
+         *
+         * @return     货币的值
+         */
+        if (this.fraction == 0) {
+            return Decimal(amount)
+        }
+
+        return Decimal(amount) / Decimal(pow(10.0, this.fraction))
     }
 
     public func abs(amount: Int64): Int64 {
