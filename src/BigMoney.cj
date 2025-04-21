@@ -17,81 +17,32 @@ class BigMoney {
          */
     }
 
-    public init(amount: String, currency: Currency) {
-        /**
-         * @brief      从数字字符串创建并返回BigMoney的新实例。总是将小数四舍五入。
-         *
-         * @param      amount   金额
-         * @param      currency   Currency标准
-         */
-        this.currency = currency
-
-        this.amount = BigInt(0) // TODO: 有没有更优雅的解决方案
-        this.amount = this.getAmount(amount, this.currency.fraction)
+    public init(m: Money) {
+        this.currency = m.currency
+        this.amount = BigInt(m.amount)
     }
 
-    public init(amount: String, code: String) {
+    public init(amount: String, currency: Currency, mode!: String = "round") {
+        this.currency = currency
+        this.amount = NumberStringToBigAmount(amount, this.currency.fraction, mode: mode)
+    }
+
+    public init(amount: String, code: String, code_mode!: String = "code", mode!: String = "round") {
         /**
-         * @brief      从数字字符串创建并返回BigMoney的新实例。总是将小数四舍五入。
+         * @brief      从数字字符串创建并返回BigMoney的新实例
          *
          * @param      amount   金额
          * @param      code   currency标准对应的code
          *
          * @return     是否相等的布尔值
          */
-        this.currency = Currency(code)
+        this.currency = Currency(code, mode: code_mode)
 
-        this.amount = BigInt(0) // TODO: 有没有更优雅的解决方案
-        this.amount = this.getAmount(amount, this.currency.fraction)
+        this.amount = NumberStringToBigAmount(amount, this.currency.fraction, mode: mode)
     }
 
-    private func getAmount(amount: String, fraction: Int64): BigInt {
-        let amount_arr: Array<String> = amount.split(".")
-
-        if (amount_arr.size == 1 && !amount_arr[0].isEmpty()) {
-            // 没有小数部分的情况
-            return BigInt(amount_arr[0]) * BigInt(Int64(pow(10.0, fraction)))
-        } else if (amount_arr.size == 2 && !amount_arr[0].isEmpty() && !amount_arr[1].isEmpty()) {
-            var ret: BigInt = BigInt(amount_arr[0]) * BigInt(Int64(pow(10.0, fraction)))
-
-            if (amount_arr[1].size > fraction) {
-                if (fraction == 0) {
-                    if (amount_arr[1][fraction] - b'0' < 5){
-                        return ret
-                    }
-                    else {
-                        return ret + BigInt(1)
-                    }
-                }
-                if (amount_arr[1][fraction] - b'0' < 5) {
-                    if (ret < BigInt(0)) {
-                        // 负数，小数部分大于fraction，舍去的情况
-                        return ret - BigInt(amount_arr[1][0..fraction])
-                    } else {
-                        // 正数，小数部分大于fraction，舍去的情况
-                        return ret + BigInt(amount_arr[1][0..fraction])
-                    }
-                } else {
-                    if (ret < BigInt(0)) {
-                        // 负数，小数部分大于fraction，舍入的情况
-                        return ret - BigInt(amount_arr[1][0..fraction]) - BigInt(1)
-                    } else {
-                        // 正数，小数部分大于fraction，舍入的情况
-                        return ret + BigInt(amount_arr[1][0..fraction]) + BigInt(1)
-                    }
-                }
-            } else {
-                if (ret < BigInt(0)) {
-                    // 负数，小数部分小于fraction的情况
-                    return ret - BigInt(amount_arr[1]) * BigInt(Int64(pow(10.0, fraction - amount_arr[1].size)))
-                } else {
-                    // 正数，小数部分小于fraction的情况
-                    return ret + BigInt(amount_arr[1]) * BigInt(Int64(pow(10.0, fraction - amount_arr[1].size)))
-                }
-            }
-        } else {
-            throw IllegalArgumentException("非法数字字符串")
-        }
+    public func toMoney() {
+        return Money(this.amount.toInt64(), this.currency)
     }
 
     public func sameCurrency(obm: BigMoney): Bool {
@@ -230,6 +181,17 @@ class BigMoney {
          * @return     给定货币值的字符串
          */
         return this.currency.getFormatter().format(this.amount)
+    }
+
+    public func displayByScientificNotation(integer_len!: Int64=1, fractional_len!: Int64=2): String {
+        let tup = ScientificNotation(this.amount.toString(), this.currency.fraction, integer_len, fractional_len)
+        let str: String
+        if (tup[0] == "-") {
+            str = tup[0] + tup[1] + "." + tup[2] + "E" + tup[3].toString()
+        } else {
+            str = tup[1] + "." + tup[2] + "E" + tup[3].toString()
+        }
+        return this.currency.getFormatter().substitute(str)
     }
 
     public func asMajorUnits(): Decimal {

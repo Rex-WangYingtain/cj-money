@@ -4,9 +4,9 @@ import std.unittest.*
 import std.unittest.testmacro.*
 
 @Test
-class initTest{
+class initTest {
     @TestCase
-    public func test1(){
+    public func test1() {
         let m1: Money = Money(1, "EUR")
         @Expect(1, m1.amount)
         @Expect(".", m1.currency.decimal)
@@ -28,7 +28,7 @@ class initTest{
         @Expect("$1", m2.currency.template)
     }
     @TestCase
-    public func test2(){
+    public func test2() {
         let m1: Money = Money(-10.333, "HKD")
         @Expect(-1033, m1.amount)
         @Expect(".", m1.currency.decimal)
@@ -70,13 +70,13 @@ class initTest{
         @Expect("$1", m4.currency.template)
     }
     @TestCase
-    public func test3(){
+    public func test3() {
         let currencies: Currencies = Currencies.getCurrencies()
         let currency: Currency = match (currencies.currencyByCode("KYD")) {
             case None => throw NoneValueException("没有找到Currency标准KYD")
             case Some(v) => v
         }
-        let m :Money = Money(0, currency)
+        let m: Money = Money(0, currency)
 
         @Expect(0, m.amount)
         @Expect(".", m.currency.decimal)
@@ -87,13 +87,13 @@ class initTest{
         @Expect("$1", m.currency.template)
     }
     @TestCase
-    public func test4(){
+    public func test4() {
         let currencies: Currencies = Currencies.getCurrencies()
         let currency: Currency = match (currencies.currencyByCode("KYD")) {
             case None => throw NoneValueException("没有找到Currency标准KYD")
             case Some(v) => v
         }
-        let m :Money = Money(-0.0, currency)
+        let m: Money = Money(-0.0, currency)
 
         @Expect(0, m.amount)
         @Expect(".", m.currency.decimal)
@@ -106,9 +106,9 @@ class initTest{
 }
 
 @Test
-class sameCurrencyTest{
+class sameCurrencyTest {
     @TestCase
-    public func test(){
+    public func test() {
         let m1: Money = Money(12, "CLP")
         let m2: Money = Money(-123, "CLP")
         let m3: Money = Money(0.4, "DZD")
@@ -123,9 +123,9 @@ class sameCurrencyTest{
 }
 
 @Test
-class compareAmountTest{
+class compareAmountTest {
     @TestCase
-    public func test1(){
+    public func test1() {
         let m1: Money = Money(12000, "JOD")
         let m2: Money = Money(1.2, "JOD")
         let m3: Money = Money(0, "JOD")
@@ -163,7 +163,7 @@ class compareAmountTest{
         @Expect(m5.compareAmount(m5), 0)
     }
     @TestCase
-    public func test2(){
+    public func test2() {
         let m1: Money = Money(12000, "NZD")
         let m2: Money = Money(1.2, "SVC")
         @ExpectThrows[CurrencyNotSameException]({
@@ -173,9 +173,9 @@ class compareAmountTest{
 }
 
 @Test
-class greaterThanTest{
+class greaterThanTest {
     @TestCase
-    public func test(){
+    public func test() {
         let m1: Money = Money(99999, "SHP")
         let m2: Money = Money(56.8912, "SHP")
         let m3: Money = Money(1200, "SHP")
@@ -215,9 +215,9 @@ class greaterThanTest{
 }
 
 @Test
-class greaterThanOrEqualTest{
+class greaterThanOrEqualTest {
     @TestCase
-    public func test(){
+    public func test() {
         let m1: Money = Money(81234341, "XPF")
         let m2: Money = Money(13232.89, "XPF")
         let m3: Money = Money(-13, "XPF")
@@ -257,9 +257,9 @@ class greaterThanOrEqualTest{
 }
 
 @Test
-class lessThanTest{
+class lessThanTest {
     @TestCase
-    public func test(){
+    public func test() {
         let m1: Money = Money(14532523.46, "SDG")
         let m2: Money = Money(9436, "SDG")
         let m3: Money = Money(-783, "SDG")
@@ -299,9 +299,9 @@ class lessThanTest{
 }
 
 @Test
-class lessThanOrEqualTest{
+class lessThanOrEqualTest {
     @TestCase
-    public func test(){
+    public func test() {
         let m1: Money = Money(1546587131, "UAH")
         let m2: Money = Money(54645, "UAH")
         let m3: Money = Money(13413, "UAH")
@@ -341,9 +341,9 @@ class lessThanOrEqualTest{
 }
 
 @Test
-class equalsTest{
+class equalsTest {
     @TestCase
-    public func test(){
+    public func test() {
         let m1: Money = Money(12999, "ZAR")
         let m2: Money = Money(-123, "ZAR")
         let m3: Money = Money(129.99, "ZAR")
@@ -358,7 +358,7 @@ class equalsTest{
 }
 
 @Test
-class judgmentOnSelf{
+class judgmentOnSelf {
     let m1: Money = Money(123, "WST")
     let m2: Money = Money(132.12, "SCR")
     let m3: Money = Money(0, "LAK")
@@ -366,7 +366,7 @@ class judgmentOnSelf{
     let m5: Money = Money(-12, "IMP")
     let m6: Money = Money(-1.435123, "CAD")
     @TestCase
-    public func isZeroTest(){
+    public func isZeroTest() {
         @Expect(m1.isZero(), false)
         @Expect(m2.isZero(), false)
         @Expect(m3.isZero(), true)
@@ -376,7 +376,7 @@ class judgmentOnSelf{
     }
 
     @TestCase
-    public func isPositiveTest(){
+    public func isPositiveTest() {
         @Expect(m1.isPositive(), true)
         @Expect(m2.isPositive(), true)
         @Expect(m3.isPositive(), false)
@@ -386,7 +386,7 @@ class judgmentOnSelf{
     }
 
     @TestCase
-    public func isNegativeTest(){
+    public func isNegativeTest() {
         @Expect(m1.isNegative(), false)
         @Expect(m2.isNegative(), false)
         @Expect(m3.isNegative(), false)
@@ -397,9 +397,9 @@ class judgmentOnSelf{
 }
 
 @Test
-class operationOnSelf{
+class operationOnSelf {
     @TestCase
-    public func absoluteTest(){
+    public func absoluteTest() {
         let m1: Money = Money(123, "WST")
         let m2: Money = Money(132.12, "SCR")
         let m3: Money = Money(0, "LAK")
@@ -420,7 +420,7 @@ class operationOnSelf{
         @Expect(m6.amount, 144)
     }
     @TestCase
-    public func negativeTest(){
+    public func negativeTest() {
         let m1: Money = Money(123, "WST")
         let m2: Money = Money(132.12, "SCR")
         let m3: Money = Money(0, "LAK")
@@ -443,34 +443,34 @@ class operationOnSelf{
 }
 
 @Test
-class displayTest{
+class displayTest {
     @TestCase
-    public func test1(){
+    public func test1() {
         let m: Money = Money(146, "AWG")
         @Expect("1.46\u{0192}", m.display())
     }
     @TestCase
-    public func test2(){
+    public func test2() {
         let m: Money = Money(14.6, "GNF")
         @Expect("15 FG", m.display())
     }
     @TestCase
-    public func test3(){
+    public func test3() {
         let m: Money = Money(-1313423, "MUR")
         @Expect("-\u{20a8}13,134.23", m.display())
     }
     @TestCase
-    public func test4(){
+    public func test4() {
         let m: Money = Money(-131.3423, "VEF")
         @Expect("-Bs131.34", m.display())
     }
     @TestCase
-    public func test5(){
+    public func test5() {
         let m: Money = Money(0, "ZWL")
         @Expect("Z$0.00", m.display())
     }
     @TestCase
-    public func test6(){
+    public func test6() {
         let m: Money = Money(-0.0, "KYD")
         @Expect("$0.00", m.display())
     }
@@ -479,32 +479,32 @@ class displayTest{
 @Test
 class asMajorUnitsTest {
     @TestCase
-    public func test1(){
+    public func test1() {
         let m: Money = Money(146, "AWG")
         @Expect(1.46, m.asMajorUnits())
     }
     @TestCase
-    public func test2(){
+    public func test2() {
         let m: Money = Money(14.6, "GNF")
         @Expect(15.0, m.asMajorUnits())
     }
     @TestCase
-    public func test3(){
+    public func test3() {
         let m: Money = Money(-1313423, "MUR")
         @Expect(-13134.23, m.asMajorUnits())
     }
     @TestCase
-    public func test4(){
+    public func test4() {
         let m: Money = Money(-131.3423, "VEF")
         @Expect(-131.34, m.asMajorUnits())
     }
     @TestCase
-    public func test5(){
+    public func test5() {
         let m: Money = Money(0, "ZWL")
         @Expect(0.0, m.asMajorUnits())
     }
     @TestCase
-    public func test6(){
+    public func test6() {
         let m: Money = Money(-0.0, "KYD")
         @Expect(0.0, m.asMajorUnits())
     }

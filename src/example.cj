@@ -17,12 +17,20 @@ main(): Int64 {
     let m2: Money = Money(100, currency)
     let m3: Money = Money(2.00, "CNY")
     let m4: Money = Money(200, currency)
+    let m17: Money = Money("-123.321412412421e3", "784", code_mode: "numeric code", mode: "round")
 
     // 通过display方法，可以将Money对象按照currency中的template模板来获取一个字符串，用于展示
     println(m1.display())
     println(m2.display())
     println(m3.display())
     println(m4.display())
+    println(m17.display())
+
+    println(m17.displayByScientificNotation(integer_len: 1, fractional_len: 1))
+
+    let bm0: BigMoney = BigMoney("1232423.12321", "784", code_mode: "numeric code", mode: "round")
+    let m18: Money = bm0.toMoney()
+    println(m18.display())
 
     // sameCurrency方法可以根据货币的ISO字母代码来判断Money中的currency对象是否相等，一般来讲，currency对象相等的Money对象才能进行运算
     println(m1.sameCurrency(m2))
@@ -58,38 +66,37 @@ main(): Int64 {
     // calculate方法根据传入的函数指针按对应方法进行运算，运算前，会检查Curency标准是否相同
     // 二元运算（add，subtract，multiply，divide，modulus）
     // 一元运算（absolute，negative）
-    let calculator: Calculator = Calculator()
-    let m5: Money = calculator.calculate(m1, m3, add)
+    let m5: Money = calculate(m1, m3, add)
     println(m5.display())
-    let m6: Money = calculator.calculate(m1, m3, subtract)
+    let m6: Money = calculate(m1, m3, subtract)
     println(m6.display())
-    let m7: Money = calculator.calculate(m1, m3, multiply)
+    let m7: Money = calculate(m1, m3, multiply)
     println(m7.display())
-    let m8: Money = calculator.calculate(m1, m3, divide)
+    let m8: Money = calculate(m1, m3, divide)
     println(m8.display())
-    let m9: Money = calculator.calculate(m1, m3, modulus)
+    let m9: Money = calculate(m1, m3, modulus)
     println(m9.display())
-    let m10: Money = calculator.calculate(m1, absolute)
+    let m10: Money = calculate(m1, absolute)
     println(m10.display())
-    let m11: Money = calculator.calculate(m1, negative)
+    let m11: Money = calculate(m1, negative)
     println(m11.display())
 
     // allocate方法有两个重构
     // 一是是根据比例r/s 对Money对象的金额进行分配。
     // 二是将一个Mone对象的金额按照给定的比例分配给多个接收方。除法后，剩余的金额将在各方之间进行循环分配。
-    let m12: Money = calculator.allocate(m1, 1, 2)
+    let m12: Money = allocate(m1, 1, 2)
     println(m12.display())
-    let ms1: ArrayList<Money> = calculator.allocate(m1, [1, 2, 3])
+    let ms1: ArrayList<Money> = allocate(m1, [1, 2, 3])
     println(ms1[0].display())
     println(ms1[1].display())
     println(ms1[2].display())
 
     // 方法 round 的功能是根据指定的精度 e 对Money的金额进行四舍五入操作。
-    let m13: Money = calculator.round(m1, 1)
+    let m13: Money = round(m1, 1)
     println(m13.display())
 
     // 方法split将Money对象m的金额平均分为n份，并使用Money对象的ArrayList返回。除法后，剩余的金额将在各方之间进行循环分配。
-    let ms2: ArrayList<Money> = calculator.split(m1, 3)
+    let ms2: ArrayList<Money> = split(m1, 3)
     println(ms2[0].display())
     println(ms2[1].display())
     println(ms2[2].display())
@@ -110,9 +117,19 @@ main(): Int64 {
     let bm1: BigMoney = BigMoney(BigInt("189732178342819734281273941864375134261342871234783429182347673843234"), currency)
     let bm2: BigMoney = BigMoney("-6428273457845568738192746871923498173429871346871349213464328756.134123412", "CNY")
     let bm3: BigMoney = BigMoney("109348913248914327879134287134281394281432731287944513312489.132413242134", "CNY")
+    let bm16: BigMoney = BigMoney("-12313244444444444444444444453425432532231412.12312e-3", "784",code_mode: "numeric code", mode: "round")
+    let bm17: BigMoney = BigMoney(m1)
 
     println(bm1.display())
     println(bm2.display())
+    println(bm3.display())
+    println(bm16.display())
+    println(bm17.display())
+
+    println(bm1.displayByScientificNotation(integer_len: 0))
+
+    let m16: Money = bm17.toMoney()
+    println(m16.display())
 
     println(bm1.sameCurrency(bm2))
     println(bm2.sameCurrency(bm3))
@@ -135,30 +152,35 @@ main(): Int64 {
 
     println(bm1.asMajorUnits())
 
-    let bm4: BigMoney = calculator.calculate(bm2, bm3, add)
+    let bm4: BigMoney = calculate(bm2, bm3, add)
     println(bm4.display())
-    let bm5: BigMoney = calculator.calculate(bm2, bm3, subtract)
+    let bm5: BigMoney = calculate(bm2, bm3, subtract)
     println(bm5.display())
-    let bm6: BigMoney = calculator.calculate(bm2, bm3, multiply)
+    let bm6: BigMoney = calculate(bm2, bm3, multiply)
     println(bm6.display())
-    let bm7: BigMoney = calculator.calculate(bm2, bm3, divide)
+    let bm7: BigMoney = calculate(bm2, bm3, divide)
     println(bm7.display())
-    let bm8: BigMoney = calculator.calculate(bm2, bm3, modulus)
+    let bm8: BigMoney = calculate(bm2, bm3, modulus)
     println(bm8.display())
-    let bm9: BigMoney = calculator.calculate(bm1, absolute)
+    let bm9: BigMoney = calculate(bm1, absolute)
     println(bm9.display())
-    let bm10: BigMoney = calculator.calculate(bm1, negative)
+    let bm10: BigMoney = calculate(bm1, negative)
     println(bm10.display())
 
-    let bm11: BigMoney = calculator.allocate(bm1, 1, 3)
+    let bm11: BigMoney = allocate(bm1, 1, 3)
     println(bm11.display())
-    let bm12: ArrayList<BigMoney> = calculator.allocate(bm1, [1, 2, 3])
+    let bm12: ArrayList<BigMoney> = allocate(bm1, [1, 2, 3])
     println(bm12[0].display())
     println(bm12[1].display())
     println(bm12[2].display())
 
-    let bm13: BigMoney = calculator.round(bm1, 2)
+    let bm13: BigMoney = round(bm1, 2)
     println(bm13.display())
+
+    let mbs2: ArrayList<BigMoney> = split(bm1, 3)
+    println(mbs2[0].display())
+    println(mbs2[1].display())
+    println(mbs2[2].display())
 
     println(serializeByCode(bm1, separator: "|"))
     println(serializeAll(bm1, separator: "|"))

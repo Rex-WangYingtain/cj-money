@@ -13,6 +13,24 @@ class Formatter {
         let template: String
     ) {}
 
+    public func substitute(str: String):String {
+        // var ret: String
+        // let flag: Bool
+        // if (str[0] == b'-'){
+        //     ret = str[1..str.size]
+        //     flag = true
+        // } else {
+        //     ret = str
+        //     flag = false
+        // }
+        var ret: String = this.template.replace("1", str)
+        ret = ret.replace("$", this.grapheme)
+        // if(flag) {
+        //     ret = "-" + ret
+        // }
+        return ret
+    }
+
     public func format(amount: Int64): String {
         /**
          * @brief      使用给定的货币模板返回格式化的字符串。

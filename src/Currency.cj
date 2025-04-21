@@ -13,11 +13,23 @@ struct Currency {
         let template: String    // 表示货币的展示模板，定义了货币金额的显示格式。
     ) {}
 
-    public init(code: String) {
+    public init(code: String, mode!: String = "code") {
         let currencies: Currencies = Currencies.getCurrencies()
-        let currency: Currency = match (currencies.currencyByCode(code)) {
-            case None => throw NoneValueException("没有找到code为${code}的Currency")
-            case Some(v) => v
+
+        let currency: Currency
+
+        if (mode == "code") {
+            currency = match (currencies.currencyByCode(code)) {
+                case None => throw NoneValueException("没有找到code为${code}的Currency")
+                case Some(v) => v
+            }
+        } else if (mode == "numeric code") {
+            currency = match (currencies.currencyByNumericCode(code)) {
+                case None => throw NoneValueException("没有找到numeric code为${code}的Currency")
+                case Some(v) => v
+            }
+        } else {
+            throw IllegalArgumentException("不存在使用${code}创建Currency对象的模式。")
         }
 
         this.code = currency.code
