@@ -319,29 +319,33 @@ class ScientificNotationTest{
     @TestCase
     func test1() {  // 常规转换
         let tup = ScientificNotation("12345", 3, 1, 3)
-        @Expect(tup[0], "1")
-        @Expect(tup[1], "234")
-        @Expect(tup[2], 1)
+        @Expect(tup[0], "+")
+        @Expect(tup[1], "1")
+        @Expect(tup[2], "234")
+        @Expect(tup[3], 1)
     }
     @TestCase
     func test2() {  // 极小数值处理
         let tup = ScientificNotation("12", 5, 0, 2)
-        @Expect(tup[0], "0")
-        @Expect(tup[1], "12")
-        @Expect(tup[2], -3)
+        @Expect(tup[0], "+")
+        @Expect(tup[1], "0")
+        @Expect(tup[2], "12")
+        @Expect(tup[3], -3)
     }
     @TestCase
     func test3() {// 全零情况
         let tup = ScientificNotation("0000", 2, 1, 3)
-        @Expect(tup[0], "0")
-        @Expect(tup[1], "")
-        @Expect(tup[2], 0)
+        @Expect(tup[0], "+")
+        @Expect(tup[1], "0")
+        @Expect(tup[2], "")
+        @Expect(tup[3], 0)
     }
     @TestCase
     func test4() {  // 整数部分补零
         let tup = ScientificNotation("123", 1, 4, 2)
-        @Expect(tup[0], "1230")
-        @Expect(tup[1], "")
-        @Expect(tup[2], -2)
+        @Expect(tup[0], "+")
+        @Expect(tup[1], "1230")
+        @Expect(tup[2], "")
+        @Expect(tup[3], -2)
     }
 }

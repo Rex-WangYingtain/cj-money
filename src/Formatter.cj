@@ -14,20 +14,15 @@ class Formatter {
     ) {}
 
     public func substitute(str: String):String {
-        // var ret: String
-        // let flag: Bool
-        // if (str[0] == b'-'){
-        //     ret = str[1..str.size]
-        //     flag = true
-        // } else {
-        //     ret = str
-        //     flag = false
-        // }
+        /**
+         * @brief      将传入字符串直接代替Currency对象中的模板
+         *
+         * @param      str   字符串
+         *
+         * @return     转换生成的字符串
+         */
         var ret: String = this.template.replace("1", str)
         ret = ret.replace("$", this.grapheme)
-        // if(flag) {
-        //     ret = "-" + ret
-        // }
         return ret
     }
 
@@ -92,49 +87,5 @@ class Formatter {
         }
 
         return sa
-    }
-
-    public func toMajorUnits(amount: Int64): Float64 {
-        /**
-         * @brief      返回float64，表示使用货币数据的子单元的值。
-         *
-         * @param      amount   需要计算的整型。
-         *
-         * @return     货币的值
-         */
-        if (this.fraction == 0) {
-            return Float64(amount)
-        }
-
-        return Float64(amount) / pow(10.0, this.fraction)
-    }
-
-    public func toMajorUnits(amount: BigInt): Decimal {
-        /**
-         * @brief      返回Decimal，表示使用货币数据的子单元的值。
-         *
-         * @param      amount   需要计算的BigInt。
-         *
-         * @return     货币的值
-         */
-        if (this.fraction == 0) {
-            return Decimal(amount)
-        }
-
-        return Decimal(amount) / Decimal(pow(10.0, this.fraction))
-    }
-
-    public func abs(amount: Int64): Int64 {
-        /**
-         * @brief      返回给定整数的绝对值。
-         *
-         * @param      amount   需要计算的整型。
-         *
-         * @return     绝对值
-         */
-        if (amount < 0) {
-            return -amount
-        }
-        return amount
     }
 }

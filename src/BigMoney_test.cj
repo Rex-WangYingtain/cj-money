@@ -917,32 +917,3 @@ class BigMoneyDisplayTest{
         @Expect("-986,134,274,785,613,487,618,734,618,746,871,236,487.79 \u{5143}", m.display())
     }
 }
-
-@Test
-class BigMoneyAsMajorUnitsTest {
-    @TestCase
-    public func test1(){
-        let m: BigMoney = BigMoney("13468178416874612873416835781723468713247813264832318747", "AWG")
-        @Expect(Decimal("13468178416874612873416835781723468713247813264832318747.00"), m.asMajorUnits())
-    }
-    @TestCase
-    public func test2(){   
-        let m: BigMoney = BigMoney("1346817841687461287341683578.1723468713247813264832318747", "GNF")
-        @Expect(Decimal("1346817841687461287341683578.0000000"), m.asMajorUnits())
-    }
-    @TestCase
-    public func test3(){
-        let m: BigMoney = BigMoney("-13132343252353664654765878865872453253252345423.2874357285", "MUR")
-        @Expect(Decimal("-13132343252353664654765878865872453253252345423.29"), m.asMajorUnits())
-    }
-    @TestCase
-    public func test5(){
-        let m: BigMoney = BigMoney("0", "ZWL")
-        @Expect(Decimal("0.0"), m.asMajorUnits())
-    }
-    @TestCase
-    public func test6(){
-        let m: BigMoney = BigMoney("-0.0", "KYD")
-        @Expect(Decimal("0.0"), m.asMajorUnits())
-    }
-}

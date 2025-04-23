@@ -14,12 +14,15 @@ class Money {
          *
          * @param      amount   金额
          * @param      currency   Currency对象
-         *
-         * @return     是否相等的布尔值
          */
     }
 
     public init(bm: BigMoney) {
+        /**
+         * @brief      从BigMoney实例创建并返回Money的新实例。
+         *
+         * @param      bm   BigMoney实例
+         */
         this.currency = bm.currency
         this.amount = bm.amount.toInt64()
     }
@@ -30,8 +33,6 @@ class Money {
          *
          * @param      amount   金额
          * @param      code   currency标准对应的code
-         *
-         * @return     是否相等的布尔值
          */
         this.currency = Currency(code, mode: code_mode)
 
@@ -45,8 +46,6 @@ class Money {
          *
          * @param      amount   金额
          * @param      code   currency标准对应的code
-         *
-         * @return     是否相等的布尔值
          */
         this.currency = Currency(code, mode: code_mode)
         let currencyDecimals: Float64 = pow(10.0, currency.fraction)
@@ -55,6 +54,14 @@ class Money {
     }
 
     public init(amount: String, code: String, code_mode!: String = "code", mode!: String = "round") {
+        /**
+         * @brief      从数字字符串创建Money实例
+         *
+         * @param      amount   数字字符串，表示Money实例的金额
+         * @param      code   Currency对象对应的编号
+         * @param      code_mode   采用字母编号还是数字编号，code表示字母编号，numeric code表示数字编号，默认为code
+         * @param      mode   舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
+         */
         this.currency = Currency(code, mode: code_mode)
         this.amount = NumberStringToSmallAmount(amount, this.currency.fraction, mode: mode)
     }
@@ -77,11 +84,23 @@ class Money {
     }
 
     public init(amount: String, currency: Currency, mode!: String = "round") {
+        /**
+         * @brief      从数字字符串创建Money实例
+         *
+         * @param      amount   数字字符串，表示Money实例的金额
+         * @param      currency   Currency对象，Money的Currency标准
+         * @param      mode   舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
+         */
         this.currency = currency
         this.amount = NumberStringToSmallAmount(amount, this.currency.fraction, mode: mode)
     }
 
     public func toBigMoney() : BigMoney{
+        /**
+         * @brief      将Money实例转换为BigMoney实例并返回
+         *
+         * @return     返回的BigMoney实例
+         */
         return BigMoney(BigInt(this.amount), this.currency)
     }
 
@@ -224,6 +243,14 @@ class Money {
     }
 
     public func displayByScientificNotation(integer_len!: Int64 = 1, fractional_len!: Int64=2): String {
+        /**
+         * @brief      Money展示为科学计数法，并按照标准对应的格式展示。
+         *
+         * @param      integer_len      表示整数部分的长度，默认为1
+         * @param      fractional_len   表示小数部分的最大长度，默认为2
+         *
+         * @return
+         */
         let tup = ScientificNotation(this.amount.toString(), this.currency.fraction, integer_len, fractional_len)
         let str: String
         if (tup[0] == "-") {
@@ -232,14 +259,5 @@ class Money {
             str = tup[1] + "." + tup[2] + "E" + tup[3].toString()
         }
         return this.currency.getFormatter().substitute(str)
-    } 
-
-    public func asMajorUnits(): Float64 {
-        /**
-         * @brief      AsMajorUnits允许将Money结构表示为给定货币值的子单元（float64）
-         *
-         * @return     给定货币值的子单元（float64）
-         */
-        return this.currency.getFormatter().toMajorUnits(this.amount)
     }
 }

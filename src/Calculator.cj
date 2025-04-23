@@ -7,17 +7,17 @@ import std.math.numeric.*
 // ====== Money ======
 
 func calculate(a: Money, b: Money, calculator: (Money, Money) -> Money): Money {
-/**
-    * @brief      对Money类型的二元运算
-    *
-    * @param      a    被操作数
-    * @param      b    操作数
-    * @param      calculator    计算方法（add，subtract，modulus）
-    *
-    * @note       在调用时，函数会先检查Money对象a和Money对象b的Currency标准是否相等。
-    *
-    * @return     计算得到的Money对象
-    */
+    /**
+     * @brief      对Money类型的二元运算
+     *
+     * @param      a    被操作数
+     * @param      b    操作数
+     * @param      calculator    计算方法（add，subtract，modulus）
+     *
+     * @note       在调用时，函数会先检查Money对象a和Money对象b的Currency标准是否相等。
+     *
+     * @return     计算得到的Money对象
+     */
     if (!a.sameCurrency(b)) {
         throw CurrencyNotSameException("a的Currency的code为${a.currency.code}，b的Currency的code为${b.currency.code}")
     }
@@ -25,17 +25,18 @@ func calculate(a: Money, b: Money, calculator: (Money, Money) -> Money): Money {
 }
 
 func calculate(a: Money, b: Money, calculator: (Money, Money, String) -> Money, mode!: String="round"): Money {
-/**
-    * @brief      对Money类型的二元运算
-    *
-    * @param      a    被操作数
-    * @param      b    操作数
-    * @param      calculator    计算方法（multiply，divide）
-    *
-    * @note       在调用时，函数会先检查Money对象a和Money对象b的Currency标准是否相等。
-    *
-    * @return     计算得到的Money对象
-    */
+    /**
+     * @brief      对Money类型的二元运算
+     *
+     * @param      a    被操作数
+     * @param      b    操作数
+     * @param      calculator    计算方法（multiply，divide）
+     * @param      mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
+     *
+     * @note       在调用时，函数会先检查Money对象a和Money对象b的Currency标准是否相等。
+     *
+     * @return     计算得到的Money对象
+     */
     if (!a.sameCurrency(b)) {
         throw CurrencyNotSameException("a的Currency的code为${a.currency.code}，b的Currency的code为${b.currency.code}")
     }
@@ -43,14 +44,14 @@ func calculate(a: Money, b: Money, calculator: (Money, Money, String) -> Money, 
 }
 
 func calculate(m: Money, calculator: (Money) -> Money): Money {
-/**
-    * @brief      对Money类型的一元运算
-    *
-    * @param      m    被操作数
-    * @param      calculator    计算方法（absolute，negative）
-    *
-    * @return     计算得到的Money对象
-    */
+    /**
+     * @brief      对Money类型的一元运算
+     *
+     * @param      m    被操作数
+     * @param      calculator    计算方法（absolute，negative）
+     *
+     * @return     计算得到的Money对象
+     */
     return calculator(m)
 }
 
@@ -122,16 +123,16 @@ func allocate(m: Money, rs: Array<Int64>): ArrayList<Money> {
 }
 
 func round(m: Money, e: Int64): Money {
-/**
-    * @brief      函数 round 的功能是根据指定的精度 e 对Money的金额进行四舍五入操作。
-    *
-    * @param      m    被操作数
-    * @param      e    精度
-    *
-    * @note       精度 e 为正整数。
-    *
-    * @return     计算得到的Money对象
-    */
+    /**
+     * @brief      函数 round 的功能是根据指定的精度 e 对Money的金额进行四舍五入操作。
+     *
+     * @param      m    被操作数
+     * @param      e    精度
+     *
+     * @note       精度 e 为正整数。
+     *
+     * @return     计算得到的Money对象
+     */
     if (e <= 0) {
         throw IllegalArgumentException("精度 e 为正整数。")
     }
@@ -154,17 +155,17 @@ func round(m: Money, e: Int64): Money {
 }
 
 func split(m: Money, n: Int64): ArrayList<Money> {
-/**
-    * @brief      将Money对象m的金额平均分为n份，并使用Money对象的ArrayList返回
-    *             除法后，剩余的金额将在各方之间进行循环分配。
-    *
-    * @param      m    被操作数
-    * @param      n    份数
-    *
-    * @note       n应该为大于0的整数
-    *
-    * @return     Money对象的ArrayList
-    */
+    /**
+     * @brief      将Money对象m的金额平均分为n份，并使用Money对象的ArrayList返回
+     *             除法后，剩余的金额将在各方之间进行循环分配。
+     *
+     * @param      m    被操作数
+     * @param      n    份数
+     *
+     * @note       n应该为大于0的整数
+     *
+     * @return     Money对象的ArrayList
+     */
     if (n <= 0) {
         throw IllegalArgumentException("划分份数应该为大于0的整数。")
     }
@@ -220,24 +221,13 @@ func subtract(a: Money, b: Money): Money {
     return Money(a.amount - b.amount, a.currency)
 }
 
-func add(a: BigMoney, b: BigMoney): BigMoney {
-    /**
-     * @brief      对BigMoney类型的加运算
-     *
-     * @param      a    被操作数
-     * @param      b    操作数
-     *
-     * @return     计算得到的BigMoney对象
-     */
-    return BigMoney(a.amount + b.amount, a.currency)
-}
-
 func multiply(a: Money, b: Money, mode!: String="round"): Money {
     /**
      * @brief      对Money类型的乘运算
      *
-     * @param      a    被操作数
-     * @param      b    操作数
+     * @param      a    被乘数
+     * @param      b    乘数
+     * mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
      *
      * @return     计算得到的Money对象
      */
@@ -276,8 +266,9 @@ func divide(a: Money, b: Money, mode!: String="round"): Money {
     /**
      * @brief      对Money类型的除运算
      *
-     * @param      a    被操作数
-     * @param      b    操作数
+     * @param      a    被除数
+     * @param      b    除数
+     * mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
      *
      * @return     计算得到的Money对象
      */
@@ -318,10 +309,7 @@ func divide(a: Money, b: Money, mode!: String="round"): Money {
 
 func modulus(a: Money, b: Money): Money {
     /**
-     * @brief      对Money类型的取模运算。在数学中，取模运算的定义是：
-     *             对于整数a和b（b≠0），存在唯一的整数q和r，
-     *             使得a = b*q + r，且0 ≤ r < |b|。
-     *             其中，q是商，r是余数，也就是取模的结果。
+     * @brief      对Money类型的取模运算。
      *
      * @param      a    被操作数
      * @param      b    操作数
@@ -363,17 +351,17 @@ func negative(m: Money): Money {
 // ====== BigMoney ======
 
 func calculate(a: BigMoney, b: BigMoney, calculator: (BigMoney, BigMoney) -> BigMoney): BigMoney {
-/**
-    * @brief      对BigMoney类型的二元运算
-    *
-    * @param      a    被操作数
-    * @param      b    操作数
-    * @param      calculator    计算方法（add，subtract，modulus）
-    *
-    * @note       在调用时，函数会先检查BigMoney对象a和BigMoney对象b的Currency标准是否相等。
-    *
-    * @return     计算得到的BigMoney对象
-    */
+    /**
+     * @brief      对BigMoney类型的二元运算
+     *
+     * @param      a    被操作数
+     * @param      b    操作数
+     * @param      calculator    计算方法（add，subtract，modulus）
+     *
+     * @note       在调用时，函数会先检查BigMoney对象a和BigMoney对象b的Currency标准是否相等。
+     *
+     * @return     计算得到的BigMoney对象
+     */
     if (!a.sameCurrency(b)) {
         throw CurrencyNotSameException("a的Currency的code为${a.currency.code}，b的Currency的code为${b.currency.code}")
     }
@@ -381,17 +369,18 @@ func calculate(a: BigMoney, b: BigMoney, calculator: (BigMoney, BigMoney) -> Big
 }
 
 func calculate(a: BigMoney, b: BigMoney, calculator: (BigMoney, BigMoney, String) -> BigMoney, mode!: String="round"): BigMoney {
-/**
-    * @brief      对BigMoney类型的二元运算
-    *
-    * @param      a    被操作数
-    * @param      b    操作数
-    * @param      calculator    计算方法（multiply，divide）
-    *
-    * @note       在调用时，函数会先检查BigMoney对象a和BigMoney对象b的Currency标准是否相等。
-    *
-    * @return     计算得到的BigMoney对象
-    */
+    /**
+     * @brief      对BigMoney类型的二元运算
+     *
+     * @param      a    被操作数
+     * @param      b    操作数
+     * @param      calculator    计算方法（multiply，divide）
+     * @param      mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
+     *
+     * @note       在调用时，函数会先检查BigMoney对象a和BigMoney对象b的Currency标准是否相等。
+     *
+     * @return     计算得到的BigMoney对象
+     */
     if (!a.sameCurrency(b)) {
         throw CurrencyNotSameException("a的Currency的code为${a.currency.code}，b的Currency的code为${b.currency.code}")
     }
@@ -399,29 +388,29 @@ func calculate(a: BigMoney, b: BigMoney, calculator: (BigMoney, BigMoney, String
 }
 
 func calculate(m: BigMoney, calculator: (BigMoney) -> BigMoney): BigMoney {
-/**
-    * @brief      对BigMoney类型的一元运算
-    *
-    * @param      m    被操作数
-    * @param      calculator    计算方法（absolute，negative）
-    *
-    * @return     计算得到的BigMoney对象
-    */
+    /**
+     * @brief      对BigMoney类型的一元运算
+     *
+     * @param      m    被操作数
+     * @param      calculator    计算方法（absolute，negative）
+     *
+     * @return     计算得到的BigMoney对象
+     */
     return calculator(m)
 }
 
 func allocate(m: BigMoney, r: Int64, s: Int64): BigMoney {
-/**
-    * @brief      函数 allocate 的功能是根据比例 r/s 对BigMoney对象的金额进行分配。
-    *
-    * @param      m    被操作数
-    * @param      r    取的比例
-    * @param      s    划分比例
-    *
-    * @note       划分比例s不能小于等于零。当需要舍入时，直接舍去超出的位数。
-    *
-    * @return     计算得到的BigMoney对象
-    */
+    /**
+     * @brief      函数 allocate 的功能是根据比例 r/s 对BigMoney对象的金额进行分配。
+     *
+     * @param      m    被操作数
+     * @param      r    取的比例
+     * @param      s    划分比例
+     *
+     * @note       划分比例s不能小于等于零。当需要舍入时，直接舍去超出的位数。
+     *
+     * @return     计算得到的BigMoney对象
+     */
     if (s <= 0) {
         throw IllegalArgumentException("划分比例s不能小于等于零")
     }
@@ -429,16 +418,16 @@ func allocate(m: BigMoney, r: Int64, s: Int64): BigMoney {
 }
 
 func allocate(m: BigMoney, rs: Array<Int64>): ArrayList<BigMoney> {
-/**
-    * @brief      将一个 BigMoney 结构体的金额按照给定的比例分配给多个接收方。除法后，剩余的金额将在各方之间进行循环分配。
-    *
-    * @param      m    被操作数
-    * @param      rs   一个表示分配权重的数组
-    *
-    * @note       划分比例应该为大于等于0的整数。除法后，剩余的金额将在各方之间进行循环分配。
-    *
-    * @return     Money对象的ArrayList
-    */
+    /**
+     * @brief      将一个 BigMoney 结构体的金额按照给定的比例分配给多个接收方。除法后，剩余的金额将在各方之间进行循环分配。
+     *
+     * @param      m    被操作数
+     * @param      rs   一个表示分配权重的数组
+     *
+     * @note       划分比例应该为大于等于0的整数。除法后，剩余的金额将在各方之间进行循环分配。
+     *
+     * @return     BigMoney对象的ArrayList
+     */
     if (rs.size == 0) {
         throw IllegalArgumentException("划分比例的数组rs不能为空。")
     }
@@ -478,16 +467,16 @@ func allocate(m: BigMoney, rs: Array<Int64>): ArrayList<BigMoney> {
 }
 
 func round(m: BigMoney, e: Int64): BigMoney {
-/**
-    * @brief      函数 round 的功能是根据指定的精度 e 对BigMoney的金额进行四舍五入操作。
-    *
-    * @param      m    被操作数
-    * @param      e    精度
-    *
-    * @note       精度 e 为正整数。
-    *
-    * @return     计算得到的Money对象
-    */
+    /**
+     * @brief      函数 round 的功能是根据指定的精度 e 对BigMoney的金额进行四舍五入操作。
+     *
+     * @param      m    被操作数
+     * @param      e    精度
+     *
+     * @note       精度 e 为正整数。
+     *
+     * @return     计算得到的Money对象
+     */
     if (e <= 0) {
         throw IllegalArgumentException("精度 e 为正整数。")
     }
@@ -516,17 +505,17 @@ func round(m: BigMoney, e: Int64): BigMoney {
 }
 
 func split(m: BigMoney, n: Int64): ArrayList<BigMoney> {
-/**
-    * @brief      将Money对象m的金额平均分为n份，并使用Money对象的ArrayList返回
-    *             除法后，剩余的金额将在各方之间进行循环分配。
-    *
-    * @param      m    被操作数
-    * @param      n    份数
-    *
-    * @note       n应该为大于0的整数
-    *
-    * @return     Money对象的ArrayList
-    */
+    /**
+     * @brief      将BigMoney对象m的金额平均分为n份，并使用BigMoney对象的ArrayList返回
+     *             除法后，剩余的金额将在各方之间进行循环分配。
+     *
+     * @param      m    被操作数
+     * @param      n    份数
+     *
+     * @note       n应该为大于0的整数
+     *
+     * @return     BigMoney对象的ArrayList
+     */
     if (n <= 0) {
         throw IllegalArgumentException("划分份数应该为大于0的整数。")
     }
@@ -564,12 +553,24 @@ func split(m: BigMoney, n: Int64): ArrayList<BigMoney> {
     return money_list
 }
 
+func add(a: BigMoney, b: BigMoney): BigMoney {
+    /**
+     * @brief      对BigMoney类型的加运算
+     *
+     * @param      a    被操作数
+     * @param      b    操作数
+     *
+     * @return     计算得到的BigMoney对象
+     */
+    return BigMoney(a.amount + b.amount, a.currency)
+}
+
 func subtract(a: BigMoney, b: BigMoney): BigMoney {
     /**
      * @brief      对BigMoney类型的减运算
      *
-     * @param      a    被操作数
-     * @param      b    操作数
+     * @param      a    被减数
+     * @param      b    减数
      *
      * @return     计算得到的BigMoney对象
      */
@@ -582,6 +583,7 @@ func multiply(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
      *
      * @param      a    被操作数
      * @param      b    操作数
+     * @param      mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
      *
      * @return     计算得到的BigMoney对象
      */
@@ -620,8 +622,9 @@ func divide(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
     /**
      * @brief      对BigMoney类型的除运算
      *
-     * @param      a    被操作数
-     * @param      b    操作数
+     * @param      a    被除数
+     * @param      b    除数
+     * @param      mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
      *
      * @return     计算得到的BigMoney对象
      */
@@ -661,10 +664,7 @@ func divide(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
 
 func modulus(a: BigMoney, b: BigMoney): BigMoney {
     /**
-     * @brief      对BigMoney类型的取模运算。在数学中，取模运算的定义是：
-     *             对于整数a和b（b≠0），存在唯一的整数q和r，
-     *             使得a = b*q + r，且0 ≤ r < |b|。
-     *             其中，q是商，r是余数，也就是取模的结果。
+     * @brief      对BigMoney类型的取模运算。
      *
      * @param      a    被操作数
      * @param      b    操作数

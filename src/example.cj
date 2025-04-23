@@ -150,8 +150,6 @@ main(): Int64 {
     bm1.absolute()
     println(bm1.display())
 
-    println(bm1.asMajorUnits())
-
     let bm4: BigMoney = calculate(bm2, bm3, add)
     println(bm4.display())
     let bm5: BigMoney = calculate(bm2, bm3, subtract)

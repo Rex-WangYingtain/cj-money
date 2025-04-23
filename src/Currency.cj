@@ -14,6 +14,12 @@ struct Currency {
     ) {}
 
     public init(code: String, mode!: String = "code") {
+        /**
+         * @brief      通过货币的字母代码或者数字代码创建Currency对象
+         *
+         * @param      code   Currency对象对应的代号
+         * @param      code_mode   采用字母编号还是数字编号，code表示字母编号，numeric code表示数字编号，默认为code
+         */
         let currencies: Currencies = Currencies.getCurrencies()
 
         let currency: Currency
