@@ -729,7 +729,7 @@ class divideTest {
             let m: Money = calculate(m1, m2, divide)
         })
         @ExpectThrows[IllegalArgumentException]({
-            let m: Money = calculate(m1, m3, divide)
+            let m: Money = calculate(m1, m3, divide, mode: "cangjie")
         })
     }
     // BigMoney

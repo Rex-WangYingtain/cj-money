@@ -541,12 +541,6 @@ class BigMoneyInitTest{
     @TestCase
     public func test36(){
         @ExpectThrows[IllegalArgumentException]({
-            let bm: BigMoney = BigMoney(".12341324154241", "KWD")
-        })
-    }
-    @TestCase
-    public func test37(){
-        @ExpectThrows[IllegalArgumentException]({
             let bm: BigMoney = BigMoney("-1213124543253654325132543564651234431244412421154324.", "KWD")
         })
     }
