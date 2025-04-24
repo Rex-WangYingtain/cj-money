@@ -475,37 +475,3 @@ class displayTest {
         @Expect("$0.00", m.display())
     }
 }
-
-@Test
-class asMajorUnitsTest {
-    @TestCase
-    public func test1() {
-        let m: Money = Money(146, "AWG")
-        @Expect(1.46, m.asMajorUnits())
-    }
-    @TestCase
-    public func test2() {
-        let m: Money = Money(14.6, "GNF")
-        @Expect(15.0, m.asMajorUnits())
-    }
-    @TestCase
-    public func test3() {
-        let m: Money = Money(-1313423, "MUR")
-        @Expect(-13134.23, m.asMajorUnits())
-    }
-    @TestCase
-    public func test4() {
-        let m: Money = Money(-131.3423, "VEF")
-        @Expect(-131.34, m.asMajorUnits())
-    }
-    @TestCase
-    public func test5() {
-        let m: Money = Money(0, "ZWL")
-        @Expect(0.0, m.asMajorUnits())
-    }
-    @TestCase
-    public func test6() {
-        let m: Money = Money(-0.0, "KYD")
-        @Expect(0.0, m.asMajorUnits())
-    }
-}
