@@ -343,7 +343,7 @@ func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: Stri
                 }
             }
         } else {
-            return BigInt(0)
+            return BigInt_ZERO
         }
     } else if (mode == "ceil") {
         var string_num: String = integer + fractional
@@ -364,14 +364,14 @@ func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: Stri
                 if (StringAll(string_num, b'0')){
                     return ret
                 }
-                return ret + BigInt(1)
+                return ret + BigInt_ONE
             }
         } else {
             if (StringAll(string_num, b'0')){
-                return BigInt(0)
+                return BigInt_ZERO
             }
             else {
-                return BigInt(1)
+                return BigInt_ONE
             }
         }
     } else if (mode == "round") {
@@ -390,7 +390,7 @@ func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: Stri
                 var ret: BigInt = BigInt(string_num[0..current_point])
 
                 if (remain.size > 0 && remain[0] > b'4'){
-                    ret += BigInt(1)
+                    ret += BigInt_ONE
                 }
 
                 if (sign == b'-') {
@@ -401,12 +401,12 @@ func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: Stri
         } else {
             if (current_point == 0 && string_num[0] > b'4'){
                 if (sign == b'-'){
-                    return BigInt(-1)
+                    return BigInt_MINUS_ONE
                 } else {
-                    return BigInt(1)
+                    return BigInt_ONE
                 }
             }
-            return BigInt(0)
+            return BigInt_ZERO
         }
     } else {
         throw IllegalArgumentException("没有舍入模式" + mode)

@@ -4,6 +4,7 @@ import std.math.numeric.*
 import std.convert.*
 
 // 这个模块主要实现对Money对象的序列化和反序列化，方便数据库操作
+// 建议使用的分隔字符串，可以避免混淆
 /*
 序列化
 例如：
@@ -12,9 +13,6 @@ import std.convert.*
 例如：
 "100|USD" -> 金额100美分 + 货币USD
 */
-
-// 建议使用的分隔字符串，可以避免混淆
-const DefaultDBMoneyValueSeparator: String = "|"
 
 func serializeByCode(m: Money, separator!: String=DefaultDBMoneyValueSeparator): String{
     /**

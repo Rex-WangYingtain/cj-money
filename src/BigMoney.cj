@@ -155,7 +155,7 @@ class BigMoney {
          *
          * @return     是否为0的布尔值
          */
-        return this.amount == BigInt(0)
+        return this.amount == BigInt_ZERO
     }
 
     public func isPositive(): Bool {
@@ -164,7 +164,7 @@ class BigMoney {
          *
          * @return     是否为为正值的布尔值
          */
-        return this.amount > BigInt(0)
+        return this.amount > BigInt_ZERO
     }
 
     public func isNegative(): Bool {
@@ -173,7 +173,7 @@ class BigMoney {
          *
          * @return     是否为负值的布尔值
          */
-        return this.amount < BigInt(0)
+        return this.amount < BigInt_ZERO
     }
 
     public func absolute() {

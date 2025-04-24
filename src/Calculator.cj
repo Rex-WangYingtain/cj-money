@@ -440,7 +440,7 @@ func allocate(m: BigMoney, rs: Array<Int64>): ArrayList<BigMoney> {
         sum += r
     }
 
-    var total: BigInt = BigInt(0)
+    var total: BigInt = BigInt_ZERO
     let money_list: ArrayList<BigMoney> = ArrayList<BigMoney>()
     for (r in rs) {
         let tmp: BigMoney = allocate(m, r, sum)
@@ -450,13 +450,13 @@ func allocate(m: BigMoney, rs: Array<Int64>): ArrayList<BigMoney> {
 
     // 计算剩余值
     var left: BigInt  = m.amount - total
-    var sub: BigInt = BigInt(1)
-    if (left < BigInt(0)) {
+    var sub: BigInt = BigInt_ONE
+    if (left < BigInt_ZERO) {
         sub = -sub
     }
 
     for (i in 0..money_list.size) {
-        if (left == BigInt(0)){
+        if (left == BigInt_ZERO){
             break
         }
         money_list[i].amount = money_list[i].amount + sub
@@ -482,7 +482,7 @@ func round(m: BigMoney, e: Int64): BigMoney {
     }
 
     var absam: BigInt
-    if (m.amount >= BigInt(0)){
+    if (m.amount >= BigInt_ZERO){
         absam = m.amount
     }else {
         absam = -m.amount
@@ -491,13 +491,13 @@ func round(m: BigMoney, e: Int64): BigMoney {
     let exp: BigInt = BigInt(Int64(pow(10.0, e)))
     let dec: BigInt = absam % exp
 
-    if (dec >= exp / BigInt(2)) {
+    if (dec >= exp / BigInt_TWO) {
         absam += exp
     }
 
     absam = (absam / exp) * exp
 
-    if (m.amount < BigInt(0)) {
+    if (m.amount < BigInt_ZERO) {
         return BigMoney(-absam, m.currency)
     }
 
@@ -530,25 +530,25 @@ func split(m: BigMoney, n: Int64): ArrayList<BigMoney> {
     // 计算剩余值r
     let r: BigInt = m.amount % BigInt(n)
     var l: BigInt
-    if (r >= BigInt(0)){
+    if (r >= BigInt_ZERO){
         l = r
     }else {
         l = -r
     }
 
     var v: BigInt
-    if (m.amount < BigInt(0)) {
-        v = BigInt(-1)
+    if (m.amount < BigInt_ZERO) {
+        v = BigInt_MINUS_ONE
     }else {
-        v = BigInt(1)
+        v = BigInt_ONE
     }
 
     for (i in 0..n) {
-        if (l == BigInt(0)) {
+        if (l == BigInt_ZERO) {
             break
         }
         money_list[i].amount = money_list[i].amount + v
-        l -= BigInt(1)
+        l -= BigInt_ONE
     }
     return money_list
 }
@@ -592,26 +592,26 @@ func multiply(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
     var res: BigInt = a.amount * b.amount / exp
 
     if (mode == "round") {
-        if (a.amount * b.amount < BigInt(0)) {
-            if (-(a.amount * b.amount % exp) < exp / BigInt(2)) {
+        if (a.amount * b.amount < BigInt_ZERO) {
+            if (-(a.amount * b.amount % exp) < exp / BigInt_TWO) {
                 return BigMoney(res, a.currency)
             }
-            return BigMoney(res - BigInt(1), a.currency)
+            return BigMoney(res - BigInt_ONE, a.currency)
         } else {
-            if (a.amount * b.amount % exp < exp / BigInt(2)) {
+            if (a.amount * b.amount % exp < exp / BigInt_TWO) {
                 return BigMoney(res, a.currency)
             }
-            return BigMoney(res + BigInt(1), a.currency)
+            return BigMoney(res + BigInt_ONE, a.currency)
         }
     } else if (mode == "truncate") {
         return BigMoney(res, a.currency)
     } else if (mode == "ceil") {
-        if (a.amount * b.amount == BigInt(0)) {
+        if (a.amount * b.amount == BigInt_ZERO) {
             return BigMoney(res, a.currency)
-        } else if (a.amount * b.amount < BigInt(0)){
-            return BigMoney(res - BigInt(1), a.currency)
+        } else if (a.amount * b.amount < BigInt_ZERO){
+            return BigMoney(res - BigInt_ONE, a.currency)
         } else {
-            return BigMoney(res + BigInt(1), a.currency)
+            return BigMoney(res + BigInt_ONE, a.currency)
         }
     } else {
         throw IllegalArgumentException("没有舍入模式" + mode)
@@ -636,26 +636,26 @@ func divide(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
     var res: BigInt = a.amount * exp / b.amount
 
     if (mode == "round") {
-        if (a.amount < BigInt(0)) {
-            if (-(a.amount * exp * BigInt(10) / b.amount  % BigInt(10)) < BigInt(5)) {
+        if (a.amount < BigInt_ZERO) {
+            if (-(a.amount * exp * BigInt_TEN / b.amount  % BigInt_TEN) < BigInt_FIVE) {
                 return BigMoney(res, a.currency)
             }
-            return BigMoney(res - BigInt(1), a.currency)
+            return BigMoney(res - BigInt_ONE, a.currency)
         } else {
-            if (a.amount * exp * BigInt(10) / b.amount  % BigInt(10) < BigInt(5)) {
+            if (a.amount * exp * BigInt_TEN / b.amount  % BigInt_TEN < BigInt_FIVE) {
                 return BigMoney(res, a.currency)
             }
-            return BigMoney(res + BigInt(1), a.currency)
+            return BigMoney(res + BigInt_ONE, a.currency)
         }
     } else if (mode == "truncate"){
         return BigMoney(res, a.currency)
     } else if (mode == "ceil") {
-        if (a.amount == BigInt(0)) {
+        if (a.amount == BigInt_ZERO) {
             return BigMoney(res, a.currency)
-        } else if (a.amount < BigInt(0)){
-            return BigMoney(res - BigInt(0), a.currency)
+        } else if (a.amount < BigInt_ZERO){
+            return BigMoney(res - BigInt_ZERO, a.currency)
         } else {
-            return BigMoney(res + BigInt(0), a.currency)
+            return BigMoney(res + BigInt_ZERO, a.currency)
         }
     } else {
         throw IllegalArgumentException("没有舍入模式" + mode)
@@ -676,7 +676,7 @@ func modulus(a: BigMoney, b: BigMoney): BigMoney {
     }
 
     var ans: BigInt = a.amount % b.amount
-    if (ans * b.amount < BigInt(0)){
+    if (ans * b.amount < BigInt_ZERO){
         ans += b.amount
     }
     return BigMoney(ans, a.currency)
