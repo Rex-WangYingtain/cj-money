@@ -76,11 +76,10 @@ class Currencies {
     let currencies: HashMap<String, Currency>
 
     public static func getCurrencies(): Currencies {
-        let ret: Currencies = match (instance) {
-            case None => Currencies()
-            case Some(v) => v
+        if (instance.isNone()) {
+            instance = Some(Currencies())
         }
-        return ret
+        return instance.getOrThrow()
     }
 
     public func currencyByNumericCode(numericCode: String): ?Currency {

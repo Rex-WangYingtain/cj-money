@@ -4,6 +4,40 @@ import std.unittest.*
 import std.unittest.testmacro.*
 
 @Test
+class CurrencyInitTest{
+    @TestCase
+    func test1(){
+        @ExpectThrows[NoneValueException]({
+            let currency: Currency = Currency("CCC", mode: "code")
+        })
+    }
+    @TestCase
+    func test2(){
+        @ExpectThrows[NoneValueException]({
+            let currency: Currency = Currency("999", mode: "numeric code")
+        })
+    }
+    @TestCase
+    func test3(){
+        @ExpectThrows[IllegalArgumentException]({
+            let currency: Currency = Currency("CNY", mode: "cangjie")
+        })
+    }
+    @TestCase
+    func test4(){
+        let currency: Currency = Currency("978", mode: "numeric code")
+
+        @Expect(".", currency.decimal)
+        @Expect(",", currency.thousand)
+        @Expect("EUR", currency.code)
+        @Expect(2, currency.fraction)
+        @Expect("978", currency.numericCode)
+        @Expect("\u{20ac}", currency.grapheme)
+        @Expect("$1", currency.template)
+    }
+}
+
+@Test
 class currencyByCodeTest{
     @TestCase
     public func test1() {
@@ -39,6 +73,23 @@ class currencyByCodeTest{
     }
     @TestCase
     public func test3() {
+        let currencies : Currencies = Currencies.getCurrencies()
+        let currency: Currency = match (currencies.currencyByCode("ALL")) {
+            case None => throw NoneValueException("没有找到code为ALL的Currency")
+            case Some(v) => v
+        }
+
+        @Expect(".", currency.decimal)
+        @Expect(",", currency.thousand)
+        @Expect("ALL", currency.code)
+        @Expect(2, currency.fraction)
+        @Expect("008", currency.numericCode)
+        @Expect("L", currency.grapheme)
+        @Expect("$1", currency.template)
+    }
+    @TestCase
+    public func test4() {
+        let _currencies : Currencies = Currencies.getCurrencies()
         let currencies : Currencies = Currencies.getCurrencies()
         let currency: Currency = match (currencies.currencyByCode("ALL")) {
             case None => throw NoneValueException("没有找到code为ALL的Currency")

@@ -544,6 +544,37 @@ class BigMoneyInitTest{
             let bm: BigMoney = BigMoney("-1213124543253654325132543564651234431244412421154324.", "KWD")
         })
     }
+    @TestCase
+    public func test37() {
+        let m: Money = Money(100, "CNY")
+        let bm: BigMoney = BigMoney(m)
+
+        @Expect(BigInt("100"), bm.amount)
+        @Expect(".", bm.currency.decimal)
+        @Expect(",", bm.currency.thousand)
+        @Expect("CNY", bm.currency.code)
+        @Expect(2, bm.currency.fraction)
+        @Expect("156", bm.currency.numericCode)
+        @Expect("\u{5143}", bm.currency.grapheme)
+        @Expect("1 $", bm.currency.template)
+    }
+}
+
+@Test
+class toMoneyTest {
+    @TestCase
+    public func test() {
+        let bm: BigMoney = BigMoney("100", "CNY")
+
+        let m: Money = bm.toMoney()
+        @Expect(10000, m.amount)
+        @Expect(".", m.currency.decimal)
+        @Expect(",", m.currency.thousand)
+        @Expect("CNY", m.currency.code)
+        @Expect(2, m.currency.fraction)
+        @Expect("\u{5143}", m.currency.grapheme)
+        @Expect("1 $", m.currency.template)
+    }
 }
 
 
@@ -915,5 +946,44 @@ class BigMoneyDisplayTest{
     public func test5(){
         let m: BigMoney = BigMoney("-986134274785613487618734618746871236487.78543275", "CNY")
         @Expect("-986,134,274,785,613,487,618,734,618,746,871,236,487.79 \u{5143}", m.display())
+    }
+}
+
+@Test
+class BigMoneyDisplayByScientificNotationTest{
+    @TestCase
+    public func test1(){
+        let m: BigMoney = BigMoney("1.46", "AWG")
+        @Expect("1.46E0\u{0192}", m.displayByScientificNotation())
+    }
+    @TestCase
+    public func test2(){
+        let m: BigMoney = BigMoney("-13134.23", "AWG")
+        @Expect("-13.13E3\u{0192}", m.displayByScientificNotation(integer_len: 2))
+    }
+    @TestCase
+    public func test3(){
+        let m: BigMoney = BigMoney("0", "AWG")
+        @Expect("0.E0\u{0192}", m.displayByScientificNotation(integer_len: -1))
+    }
+    @TestCase
+    public func test4(){
+        let m: BigMoney = BigMoney("-0.0", "AWG")
+        @Expect("0.E0\u{0192}", m.displayByScientificNotation())
+    }
+    @TestCase
+    public func test5(){
+        let m: BigMoney = BigMoney("-986134274785613487618734618746871236487.78543275", "AWG")
+        @Expect("-0.98E39\u{0192}", m.displayByScientificNotation(integer_len: -2))
+    }
+    @TestCase
+    public func test6(){
+        let m: BigMoney = BigMoney("-986134274785613487618734618746871236487.78543275", "AWG")
+        @Expect("-98.6E37\u{0192}", m.displayByScientificNotation(integer_len: 2, fractional_len: 1))
+    }
+    @TestCase
+    public func test7(){
+        let m: BigMoney = BigMoney("-986134274785613487618734618746871236487.78543275", "AWG")
+        @Expect("-9.861342E38\u{0192}", m.displayByScientificNotation(integer_len: 1, fractional_len: 6))
     }
 }

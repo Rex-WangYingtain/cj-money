@@ -107,31 +107,3 @@ class FormatTest {
         }
     }
 }
-
-struct ToMajorUnitsTestCase {
-    let fraction: Int64
-    let decimal: String
-    let thousand: String
-    let grapheme: String
-    let template: String
-    let amount: Int64
-    let expected: Float64
-
-    public ToMajorUnitsTestCase(
-        fraction: Int64,
-        decimal: String,
-        thousand: String,
-        grapheme: String,
-        template: String,
-        amount: Int64,
-        expected: Float64
-    ) {
-        this.fraction = fraction
-        this.decimal = decimal
-        this.thousand = thousand
-        this.grapheme = grapheme
-        this.template = template
-        this.amount = amount
-        this.expected = expected
-    }
-}

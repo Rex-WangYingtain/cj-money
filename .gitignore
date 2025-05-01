@@ -15,9 +15,5 @@ cjpm.lock
 *.macrocall
 *.gcda
 *.gcno
-
-
-# 其他
-log
-report
-tmp
+*.log
+*.html

@@ -2,6 +2,7 @@ package cj_money
 
 import std.unittest.*
 import std.unittest.testmacro.*
+import std.math.numeric.*
 
 @Test
 class initTest {
@@ -102,6 +103,65 @@ class initTest {
         @Expect("136", m.currency.numericCode)
         @Expect("$", m.currency.grapheme)
         @Expect("$1", m.currency.template)
+    }
+    @TestCase
+    public func test5() {
+        let bm: BigMoney = BigMoney("100", "KYD")
+        let m: Money = Money(bm)
+
+        @Expect(10000, m.amount)
+        @Expect(".", m.currency.decimal)
+        @Expect(",", m.currency.thousand)
+        @Expect("KYD", m.currency.code)
+        @Expect("136", m.currency.numericCode)
+        @Expect("$", m.currency.grapheme)
+        @Expect("$1", m.currency.template)
+    }
+    @TestCase
+    public func test6() {
+        let currencies: Currencies = Currencies.getCurrencies()
+        let currency: Currency = match (currencies.currencyByCode("HKD")) {
+            case None => throw NoneValueException("没有找到Currency标准HKD")
+            case Some(v) => v
+        }
+        let m: Money = Money("-10.333", currency, mode: "round")
+        @Expect(-1033, m.amount)
+        @Expect(".", m.currency.decimal)
+        @Expect(",", m.currency.thousand)
+        @Expect("HKD", m.currency.code)
+        @Expect(2, m.currency.fraction)
+        @Expect("344", m.currency.numericCode)
+        @Expect("$", m.currency.grapheme)
+        @Expect("$1", m.currency.template)
+    }
+    @TestCase
+    public func test7() {
+        let m: Money = Money("-10.333", "HKD", code_mode: "code", mode: "round")
+        @Expect(-1033, m.amount)
+        @Expect(".", m.currency.decimal)
+        @Expect(",", m.currency.thousand)
+        @Expect("HKD", m.currency.code)
+        @Expect(2, m.currency.fraction)
+        @Expect("344", m.currency.numericCode)
+        @Expect("$", m.currency.grapheme)
+        @Expect("$1", m.currency.template)
+    }
+}
+
+@Test
+class toBigMoneyTest {
+    @TestCase
+    public func test(){
+        let m: Money = Money(100, "HKD")
+        let bm: BigMoney = m.toBigMoney()
+        @Expect(BigInt(100), bm.amount)
+        @Expect(".", bm.currency.decimal)
+        @Expect(",", bm.currency.thousand)
+        @Expect("HKD", bm.currency.code)
+        @Expect(2, bm.currency.fraction)
+        @Expect("344", bm.currency.numericCode)
+        @Expect("$", bm.currency.grapheme)
+        @Expect("$1", bm.currency.template)
     }
 }
 
@@ -473,5 +533,44 @@ class displayTest {
     public func test6() {
         let m: Money = Money(-0.0, "KYD")
         @Expect("$0.00", m.display())
+    }
+}
+
+@Test
+class displayByScientificNotationTest{
+    @TestCase
+    public func test1(){
+        let m: Money = Money("1.46", "AWG")
+        @Expect("1.46E0\u{0192}", m.displayByScientificNotation())
+    }
+    @TestCase
+    public func test2(){
+        let m: Money = Money("-13134.23", "AWG")
+        @Expect("-13.13E3\u{0192}", m.displayByScientificNotation(integer_len: 2))
+    }
+    @TestCase
+    public func test3(){
+        let m: Money = Money("0", "AWG")
+        @Expect("0.E0\u{0192}", m.displayByScientificNotation(integer_len: -1))
+    }
+    @TestCase
+    public func test4(){
+        let m: Money = Money("-0.0", "AWG")
+        @Expect("0.E0\u{0192}", m.displayByScientificNotation())
+    }
+    @TestCase
+    public func test5(){
+        let m: Money = Money("-986134274785.78543275", "AWG")
+        @Expect("-0.98E12\u{0192}", m.displayByScientificNotation(integer_len: -1))
+    }
+    @TestCase
+    public func test6(){
+        let m: Money = Money("-986134.78543275", "AWG")
+        @Expect("-98.6E4\u{0192}", m.displayByScientificNotation(integer_len: 2, fractional_len: 1))
+    }
+    @TestCase
+    public func test7(){
+        let m: Money = Money("-986.7", "AWG")
+        @Expect("-9.8670E2\u{0192}", m.displayByScientificNotation(integer_len: 1, fractional_len: 6))
     }
 }

@@ -299,6 +299,11 @@ class multiplyTest {
         m2 = Money(-16.388, "TJS")
         m = calculate(m1, m2, multiply, mode: "round")
         @Expect(m.amount, 22995)
+
+        m1 = Money(999, "TJS")
+        m2 = Money(550, "TJS")
+        m = calculate(m1, m2, multiply, mode: "round")
+        @Expect(m.amount, 5495)
     }
     // truncate
     @TestCase
@@ -423,6 +428,11 @@ class multiplyTest {
         m2 = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
         m = calculate(m1, m2, multiply, mode: "round")
         @Expect(m.amount, BigInt("20046784665613598801663038482248773622429610047523647371675915"))
+
+        m1 = BigMoney("9.99", "TJS")
+        m2 = BigMoney("5.50", "TJS")
+        m = calculate(m1, m2, multiply, mode: "round")
+        @Expect(m.amount, BigInt(5495))
     }
     // truncate
     @TestCase
@@ -615,6 +625,15 @@ class modulusTest {
             let m: BigMoney = calculate(m1, m2, modulus)
         })
     }
+    @TestCase 
+    public func test14() {
+        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "TJS")
+        let m2: BigMoney = BigMoney("0", "TJS")
+        
+        @ExpectThrows[IllegalArgumentException]({
+            let m: BigMoney = calculate(m1, m2, modulus)
+        })
+    }
 }
 
 @Test
@@ -725,11 +744,15 @@ class divideTest {
         let m1: Money = Money(-14.025, "TJS")
         let m2: Money = Money(0, "PHP")
         let m3: Money = Money(-14.025, "TJS")
+        let m4: Money = Money(100, "PHP")
         @ExpectThrows[CurrencyNotSameException]({
             let m: Money = calculate(m1, m2, divide)
         })
         @ExpectThrows[IllegalArgumentException]({
             let m: Money = calculate(m1, m3, divide, mode: "cangjie")
+        })
+        @ExpectThrows[IllegalArgumentException] ({
+            let m: Money = calculate(m4, m2, divide)
         })
     }
     // BigMoney
@@ -755,6 +778,11 @@ class divideTest {
         m2 = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
         m = calculate(m1, m2, divide)
         @Expect(m.amount, BigInt(0))
+
+        m1 = BigMoney("2.111", "TJS")
+        m2 = BigMoney("2", "TJS")
+        m = calculate(m1, m2, divide, mode: "round")
+        @Expect(m.amount, BigInt("106"))
     }
     // truncate
     @TestCase
@@ -801,6 +829,11 @@ class divideTest {
         m2 = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
         m = calculate(m1, m2, divide, mode: "ceil")
         @Expect(m.amount, BigInt(0))
+
+        m1 = BigMoney("0", "TJS")
+        m2 = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+        m = calculate(m1, m2, divide, mode: "ceil")
+        @Expect(m.amount, BigInt(0))
     }
     // exception
     @TestCase
@@ -808,11 +841,15 @@ class divideTest {
         let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
         let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
         let m3: BigMoney = BigMoney("224523523444423452314.02455555551243253253252325", "PHP")
+        let m4: BigMoney = BigMoney("0", "TJS")
         @ExpectThrows[CurrencyNotSameException]({
             let m: BigMoney = calculate(m1, m2, divide)
         })
         @ExpectThrows[IllegalArgumentException]({
             let m: BigMoney = calculate(m1, m3, divide, mode: "cangjie")
+        })
+        @ExpectThrows[IllegalArgumentException] ({
+            let m: BigMoney = calculate(m2, m4, divide)
         })
     }
 }
@@ -1225,6 +1262,13 @@ class roundTest {
         let m1: BigMoney = BigMoney("19243809478293582937832097328932897328973289893278932893289732853285892322.3054333", "KWD")
         let m2: BigMoney = round(m1, 1)
         @Expect(m2.amount, BigInt("19243809478293582937832097328932897328973289893278932893289732853285892322310"))
+    }
+    @TestCase
+    public func test12() {
+        let m1: BigMoney = BigMoney("19243809478293582937832097328932897328973289893278932893289732853285892322.3054333", "KWD")
+        @ExpectThrows[IllegalArgumentException]({
+            let m2: BigMoney = round(m1, 0)
+        })
     }
 }
 

@@ -6,6 +6,18 @@ import std.unittest.testmacro.*
 import std.math.numeric.*
 
 @Test
+class StringAllTest{
+    @TestCase
+    public func test1(){
+        @Expect(StringAll("0000000000000000", b'0'), true)
+    }
+    @TestCase
+    public func test2(){
+        @Expect(StringAll("0000000001000000", b'1'), false)
+    }
+}
+
+@Test
 class Float64ToInt64RoundTest {
     @TestCase
     public func test1() {
@@ -134,6 +146,69 @@ class FSM_number_stringTest {
         @Expect(tuple[3], b'+')
         @Expect(tuple[4], "789")
     }
+    @TestCase
+    public func test8(){
+        @ExpectThrows[IllegalArgumentException]({
+            let tuple = FSMNumberString("e.456e789")
+        })
+    }
+    @TestCase
+    public func test9(){
+        @ExpectThrows[IllegalArgumentException]({
+            let tuple = FSMNumberString("1e2.456e789")
+        })
+    }
+    @TestCase
+    public func test10(){
+        @ExpectThrows[IllegalArgumentException]({
+            let tuple = FSMNumberString("12.4a56e789")
+        })
+    }
+    @TestCase
+    public func test11(){
+        @ExpectThrows[IllegalArgumentException]({
+            let tuple = FSMNumberString("12.456ea789")
+        })
+    }
+    @TestCase
+    public func test12(){
+        @ExpectThrows[IllegalArgumentException]({
+            let tuple = FSMNumberString("12.456ea789")
+        })
+    }
+    @TestCase
+    public func test13() {
+        let tuple = FSMNumberString("123E2")
+        @Expect(tuple[0], b'+')
+        @Expect(tuple[1], "123")
+        @Expect(tuple[2], "")
+        @Expect(tuple[3], b'+')
+        @Expect(tuple[4], "2")
+    }
+    @TestCase
+    public func test14(){
+        @ExpectThrows[IllegalArgumentException]({
+            let tuple = FSMNumberString("1221a3412412")
+        })
+    }
+    @TestCase
+    public func test15(){
+        @ExpectThrows[IllegalArgumentException]({
+            let tuple = FSMNumberString("132414124.a321124")
+        })
+    }
+    @TestCase
+    public func test16(){
+        @ExpectThrows[IllegalArgumentException]({
+            let tuple = FSMNumberString("124312ea123")
+        })
+    }
+    @TestCase
+    public func test17(){
+        @ExpectThrows[IllegalArgumentException]({
+            let tuple = FSMNumberString("124312e-a123")
+        })
+    }
 }
 
 @Test
@@ -164,7 +239,11 @@ class NumberStringToSmallAmountTest {
         let ans: Int64 = NumberStringToSmallAmount(".456e2", 2, mode:"truncate")
         @Expect(ans, 4560)
     }
-
+    @TestCase
+    public func test17() {
+        let ans: Int64 = NumberStringToSmallAmount("1234.56789123", 2, mode:"truncate")
+        @Expect(ans, 123456)
+    }
     // ceil
     @TestCase
     public func test6() {
@@ -190,6 +269,21 @@ class NumberStringToSmallAmountTest {
     public func test10() {
         let ans: Int64 = NumberStringToSmallAmount(".4568987e2", 2, mode:"ceil")
         @Expect(ans, 4569)
+    }
+    @TestCase
+    public func test18() {
+        let ans: Int64 = NumberStringToSmallAmount("0.00", 2, mode:"ceil")
+        @Expect(ans, 0)
+    }
+    @TestCase
+    public func test19() {
+        let ans: Int64 = NumberStringToSmallAmount("-0", 2, mode:"ceil")
+        @Expect(ans, 0)
+    }
+    @TestCase
+    public func test21() {
+        let ans: Int64 = NumberStringToSmallAmount("0.0e-100", 2, mode:"ceil")
+        @Expect(ans, 0)
     }
 
     // round
@@ -222,6 +316,24 @@ class NumberStringToSmallAmountTest {
     public func test16() {
         let ans: Int64 = NumberStringToSmallAmount("0.005", 2, mode:"round")
         @Expect(ans, 1)
+    }
+    @TestCase
+    public func test22() {
+        let ans: Int64 = NumberStringToSmallAmount("9e-3", 2, mode:"round")
+        @Expect(ans, 1)
+    }
+    @TestCase
+    public func test23() {
+        let ans: Int64 = NumberStringToSmallAmount("-9e-3", 2, mode:"round")
+        @Expect(ans, -1)
+    }
+
+    //expection
+    @TestCase
+    public func test20() {
+        @ExpectThrows[IllegalArgumentException] ({
+            let ans: Int64 = NumberStringToSmallAmount("21341234", 2, mode:"cangjie")
+        })
     }
 }
 
@@ -280,6 +392,21 @@ class NumberStringToBigAmountTest {
         let ans: BigInt = NumberStringToBigAmount(".456489332814972309748873142879342870932478098987e4", 2, mode:"ceil")
         @Expect(ans, BigInt("456490"))
     }
+    @TestCase
+    public func test19() {
+        let ans: BigInt = NumberStringToBigAmount("0.0", 2, mode:"ceil")
+        @Expect(ans, BigInt(0))
+    }
+    @TestCase
+    public func test20() {
+        let ans: BigInt = NumberStringToBigAmount("0.0e-100", 2, mode:"ceil")
+        @Expect(ans, BigInt(0))
+    }
+    @TestCase
+    public func test21() {
+        let ans: BigInt = NumberStringToBigAmount("0.0e-1", 2, mode:"ceil")
+        @Expect(ans, BigInt(0))
+    }
 
     // round
     @TestCase
@@ -311,6 +438,24 @@ class NumberStringToBigAmountTest {
     public func test16() {
         let ans: BigInt = NumberStringToBigAmount("0.005", 2, mode:"round")
         @Expect(ans, BigInt("1"))
+    }
+    @TestCase
+    public func test22() {
+        let ans: BigInt = NumberStringToBigAmount("9e-3", 2, mode:"round")
+        @Expect(ans, BigInt(1))
+    }
+    @TestCase
+    public func test23() {
+        let ans: BigInt = NumberStringToBigAmount("-9e-3", 2, mode:"round")
+        @Expect(ans, BigInt(-1))
+    }
+
+    //expection
+    @TestCase
+    public func test17() {
+        @ExpectThrows[IllegalArgumentException]({
+            let ans: BigInt = NumberStringToBigAmount("0.005", 2, mode:"cangjie")
+        })
     }
 }
 

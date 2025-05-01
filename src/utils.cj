@@ -47,10 +47,7 @@ func Float64ToInt64Round(num: Float64): Int64 {
      */
     var string_num: String = num.toString()
 
-    let index: Int64 = match (string_num.indexOf(".")) {
-        case None => throw NoneValueException("非法浮点数") // 实际上不可能发生
-        case Some(v) => v
-    }
+    let index: Int64 = string_num.indexOf(".").getOrThrow() // 不可能找不到
 
     let decimal: UInt8 = string_num[index + 1] - b'0'
 
@@ -161,8 +158,6 @@ func FSMNumberString(number_string: String) {
             } else {
                 throw IllegalArgumentException("在指数部分出现非法字符。")
             }
-        } else {
-            throw IllegalStateException("非法状态。")
         }
     }
 
@@ -170,9 +165,6 @@ func FSMNumberString(number_string: String) {
         throw IllegalArgumentException("非法数字串。")
     }
 
-    if (!(has_integer || has_fraction)) {
-        throw IllegalArgumentException("非法数字串。")
-    }
     let _integer: Array<Rune> = Array<Rune>(integer.size, {x => Rune(integer[x])})
     let _fractional: Array<Rune> = Array<Rune>(fractional.size, {x => Rune(fractional[x])})
     let _exponent: Array<Rune> = Array<Rune>(exponent.size, {x => Rune(exponent[x])})
@@ -284,8 +276,10 @@ func NumberStringToSmallAmount(number_string: String, fraction: Int64, mode!: St
         } else {
             if (current_point == 0 && string_num[0] > b'4'){
                 if (sign == b'-'){
+                    println(-1)
                     return -1
                 } else {
+                    println(1)
                     return 1
                 }
             }
