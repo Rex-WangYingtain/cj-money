@@ -1,0 +1,168 @@
+package cj_money
+
+import std.unittest.*
+import std.unittest.testmacro.*
+
+struct FormatTestCase {
+    let fraction: Int64
+    let decimal: String
+    let thousand: String
+    let grapheme: String
+    let template: String
+    let amount: Int64
+    let expected: String
+
+    public FormatTestCase(
+        fraction: Int64,
+        decimal: String,
+        thousand: String,
+        grapheme: String,
+        template: String,
+        amount: Int64,
+        expected: String
+    ) {
+        this.fraction = fraction
+        this.decimal = decimal
+        this.thousand = thousand
+        this.grapheme = grapheme
+        this.template = template
+        this.amount = amount
+        this.expected = expected
+    }
+}
+
+/* ===== Emitted by MacroCall @Test in formatter_test.cj:34:1 ===== */
+/* 34.1 */@Attribute[TEST_GENERATED] class FormatTest <: TestClass {
+/* 34.2 */    let testcases = Array < FormatTestCase >([FormatTestCase(2, ".", ",", "$", "1 $", 0, "0.00 $"), FormatTestCase(2, ".", ",", "$", "1 $", 1, "0.01 $"), FormatTestCase(2, ".", ",", "$", "1 $", 12, "0.12 $"), FormatTestCase(2, ".", ",", "$", "1 $", 123, "1.23 $"), FormatTestCase(2, ".", ",", "$", "1 $", 1234, "12.34 $"), FormatTestCase(2, ".", ",", "$", "1 $", 12345, "123.45 $"), FormatTestCase(2, ".", ",", "$", "1 $", 123456, "1,234.56 $"), FormatTestCase(2, ".", ",", "$", "1 $", 1234567, "12,345.67 $"), FormatTestCase(2, ".", ",", "$", "1 $", 12345678, "123,456.78 $"), FormatTestCase(2, ".", ",", "$", "1 $", 123456789, "1,234,567.89 $"), FormatTestCase(2, ".", ",", "$", "1 $", - 1, "-0.01 $"), FormatTestCase(2, ".", ",", "$", "1 $", - 12, "-0.12 $"), FormatTestCase(2, ".", ",", "$", "1 $", - 123, "-1.23 $"), FormatTestCase(2, ".", ",", "$", "1 $", - 1234, "-12.34 $"), FormatTestCase(2, ".", ",", "$", "1 $", - 12345, "-123.45 $"), FormatTestCase(2, ".", ",", "$", "1 $", - 123456, "-1,234.56 $"), FormatTestCase(2, ".", ",", "$", "1 $", - 1234567, "-12,345.67 $"), FormatTestCase(2, ".", ",", "$", "1 $", - 12345678, "-123,456.78 $"), FormatTestCase(2, ".", ",", "$", "1 $", - 123456789, "-1,234,567.89 $"), FormatTestCase(3, ".", "", "$", "1 $", 1, "0.001 $"), FormatTestCase(3, ".", "", "$", "1 $", 12, "0.012 $"), FormatTestCase(3, ".", "", "$", "1 $", 123, "0.123 $"), FormatTestCase(3, ".", "", "$", "1 $", 1234, "1.234 $"), FormatTestCase(3, ".", "", "$", "1 $", 12345, "12.345 $"), FormatTestCase(3, ".", "", "$", "1 $", 123456, "123.456 $"), FormatTestCase(3, ".", "", "$", "1 $", 1234567, "1234.567 $"), FormatTestCase(3, ".", "", "$", "1 $", 12345678, "12345.678 $"), FormatTestCase(3, ".", "", "$", "1 $", 123456789, "123456.789 $"), FormatTestCase(2, ".", ",", "£", "$1", 1, "£0.01"), FormatTestCase(2, ".", ",", "£", "$1", 12, "£0.12"), FormatTestCase(2, ".", ",", "£", "$1", 123, "£1.23"), FormatTestCase(2, ".", ",", "£", "$1", 1234, "£12.34"), FormatTestCase(2, ".", ",", "£", "$1", 12345, "£123.45"), FormatTestCase(2, ".", ",", "£", "$1", 123456, "£1,234.56"), FormatTestCase(2, ".", ",", "£", "$1", 1234567, "£12,345.67"), FormatTestCase(2, ".", ",", "£", "$1", 12345678, "£123,456.78"), FormatTestCase(2, ".", ",", "£", "$1", 123456789, "£1,234,567.89"), FormatTestCase(0, ".", ",", "NT$", "$1", 1, "NT$1"), FormatTestCase(0, ".", ",", "NT$", "$1", 12, "NT$12"), FormatTestCase(0, ".", ",", "NT$", "$1", 123, "NT$123"), FormatTestCase(0, ".", ",", "NT$", "$1", 1234, "NT$1,234"), FormatTestCase(0, ".", ",", "NT$", "$1", 12345, "NT$12,345"), FormatTestCase(0, ".", ",", "NT$", "$1", 123456, "NT$123,456"), FormatTestCase(0, ".", ",", "NT$", "$1", 1234567, "NT$1,234,567"), FormatTestCase(0, ".", ",", "NT$", "$1", 12345678, "NT$12,345,678"), FormatTestCase(0, ".", ",", "NT$", "$1", 123456789, "NT$123,456,789"), FormatTestCase(0, ".", ",", "NT$", "$1", - 1, "-NT$1"), FormatTestCase(0, ".", ",", "NT$", "$1", - 12, "-NT$12"), FormatTestCase(0, ".", ",", "NT$", "$1", - 123, "-NT$123"), FormatTestCase(0, ".", ",", "NT$", "$1", - 1234, "-NT$1,234"), FormatTestCase(0, ".", ",", "NT$", "$1", - 12345, "-NT$12,345"), FormatTestCase(0, ".", ",", "NT$", "$1", - 123456, "-NT$123,456"), FormatTestCase(0, ".", ",", "NT$", "$1", - 1234567, "-NT$1,234,567"), FormatTestCase(0, ".", ",", "NT$", "$1", - 12345678, "-NT$12,345,678"), FormatTestCase(0, ".", ",", "NT$", "$1", - 123456789, "-NT$123,456,789")])
+/* 34.3 */    
+/* 34.4 */    @Attribute[TestCase_277]
+/* 34.5 */    public func runTest() {
+/* 34.6 */        for(format_test_case in this.testcases) {
+/* 34.7 */            let formatter = Formatter(format_test_case.fraction, format_test_case.decimal, format_test_case.thousand, format_test_case.grapheme, format_test_case.template)
+/* 34.8 */            let output = formatter.format(format_test_case.amount)
+/* 34.9 */            expectEqual("format_test_case.expected", "output", format_test_case.expected, output)
+/* 34.10 */        }
+/* 34.11 */    }
+/* 34.12 */    
+/* 34.13 */    init() {
+/* 34.14 */    }
+/* 34.15 */    private func classConfiguration(): Configuration {
+/* 34.16 */        let configuration = Configuration()
+/* 34.17 */        
+/* 34.18 */        return configuration
+/* 34.19 */    }
+/* 34.20 */    public override func asTestSuite(): TestSuite {
+/* 34.21 */        
+/* 34.22 */        let suiteConfiguration = classConfiguration()
+/* 34.23 */        let suiteBuilder = TestSuite.builder("FormatTest").configure(suiteConfiguration)
+/* 34.24 */        let m___ = TimeNow()
+/* 34.25 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 34.26 */        
+/* 34.27 */        { => let caseConfig = Configuration()
+/* 34.28 */            
+/* 34.29 */            let runTestTestFunc = { => runTest();() }
+/* 34.30 */            suiteBuilder.add(
+/* 34.31 */            UnitTestCase.create(
+/* 34.32 */            "runTest",
+/* 34.33 */            configuration: caseConfig,
+/* 34.34 */            body: runTestTestFunc
+/* 34.35 */            )
+/* 34.36 */            )
+/* 34.37 */            
+/* 34.38 */        }()
+/* 34.39 */        
+/* 34.40 */        return suiteBuilder.build()
+/* 34.41 */    }
+/* 34.42 */}
+/* 34.43 */
+/* 34.44 */
+/* 34.45 */extend TestPackage {
+/* 34.46 */    @Attribute[TEST_REGISTER]
+/* 34.47 */    func registerFormatTest() {
+/* 34.48 */        registerSuite({ => FormatTest().asTestSuite() })
+/* 34.49 */    }
+/* 34.50 */}
+/* 34.51 */
+/* ===== End of the Emit ===== */
+
+struct ToMajorUnitsTestCase {
+    let fraction: Int64
+    let decimal: String
+    let thousand: String
+    let grapheme: String
+    let template: String
+    let amount: Int64
+    let expected: Float64
+
+    public ToMajorUnitsTestCase(
+        fraction: Int64,
+        decimal: String,
+        thousand: String,
+        grapheme: String,
+        template: String,
+        amount: Int64,
+        expected: Float64
+    ) {
+        this.fraction = fraction
+        this.decimal = decimal
+        this.thousand = thousand
+        this.grapheme = grapheme
+        this.template = template
+        this.amount = amount
+        this.expected = expected
+    }
+}
+
+/* ===== Emitted by MacroCall @Test in formatter_test.cj:139:1 ===== */
+/* 139.1 */@Attribute[TEST_GENERATED] class ToMajorUnits <: TestClass {
+/* 139.2 */    let testcases = Array < ToMajorUnitsTestCase >([ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", 0, 0.00), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", 1, 0.01), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", 12, 0.12), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", 123, 1.23), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", 1234, 12.34), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", 12345, 123.45), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", 123456, 1234.56), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", 1234567, 12345.67), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", 12345678, 123456.78), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", 123456789, 1234567.89), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", - 1, - 0.01), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", - 12, - 0.12), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", - 123, - 1.23), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", - 1234, - 12.34), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", - 12345, - 123.45), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", - 123456, - 1234.56), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", - 1234567, - 12345.67), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", - 12345678, - 123456.78), ToMajorUnitsTestCase(2, ".", ",", "$", "1 $", - 123456789, - 1234567.89), ToMajorUnitsTestCase(3, ".", "", "$", "1 $", 1, 0.001), ToMajorUnitsTestCase(3, ".", "", "$", "1 $", 12, 0.012), ToMajorUnitsTestCase(3, ".", "", "$", "1 $", 123, 0.123), ToMajorUnitsTestCase(3, ".", "", "$", "1 $", 1234, 1.234), ToMajorUnitsTestCase(3, ".", "", "$", "1 $", 12345, 12.345), ToMajorUnitsTestCase(3, ".", "", "$", "1 $", 123456, 123.456), ToMajorUnitsTestCase(3, ".", "", "$", "1 $", 1234567, 1234.567), ToMajorUnitsTestCase(3, ".", "", "$", "1 $", 12345678, 12345.678), ToMajorUnitsTestCase(3, ".", "", "$", "1 $", 123456789, 123456.789), ToMajorUnitsTestCase(2, ".", ",", "£", "$1", 1, 0.01), ToMajorUnitsTestCase(2, ".", ",", "£", "$1", 12, 0.12), ToMajorUnitsTestCase(2, ".", ",", "£", "$1", 123, 1.23), ToMajorUnitsTestCase(2, ".", ",", "£", "$1", 1234, 12.34), ToMajorUnitsTestCase(2, ".", ",", "£", "$1", 12345, 123.45), ToMajorUnitsTestCase(2, ".", ",", "£", "$1", 123456, 1234.56), ToMajorUnitsTestCase(2, ".", ",", "£", "$1", 1234567, 12345.67), ToMajorUnitsTestCase(2, ".", ",", "£", "$1", 12345678, 123456.78), ToMajorUnitsTestCase(2, ".", ",", "£", "$1", 123456789, 1234567.89), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", 1, 1.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", 12, 12.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", 123, 123.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", 1234, 1234.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", 12345, 12345.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", 123456, 123456.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", 1234567, 1234567.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", 12345678, 12345678.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", 123456789, 123456789.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", - 1, - 1.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", - 12, - 12.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", - 123, - 123.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", - 1234, - 1234.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", - 12345, - 12345.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", - 123456, - 123456.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", - 1234567, - 1234567.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", - 12345678, - 12345678.0), ToMajorUnitsTestCase(0, ".", ",", "NT$", "$1", - 123456789, - 123456789.0)])
+/* 139.3 */    
+/* 139.4 */    @Attribute[TestCase_278]
+/* 139.5 */    public func runTest() {
+/* 139.6 */        for(format_test_case in this.testcases) {
+/* 139.7 */            let formatter = Formatter(format_test_case.fraction, format_test_case.decimal, format_test_case.thousand, format_test_case.grapheme, format_test_case.template)
+/* 139.8 */            let output = formatter.toMajorUnits(format_test_case.amount)
+/* 139.9 */            expectEqual("format_test_case.expected", "output", format_test_case.expected, output)
+/* 139.10 */        }
+/* 139.11 */    }
+/* 139.12 */    
+/* 139.13 */    init() {
+/* 139.14 */    }
+/* 139.15 */    private func classConfiguration(): Configuration {
+/* 139.16 */        let configuration = Configuration()
+/* 139.17 */        
+/* 139.18 */        return configuration
+/* 139.19 */    }
+/* 139.20 */    public override func asTestSuite(): TestSuite {
+/* 139.21 */        
+/* 139.22 */        let suiteConfiguration = classConfiguration()
+/* 139.23 */        let suiteBuilder = TestSuite.builder("ToMajorUnits").configure(suiteConfiguration)
+/* 139.24 */        let m___ = TimeNow()
+/* 139.25 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 139.26 */        
+/* 139.27 */        { => let caseConfig = Configuration()
+/* 139.28 */            
+/* 139.29 */            let runTestTestFunc = { => runTest();() }
+/* 139.30 */            suiteBuilder.add(
+/* 139.31 */            UnitTestCase.create(
+/* 139.32 */            "runTest",
+/* 139.33 */            configuration: caseConfig,
+/* 139.34 */            body: runTestTestFunc
+/* 139.35 */            )
+/* 139.36 */            )
+/* 139.37 */            
+/* 139.38 */        }()
+/* 139.39 */        
+/* 139.40 */        return suiteBuilder.build()
+/* 139.41 */    }
+/* 139.42 */}
+/* 139.43 */
+/* 139.44 */
+/* 139.45 */extend TestPackage {
+/* 139.46 */    @Attribute[TEST_REGISTER]
+/* 139.47 */    func registerToMajorUnits() {
+/* 139.48 */        registerSuite({ => ToMajorUnits().asTestSuite() })
+/* 139.49 */    }
+/* 139.50 */}
+/* 139.51 */
+/* ===== End of the Emit ===== */

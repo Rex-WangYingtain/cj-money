@@ -1,0 +1,242 @@
+package cj_money
+
+import std.unittest.*
+import std.unittest.testmacro.*
+
+/* ===== Emitted by MacroCall @Test in currency_test.cj:6:1 ===== */
+/* 6.1 */@Attribute[TEST_GENERATED] class currencyByCodeTest <: TestClass {
+/* 6.2 */    @Attribute[TestCase_243]
+/* 6.3 */    public func test1() {
+/* 6.4 */        let currencies: Currencies = Currencies.getCurrencies()
+/* 6.5 */        let currency: Currency = match(currencies.currencyByCode("EUR")) {
+/* 6.6 */            case None => throw NoneValueException("没有找到code为EUR的Currency")
+/* 6.7 */            case Some(v) => v
+/* 6.8 */        }
+/* 6.9 */        expectEqual("\".\"", "currency.decimal", ".", currency.decimal)
+/* 6.10 */        expectEqual("\",\"", "currency.thousand", ",", currency.thousand)
+/* 6.11 */        expectEqual("\"EUR\"", "currency.code", "EUR", currency.code)
+/* 6.12 */        expectEqual("2", "currency.fraction", 2, currency.fraction)
+/* 6.13 */        expectEqual("\"978\"", "currency.numericCode", "978", currency.numericCode)
+/* 6.14 */        expectEqual("\"\\u{20ac}\"", "currency.grapheme", "\u{20ac}", currency.grapheme)
+/* 6.15 */        expectEqual("\"$1\"", "currency.template", "$1", currency.template)
+/* 6.16 */    }
+/* 6.17 */    
+/* 6.18 */    @Attribute[TestCase_244]
+/* 6.19 */    public func test2() {
+/* 6.20 */        let currencies: Currencies = Currencies.getCurrencies()
+/* 6.21 */        let currency: Currency = match(currencies.currencyByCode("SDG")) {
+/* 6.22 */            case None => throw NoneValueException("没有找到code为SDG的Currency")
+/* 6.23 */            case Some(v) => v
+/* 6.24 */        }
+/* 6.25 */        expectEqual("\".\"", "currency.decimal", ".", currency.decimal)
+/* 6.26 */        expectEqual("\",\"", "currency.thousand", ",", currency.thousand)
+/* 6.27 */        expectEqual("\"SDG\"", "currency.code", "SDG", currency.code)
+/* 6.28 */        expectEqual("2", "currency.fraction", 2, currency.fraction)
+/* 6.29 */        expectEqual("\"938\"", "currency.numericCode", "938", currency.numericCode)
+/* 6.30 */        expectEqual("\"\\u{00a3}\"", "currency.grapheme", "\u{00a3}", currency.grapheme)
+/* 6.31 */        expectEqual("\"$1\"", "currency.template", "$1", currency.template)
+/* 6.32 */    }
+/* 6.33 */    
+/* 6.34 */    @Attribute[TestCase_245]
+/* 6.35 */    public func test3() {
+/* 6.36 */        let currencies: Currencies = Currencies.getCurrencies()
+/* 6.37 */        let currency: Currency = match(currencies.currencyByCode("ALL")) {
+/* 6.38 */            case None => throw NoneValueException("没有找到code为ALL的Currency")
+/* 6.39 */            case Some(v) => v
+/* 6.40 */        }
+/* 6.41 */        expectEqual("\".\"", "currency.decimal", ".", currency.decimal)
+/* 6.42 */        expectEqual("\",\"", "currency.thousand", ",", currency.thousand)
+/* 6.43 */        expectEqual("\"ALL\"", "currency.code", "ALL", currency.code)
+/* 6.44 */        expectEqual("2", "currency.fraction", 2, currency.fraction)
+/* 6.45 */        expectEqual("\"008\"", "currency.numericCode", "008", currency.numericCode)
+/* 6.46 */        expectEqual("\"L\"", "currency.grapheme", "L", currency.grapheme)
+/* 6.47 */        expectEqual("\"$1\"", "currency.template", "$1", currency.template)
+/* 6.48 */    }
+/* 6.49 */    
+/* 6.50 */    init() {
+/* 6.51 */    }
+/* 6.52 */    private func classConfiguration(): Configuration {
+/* 6.53 */        let configuration = Configuration()
+/* 6.54 */        
+/* 6.55 */        return configuration
+/* 6.56 */    }
+/* 6.57 */    public override func asTestSuite(): TestSuite {
+/* 6.58 */        
+/* 6.59 */        let suiteConfiguration = classConfiguration()
+/* 6.60 */        let suiteBuilder = TestSuite.builder("currencyByCodeTest").configure(suiteConfiguration)
+/* 6.61 */        let m___ = TimeNow()
+/* 6.62 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 6.63 */        
+/* 6.64 */        { => let caseConfig = Configuration()
+/* 6.65 */            
+/* 6.66 */            let test1TestFunc = { => test1();() }
+/* 6.67 */            suiteBuilder.add(
+/* 6.68 */            UnitTestCase.create(
+/* 6.69 */            "test1",
+/* 6.70 */            configuration: caseConfig,
+/* 6.71 */            body: test1TestFunc
+/* 6.72 */            )
+/* 6.73 */            )
+/* 6.74 */            
+/* 6.75 */        }()
+/* 6.76 */        
+/* 6.77 */        
+/* 6.78 */        { => let caseConfig = Configuration()
+/* 6.79 */            
+/* 6.80 */            let test2TestFunc = { => test2();() }
+/* 6.81 */            suiteBuilder.add(
+/* 6.82 */            UnitTestCase.create(
+/* 6.83 */            "test2",
+/* 6.84 */            configuration: caseConfig,
+/* 6.85 */            body: test2TestFunc
+/* 6.86 */            )
+/* 6.87 */            )
+/* 6.88 */            
+/* 6.89 */        }()
+/* 6.90 */        
+/* 6.91 */        
+/* 6.92 */        { => let caseConfig = Configuration()
+/* 6.93 */            
+/* 6.94 */            let test3TestFunc = { => test3();() }
+/* 6.95 */            suiteBuilder.add(
+/* 6.96 */            UnitTestCase.create(
+/* 6.97 */            "test3",
+/* 6.98 */            configuration: caseConfig,
+/* 6.99 */            body: test3TestFunc
+/* 6.100 */            )
+/* 6.101 */            )
+/* 6.102 */            
+/* 6.103 */        }()
+/* 6.104 */        
+/* 6.105 */        return suiteBuilder.build()
+/* 6.106 */    }
+/* 6.107 */}
+/* 6.108 */
+/* 6.109 */
+/* 6.110 */extend TestPackage {
+/* 6.111 */    @Attribute[TEST_REGISTER]
+/* 6.112 */    func registercurrencyByCodeTest() {
+/* 6.113 */        registerSuite({ => currencyByCodeTest().asTestSuite() })
+/* 6.114 */    }
+/* 6.115 */}
+/* 6.116 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in currency_test.cj:58:1 ===== */
+/* 58.1 */@Attribute[TEST_GENERATED] class currencyByNumericCode <: TestClass {
+/* 58.2 */    @Attribute[TestCase_246]
+/* 58.3 */    public func test1() {
+/* 58.4 */        let currencies: Currencies = Currencies.getCurrencies()
+/* 58.5 */        let currency: Currency = match(currencies.currencyByNumericCode("052")) {
+/* 58.6 */            case None => throw NoneValueException("没有找到numeric code为052的Currency")
+/* 58.7 */            case Some(v) => v
+/* 58.8 */        }
+/* 58.9 */        expectEqual("\".\"", "currency.decimal", ".", currency.decimal)
+/* 58.10 */        expectEqual("\",\"", "currency.thousand", ",", currency.thousand)
+/* 58.11 */        expectEqual("\"BBD\"", "currency.code", "BBD", currency.code)
+/* 58.12 */        expectEqual("2", "currency.fraction", 2, currency.fraction)
+/* 58.13 */        expectEqual("\"052\"", "currency.numericCode", "052", currency.numericCode)
+/* 58.14 */        expectEqual("\"$\"", "currency.grapheme", "$", currency.grapheme)
+/* 58.15 */        expectEqual("\"$1\"", "currency.template", "$1", currency.template)
+/* 58.16 */    }
+/* 58.17 */    
+/* 58.18 */    @Attribute[TestCase_247]
+/* 58.19 */    public func test2() {
+/* 58.20 */        let currencies: Currencies = Currencies.getCurrencies()
+/* 58.21 */        let currency: Currency = match(currencies.currencyByNumericCode("368")) {
+/* 58.22 */            case None => throw NoneValueException("没有找到numeric code为368的Currency")
+/* 58.23 */            case Some(v) => v
+/* 58.24 */        }
+/* 58.25 */        expectEqual("\".\"", "currency.decimal", ".", currency.decimal)
+/* 58.26 */        expectEqual("\",\"", "currency.thousand", ",", currency.thousand)
+/* 58.27 */        expectEqual("\"IQD\"", "currency.code", "IQD", currency.code)
+/* 58.28 */        expectEqual("3", "currency.fraction", 3, currency.fraction)
+/* 58.29 */        expectEqual("\"368\"", "currency.numericCode", "368", currency.numericCode)
+/* 58.30 */        expectEqual("\".\\u{062f}.\\u{0639}\"", "currency.grapheme", ".\u{062f}.\u{0639}", currency.grapheme)
+/* 58.31 */        expectEqual("\"1 $\"", "currency.template", "1 $", currency.template)
+/* 58.32 */    }
+/* 58.33 */    
+/* 58.34 */    @Attribute[TestCase_248]
+/* 58.35 */    public func test3() {
+/* 58.36 */        let currencies: Currencies = Currencies.getCurrencies()
+/* 58.37 */        let currency: Currency = match(currencies.currencyByNumericCode("788")) {
+/* 58.38 */            case None => throw NoneValueException("没有找到numeric code为788的Currency")
+/* 58.39 */            case Some(v) => v
+/* 58.40 */        }
+/* 58.41 */        expectEqual("\".\"", "currency.decimal", ".", currency.decimal)
+/* 58.42 */        expectEqual("\",\"", "currency.thousand", ",", currency.thousand)
+/* 58.43 */        expectEqual("\"TND\"", "currency.code", "TND", currency.code)
+/* 58.44 */        expectEqual("3", "currency.fraction", 3, currency.fraction)
+/* 58.45 */        expectEqual("\"788\"", "currency.numericCode", "788", currency.numericCode)
+/* 58.46 */        expectEqual("\".\\u{062f}.\\u{062a}\"", "currency.grapheme", ".\u{062f}.\u{062a}", currency.grapheme)
+/* 58.47 */        expectEqual("\"1 $\"", "currency.template", "1 $", currency.template)
+/* 58.48 */    }
+/* 58.49 */    
+/* 58.50 */    init() {
+/* 58.51 */    }
+/* 58.52 */    private func classConfiguration(): Configuration {
+/* 58.53 */        let configuration = Configuration()
+/* 58.54 */        
+/* 58.55 */        return configuration
+/* 58.56 */    }
+/* 58.57 */    public override func asTestSuite(): TestSuite {
+/* 58.58 */        
+/* 58.59 */        let suiteConfiguration = classConfiguration()
+/* 58.60 */        let suiteBuilder = TestSuite.builder("currencyByNumericCode").configure(suiteConfiguration)
+/* 58.61 */        let m___ = TimeNow()
+/* 58.62 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 58.63 */        
+/* 58.64 */        { => let caseConfig = Configuration()
+/* 58.65 */            
+/* 58.66 */            let test1TestFunc = { => test1();() }
+/* 58.67 */            suiteBuilder.add(
+/* 58.68 */            UnitTestCase.create(
+/* 58.69 */            "test1",
+/* 58.70 */            configuration: caseConfig,
+/* 58.71 */            body: test1TestFunc
+/* 58.72 */            )
+/* 58.73 */            )
+/* 58.74 */            
+/* 58.75 */        }()
+/* 58.76 */        
+/* 58.77 */        
+/* 58.78 */        { => let caseConfig = Configuration()
+/* 58.79 */            
+/* 58.80 */            let test2TestFunc = { => test2();() }
+/* 58.81 */            suiteBuilder.add(
+/* 58.82 */            UnitTestCase.create(
+/* 58.83 */            "test2",
+/* 58.84 */            configuration: caseConfig,
+/* 58.85 */            body: test2TestFunc
+/* 58.86 */            )
+/* 58.87 */            )
+/* 58.88 */            
+/* 58.89 */        }()
+/* 58.90 */        
+/* 58.91 */        
+/* 58.92 */        { => let caseConfig = Configuration()
+/* 58.93 */            
+/* 58.94 */            let test3TestFunc = { => test3();() }
+/* 58.95 */            suiteBuilder.add(
+/* 58.96 */            UnitTestCase.create(
+/* 58.97 */            "test3",
+/* 58.98 */            configuration: caseConfig,
+/* 58.99 */            body: test3TestFunc
+/* 58.100 */            )
+/* 58.101 */            )
+/* 58.102 */            
+/* 58.103 */        }()
+/* 58.104 */        
+/* 58.105 */        return suiteBuilder.build()
+/* 58.106 */    }
+/* 58.107 */}
+/* 58.108 */
+/* 58.109 */
+/* 58.110 */extend TestPackage {
+/* 58.111 */    @Attribute[TEST_REGISTER]
+/* 58.112 */    func registercurrencyByNumericCode() {
+/* 58.113 */        registerSuite({ => currencyByNumericCode().asTestSuite() })
+/* 58.114 */    }
+/* 58.115 */}
+/* 58.116 */
+/* ===== End of the Emit ===== */

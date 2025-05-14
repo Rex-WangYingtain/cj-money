@@ -1,0 +1,948 @@
+package cj_money
+
+import std.unittest.*
+import std.unittest.testmacro.*
+import std.math.numeric.*
+
+/* ===== Emitted by MacroCall @Test in db_test.cj:7:1 ===== */
+/* 7.1 */@Attribute[TEST_GENERATED] class serializeByCodeTest <: TestClass {
+/* 7.2 */    @Attribute[TestCase_249]
+/* 7.3 */    public func test1() {
+/* 7.4 */        let m: Money = Money(100, "CUC")
+/* 7.5 */        let st: String = serializeByCode(m)
+/* 7.6 */        expectEqual("st", "\"100|CUC\"", st, "100|CUC")
+/* 7.7 */    }
+/* 7.8 */    
+/* 7.9 */    @Attribute[TestCase_250]
+/* 7.10 */    public func test2() {
+/* 7.11 */        let m: Money = Money(1.0, "GHS")
+/* 7.12 */        let st: String = serializeByCode(m, separator: "%")
+/* 7.13 */        expectEqual("st", "\"100%GHS\"", st, "100%GHS")
+/* 7.14 */    }
+/* 7.15 */    
+/* 7.16 */    @Attribute[TestCase_251]
+/* 7.17 */    public func test3() {
+/* 7.18 */        let m: Money = Money(9.9, "MAD")
+/* 7.19 */        let st: String = serializeByCode(m)
+/* 7.20 */        expectEqual("st", "\"990|MAD\"", st, "990|MAD")
+/* 7.21 */    }
+/* 7.22 */    
+/* 7.23 */    @Attribute[TestCase_252]
+/* 7.24 */    public func test4() {
+/* 7.25 */        let m: BigMoney = BigMoney("879348923753277832687532897328753287973298.7492037328098438", "CUC")
+/* 7.26 */        let st: String = serializeByCode(m)
+/* 7.27 */        expectEqual("st", "\"87934892375327783268753289732875328797329875|CUC\"", st, "87934892375327783268753289732875328797329875|CUC")
+/* 7.28 */    }
+/* 7.29 */    
+/* 7.30 */    @Attribute[TestCase_253]
+/* 7.31 */    public func test5() {
+/* 7.32 */        let m: BigMoney = BigMoney("879348923753277832687532897328753287973298.7492037328098438", "CUC")
+/* 7.33 */        let st: String = serializeByCode(m, separator: "%")
+/* 7.34 */        expectEqual("st", "\"87934892375327783268753289732875328797329875%CUC\"", st, "87934892375327783268753289732875328797329875%CUC")
+/* 7.35 */    }
+/* 7.36 */    
+/* 7.37 */    init() {
+/* 7.38 */    }
+/* 7.39 */    private func classConfiguration(): Configuration {
+/* 7.40 */        let configuration = Configuration()
+/* 7.41 */        
+/* 7.42 */        return configuration
+/* 7.43 */    }
+/* 7.44 */    public override func asTestSuite(): TestSuite {
+/* 7.45 */        
+/* 7.46 */        let suiteConfiguration = classConfiguration()
+/* 7.47 */        let suiteBuilder = TestSuite.builder("serializeByCodeTest").configure(suiteConfiguration)
+/* 7.48 */        let m___ = TimeNow()
+/* 7.49 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 7.50 */        
+/* 7.51 */        { => let caseConfig = Configuration()
+/* 7.52 */            
+/* 7.53 */            let test1TestFunc = { => test1();() }
+/* 7.54 */            suiteBuilder.add(
+/* 7.55 */            UnitTestCase.create(
+/* 7.56 */            "test1",
+/* 7.57 */            configuration: caseConfig,
+/* 7.58 */            body: test1TestFunc
+/* 7.59 */            )
+/* 7.60 */            )
+/* 7.61 */            
+/* 7.62 */        }()
+/* 7.63 */        
+/* 7.64 */        
+/* 7.65 */        { => let caseConfig = Configuration()
+/* 7.66 */            
+/* 7.67 */            let test2TestFunc = { => test2();() }
+/* 7.68 */            suiteBuilder.add(
+/* 7.69 */            UnitTestCase.create(
+/* 7.70 */            "test2",
+/* 7.71 */            configuration: caseConfig,
+/* 7.72 */            body: test2TestFunc
+/* 7.73 */            )
+/* 7.74 */            )
+/* 7.75 */            
+/* 7.76 */        }()
+/* 7.77 */        
+/* 7.78 */        
+/* 7.79 */        { => let caseConfig = Configuration()
+/* 7.80 */            
+/* 7.81 */            let test3TestFunc = { => test3();() }
+/* 7.82 */            suiteBuilder.add(
+/* 7.83 */            UnitTestCase.create(
+/* 7.84 */            "test3",
+/* 7.85 */            configuration: caseConfig,
+/* 7.86 */            body: test3TestFunc
+/* 7.87 */            )
+/* 7.88 */            )
+/* 7.89 */            
+/* 7.90 */        }()
+/* 7.91 */        
+/* 7.92 */        
+/* 7.93 */        { => let caseConfig = Configuration()
+/* 7.94 */            
+/* 7.95 */            let test4TestFunc = { => test4();() }
+/* 7.96 */            suiteBuilder.add(
+/* 7.97 */            UnitTestCase.create(
+/* 7.98 */            "test4",
+/* 7.99 */            configuration: caseConfig,
+/* 7.100 */            body: test4TestFunc
+/* 7.101 */            )
+/* 7.102 */            )
+/* 7.103 */            
+/* 7.104 */        }()
+/* 7.105 */        
+/* 7.106 */        
+/* 7.107 */        { => let caseConfig = Configuration()
+/* 7.108 */            
+/* 7.109 */            let test5TestFunc = { => test5();() }
+/* 7.110 */            suiteBuilder.add(
+/* 7.111 */            UnitTestCase.create(
+/* 7.112 */            "test5",
+/* 7.113 */            configuration: caseConfig,
+/* 7.114 */            body: test5TestFunc
+/* 7.115 */            )
+/* 7.116 */            )
+/* 7.117 */            
+/* 7.118 */        }()
+/* 7.119 */        
+/* 7.120 */        return suiteBuilder.build()
+/* 7.121 */    }
+/* 7.122 */}
+/* 7.123 */
+/* 7.124 */
+/* 7.125 */extend TestPackage {
+/* 7.126 */    @Attribute[TEST_REGISTER]
+/* 7.127 */    func registerserializeByCodeTest() {
+/* 7.128 */        registerSuite({ => serializeByCodeTest().asTestSuite() })
+/* 7.129 */    }
+/* 7.130 */}
+/* 7.131 */
+/* ===== End of the Emit ===== */
+/* ===== Emitted by MacroCall @Test in db_test.cj:42:1 ===== */
+/* 42.1 */@Attribute[TEST_GENERATED] class deserializeByCodeTest <: TestClass {
+/* 42.2 */    @Attribute[TestCase_254]
+/* 42.3 */    public func test1() {
+/* 42.4 */        let st: String = "999|GYD"
+/* 42.5 */        let m: Money = deserializeByCode(st)
+/* 42.6 */        expectEqual("999", "m.amount", 999, m.amount)
+/* 42.7 */        expectEqual("\".\"", "m.currency.decimal", ".", m.currency.decimal)
+/* 42.8 */        expectEqual("\",\"", "m.currency.thousand", ",", m.currency.thousand)
+/* 42.9 */        expectEqual("\"GYD\"", "m.currency.code", "GYD", m.currency.code)
+/* 42.10 */        expectEqual("2", "m.currency.fraction", 2, m.currency.fraction)
+/* 42.11 */        expectEqual("\"328\"", "m.currency.numericCode", "328", m.currency.numericCode)
+/* 42.12 */        expectEqual("\"$\"", "m.currency.grapheme", "$", m.currency.grapheme)
+/* 42.13 */        expectEqual("\"$1\"", "m.currency.template", "$1", m.currency.template)
+/* 42.14 */    }
+/* 42.15 */    
+/* 42.16 */    @Attribute[TestCase_255]
+/* 42.17 */    public func test2() {
+/* 42.18 */        let st: String = "88888888%^PAB"
+/* 42.19 */        let m: Money = deserializeByCode(st, separator: "%^")
+/* 42.20 */        expectEqual("88888888", "m.amount", 88888888, m.amount)
+/* 42.21 */        expectEqual("\".\"", "m.currency.decimal", ".", m.currency.decimal)
+/* 42.22 */        expectEqual("\",\"", "m.currency.thousand", ",", m.currency.thousand)
+/* 42.23 */        expectEqual("\"PAB\"", "m.currency.code", "PAB", m.currency.code)
+/* 42.24 */        expectEqual("2", "m.currency.fraction", 2, m.currency.fraction)
+/* 42.25 */        expectEqual("\"590\"", "m.currency.numericCode", "590", m.currency.numericCode)
+/* 42.26 */        expectEqual("\"B/.\"", "m.currency.grapheme", "B/.", m.currency.grapheme)
+/* 42.27 */        expectEqual("\"$1\"", "m.currency.template", "$1", m.currency.template)
+/* 42.28 */    }
+/* 42.29 */    
+/* 42.30 */    @Attribute[TestCase_256]
+/* 42.31 */    public func test3() {
+/* 42.32 */        let st: String = "5432&XCD"
+/* 42.33 */        let m: Money = deserializeByCode(st, separator: "&")
+/* 42.34 */        expectEqual("5432", "m.amount", 5432, m.amount)
+/* 42.35 */        expectEqual("\".\"", "m.currency.decimal", ".", m.currency.decimal)
+/* 42.36 */        expectEqual("\",\"", "m.currency.thousand", ",", m.currency.thousand)
+/* 42.37 */        expectEqual("\"XCD\"", "m.currency.code", "XCD", m.currency.code)
+/* 42.38 */        expectEqual("2", "m.currency.fraction", 2, m.currency.fraction)
+/* 42.39 */        expectEqual("\"951\"", "m.currency.numericCode", "951", m.currency.numericCode)
+/* 42.40 */        expectEqual("\"$\"", "m.currency.grapheme", "$", m.currency.grapheme)
+/* 42.41 */        expectEqual("\"$1\"", "m.currency.template", "$1", m.currency.template)
+/* 42.42 */    }
+/* 42.43 */    
+/* 42.44 */    @Attribute[TestCase_257]
+/* 42.45 */    public func test4() {
+/* 42.46 */        let st: String = "5432&XCD"
+/* 42.47 */        try {
+/* 42.48 */            try {
+/* 42.49 */                let m: Money = deserializeByCode(st, separator: "|")
+/* 42.50 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalFormatException" + "' was not caught.")
+/* 42.51 */                None < IllegalFormatException >
+/* 42.52 */            } catch(e: IllegalFormatException) {
+/* 42.53 */                e
+/* 42.54 */            }
+/* 42.55 */        } catch(e: Exception) {
+/* 42.56 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 42.57 */                throw e
+/* 42.58 */            }
+/* 42.59 */            let message = "@ExpectThrows" + "(" + "IllegalFormatException" + ")"
+/* 42.60 */            expectCaughtUnexpectedE(message, "IllegalFormatException", e.toString())
+/* 42.61 */            None < IllegalFormatException >
+/* 42.62 */        }
+/* 42.63 */    }
+/* 42.64 */    
+/* 42.65 */    @Attribute[TestCase_258]
+/* 42.66 */    public func test5() {
+/* 42.67 */        let st: String = "970|ZWD|716|2|Z$|$1|.|,"
+/* 42.68 */        try {
+/* 42.69 */            try {
+/* 42.70 */                let m: Money = deserializeByCode(st, separator: "|")
+/* 42.71 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalFormatException" + "' was not caught.")
+/* 42.72 */                None < IllegalFormatException >
+/* 42.73 */            } catch(e: IllegalFormatException) {
+/* 42.74 */                e
+/* 42.75 */            }
+/* 42.76 */        } catch(e: Exception) {
+/* 42.77 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 42.78 */                throw e
+/* 42.79 */            }
+/* 42.80 */            let message = "@ExpectThrows" + "(" + "IllegalFormatException" + ")"
+/* 42.81 */            expectCaughtUnexpectedE(message, "IllegalFormatException", e.toString())
+/* 42.82 */            None < IllegalFormatException >
+/* 42.83 */        }
+/* 42.84 */    }
+/* 42.85 */    
+/* 42.86 */    init() {
+/* 42.87 */    }
+/* 42.88 */    private func classConfiguration(): Configuration {
+/* 42.89 */        let configuration = Configuration()
+/* 42.90 */        
+/* 42.91 */        return configuration
+/* 42.92 */    }
+/* 42.93 */    public override func asTestSuite(): TestSuite {
+/* 42.94 */        
+/* 42.95 */        let suiteConfiguration = classConfiguration()
+/* 42.96 */        let suiteBuilder = TestSuite.builder("deserializeByCodeTest").configure(suiteConfiguration)
+/* 42.97 */        let m___ = TimeNow()
+/* 42.98 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 42.99 */        
+/* 42.100 */        { => let caseConfig = Configuration()
+/* 42.101 */            
+/* 42.102 */            let test1TestFunc = { => test1();() }
+/* 42.103 */            suiteBuilder.add(
+/* 42.104 */            UnitTestCase.create(
+/* 42.105 */            "test1",
+/* 42.106 */            configuration: caseConfig,
+/* 42.107 */            body: test1TestFunc
+/* 42.108 */            )
+/* 42.109 */            )
+/* 42.110 */            
+/* 42.111 */        }()
+/* 42.112 */        
+/* 42.113 */        
+/* 42.114 */        { => let caseConfig = Configuration()
+/* 42.115 */            
+/* 42.116 */            let test2TestFunc = { => test2();() }
+/* 42.117 */            suiteBuilder.add(
+/* 42.118 */            UnitTestCase.create(
+/* 42.119 */            "test2",
+/* 42.120 */            configuration: caseConfig,
+/* 42.121 */            body: test2TestFunc
+/* 42.122 */            )
+/* 42.123 */            )
+/* 42.124 */            
+/* 42.125 */        }()
+/* 42.126 */        
+/* 42.127 */        
+/* 42.128 */        { => let caseConfig = Configuration()
+/* 42.129 */            
+/* 42.130 */            let test3TestFunc = { => test3();() }
+/* 42.131 */            suiteBuilder.add(
+/* 42.132 */            UnitTestCase.create(
+/* 42.133 */            "test3",
+/* 42.134 */            configuration: caseConfig,
+/* 42.135 */            body: test3TestFunc
+/* 42.136 */            )
+/* 42.137 */            )
+/* 42.138 */            
+/* 42.139 */        }()
+/* 42.140 */        
+/* 42.141 */        
+/* 42.142 */        { => let caseConfig = Configuration()
+/* 42.143 */            
+/* 42.144 */            let test4TestFunc = { => test4();() }
+/* 42.145 */            suiteBuilder.add(
+/* 42.146 */            UnitTestCase.create(
+/* 42.147 */            "test4",
+/* 42.148 */            configuration: caseConfig,
+/* 42.149 */            body: test4TestFunc
+/* 42.150 */            )
+/* 42.151 */            )
+/* 42.152 */            
+/* 42.153 */        }()
+/* 42.154 */        
+/* 42.155 */        
+/* 42.156 */        { => let caseConfig = Configuration()
+/* 42.157 */            
+/* 42.158 */            let test5TestFunc = { => test5();() }
+/* 42.159 */            suiteBuilder.add(
+/* 42.160 */            UnitTestCase.create(
+/* 42.161 */            "test5",
+/* 42.162 */            configuration: caseConfig,
+/* 42.163 */            body: test5TestFunc
+/* 42.164 */            )
+/* 42.165 */            )
+/* 42.166 */            
+/* 42.167 */        }()
+/* 42.168 */        
+/* 42.169 */        return suiteBuilder.build()
+/* 42.170 */    }
+/* 42.171 */}
+/* 42.172 */
+/* 42.173 */
+/* 42.174 */extend TestPackage {
+/* 42.175 */    @Attribute[TEST_REGISTER]
+/* 42.176 */    func registerdeserializeByCodeTest() {
+/* 42.177 */        registerSuite({ => deserializeByCodeTest().asTestSuite() })
+/* 42.178 */    }
+/* 42.179 */}
+/* 42.180 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in db_test.cj:102:1 ===== */
+/* 102.1 */@Attribute[TEST_GENERATED] class serializeAllTest <: TestClass {
+/* 102.2 */    @Attribute[TestCase_259]
+/* 102.3 */    public func test1() {
+/* 102.4 */        let m: Money = Money(9.7, "ZWD")
+/* 102.5 */        let st: String = serializeAll(m)
+/* 102.6 */        expectEqual("st", "\"970|ZWD|716|2|Z$|$1|.|,\"", st, "970|ZWD|716|2|Z$|$1|.|,")
+/* 102.7 */    }
+/* 102.8 */    
+/* 102.9 */    @Attribute[TestCase_260]
+/* 102.10 */    public func test2() {
+/* 102.11 */        let m: Money = Money(99, "ZWL")
+/* 102.12 */        let st: String = serializeAll(m, separator: "@@")
+/* 102.13 */        expectEqual("st", "\"99@@ZWL@@932@@2@@Z$@@$1@@.@@,\"", st, "99@@ZWL@@932@@2@@Z$@@$1@@.@@,")
+/* 102.14 */    }
+/* 102.15 */    
+/* 102.16 */    @Attribute[TestCase_261]
+/* 102.17 */    public func test3() {
+/* 102.18 */        let m: Money = Money(Float64(100), "MKD")
+/* 102.19 */        let st: String = serializeAll(m, separator: "^")
+/* 102.20 */        expectEqual("st", "\"10000^MKD^807^2^\\u{0434}\\u{0435}\\u{043d}^$1^.^,\"", st, "10000^MKD^807^2^\u{0434}\u{0435}\u{043d}^$1^.^,")
+/* 102.21 */    }
+/* 102.22 */    
+/* 102.23 */    @Attribute[TestCase_262]
+/* 102.24 */    public func test4() {
+/* 102.25 */        let m: BigMoney = BigMoney("9423432523532345325324353425325325325325325325325325.23444444444464555556343257", "ZWD")
+/* 102.26 */        let st: String = serializeAll(m)
+/* 102.27 */        expectEqual("st", "\"942343252353234532532435342532532532532532532532532523|ZWD|716|2|Z$|$1|.|,\"", st, "942343252353234532532435342532532532532532532532532523|ZWD|716|2|Z$|$1|.|,")
+/* 102.28 */    }
+/* 102.29 */    
+/* 102.30 */    @Attribute[TestCase_263]
+/* 102.31 */    public func test5() {
+/* 102.32 */        let m: BigMoney = BigMoney("-923840578923452388753289532895328999999999278943276783249687236239.23453253253232", "MKD")
+/* 102.33 */        let st: String = serializeAll(m, separator: "^")
+/* 102.34 */        expectEqual("st", "\"-92384057892345238875328953289532899999999927894327678324968723623923^MKD^807^2^\\u{0434}\\u{0435}\\u{043d}^$1^.^,\"", st, "-92384057892345238875328953289532899999999927894327678324968723623923^MKD^807^2^\u{0434}\u{0435}\u{043d}^$1^.^,")
+/* 102.35 */    }
+/* 102.36 */    
+/* 102.37 */    init() {
+/* 102.38 */    }
+/* 102.39 */    private func classConfiguration(): Configuration {
+/* 102.40 */        let configuration = Configuration()
+/* 102.41 */        
+/* 102.42 */        return configuration
+/* 102.43 */    }
+/* 102.44 */    public override func asTestSuite(): TestSuite {
+/* 102.45 */        
+/* 102.46 */        let suiteConfiguration = classConfiguration()
+/* 102.47 */        let suiteBuilder = TestSuite.builder("serializeAllTest").configure(suiteConfiguration)
+/* 102.48 */        let m___ = TimeNow()
+/* 102.49 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 102.50 */        
+/* 102.51 */        { => let caseConfig = Configuration()
+/* 102.52 */            
+/* 102.53 */            let test1TestFunc = { => test1();() }
+/* 102.54 */            suiteBuilder.add(
+/* 102.55 */            UnitTestCase.create(
+/* 102.56 */            "test1",
+/* 102.57 */            configuration: caseConfig,
+/* 102.58 */            body: test1TestFunc
+/* 102.59 */            )
+/* 102.60 */            )
+/* 102.61 */            
+/* 102.62 */        }()
+/* 102.63 */        
+/* 102.64 */        
+/* 102.65 */        { => let caseConfig = Configuration()
+/* 102.66 */            
+/* 102.67 */            let test2TestFunc = { => test2();() }
+/* 102.68 */            suiteBuilder.add(
+/* 102.69 */            UnitTestCase.create(
+/* 102.70 */            "test2",
+/* 102.71 */            configuration: caseConfig,
+/* 102.72 */            body: test2TestFunc
+/* 102.73 */            )
+/* 102.74 */            )
+/* 102.75 */            
+/* 102.76 */        }()
+/* 102.77 */        
+/* 102.78 */        
+/* 102.79 */        { => let caseConfig = Configuration()
+/* 102.80 */            
+/* 102.81 */            let test3TestFunc = { => test3();() }
+/* 102.82 */            suiteBuilder.add(
+/* 102.83 */            UnitTestCase.create(
+/* 102.84 */            "test3",
+/* 102.85 */            configuration: caseConfig,
+/* 102.86 */            body: test3TestFunc
+/* 102.87 */            )
+/* 102.88 */            )
+/* 102.89 */            
+/* 102.90 */        }()
+/* 102.91 */        
+/* 102.92 */        
+/* 102.93 */        { => let caseConfig = Configuration()
+/* 102.94 */            
+/* 102.95 */            let test4TestFunc = { => test4();() }
+/* 102.96 */            suiteBuilder.add(
+/* 102.97 */            UnitTestCase.create(
+/* 102.98 */            "test4",
+/* 102.99 */            configuration: caseConfig,
+/* 102.100 */            body: test4TestFunc
+/* 102.101 */            )
+/* 102.102 */            )
+/* 102.103 */            
+/* 102.104 */        }()
+/* 102.105 */        
+/* 102.106 */        
+/* 102.107 */        { => let caseConfig = Configuration()
+/* 102.108 */            
+/* 102.109 */            let test5TestFunc = { => test5();() }
+/* 102.110 */            suiteBuilder.add(
+/* 102.111 */            UnitTestCase.create(
+/* 102.112 */            "test5",
+/* 102.113 */            configuration: caseConfig,
+/* 102.114 */            body: test5TestFunc
+/* 102.115 */            )
+/* 102.116 */            )
+/* 102.117 */            
+/* 102.118 */        }()
+/* 102.119 */        
+/* 102.120 */        return suiteBuilder.build()
+/* 102.121 */    }
+/* 102.122 */}
+/* 102.123 */
+/* 102.124 */
+/* 102.125 */extend TestPackage {
+/* 102.126 */    @Attribute[TEST_REGISTER]
+/* 102.127 */    func registerserializeAllTest() {
+/* 102.128 */        registerSuite({ => serializeAllTest().asTestSuite() })
+/* 102.129 */    }
+/* 102.130 */}
+/* 102.131 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in db_test.cj:137:1 ===== */
+/* 137.1 */@Attribute[TEST_GENERATED] class deserializeAllTest <: TestClass {
+/* 137.2 */    @Attribute[TestCase_264]
+/* 137.3 */    public func test1() {
+/* 137.4 */        let st: String = "99@@ZWL@@932@@2@@Z$@@$1@@.@@,"
+/* 137.5 */        let m: Money = deserializeAll(st, separator: "@@")
+/* 137.6 */        expectEqual("m.amount", "99", m.amount, 99)
+/* 137.7 */        expectEqual("m.currency.decimal", "\".\"", m.currency.decimal, ".")
+/* 137.8 */        expectEqual("m.currency.thousand", "\",\"", m.currency.thousand, ",")
+/* 137.9 */        expectEqual("m.currency.code", "\"ZWL\"", m.currency.code, "ZWL")
+/* 137.10 */        expectEqual("m.currency.fraction", "2", m.currency.fraction, 2)
+/* 137.11 */        expectEqual("m.currency.numericCode", "\"932\"", m.currency.numericCode, "932")
+/* 137.12 */        expectEqual("m.currency.grapheme", "\"Z$\"", m.currency.grapheme, "Z$")
+/* 137.13 */        expectEqual("m.currency.template", "\"$1\"", m.currency.template, "$1")
+/* 137.14 */    }
+/* 137.15 */    
+/* 137.16 */    @Attribute[TestCase_265]
+/* 137.17 */    public func test2() {
+/* 137.18 */        let st: String = "970|ZWD|716|2|Z$|$1|.|,"
+/* 137.19 */        let m: Money = deserializeAll(st)
+/* 137.20 */        expectEqual("m.amount", "970", m.amount, 970)
+/* 137.21 */        expectEqual("m.currency.decimal", "\".\"", m.currency.decimal, ".")
+/* 137.22 */        expectEqual("m.currency.thousand", "\",\"", m.currency.thousand, ",")
+/* 137.23 */        expectEqual("m.currency.code", "\"ZWD\"", m.currency.code, "ZWD")
+/* 137.24 */        expectEqual("m.currency.fraction", "2", m.currency.fraction, 2)
+/* 137.25 */        expectEqual("m.currency.numericCode", "\"716\"", m.currency.numericCode, "716")
+/* 137.26 */        expectEqual("m.currency.grapheme", "\"Z$\"", m.currency.grapheme, "Z$")
+/* 137.27 */        expectEqual("m.currency.template", "\"$1\"", m.currency.template, "$1")
+/* 137.28 */    }
+/* 137.29 */    
+/* 137.30 */    @Attribute[TestCase_266]
+/* 137.31 */    public func test3() {
+/* 137.32 */        let st: String = "10000^MKD^807^2^\u{0434}\u{0435}\u{043d}^$1^.^,"
+/* 137.33 */        let m: Money = deserializeAll(st, separator: "^")
+/* 137.34 */        expectEqual("m.amount", "10000", m.amount, 10000)
+/* 137.35 */        expectEqual("m.currency.decimal", "\".\"", m.currency.decimal, ".")
+/* 137.36 */        expectEqual("m.currency.thousand", "\",\"", m.currency.thousand, ",")
+/* 137.37 */        expectEqual("m.currency.code", "\"MKD\"", m.currency.code, "MKD")
+/* 137.38 */        expectEqual("m.currency.fraction", "2", m.currency.fraction, 2)
+/* 137.39 */        expectEqual("m.currency.numericCode", "\"807\"", m.currency.numericCode, "807")
+/* 137.40 */        expectEqual("m.currency.grapheme", "\"\\u{0434}\\u{0435}\\u{043d}\"", m.currency.grapheme, "\u{0434}\u{0435}\u{043d}")
+/* 137.41 */        expectEqual("m.currency.template", "\"$1\"", m.currency.template, "$1")
+/* 137.42 */    }
+/* 137.43 */    
+/* 137.44 */    @Attribute[TestCase_267]
+/* 137.45 */    public func test4() {
+/* 137.46 */        let st: String = "10000^MKD^807^2^\u{0434}\u{0435}\u{043d}^$1^.^,"
+/* 137.47 */        try {
+/* 137.48 */            try {
+/* 137.49 */                let m: Money = deserializeAll(st, separator: "|")
+/* 137.50 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalFormatException" + "' was not caught.")
+/* 137.51 */                None < IllegalFormatException >
+/* 137.52 */            } catch(e: IllegalFormatException) {
+/* 137.53 */                e
+/* 137.54 */            }
+/* 137.55 */        } catch(e: Exception) {
+/* 137.56 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 137.57 */                throw e
+/* 137.58 */            }
+/* 137.59 */            let message = "@ExpectThrows" + "(" + "IllegalFormatException" + ")"
+/* 137.60 */            expectCaughtUnexpectedE(message, "IllegalFormatException", e.toString())
+/* 137.61 */            None < IllegalFormatException >
+/* 137.62 */        }
+/* 137.63 */    }
+/* 137.64 */    
+/* 137.65 */    @Attribute[TestCase_268]
+/* 137.66 */    public func test5() {
+/* 137.67 */        let st: String = "10000^MKD^807^2^\u{0434}\u{0435}\u{043d}^$1^.^,^cangjie"
+/* 137.68 */        try {
+/* 137.69 */            try {
+/* 137.70 */                let m: Money = deserializeAll(st, separator: "^")
+/* 137.71 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalFormatException" + "' was not caught.")
+/* 137.72 */                None < IllegalFormatException >
+/* 137.73 */            } catch(e: IllegalFormatException) {
+/* 137.74 */                e
+/* 137.75 */            }
+/* 137.76 */        } catch(e: Exception) {
+/* 137.77 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 137.78 */                throw e
+/* 137.79 */            }
+/* 137.80 */            let message = "@ExpectThrows" + "(" + "IllegalFormatException" + ")"
+/* 137.81 */            expectCaughtUnexpectedE(message, "IllegalFormatException", e.toString())
+/* 137.82 */            None < IllegalFormatException >
+/* 137.83 */        }
+/* 137.84 */    }
+/* 137.85 */    
+/* 137.86 */    init() {
+/* 137.87 */    }
+/* 137.88 */    private func classConfiguration(): Configuration {
+/* 137.89 */        let configuration = Configuration()
+/* 137.90 */        
+/* 137.91 */        return configuration
+/* 137.92 */    }
+/* 137.93 */    public override func asTestSuite(): TestSuite {
+/* 137.94 */        
+/* 137.95 */        let suiteConfiguration = classConfiguration()
+/* 137.96 */        let suiteBuilder = TestSuite.builder("deserializeAllTest").configure(suiteConfiguration)
+/* 137.97 */        let m___ = TimeNow()
+/* 137.98 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 137.99 */        
+/* 137.100 */        { => let caseConfig = Configuration()
+/* 137.101 */            
+/* 137.102 */            let test1TestFunc = { => test1();() }
+/* 137.103 */            suiteBuilder.add(
+/* 137.104 */            UnitTestCase.create(
+/* 137.105 */            "test1",
+/* 137.106 */            configuration: caseConfig,
+/* 137.107 */            body: test1TestFunc
+/* 137.108 */            )
+/* 137.109 */            )
+/* 137.110 */            
+/* 137.111 */        }()
+/* 137.112 */        
+/* 137.113 */        
+/* 137.114 */        { => let caseConfig = Configuration()
+/* 137.115 */            
+/* 137.116 */            let test2TestFunc = { => test2();() }
+/* 137.117 */            suiteBuilder.add(
+/* 137.118 */            UnitTestCase.create(
+/* 137.119 */            "test2",
+/* 137.120 */            configuration: caseConfig,
+/* 137.121 */            body: test2TestFunc
+/* 137.122 */            )
+/* 137.123 */            )
+/* 137.124 */            
+/* 137.125 */        }()
+/* 137.126 */        
+/* 137.127 */        
+/* 137.128 */        { => let caseConfig = Configuration()
+/* 137.129 */            
+/* 137.130 */            let test3TestFunc = { => test3();() }
+/* 137.131 */            suiteBuilder.add(
+/* 137.132 */            UnitTestCase.create(
+/* 137.133 */            "test3",
+/* 137.134 */            configuration: caseConfig,
+/* 137.135 */            body: test3TestFunc
+/* 137.136 */            )
+/* 137.137 */            )
+/* 137.138 */            
+/* 137.139 */        }()
+/* 137.140 */        
+/* 137.141 */        
+/* 137.142 */        { => let caseConfig = Configuration()
+/* 137.143 */            
+/* 137.144 */            let test4TestFunc = { => test4();() }
+/* 137.145 */            suiteBuilder.add(
+/* 137.146 */            UnitTestCase.create(
+/* 137.147 */            "test4",
+/* 137.148 */            configuration: caseConfig,
+/* 137.149 */            body: test4TestFunc
+/* 137.150 */            )
+/* 137.151 */            )
+/* 137.152 */            
+/* 137.153 */        }()
+/* 137.154 */        
+/* 137.155 */        
+/* 137.156 */        { => let caseConfig = Configuration()
+/* 137.157 */            
+/* 137.158 */            let test5TestFunc = { => test5();() }
+/* 137.159 */            suiteBuilder.add(
+/* 137.160 */            UnitTestCase.create(
+/* 137.161 */            "test5",
+/* 137.162 */            configuration: caseConfig,
+/* 137.163 */            body: test5TestFunc
+/* 137.164 */            )
+/* 137.165 */            )
+/* 137.166 */            
+/* 137.167 */        }()
+/* 137.168 */        
+/* 137.169 */        return suiteBuilder.build()
+/* 137.170 */    }
+/* 137.171 */}
+/* 137.172 */
+/* 137.173 */
+/* 137.174 */extend TestPackage {
+/* 137.175 */    @Attribute[TEST_REGISTER]
+/* 137.176 */    func registerdeserializeAllTest() {
+/* 137.177 */        registerSuite({ => deserializeAllTest().asTestSuite() })
+/* 137.178 */    }
+/* 137.179 */}
+/* 137.180 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in db_test.cj:194:1 ===== */
+/* 194.1 */@Attribute[TEST_GENERATED] class deserializeBigMoneyByCodeTest <: TestClass {
+/* 194.2 */    @Attribute[TestCase_269]
+/* 194.3 */    public func test1() {
+/* 194.4 */        let st: String = "9872347893879328932032890329723893289328632879687983274958723487873234878342778267887799|GYD"
+/* 194.5 */        let m: BigMoney = deserializeBigMoneyByCode(st)
+/* 194.6 */        expectEqual("BigInt(\"9872347893879328932032890329723893289328632879687983274958723487873234878342778267887799\")", "m.amount", BigInt("9872347893879328932032890329723893289328632879687983274958723487873234878342778267887799"), m.amount)
+/* 194.7 */        expectEqual("\".\"", "m.currency.decimal", ".", m.currency.decimal)
+/* 194.8 */        expectEqual("\",\"", "m.currency.thousand", ",", m.currency.thousand)
+/* 194.9 */        expectEqual("\"GYD\"", "m.currency.code", "GYD", m.currency.code)
+/* 194.10 */        expectEqual("2", "m.currency.fraction", 2, m.currency.fraction)
+/* 194.11 */        expectEqual("\"328\"", "m.currency.numericCode", "328", m.currency.numericCode)
+/* 194.12 */        expectEqual("\"$\"", "m.currency.grapheme", "$", m.currency.grapheme)
+/* 194.13 */        expectEqual("\"$1\"", "m.currency.template", "$1", m.currency.template)
+/* 194.14 */    }
+/* 194.15 */    
+/* 194.16 */    @Attribute[TestCase_270]
+/* 194.17 */    public func test2() {
+/* 194.18 */        let st: String = "888887234589270908713461683487314892643893120489127059428378796634209783289286378888%^PAB"
+/* 194.19 */        let m: BigMoney = deserializeBigMoneyByCode(st, separator: "%^")
+/* 194.20 */        expectEqual("BigInt(\"888887234589270908713461683487314892643893120489127059428378796634209783289286378888\")", "m.amount", BigInt("888887234589270908713461683487314892643893120489127059428378796634209783289286378888"), m.amount)
+/* 194.21 */        expectEqual("\".\"", "m.currency.decimal", ".", m.currency.decimal)
+/* 194.22 */        expectEqual("\",\"", "m.currency.thousand", ",", m.currency.thousand)
+/* 194.23 */        expectEqual("\"PAB\"", "m.currency.code", "PAB", m.currency.code)
+/* 194.24 */        expectEqual("2", "m.currency.fraction", 2, m.currency.fraction)
+/* 194.25 */        expectEqual("\"590\"", "m.currency.numericCode", "590", m.currency.numericCode)
+/* 194.26 */        expectEqual("\"B/.\"", "m.currency.grapheme", "B/.", m.currency.grapheme)
+/* 194.27 */        expectEqual("\"$1\"", "m.currency.template", "$1", m.currency.template)
+/* 194.28 */    }
+/* 194.29 */    
+/* 194.30 */    @Attribute[TestCase_271]
+/* 194.31 */    public func test3() {
+/* 194.32 */        let st: String = "597854709283802933280958092389405784324353222222222224365424522&XCD"
+/* 194.33 */        try {
+/* 194.34 */            try {
+/* 194.35 */                let m: BigMoney = deserializeBigMoneyByCode(st, separator: "|")
+/* 194.36 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalFormatException" + "' was not caught.")
+/* 194.37 */                None < IllegalFormatException >
+/* 194.38 */            } catch(e: IllegalFormatException) {
+/* 194.39 */                e
+/* 194.40 */            }
+/* 194.41 */        } catch(e: Exception) {
+/* 194.42 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 194.43 */                throw e
+/* 194.44 */            }
+/* 194.45 */            let message = "@ExpectThrows" + "(" + "IllegalFormatException" + ")"
+/* 194.46 */            expectCaughtUnexpectedE(message, "IllegalFormatException", e.toString())
+/* 194.47 */            None < IllegalFormatException >
+/* 194.48 */        }
+/* 194.49 */    }
+/* 194.50 */    
+/* 194.51 */    @Attribute[TestCase_272]
+/* 194.52 */    public func test4() {
+/* 194.53 */        let st: String = "92345235555555555235667053666666666632345322222222222222222222536|ZWD|716|2|Z$|$1|.|,"
+/* 194.54 */        try {
+/* 194.55 */            try {
+/* 194.56 */                let m: BigMoney = deserializeBigMoneyByCode(st, separator: "|")
+/* 194.57 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalFormatException" + "' was not caught.")
+/* 194.58 */                None < IllegalFormatException >
+/* 194.59 */            } catch(e: IllegalFormatException) {
+/* 194.60 */                e
+/* 194.61 */            }
+/* 194.62 */        } catch(e: Exception) {
+/* 194.63 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 194.64 */                throw e
+/* 194.65 */            }
+/* 194.66 */            let message = "@ExpectThrows" + "(" + "IllegalFormatException" + ")"
+/* 194.67 */            expectCaughtUnexpectedE(message, "IllegalFormatException", e.toString())
+/* 194.68 */            None < IllegalFormatException >
+/* 194.69 */        }
+/* 194.70 */    }
+/* 194.71 */    
+/* 194.72 */    init() {
+/* 194.73 */    }
+/* 194.74 */    private func classConfiguration(): Configuration {
+/* 194.75 */        let configuration = Configuration()
+/* 194.76 */        
+/* 194.77 */        return configuration
+/* 194.78 */    }
+/* 194.79 */    public override func asTestSuite(): TestSuite {
+/* 194.80 */        
+/* 194.81 */        let suiteConfiguration = classConfiguration()
+/* 194.82 */        let suiteBuilder = TestSuite.builder("deserializeBigMoneyByCodeTest").configure(suiteConfiguration)
+/* 194.83 */        let m___ = TimeNow()
+/* 194.84 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 194.85 */        
+/* 194.86 */        { => let caseConfig = Configuration()
+/* 194.87 */            
+/* 194.88 */            let test1TestFunc = { => test1();() }
+/* 194.89 */            suiteBuilder.add(
+/* 194.90 */            UnitTestCase.create(
+/* 194.91 */            "test1",
+/* 194.92 */            configuration: caseConfig,
+/* 194.93 */            body: test1TestFunc
+/* 194.94 */            )
+/* 194.95 */            )
+/* 194.96 */            
+/* 194.97 */        }()
+/* 194.98 */        
+/* 194.99 */        
+/* 194.100 */        { => let caseConfig = Configuration()
+/* 194.101 */            
+/* 194.102 */            let test2TestFunc = { => test2();() }
+/* 194.103 */            suiteBuilder.add(
+/* 194.104 */            UnitTestCase.create(
+/* 194.105 */            "test2",
+/* 194.106 */            configuration: caseConfig,
+/* 194.107 */            body: test2TestFunc
+/* 194.108 */            )
+/* 194.109 */            )
+/* 194.110 */            
+/* 194.111 */        }()
+/* 194.112 */        
+/* 194.113 */        
+/* 194.114 */        { => let caseConfig = Configuration()
+/* 194.115 */            
+/* 194.116 */            let test3TestFunc = { => test3();() }
+/* 194.117 */            suiteBuilder.add(
+/* 194.118 */            UnitTestCase.create(
+/* 194.119 */            "test3",
+/* 194.120 */            configuration: caseConfig,
+/* 194.121 */            body: test3TestFunc
+/* 194.122 */            )
+/* 194.123 */            )
+/* 194.124 */            
+/* 194.125 */        }()
+/* 194.126 */        
+/* 194.127 */        
+/* 194.128 */        { => let caseConfig = Configuration()
+/* 194.129 */            
+/* 194.130 */            let test4TestFunc = { => test4();() }
+/* 194.131 */            suiteBuilder.add(
+/* 194.132 */            UnitTestCase.create(
+/* 194.133 */            "test4",
+/* 194.134 */            configuration: caseConfig,
+/* 194.135 */            body: test4TestFunc
+/* 194.136 */            )
+/* 194.137 */            )
+/* 194.138 */            
+/* 194.139 */        }()
+/* 194.140 */        
+/* 194.141 */        return suiteBuilder.build()
+/* 194.142 */    }
+/* 194.143 */}
+/* 194.144 */
+/* 194.145 */
+/* 194.146 */extend TestPackage {
+/* 194.147 */    @Attribute[TEST_REGISTER]
+/* 194.148 */    func registerdeserializeBigMoneyByCodeTest() {
+/* 194.149 */        registerSuite({ => deserializeBigMoneyByCodeTest().asTestSuite() })
+/* 194.150 */    }
+/* 194.151 */}
+/* 194.152 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in db_test.cj:240:1 ===== */
+/* 240.1 */@Attribute[TEST_GENERATED] class deserializeBigMoneyAllTest <: TestClass {
+/* 240.2 */    @Attribute[TestCase_273]
+/* 240.3 */    public func test1() {
+/* 240.4 */        let st: String = "9897522222222234958092888888888888888724933268344283498174321829374681469329@@ZWL@@932@@2@@Z$@@$1@@.@@,"
+/* 240.5 */        let m: BigMoney = deserializeBigMoneyAll(st, separator: "@@")
+/* 240.6 */        expectEqual("m.amount", "BigInt(\"9897522222222234958092888888888888888724933268344283498174321829374681469329\")", m.amount, BigInt("9897522222222234958092888888888888888724933268344283498174321829374681469329"))
+/* 240.7 */        expectEqual("m.currency.decimal", "\".\"", m.currency.decimal, ".")
+/* 240.8 */        expectEqual("m.currency.thousand", "\",\"", m.currency.thousand, ",")
+/* 240.9 */        expectEqual("m.currency.code", "\"ZWL\"", m.currency.code, "ZWL")
+/* 240.10 */        expectEqual("m.currency.fraction", "2", m.currency.fraction, 2)
+/* 240.11 */        expectEqual("m.currency.numericCode", "\"932\"", m.currency.numericCode, "932")
+/* 240.12 */        expectEqual("m.currency.grapheme", "\"Z$\"", m.currency.grapheme, "Z$")
+/* 240.13 */        expectEqual("m.currency.template", "\"$1\"", m.currency.template, "$1")
+/* 240.14 */    }
+/* 240.15 */    
+/* 240.16 */    @Attribute[TestCase_274]
+/* 240.17 */    public func test2() {
+/* 240.18 */        let st: String = "909857342798235283973289732897892379745322502344444444444444444444444444123414324214|ZWD|716|2|Z$|$1|.|,"
+/* 240.19 */        let m: BigMoney = deserializeBigMoneyAll(st)
+/* 240.20 */        expectEqual("m.amount", "BigInt(\"909857342798235283973289732897892379745322502344444444444444444444444444123414324214\")", m.amount, BigInt("909857342798235283973289732897892379745322502344444444444444444444444444123414324214"))
+/* 240.21 */        expectEqual("m.currency.decimal", "\".\"", m.currency.decimal, ".")
+/* 240.22 */        expectEqual("m.currency.thousand", "\",\"", m.currency.thousand, ",")
+/* 240.23 */        expectEqual("m.currency.code", "\"ZWD\"", m.currency.code, "ZWD")
+/* 240.24 */        expectEqual("m.currency.fraction", "2", m.currency.fraction, 2)
+/* 240.25 */        expectEqual("m.currency.numericCode", "\"716\"", m.currency.numericCode, "716")
+/* 240.26 */        expectEqual("m.currency.grapheme", "\"Z$\"", m.currency.grapheme, "Z$")
+/* 240.27 */        expectEqual("m.currency.template", "\"$1\"", m.currency.template, "$1")
+/* 240.28 */    }
+/* 240.29 */    
+/* 240.30 */    @Attribute[TestCase_275]
+/* 240.31 */    public func test3() {
+/* 240.32 */        let st: String = "100732987045823903289000000000000000000000004738292839780975203897327895239800^MKD^807^2^\u{0434}\u{0435}\u{043d}^$1^.^,"
+/* 240.33 */        try {
+/* 240.34 */            try {
+/* 240.35 */                let m: BigMoney = deserializeBigMoneyAll(st, separator: "|")
+/* 240.36 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalFormatException" + "' was not caught.")
+/* 240.37 */                None < IllegalFormatException >
+/* 240.38 */            } catch(e: IllegalFormatException) {
+/* 240.39 */                e
+/* 240.40 */            }
+/* 240.41 */        } catch(e: Exception) {
+/* 240.42 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 240.43 */                throw e
+/* 240.44 */            }
+/* 240.45 */            let message = "@ExpectThrows" + "(" + "IllegalFormatException" + ")"
+/* 240.46 */            expectCaughtUnexpectedE(message, "IllegalFormatException", e.toString())
+/* 240.47 */            None < IllegalFormatException >
+/* 240.48 */        }
+/* 240.49 */    }
+/* 240.50 */    
+/* 240.51 */    @Attribute[TestCase_276]
+/* 240.52 */    public func test4() {
+/* 240.53 */        let st: String = "100732987045823903289000000000000000000000004738292839780975203897327895239800^MKD^807^2^\u{0434}\u{0435}\u{043d}^$1^.^,^cangjie"
+/* 240.54 */        try {
+/* 240.55 */            try {
+/* 240.56 */                let m: BigMoney = deserializeBigMoneyAll(st, separator: "^")
+/* 240.57 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalFormatException" + "' was not caught.")
+/* 240.58 */                None < IllegalFormatException >
+/* 240.59 */            } catch(e: IllegalFormatException) {
+/* 240.60 */                e
+/* 240.61 */            }
+/* 240.62 */        } catch(e: Exception) {
+/* 240.63 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 240.64 */                throw e
+/* 240.65 */            }
+/* 240.66 */            let message = "@ExpectThrows" + "(" + "IllegalFormatException" + ")"
+/* 240.67 */            expectCaughtUnexpectedE(message, "IllegalFormatException", e.toString())
+/* 240.68 */            None < IllegalFormatException >
+/* 240.69 */        }
+/* 240.70 */    }
+/* 240.71 */    
+/* 240.72 */    init() {
+/* 240.73 */    }
+/* 240.74 */    private func classConfiguration(): Configuration {
+/* 240.75 */        let configuration = Configuration()
+/* 240.76 */        
+/* 240.77 */        return configuration
+/* 240.78 */    }
+/* 240.79 */    public override func asTestSuite(): TestSuite {
+/* 240.80 */        
+/* 240.81 */        let suiteConfiguration = classConfiguration()
+/* 240.82 */        let suiteBuilder = TestSuite.builder("deserializeBigMoneyAllTest").configure(suiteConfiguration)
+/* 240.83 */        let m___ = TimeNow()
+/* 240.84 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 240.85 */        
+/* 240.86 */        { => let caseConfig = Configuration()
+/* 240.87 */            
+/* 240.88 */            let test1TestFunc = { => test1();() }
+/* 240.89 */            suiteBuilder.add(
+/* 240.90 */            UnitTestCase.create(
+/* 240.91 */            "test1",
+/* 240.92 */            configuration: caseConfig,
+/* 240.93 */            body: test1TestFunc
+/* 240.94 */            )
+/* 240.95 */            )
+/* 240.96 */            
+/* 240.97 */        }()
+/* 240.98 */        
+/* 240.99 */        
+/* 240.100 */        { => let caseConfig = Configuration()
+/* 240.101 */            
+/* 240.102 */            let test2TestFunc = { => test2();() }
+/* 240.103 */            suiteBuilder.add(
+/* 240.104 */            UnitTestCase.create(
+/* 240.105 */            "test2",
+/* 240.106 */            configuration: caseConfig,
+/* 240.107 */            body: test2TestFunc
+/* 240.108 */            )
+/* 240.109 */            )
+/* 240.110 */            
+/* 240.111 */        }()
+/* 240.112 */        
+/* 240.113 */        
+/* 240.114 */        { => let caseConfig = Configuration()
+/* 240.115 */            
+/* 240.116 */            let test3TestFunc = { => test3();() }
+/* 240.117 */            suiteBuilder.add(
+/* 240.118 */            UnitTestCase.create(
+/* 240.119 */            "test3",
+/* 240.120 */            configuration: caseConfig,
+/* 240.121 */            body: test3TestFunc
+/* 240.122 */            )
+/* 240.123 */            )
+/* 240.124 */            
+/* 240.125 */        }()
+/* 240.126 */        
+/* 240.127 */        
+/* 240.128 */        { => let caseConfig = Configuration()
+/* 240.129 */            
+/* 240.130 */            let test4TestFunc = { => test4();() }
+/* 240.131 */            suiteBuilder.add(
+/* 240.132 */            UnitTestCase.create(
+/* 240.133 */            "test4",
+/* 240.134 */            configuration: caseConfig,
+/* 240.135 */            body: test4TestFunc
+/* 240.136 */            )
+/* 240.137 */            )
+/* 240.138 */            
+/* 240.139 */        }()
+/* 240.140 */        
+/* 240.141 */        return suiteBuilder.build()
+/* 240.142 */    }
+/* 240.143 */}
+/* 240.144 */
+/* 240.145 */
+/* 240.146 */extend TestPackage {
+/* 240.147 */    @Attribute[TEST_REGISTER]
+/* 240.148 */    func registerdeserializeBigMoneyAllTest() {
+/* 240.149 */        registerSuite({ => deserializeBigMoneyAllTest().asTestSuite() })
+/* 240.150 */    }
+/* 240.151 */}
+/* 240.152 */
+/* ===== End of the Emit ===== */

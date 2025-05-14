@@ -1,0 +1,3765 @@
+package cj_money
+
+import std.unittest.*
+import std.unittest.testmacro.*
+import std.collection.*
+
+import std.math.numeric.*
+
+/* ===== Emitted by MacroCall @Test in calculator_test.cj:9:1 ===== */
+/* 9.1 */@Attribute[TEST_GENERATED] class addTest <: TestClass {
+/* 9.2 */    @Attribute[TestCase_44]
+/* 9.3 */    public func test1() {
+/* 9.4 */        let m1: Money = Money(- 12.3, "AED")
+/* 9.5 */        let m2: Money = Money(12.3, "AED")
+/* 9.6 */        let calculator: Calculator = Calculator()
+/* 9.7 */        let m: Money = calculator.calculate(m1, m2, add)
+/* 9.8 */        expectEqual("m.amount", "0", m.amount, 0)
+/* 9.9 */    }
+/* 9.10 */    
+/* 9.11 */    @Attribute[TestCase_45]
+/* 9.12 */    public func test2() {
+/* 9.13 */        let m1: Money = Money(- 112.305, "COP")
+/* 9.14 */        let m2: Money = Money(12.31, "COP")
+/* 9.15 */        let calculator: Calculator = Calculator()
+/* 9.16 */        let m: Money = calculator.calculate(m1, m2, add)
+/* 9.17 */        expectEqual("m.amount", "- 10000", m.amount, - 10000)
+/* 9.18 */    }
+/* 9.19 */    
+/* 9.20 */    @Attribute[TestCase_46]
+/* 9.21 */    public func test3() {
+/* 9.22 */        let m1: Money = Money(122.3054333, "KWD")
+/* 9.23 */        let m2: Money = Money(- 18.0, "KWD")
+/* 9.24 */        let calculator: Calculator = Calculator()
+/* 9.25 */        let m: Money = calculator.calculate(m1, m2, add)
+/* 9.26 */        expectEqual("m.amount", "104305", m.amount, 104305)
+/* 9.27 */    }
+/* 9.28 */    
+/* 9.29 */    @Attribute[TestCase_47]
+/* 9.30 */    public func test4() {
+/* 9.31 */        let m1: Money = Money(0.1, "PLN")
+/* 9.32 */        let m2: Money = Money(0.2, "PLN")
+/* 9.33 */        let calculator: Calculator = Calculator()
+/* 9.34 */        let m: Money = calculator.calculate(m1, m2, add)
+/* 9.35 */        expectEqual("m.amount", "30", m.amount, 30)
+/* 9.36 */    }
+/* 9.37 */    
+/* 9.38 */    @Attribute[TestCase_48]
+/* 9.39 */    public func test5() {
+/* 9.40 */        let m1: Money = Money(0.0, "JEP")
+/* 9.41 */        let m2: Money = Money(0.0, "JEP")
+/* 9.42 */        let calculator: Calculator = Calculator()
+/* 9.43 */        let m: Money = calculator.calculate(m1, m2, add)
+/* 9.44 */        expectEqual("m.amount", "0", m.amount, 0)
+/* 9.45 */    }
+/* 9.46 */    
+/* 9.47 */    @Attribute[TestCase_49]
+/* 9.48 */    public func test6() {
+/* 9.49 */        let m1: Money = Money(12.012, "PHP")
+/* 9.50 */        let m2: Money = Money(0.0, "PHP")
+/* 9.51 */        let calculator: Calculator = Calculator()
+/* 9.52 */        let m: Money = calculator.calculate(m1, m2, add)
+/* 9.53 */        expectEqual("m.amount", "1201", m.amount, 1201)
+/* 9.54 */    }
+/* 9.55 */    
+/* 9.56 */    @Attribute[TestCase_50]
+/* 9.57 */    public func test7() {
+/* 9.58 */        let m1: Money = Money(- 14.025, "TJS")
+/* 9.59 */        let m2: Money = Money(- 16.388, "TJS")
+/* 9.60 */        let calculator: Calculator = Calculator()
+/* 9.61 */        let m: Money = calculator.calculate(m1, m2, add)
+/* 9.62 */        expectEqual("m.amount", "- 3042", m.amount, - 3042)
+/* 9.63 */    }
+/* 9.64 */    
+/* 9.65 */    @Attribute[TestCase_51]
+/* 9.66 */    public func test8() {
+/* 9.67 */        let m1: Money = Money(- 14.025, "PHP")
+/* 9.68 */        let m2: Money = Money(- 16.388, "TJS")
+/* 9.69 */        let calculator: Calculator = Calculator()
+/* 9.70 */        try {
+/* 9.71 */            try {
+/* 9.72 */                let m: Money = calculator.calculate(m1, m2, add)
+/* 9.73 */                failExpect("@ExpectThrows" + ": Expected '" + "CurrencyNotSameException" + "' was not caught.")
+/* 9.74 */                None < CurrencyNotSameException >
+/* 9.75 */            } catch(e: CurrencyNotSameException) {
+/* 9.76 */                e
+/* 9.77 */            }
+/* 9.78 */        } catch(e: Exception) {
+/* 9.79 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 9.80 */                throw e
+/* 9.81 */            }
+/* 9.82 */            let message = "@ExpectThrows" + "(" + "CurrencyNotSameException" + ")"
+/* 9.83 */            expectCaughtUnexpectedE(message, "CurrencyNotSameException", e.toString())
+/* 9.84 */            None < CurrencyNotSameException >
+/* 9.85 */        }
+/* 9.86 */    }
+/* 9.87 */    
+/* 9.88 */    @Attribute[TestCase_52]
+/* 9.89 */    public func test9() {
+/* 9.90 */        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+/* 9.91 */        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+/* 9.92 */        let calculator: Calculator = Calculator()
+/* 9.93 */        let m: BigMoney = calculator.calculate(m1, m2, add)
+/* 9.94 */        expectEqual("m.amount", "BigInt(0)", m.amount, BigInt(0))
+/* 9.95 */    }
+/* 9.96 */    
+/* 9.97 */    @Attribute[TestCase_53]
+/* 9.98 */    public func test10() {
+/* 9.99 */        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+/* 9.100 */        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+/* 9.101 */        let calculator: Calculator = Calculator()
+/* 9.102 */        let m: BigMoney = calculator.calculate(m1, m2, add)
+/* 9.103 */        expectEqual("m.amount", "BigInt(\"-8972222947842960358202067802600\")", m.amount, BigInt("-8972222947842960358202067802600"))
+/* 9.104 */    }
+/* 9.105 */    
+/* 9.106 */    @Attribute[TestCase_54]
+/* 9.107 */    public func test11() {
+/* 9.108 */        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+/* 9.109 */        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+/* 9.110 */        let calculator: Calculator = Calculator()
+/* 9.111 */        let m: BigMoney = calculator.calculate(m1, m2, add)
+/* 9.112 */        expectEqual("m.amount", "BigInt(\"121234144020509992800971228068\")", m.amount, BigInt("121234144020509992800971228068"))
+/* 9.113 */    }
+/* 9.114 */    
+/* 9.115 */    @Attribute[TestCase_55]
+/* 9.116 */    public func test12() {
+/* 9.117 */        let m1: BigMoney = BigMoney("0.0", "JEP")
+/* 9.118 */        let m2: BigMoney = BigMoney("0.0", "JEP")
+/* 9.119 */        let calculator: Calculator = Calculator()
+/* 9.120 */        let m: BigMoney = calculator.calculate(m1, m2, add)
+/* 9.121 */        expectEqual("m.amount", "BigInt(0)", m.amount, BigInt(0))
+/* 9.122 */    }
+/* 9.123 */    
+/* 9.124 */    @Attribute[TestCase_56]
+/* 9.125 */    public func test13() {
+/* 9.126 */        let m1: BigMoney = BigMoney("11342144425123412444455555555555553253411342.0153545124124123444444444444413234112", "PHP")
+/* 9.127 */        let m2: BigMoney = BigMoney("0.0", "PHP")
+/* 9.128 */        let calculator: Calculator = Calculator()
+/* 9.129 */        let m: BigMoney = calculator.calculate(m1, m2, add)
+/* 9.130 */        expectEqual("m.amount", "BigInt(\"1134214442512341244445555555555555325341134202\")", m.amount, BigInt("1134214442512341244445555555555555325341134202"))
+/* 9.131 */    }
+/* 9.132 */    
+/* 9.133 */    @Attribute[TestCase_57]
+/* 9.134 */    public func test14() {
+/* 9.135 */        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+/* 9.136 */        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+/* 9.137 */        let calculator: Calculator = Calculator()
+/* 9.138 */        let m: BigMoney = calculator.calculate(m1, m2, add)
+/* 9.139 */        expectEqual("m.amount", "BigInt(\"-16243575867119067685449707476787963\")", m.amount, BigInt("-16243575867119067685449707476787963"))
+/* 9.140 */    }
+/* 9.141 */    
+/* 9.142 */    @Attribute[TestCase_58]
+/* 9.143 */    public func test15() {
+/* 9.144 */        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
+/* 9.145 */        let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
+/* 9.146 */        let calculator: Calculator = Calculator()
+/* 9.147 */        try {
+/* 9.148 */            try {
+/* 9.149 */                let m: BigMoney = calculator.calculate(m1, m2, add)
+/* 9.150 */                failExpect("@ExpectThrows" + ": Expected '" + "CurrencyNotSameException" + "' was not caught.")
+/* 9.151 */                None < CurrencyNotSameException >
+/* 9.152 */            } catch(e: CurrencyNotSameException) {
+/* 9.153 */                e
+/* 9.154 */            }
+/* 9.155 */        } catch(e: Exception) {
+/* 9.156 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 9.157 */                throw e
+/* 9.158 */            }
+/* 9.159 */            let message = "@ExpectThrows" + "(" + "CurrencyNotSameException" + ")"
+/* 9.160 */            expectCaughtUnexpectedE(message, "CurrencyNotSameException", e.toString())
+/* 9.161 */            None < CurrencyNotSameException >
+/* 9.162 */        }
+/* 9.163 */    }
+/* 9.164 */    
+/* 9.165 */    init() {
+/* 9.166 */    }
+/* 9.167 */    private func classConfiguration(): Configuration {
+/* 9.168 */        let configuration = Configuration()
+/* 9.169 */        
+/* 9.170 */        return configuration
+/* 9.171 */    }
+/* 9.172 */    public override func asTestSuite(): TestSuite {
+/* 9.173 */        
+/* 9.174 */        let suiteConfiguration = classConfiguration()
+/* 9.175 */        let suiteBuilder = TestSuite.builder("addTest").configure(suiteConfiguration)
+/* 9.176 */        let m___ = TimeNow()
+/* 9.177 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 9.178 */        
+/* 9.179 */        { => let caseConfig = Configuration()
+/* 9.180 */            
+/* 9.181 */            let test1TestFunc = { => test1();() }
+/* 9.182 */            suiteBuilder.add(
+/* 9.183 */            UnitTestCase.create(
+/* 9.184 */            "test1",
+/* 9.185 */            configuration: caseConfig,
+/* 9.186 */            body: test1TestFunc
+/* 9.187 */            )
+/* 9.188 */            )
+/* 9.189 */            
+/* 9.190 */        }()
+/* 9.191 */        
+/* 9.192 */        
+/* 9.193 */        { => let caseConfig = Configuration()
+/* 9.194 */            
+/* 9.195 */            let test2TestFunc = { => test2();() }
+/* 9.196 */            suiteBuilder.add(
+/* 9.197 */            UnitTestCase.create(
+/* 9.198 */            "test2",
+/* 9.199 */            configuration: caseConfig,
+/* 9.200 */            body: test2TestFunc
+/* 9.201 */            )
+/* 9.202 */            )
+/* 9.203 */            
+/* 9.204 */        }()
+/* 9.205 */        
+/* 9.206 */        
+/* 9.207 */        { => let caseConfig = Configuration()
+/* 9.208 */            
+/* 9.209 */            let test3TestFunc = { => test3();() }
+/* 9.210 */            suiteBuilder.add(
+/* 9.211 */            UnitTestCase.create(
+/* 9.212 */            "test3",
+/* 9.213 */            configuration: caseConfig,
+/* 9.214 */            body: test3TestFunc
+/* 9.215 */            )
+/* 9.216 */            )
+/* 9.217 */            
+/* 9.218 */        }()
+/* 9.219 */        
+/* 9.220 */        
+/* 9.221 */        { => let caseConfig = Configuration()
+/* 9.222 */            
+/* 9.223 */            let test4TestFunc = { => test4();() }
+/* 9.224 */            suiteBuilder.add(
+/* 9.225 */            UnitTestCase.create(
+/* 9.226 */            "test4",
+/* 9.227 */            configuration: caseConfig,
+/* 9.228 */            body: test4TestFunc
+/* 9.229 */            )
+/* 9.230 */            )
+/* 9.231 */            
+/* 9.232 */        }()
+/* 9.233 */        
+/* 9.234 */        
+/* 9.235 */        { => let caseConfig = Configuration()
+/* 9.236 */            
+/* 9.237 */            let test5TestFunc = { => test5();() }
+/* 9.238 */            suiteBuilder.add(
+/* 9.239 */            UnitTestCase.create(
+/* 9.240 */            "test5",
+/* 9.241 */            configuration: caseConfig,
+/* 9.242 */            body: test5TestFunc
+/* 9.243 */            )
+/* 9.244 */            )
+/* 9.245 */            
+/* 9.246 */        }()
+/* 9.247 */        
+/* 9.248 */        
+/* 9.249 */        { => let caseConfig = Configuration()
+/* 9.250 */            
+/* 9.251 */            let test6TestFunc = { => test6();() }
+/* 9.252 */            suiteBuilder.add(
+/* 9.253 */            UnitTestCase.create(
+/* 9.254 */            "test6",
+/* 9.255 */            configuration: caseConfig,
+/* 9.256 */            body: test6TestFunc
+/* 9.257 */            )
+/* 9.258 */            )
+/* 9.259 */            
+/* 9.260 */        }()
+/* 9.261 */        
+/* 9.262 */        
+/* 9.263 */        { => let caseConfig = Configuration()
+/* 9.264 */            
+/* 9.265 */            let test7TestFunc = { => test7();() }
+/* 9.266 */            suiteBuilder.add(
+/* 9.267 */            UnitTestCase.create(
+/* 9.268 */            "test7",
+/* 9.269 */            configuration: caseConfig,
+/* 9.270 */            body: test7TestFunc
+/* 9.271 */            )
+/* 9.272 */            )
+/* 9.273 */            
+/* 9.274 */        }()
+/* 9.275 */        
+/* 9.276 */        
+/* 9.277 */        { => let caseConfig = Configuration()
+/* 9.278 */            
+/* 9.279 */            let test8TestFunc = { => test8();() }
+/* 9.280 */            suiteBuilder.add(
+/* 9.281 */            UnitTestCase.create(
+/* 9.282 */            "test8",
+/* 9.283 */            configuration: caseConfig,
+/* 9.284 */            body: test8TestFunc
+/* 9.285 */            )
+/* 9.286 */            )
+/* 9.287 */            
+/* 9.288 */        }()
+/* 9.289 */        
+/* 9.290 */        
+/* 9.291 */        { => let caseConfig = Configuration()
+/* 9.292 */            
+/* 9.293 */            let test9TestFunc = { => test9();() }
+/* 9.294 */            suiteBuilder.add(
+/* 9.295 */            UnitTestCase.create(
+/* 9.296 */            "test9",
+/* 9.297 */            configuration: caseConfig,
+/* 9.298 */            body: test9TestFunc
+/* 9.299 */            )
+/* 9.300 */            )
+/* 9.301 */            
+/* 9.302 */        }()
+/* 9.303 */        
+/* 9.304 */        
+/* 9.305 */        { => let caseConfig = Configuration()
+/* 9.306 */            
+/* 9.307 */            let test10TestFunc = { => test10();() }
+/* 9.308 */            suiteBuilder.add(
+/* 9.309 */            UnitTestCase.create(
+/* 9.310 */            "test10",
+/* 9.311 */            configuration: caseConfig,
+/* 9.312 */            body: test10TestFunc
+/* 9.313 */            )
+/* 9.314 */            )
+/* 9.315 */            
+/* 9.316 */        }()
+/* 9.317 */        
+/* 9.318 */        
+/* 9.319 */        { => let caseConfig = Configuration()
+/* 9.320 */            
+/* 9.321 */            let test11TestFunc = { => test11();() }
+/* 9.322 */            suiteBuilder.add(
+/* 9.323 */            UnitTestCase.create(
+/* 9.324 */            "test11",
+/* 9.325 */            configuration: caseConfig,
+/* 9.326 */            body: test11TestFunc
+/* 9.327 */            )
+/* 9.328 */            )
+/* 9.329 */            
+/* 9.330 */        }()
+/* 9.331 */        
+/* 9.332 */        
+/* 9.333 */        { => let caseConfig = Configuration()
+/* 9.334 */            
+/* 9.335 */            let test12TestFunc = { => test12();() }
+/* 9.336 */            suiteBuilder.add(
+/* 9.337 */            UnitTestCase.create(
+/* 9.338 */            "test12",
+/* 9.339 */            configuration: caseConfig,
+/* 9.340 */            body: test12TestFunc
+/* 9.341 */            )
+/* 9.342 */            )
+/* 9.343 */            
+/* 9.344 */        }()
+/* 9.345 */        
+/* 9.346 */        
+/* 9.347 */        { => let caseConfig = Configuration()
+/* 9.348 */            
+/* 9.349 */            let test13TestFunc = { => test13();() }
+/* 9.350 */            suiteBuilder.add(
+/* 9.351 */            UnitTestCase.create(
+/* 9.352 */            "test13",
+/* 9.353 */            configuration: caseConfig,
+/* 9.354 */            body: test13TestFunc
+/* 9.355 */            )
+/* 9.356 */            )
+/* 9.357 */            
+/* 9.358 */        }()
+/* 9.359 */        
+/* 9.360 */        
+/* 9.361 */        { => let caseConfig = Configuration()
+/* 9.362 */            
+/* 9.363 */            let test14TestFunc = { => test14();() }
+/* 9.364 */            suiteBuilder.add(
+/* 9.365 */            UnitTestCase.create(
+/* 9.366 */            "test14",
+/* 9.367 */            configuration: caseConfig,
+/* 9.368 */            body: test14TestFunc
+/* 9.369 */            )
+/* 9.370 */            )
+/* 9.371 */            
+/* 9.372 */        }()
+/* 9.373 */        
+/* 9.374 */        
+/* 9.375 */        { => let caseConfig = Configuration()
+/* 9.376 */            
+/* 9.377 */            let test15TestFunc = { => test15();() }
+/* 9.378 */            suiteBuilder.add(
+/* 9.379 */            UnitTestCase.create(
+/* 9.380 */            "test15",
+/* 9.381 */            configuration: caseConfig,
+/* 9.382 */            body: test15TestFunc
+/* 9.383 */            )
+/* 9.384 */            )
+/* 9.385 */            
+/* 9.386 */        }()
+/* 9.387 */        
+/* 9.388 */        return suiteBuilder.build()
+/* 9.389 */    }
+/* 9.390 */}
+/* 9.391 */
+/* 9.392 */
+/* 9.393 */extend TestPackage {
+/* 9.394 */    @Attribute[TEST_REGISTER]
+/* 9.395 */    func registeraddTest() {
+/* 9.396 */        registerSuite({ => addTest().asTestSuite() })
+/* 9.397 */    }
+/* 9.398 */}
+/* 9.399 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in calculator_test.cj:137:1 ===== */
+/* 137.1 */@Attribute[TEST_GENERATED] class subtractTest <: TestClass {
+/* 137.2 */    @Attribute[TestCase_59]
+/* 137.3 */    public func test1() {
+/* 137.4 */        let m1: Money = Money(- 12.3, "AED")
+/* 137.5 */        let m2: Money = Money(12.3, "AED")
+/* 137.6 */        let calculator: Calculator = Calculator()
+/* 137.7 */        let m: Money = calculator.calculate(m1, m2, subtract)
+/* 137.8 */        expectEqual("m.amount", "- 2460", m.amount, - 2460)
+/* 137.9 */    }
+/* 137.10 */    
+/* 137.11 */    @Attribute[TestCase_60]
+/* 137.12 */    public func test2() {
+/* 137.13 */        let m1: Money = Money(- 112.305, "COP")
+/* 137.14 */        let m2: Money = Money(12.31, "COP")
+/* 137.15 */        let calculator: Calculator = Calculator()
+/* 137.16 */        let m: Money = calculator.calculate(m1, m2, subtract)
+/* 137.17 */        expectEqual("m.amount", "- 12462", m.amount, - 12462)
+/* 137.18 */    }
+/* 137.19 */    
+/* 137.20 */    @Attribute[TestCase_61]
+/* 137.21 */    public func test3() {
+/* 137.22 */        let m1: Money = Money(122.3054333, "KWD")
+/* 137.23 */        let m2: Money = Money(- 18.0, "KWD")
+/* 137.24 */        let calculator: Calculator = Calculator()
+/* 137.25 */        let m: Money = calculator.calculate(m1, m2, subtract)
+/* 137.26 */        expectEqual("m.amount", "140305", m.amount, 140305)
+/* 137.27 */    }
+/* 137.28 */    
+/* 137.29 */    @Attribute[TestCase_62]
+/* 137.30 */    public func test4() {
+/* 137.31 */        let m1: Money = Money(0.1, "PLN")
+/* 137.32 */        let m2: Money = Money(0.2, "PLN")
+/* 137.33 */        let calculator: Calculator = Calculator()
+/* 137.34 */        let m: Money = calculator.calculate(m1, m2, subtract)
+/* 137.35 */        expectEqual("m.amount", "- 10", m.amount, - 10)
+/* 137.36 */    }
+/* 137.37 */    
+/* 137.38 */    @Attribute[TestCase_63]
+/* 137.39 */    public func test5() {
+/* 137.40 */        let m1: Money = Money(0.0, "JEP")
+/* 137.41 */        let m2: Money = Money(0.0, "JEP")
+/* 137.42 */        let calculator: Calculator = Calculator()
+/* 137.43 */        let m: Money = calculator.calculate(m1, m2, subtract)
+/* 137.44 */        expectEqual("m.amount", "0", m.amount, 0)
+/* 137.45 */    }
+/* 137.46 */    
+/* 137.47 */    @Attribute[TestCase_64]
+/* 137.48 */    public func test6() {
+/* 137.49 */        let m1: Money = Money(0.0, "PHP")
+/* 137.50 */        let m2: Money = Money(12.012, "PHP")
+/* 137.51 */        let calculator: Calculator = Calculator()
+/* 137.52 */        let m: Money = calculator.calculate(m1, m2, subtract)
+/* 137.53 */        expectEqual("m.amount", "- 1201", m.amount, - 1201)
+/* 137.54 */    }
+/* 137.55 */    
+/* 137.56 */    @Attribute[TestCase_65]
+/* 137.57 */    public func test7() {
+/* 137.58 */        let m1: Money = Money(- 14.025, "TJS")
+/* 137.59 */        let m2: Money = Money(- 16.388, "TJS")
+/* 137.60 */        let calculator: Calculator = Calculator()
+/* 137.61 */        let m: Money = calculator.calculate(m1, m2, subtract)
+/* 137.62 */        expectEqual("m.amount", "236", m.amount, 236)
+/* 137.63 */    }
+/* 137.64 */    
+/* 137.65 */    @Attribute[TestCase_66]
+/* 137.66 */    public func test8() {
+/* 137.67 */        let m1: Money = Money(- 14.025, "PHP")
+/* 137.68 */        let m2: Money = Money(- 16.388, "TJS")
+/* 137.69 */        let calculator: Calculator = Calculator()
+/* 137.70 */        try {
+/* 137.71 */            try {
+/* 137.72 */                let m: Money = calculator.calculate(m1, m2, subtract)
+/* 137.73 */                failExpect("@ExpectThrows" + ": Expected '" + "CurrencyNotSameException" + "' was not caught.")
+/* 137.74 */                None < CurrencyNotSameException >
+/* 137.75 */            } catch(e: CurrencyNotSameException) {
+/* 137.76 */                e
+/* 137.77 */            }
+/* 137.78 */        } catch(e: Exception) {
+/* 137.79 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 137.80 */                throw e
+/* 137.81 */            }
+/* 137.82 */            let message = "@ExpectThrows" + "(" + "CurrencyNotSameException" + ")"
+/* 137.83 */            expectCaughtUnexpectedE(message, "CurrencyNotSameException", e.toString())
+/* 137.84 */            None < CurrencyNotSameException >
+/* 137.85 */        }
+/* 137.86 */    }
+/* 137.87 */    
+/* 137.88 */    @Attribute[TestCase_67]
+/* 137.89 */    public func test9() {
+/* 137.90 */        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+/* 137.91 */        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+/* 137.92 */        let calculator: Calculator = Calculator()
+/* 137.93 */        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+/* 137.94 */        expectEqual("m.amount", "BigInt(\"26282508262887072915331531124870684264938\")", m.amount, BigInt("26282508262887072915331531124870684264938"))
+/* 137.95 */    }
+/* 137.96 */    
+/* 137.97 */    @Attribute[TestCase_68]
+/* 137.98 */    public func test10() {
+/* 137.99 */        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+/* 137.100 */        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+/* 137.101 */        let calculator: Calculator = Calculator()
+/* 137.102 */        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+/* 137.103 */        expectEqual("m.amount", "BigInt(\"-8976913599131611007267096889046\")", m.amount, BigInt("-8976913599131611007267096889046"))
+/* 137.104 */    }
+/* 137.105 */    
+/* 137.106 */    @Attribute[TestCase_69]
+/* 137.107 */    public func test11() {
+/* 137.108 */        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+/* 137.109 */        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+/* 137.110 */        let calculator: Calculator = Calculator()
+/* 137.111 */        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+/* 137.112 */        expectEqual("m.amount", "BigInt(\"121234506488778477849681696538\")", m.amount, BigInt("121234506488778477849681696538"))
+/* 137.113 */    }
+/* 137.114 */    
+/* 137.115 */    @Attribute[TestCase_70]
+/* 137.116 */    public func test12() {
+/* 137.117 */        let m1: BigMoney = BigMoney("0.0", "JEP")
+/* 137.118 */        let m2: BigMoney = BigMoney("0.0", "JEP")
+/* 137.119 */        let calculator: Calculator = Calculator()
+/* 137.120 */        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+/* 137.121 */        expectEqual("m.amount", "BigInt(0)", m.amount, BigInt(0))
+/* 137.122 */    }
+/* 137.123 */    
+/* 137.124 */    @Attribute[TestCase_71]
+/* 137.125 */    public func test13() {
+/* 137.126 */        let m1: BigMoney = BigMoney("11342144425123412444455555555555553253411342.0153545124124123444444444444413234112", "PHP")
+/* 137.127 */        let m2: BigMoney = BigMoney("0.0", "PHP")
+/* 137.128 */        let calculator: Calculator = Calculator()
+/* 137.129 */        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+/* 137.130 */        expectEqual("m.amount", "BigInt(\"1134214442512341244445555555555555325341134202\")", m.amount, BigInt("1134214442512341244445555555555555325341134202"))
+/* 137.131 */    }
+/* 137.132 */    
+/* 137.133 */    @Attribute[TestCase_72]
+/* 137.134 */    public func test14() {
+/* 137.135 */        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+/* 137.136 */        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+/* 137.137 */        let calculator: Calculator = Calculator()
+/* 137.138 */        let m: BigMoney = calculator.calculate(m1, m2, subtract)
+/* 137.139 */        expectEqual("m.amount", "BigInt(\"16243329038007779217201198772097115\")", m.amount, BigInt("16243329038007779217201198772097115"))
+/* 137.140 */    }
+/* 137.141 */    
+/* 137.142 */    @Attribute[TestCase_73]
+/* 137.143 */    public func test15() {
+/* 137.144 */        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
+/* 137.145 */        let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
+/* 137.146 */        let calculator: Calculator = Calculator()
+/* 137.147 */        try {
+/* 137.148 */            try {
+/* 137.149 */                let m: BigMoney = calculator.calculate(m1, m2, subtract)
+/* 137.150 */                failExpect("@ExpectThrows" + ": Expected '" + "CurrencyNotSameException" + "' was not caught.")
+/* 137.151 */                None < CurrencyNotSameException >
+/* 137.152 */            } catch(e: CurrencyNotSameException) {
+/* 137.153 */                e
+/* 137.154 */            }
+/* 137.155 */        } catch(e: Exception) {
+/* 137.156 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 137.157 */                throw e
+/* 137.158 */            }
+/* 137.159 */            let message = "@ExpectThrows" + "(" + "CurrencyNotSameException" + ")"
+/* 137.160 */            expectCaughtUnexpectedE(message, "CurrencyNotSameException", e.toString())
+/* 137.161 */            None < CurrencyNotSameException >
+/* 137.162 */        }
+/* 137.163 */    }
+/* 137.164 */    
+/* 137.165 */    init() {
+/* 137.166 */    }
+/* 137.167 */    private func classConfiguration(): Configuration {
+/* 137.168 */        let configuration = Configuration()
+/* 137.169 */        
+/* 137.170 */        return configuration
+/* 137.171 */    }
+/* 137.172 */    public override func asTestSuite(): TestSuite {
+/* 137.173 */        
+/* 137.174 */        let suiteConfiguration = classConfiguration()
+/* 137.175 */        let suiteBuilder = TestSuite.builder("subtractTest").configure(suiteConfiguration)
+/* 137.176 */        let m___ = TimeNow()
+/* 137.177 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 137.178 */        
+/* 137.179 */        { => let caseConfig = Configuration()
+/* 137.180 */            
+/* 137.181 */            let test1TestFunc = { => test1();() }
+/* 137.182 */            suiteBuilder.add(
+/* 137.183 */            UnitTestCase.create(
+/* 137.184 */            "test1",
+/* 137.185 */            configuration: caseConfig,
+/* 137.186 */            body: test1TestFunc
+/* 137.187 */            )
+/* 137.188 */            )
+/* 137.189 */            
+/* 137.190 */        }()
+/* 137.191 */        
+/* 137.192 */        
+/* 137.193 */        { => let caseConfig = Configuration()
+/* 137.194 */            
+/* 137.195 */            let test2TestFunc = { => test2();() }
+/* 137.196 */            suiteBuilder.add(
+/* 137.197 */            UnitTestCase.create(
+/* 137.198 */            "test2",
+/* 137.199 */            configuration: caseConfig,
+/* 137.200 */            body: test2TestFunc
+/* 137.201 */            )
+/* 137.202 */            )
+/* 137.203 */            
+/* 137.204 */        }()
+/* 137.205 */        
+/* 137.206 */        
+/* 137.207 */        { => let caseConfig = Configuration()
+/* 137.208 */            
+/* 137.209 */            let test3TestFunc = { => test3();() }
+/* 137.210 */            suiteBuilder.add(
+/* 137.211 */            UnitTestCase.create(
+/* 137.212 */            "test3",
+/* 137.213 */            configuration: caseConfig,
+/* 137.214 */            body: test3TestFunc
+/* 137.215 */            )
+/* 137.216 */            )
+/* 137.217 */            
+/* 137.218 */        }()
+/* 137.219 */        
+/* 137.220 */        
+/* 137.221 */        { => let caseConfig = Configuration()
+/* 137.222 */            
+/* 137.223 */            let test4TestFunc = { => test4();() }
+/* 137.224 */            suiteBuilder.add(
+/* 137.225 */            UnitTestCase.create(
+/* 137.226 */            "test4",
+/* 137.227 */            configuration: caseConfig,
+/* 137.228 */            body: test4TestFunc
+/* 137.229 */            )
+/* 137.230 */            )
+/* 137.231 */            
+/* 137.232 */        }()
+/* 137.233 */        
+/* 137.234 */        
+/* 137.235 */        { => let caseConfig = Configuration()
+/* 137.236 */            
+/* 137.237 */            let test5TestFunc = { => test5();() }
+/* 137.238 */            suiteBuilder.add(
+/* 137.239 */            UnitTestCase.create(
+/* 137.240 */            "test5",
+/* 137.241 */            configuration: caseConfig,
+/* 137.242 */            body: test5TestFunc
+/* 137.243 */            )
+/* 137.244 */            )
+/* 137.245 */            
+/* 137.246 */        }()
+/* 137.247 */        
+/* 137.248 */        
+/* 137.249 */        { => let caseConfig = Configuration()
+/* 137.250 */            
+/* 137.251 */            let test6TestFunc = { => test6();() }
+/* 137.252 */            suiteBuilder.add(
+/* 137.253 */            UnitTestCase.create(
+/* 137.254 */            "test6",
+/* 137.255 */            configuration: caseConfig,
+/* 137.256 */            body: test6TestFunc
+/* 137.257 */            )
+/* 137.258 */            )
+/* 137.259 */            
+/* 137.260 */        }()
+/* 137.261 */        
+/* 137.262 */        
+/* 137.263 */        { => let caseConfig = Configuration()
+/* 137.264 */            
+/* 137.265 */            let test7TestFunc = { => test7();() }
+/* 137.266 */            suiteBuilder.add(
+/* 137.267 */            UnitTestCase.create(
+/* 137.268 */            "test7",
+/* 137.269 */            configuration: caseConfig,
+/* 137.270 */            body: test7TestFunc
+/* 137.271 */            )
+/* 137.272 */            )
+/* 137.273 */            
+/* 137.274 */        }()
+/* 137.275 */        
+/* 137.276 */        
+/* 137.277 */        { => let caseConfig = Configuration()
+/* 137.278 */            
+/* 137.279 */            let test8TestFunc = { => test8();() }
+/* 137.280 */            suiteBuilder.add(
+/* 137.281 */            UnitTestCase.create(
+/* 137.282 */            "test8",
+/* 137.283 */            configuration: caseConfig,
+/* 137.284 */            body: test8TestFunc
+/* 137.285 */            )
+/* 137.286 */            )
+/* 137.287 */            
+/* 137.288 */        }()
+/* 137.289 */        
+/* 137.290 */        
+/* 137.291 */        { => let caseConfig = Configuration()
+/* 137.292 */            
+/* 137.293 */            let test9TestFunc = { => test9();() }
+/* 137.294 */            suiteBuilder.add(
+/* 137.295 */            UnitTestCase.create(
+/* 137.296 */            "test9",
+/* 137.297 */            configuration: caseConfig,
+/* 137.298 */            body: test9TestFunc
+/* 137.299 */            )
+/* 137.300 */            )
+/* 137.301 */            
+/* 137.302 */        }()
+/* 137.303 */        
+/* 137.304 */        
+/* 137.305 */        { => let caseConfig = Configuration()
+/* 137.306 */            
+/* 137.307 */            let test10TestFunc = { => test10();() }
+/* 137.308 */            suiteBuilder.add(
+/* 137.309 */            UnitTestCase.create(
+/* 137.310 */            "test10",
+/* 137.311 */            configuration: caseConfig,
+/* 137.312 */            body: test10TestFunc
+/* 137.313 */            )
+/* 137.314 */            )
+/* 137.315 */            
+/* 137.316 */        }()
+/* 137.317 */        
+/* 137.318 */        
+/* 137.319 */        { => let caseConfig = Configuration()
+/* 137.320 */            
+/* 137.321 */            let test11TestFunc = { => test11();() }
+/* 137.322 */            suiteBuilder.add(
+/* 137.323 */            UnitTestCase.create(
+/* 137.324 */            "test11",
+/* 137.325 */            configuration: caseConfig,
+/* 137.326 */            body: test11TestFunc
+/* 137.327 */            )
+/* 137.328 */            )
+/* 137.329 */            
+/* 137.330 */        }()
+/* 137.331 */        
+/* 137.332 */        
+/* 137.333 */        { => let caseConfig = Configuration()
+/* 137.334 */            
+/* 137.335 */            let test12TestFunc = { => test12();() }
+/* 137.336 */            suiteBuilder.add(
+/* 137.337 */            UnitTestCase.create(
+/* 137.338 */            "test12",
+/* 137.339 */            configuration: caseConfig,
+/* 137.340 */            body: test12TestFunc
+/* 137.341 */            )
+/* 137.342 */            )
+/* 137.343 */            
+/* 137.344 */        }()
+/* 137.345 */        
+/* 137.346 */        
+/* 137.347 */        { => let caseConfig = Configuration()
+/* 137.348 */            
+/* 137.349 */            let test13TestFunc = { => test13();() }
+/* 137.350 */            suiteBuilder.add(
+/* 137.351 */            UnitTestCase.create(
+/* 137.352 */            "test13",
+/* 137.353 */            configuration: caseConfig,
+/* 137.354 */            body: test13TestFunc
+/* 137.355 */            )
+/* 137.356 */            )
+/* 137.357 */            
+/* 137.358 */        }()
+/* 137.359 */        
+/* 137.360 */        
+/* 137.361 */        { => let caseConfig = Configuration()
+/* 137.362 */            
+/* 137.363 */            let test14TestFunc = { => test14();() }
+/* 137.364 */            suiteBuilder.add(
+/* 137.365 */            UnitTestCase.create(
+/* 137.366 */            "test14",
+/* 137.367 */            configuration: caseConfig,
+/* 137.368 */            body: test14TestFunc
+/* 137.369 */            )
+/* 137.370 */            )
+/* 137.371 */            
+/* 137.372 */        }()
+/* 137.373 */        
+/* 137.374 */        
+/* 137.375 */        { => let caseConfig = Configuration()
+/* 137.376 */            
+/* 137.377 */            let test15TestFunc = { => test15();() }
+/* 137.378 */            suiteBuilder.add(
+/* 137.379 */            UnitTestCase.create(
+/* 137.380 */            "test15",
+/* 137.381 */            configuration: caseConfig,
+/* 137.382 */            body: test15TestFunc
+/* 137.383 */            )
+/* 137.384 */            )
+/* 137.385 */            
+/* 137.386 */        }()
+/* 137.387 */        
+/* 137.388 */        return suiteBuilder.build()
+/* 137.389 */    }
+/* 137.390 */}
+/* 137.391 */
+/* 137.392 */
+/* 137.393 */extend TestPackage {
+/* 137.394 */    @Attribute[TEST_REGISTER]
+/* 137.395 */    func registersubtractTest() {
+/* 137.396 */        registerSuite({ => subtractTest().asTestSuite() })
+/* 137.397 */    }
+/* 137.398 */}
+/* 137.399 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in calculator_test.cj:264:1 ===== */
+/* 264.1 */@Attribute[TEST_GENERATED] class multiplyTest <: TestClass {
+/* 264.2 */    @Attribute[TestCase_74]
+/* 264.3 */    public func test1() {
+/* 264.4 */        let m1: Money = Money(- 12.3, "AED")
+/* 264.5 */        let m2: Money = Money(12.3, "AED")
+/* 264.6 */        let calculator: Calculator = Calculator()
+/* 264.7 */        let m: Money = calculator.calculate(m1, m2, multiply)
+/* 264.8 */        expectEqual("m.amount", "- 15129", m.amount, - 15129)
+/* 264.9 */    }
+/* 264.10 */    
+/* 264.11 */    @Attribute[TestCase_75]
+/* 264.12 */    public func test2() {
+/* 264.13 */        let m1: Money = Money(- 112.305, "COP")
+/* 264.14 */        let m2: Money = Money(12.31, "COP")
+/* 264.15 */        let calculator: Calculator = Calculator()
+/* 264.16 */        let m: Money = calculator.calculate(m1, m2, multiply)
+/* 264.17 */        expectEqual("m.amount", "- 138254", m.amount, - 138254)
+/* 264.18 */    }
+/* 264.19 */    
+/* 264.20 */    @Attribute[TestCase_76]
+/* 264.21 */    public func test3() {
+/* 264.22 */        let m1: Money = Money(122.3054333, "KWD")
+/* 264.23 */        let m2: Money = Money(- 18.0, "KWD")
+/* 264.24 */        let calculator: Calculator = Calculator()
+/* 264.25 */        let m: Money = calculator.calculate(m1, m2, multiply)
+/* 264.26 */        expectEqual("m.amount", "- 2201490", m.amount, - 2201490)
+/* 264.27 */    }
+/* 264.28 */    
+/* 264.29 */    @Attribute[TestCase_77]
+/* 264.30 */    public func test4() {
+/* 264.31 */        let m1: Money = Money(0.1, "PLN")
+/* 264.32 */        let m2: Money = Money(0.2, "PLN")
+/* 264.33 */        let calculator: Calculator = Calculator()
+/* 264.34 */        let m: Money = calculator.calculate(m1, m2, multiply)
+/* 264.35 */        expectEqual("m.amount", "2", m.amount, 2)
+/* 264.36 */    }
+/* 264.37 */    
+/* 264.38 */    @Attribute[TestCase_78]
+/* 264.39 */    public func test5() {
+/* 264.40 */        let m1: Money = Money(0.0, "JEP")
+/* 264.41 */        let m2: Money = Money(0.0, "JEP")
+/* 264.42 */        let calculator: Calculator = Calculator()
+/* 264.43 */        let m: Money = calculator.calculate(m1, m2, multiply)
+/* 264.44 */        expectEqual("m.amount", "0", m.amount, 0)
+/* 264.45 */    }
+/* 264.46 */    
+/* 264.47 */    @Attribute[TestCase_79]
+/* 264.48 */    public func test6() {
+/* 264.49 */        let m1: Money = Money(0.0, "PHP")
+/* 264.50 */        let m2: Money = Money(12.012, "PHP")
+/* 264.51 */        let calculator: Calculator = Calculator()
+/* 264.52 */        let m: Money = calculator.calculate(m1, m2, multiply)
+/* 264.53 */        expectEqual("m.amount", "0", m.amount, 0)
+/* 264.54 */    }
+/* 264.55 */    
+/* 264.56 */    @Attribute[TestCase_80]
+/* 264.57 */    public func test7() {
+/* 264.58 */        let m1: Money = Money(- 14.025, "TJS")
+/* 264.59 */        let m2: Money = Money(- 16.388, "TJS")
+/* 264.60 */        let calculator: Calculator = Calculator()
+/* 264.61 */        let m: Money = calculator.calculate(m1, m2, multiply)
+/* 264.62 */        expectEqual("m.amount", "22995", m.amount, 22995)
+/* 264.63 */    }
+/* 264.64 */    
+/* 264.65 */    @Attribute[TestCase_81]
+/* 264.66 */    public func test8() {
+/* 264.67 */        let m1: Money = Money(- 14.025, "PHP")
+/* 264.68 */        let m2: Money = Money(- 16.388, "TJS")
+/* 264.69 */        let calculator: Calculator = Calculator()
+/* 264.70 */        try {
+/* 264.71 */            try {
+/* 264.72 */                let m: Money = calculator.calculate(m1, m2, multiply)
+/* 264.73 */                failExpect("@ExpectThrows" + ": Expected '" + "CurrencyNotSameException" + "' was not caught.")
+/* 264.74 */                None < CurrencyNotSameException >
+/* 264.75 */            } catch(e: CurrencyNotSameException) {
+/* 264.76 */                e
+/* 264.77 */            }
+/* 264.78 */        } catch(e: Exception) {
+/* 264.79 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 264.80 */                throw e
+/* 264.81 */            }
+/* 264.82 */            let message = "@ExpectThrows" + "(" + "CurrencyNotSameException" + ")"
+/* 264.83 */            expectCaughtUnexpectedE(message, "CurrencyNotSameException", e.toString())
+/* 264.84 */            None < CurrencyNotSameException >
+/* 264.85 */        }
+/* 264.86 */    }
+/* 264.87 */    
+/* 264.88 */    @Attribute[TestCase_82]
+/* 264.89 */    public func test9() {
+/* 264.90 */        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+/* 264.91 */        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+/* 264.92 */        let calculator: Calculator = Calculator()
+/* 264.93 */        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+/* 264.94 */        expectEqual("m.amount", "BigInt(\"-1726925601471818157742954212185406518843668026250390972878265272374586563440360\")", m.amount, BigInt("-1726925601471818157742954212185406518843668026250390972878265272374586563440360"))
+/* 264.95 */    }
+/* 264.96 */    
+/* 264.97 */    @Attribute[TestCase_83]
+/* 264.98 */    public func test10() {
+/* 264.99 */        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+/* 264.100 */        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+/* 264.101 */        let calculator: Calculator = Calculator()
+/* 264.102 */        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+/* 264.103 */        expectEqual("m.amount", "BigInt(\"-210482851185581836477635665284479800915983370836146670075\")", m.amount, BigInt("-210482851185581836477635665284479800915983370836146670075"))
+/* 264.104 */    }
+/* 264.105 */    
+/* 264.106 */    @Attribute[TestCase_84]
+/* 264.107 */    public func test11() {
+/* 264.108 */        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+/* 264.109 */        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+/* 264.110 */        let calculator: Calculator = Calculator()
+/* 264.111 */        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+/* 264.112 */        expectEqual("m.amount", "BigInt(\"-21971797978002054031917875765532458497894733462543\")", m.amount, BigInt("-21971797978002054031917875765532458497894733462543"))
+/* 264.113 */    }
+/* 264.114 */    
+/* 264.115 */    @Attribute[TestCase_85]
+/* 264.116 */    public func test12() {
+/* 264.117 */        let m1: BigMoney = BigMoney("0.0", "JEP")
+/* 264.118 */        let m2: BigMoney = BigMoney("0.0", "JEP")
+/* 264.119 */        let calculator: Calculator = Calculator()
+/* 264.120 */        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+/* 264.121 */        expectEqual("m.amount", "BigInt(0)", m.amount, BigInt(0))
+/* 264.122 */    }
+/* 264.123 */    
+/* 264.124 */    @Attribute[TestCase_86]
+/* 264.125 */    public func test13() {
+/* 264.126 */        let m1: BigMoney = BigMoney("11342144425123412444455555555555553253411342.0153545124124123444444444444413234112", "PHP")
+/* 264.127 */        let m2: BigMoney = BigMoney("0.0", "PHP")
+/* 264.128 */        let calculator: Calculator = Calculator()
+/* 264.129 */        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+/* 264.130 */        expectEqual("m.amount", "BigInt(\"0\")", m.amount, BigInt("0"))
+/* 264.131 */    }
+/* 264.132 */    
+/* 264.133 */    @Attribute[TestCase_87]
+/* 264.134 */    public func test14() {
+/* 264.135 */        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+/* 264.136 */        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+/* 264.137 */        let calculator: Calculator = Calculator()
+/* 264.138 */        let m: BigMoney = calculator.calculate(m1, m2, multiply)
+/* 264.139 */        expectEqual("m.amount", "BigInt(\"20046784665613598801663038482248773622429610047523647371675915\")", m.amount, BigInt("20046784665613598801663038482248773622429610047523647371675915"))
+/* 264.140 */    }
+/* 264.141 */    
+/* 264.142 */    @Attribute[TestCase_88]
+/* 264.143 */    public func test15() {
+/* 264.144 */        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
+/* 264.145 */        let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
+/* 264.146 */        let calculator: Calculator = Calculator()
+/* 264.147 */        try {
+/* 264.148 */            try {
+/* 264.149 */                let m: BigMoney = calculator.calculate(m1, m2, multiply)
+/* 264.150 */                failExpect("@ExpectThrows" + ": Expected '" + "CurrencyNotSameException" + "' was not caught.")
+/* 264.151 */                None < CurrencyNotSameException >
+/* 264.152 */            } catch(e: CurrencyNotSameException) {
+/* 264.153 */                e
+/* 264.154 */            }
+/* 264.155 */        } catch(e: Exception) {
+/* 264.156 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 264.157 */                throw e
+/* 264.158 */            }
+/* 264.159 */            let message = "@ExpectThrows" + "(" + "CurrencyNotSameException" + ")"
+/* 264.160 */            expectCaughtUnexpectedE(message, "CurrencyNotSameException", e.toString())
+/* 264.161 */            None < CurrencyNotSameException >
+/* 264.162 */        }
+/* 264.163 */    }
+/* 264.164 */    
+/* 264.165 */    init() {
+/* 264.166 */    }
+/* 264.167 */    private func classConfiguration(): Configuration {
+/* 264.168 */        let configuration = Configuration()
+/* 264.169 */        
+/* 264.170 */        return configuration
+/* 264.171 */    }
+/* 264.172 */    public override func asTestSuite(): TestSuite {
+/* 264.173 */        
+/* 264.174 */        let suiteConfiguration = classConfiguration()
+/* 264.175 */        let suiteBuilder = TestSuite.builder("multiplyTest").configure(suiteConfiguration)
+/* 264.176 */        let m___ = TimeNow()
+/* 264.177 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 264.178 */        
+/* 264.179 */        { => let caseConfig = Configuration()
+/* 264.180 */            
+/* 264.181 */            let test1TestFunc = { => test1();() }
+/* 264.182 */            suiteBuilder.add(
+/* 264.183 */            UnitTestCase.create(
+/* 264.184 */            "test1",
+/* 264.185 */            configuration: caseConfig,
+/* 264.186 */            body: test1TestFunc
+/* 264.187 */            )
+/* 264.188 */            )
+/* 264.189 */            
+/* 264.190 */        }()
+/* 264.191 */        
+/* 264.192 */        
+/* 264.193 */        { => let caseConfig = Configuration()
+/* 264.194 */            
+/* 264.195 */            let test2TestFunc = { => test2();() }
+/* 264.196 */            suiteBuilder.add(
+/* 264.197 */            UnitTestCase.create(
+/* 264.198 */            "test2",
+/* 264.199 */            configuration: caseConfig,
+/* 264.200 */            body: test2TestFunc
+/* 264.201 */            )
+/* 264.202 */            )
+/* 264.203 */            
+/* 264.204 */        }()
+/* 264.205 */        
+/* 264.206 */        
+/* 264.207 */        { => let caseConfig = Configuration()
+/* 264.208 */            
+/* 264.209 */            let test3TestFunc = { => test3();() }
+/* 264.210 */            suiteBuilder.add(
+/* 264.211 */            UnitTestCase.create(
+/* 264.212 */            "test3",
+/* 264.213 */            configuration: caseConfig,
+/* 264.214 */            body: test3TestFunc
+/* 264.215 */            )
+/* 264.216 */            )
+/* 264.217 */            
+/* 264.218 */        }()
+/* 264.219 */        
+/* 264.220 */        
+/* 264.221 */        { => let caseConfig = Configuration()
+/* 264.222 */            
+/* 264.223 */            let test4TestFunc = { => test4();() }
+/* 264.224 */            suiteBuilder.add(
+/* 264.225 */            UnitTestCase.create(
+/* 264.226 */            "test4",
+/* 264.227 */            configuration: caseConfig,
+/* 264.228 */            body: test4TestFunc
+/* 264.229 */            )
+/* 264.230 */            )
+/* 264.231 */            
+/* 264.232 */        }()
+/* 264.233 */        
+/* 264.234 */        
+/* 264.235 */        { => let caseConfig = Configuration()
+/* 264.236 */            
+/* 264.237 */            let test5TestFunc = { => test5();() }
+/* 264.238 */            suiteBuilder.add(
+/* 264.239 */            UnitTestCase.create(
+/* 264.240 */            "test5",
+/* 264.241 */            configuration: caseConfig,
+/* 264.242 */            body: test5TestFunc
+/* 264.243 */            )
+/* 264.244 */            )
+/* 264.245 */            
+/* 264.246 */        }()
+/* 264.247 */        
+/* 264.248 */        
+/* 264.249 */        { => let caseConfig = Configuration()
+/* 264.250 */            
+/* 264.251 */            let test6TestFunc = { => test6();() }
+/* 264.252 */            suiteBuilder.add(
+/* 264.253 */            UnitTestCase.create(
+/* 264.254 */            "test6",
+/* 264.255 */            configuration: caseConfig,
+/* 264.256 */            body: test6TestFunc
+/* 264.257 */            )
+/* 264.258 */            )
+/* 264.259 */            
+/* 264.260 */        }()
+/* 264.261 */        
+/* 264.262 */        
+/* 264.263 */        { => let caseConfig = Configuration()
+/* 264.264 */            
+/* 264.265 */            let test7TestFunc = { => test7();() }
+/* 264.266 */            suiteBuilder.add(
+/* 264.267 */            UnitTestCase.create(
+/* 264.268 */            "test7",
+/* 264.269 */            configuration: caseConfig,
+/* 264.270 */            body: test7TestFunc
+/* 264.271 */            )
+/* 264.272 */            )
+/* 264.273 */            
+/* 264.274 */        }()
+/* 264.275 */        
+/* 264.276 */        
+/* 264.277 */        { => let caseConfig = Configuration()
+/* 264.278 */            
+/* 264.279 */            let test8TestFunc = { => test8();() }
+/* 264.280 */            suiteBuilder.add(
+/* 264.281 */            UnitTestCase.create(
+/* 264.282 */            "test8",
+/* 264.283 */            configuration: caseConfig,
+/* 264.284 */            body: test8TestFunc
+/* 264.285 */            )
+/* 264.286 */            )
+/* 264.287 */            
+/* 264.288 */        }()
+/* 264.289 */        
+/* 264.290 */        
+/* 264.291 */        { => let caseConfig = Configuration()
+/* 264.292 */            
+/* 264.293 */            let test9TestFunc = { => test9();() }
+/* 264.294 */            suiteBuilder.add(
+/* 264.295 */            UnitTestCase.create(
+/* 264.296 */            "test9",
+/* 264.297 */            configuration: caseConfig,
+/* 264.298 */            body: test9TestFunc
+/* 264.299 */            )
+/* 264.300 */            )
+/* 264.301 */            
+/* 264.302 */        }()
+/* 264.303 */        
+/* 264.304 */        
+/* 264.305 */        { => let caseConfig = Configuration()
+/* 264.306 */            
+/* 264.307 */            let test10TestFunc = { => test10();() }
+/* 264.308 */            suiteBuilder.add(
+/* 264.309 */            UnitTestCase.create(
+/* 264.310 */            "test10",
+/* 264.311 */            configuration: caseConfig,
+/* 264.312 */            body: test10TestFunc
+/* 264.313 */            )
+/* 264.314 */            )
+/* 264.315 */            
+/* 264.316 */        }()
+/* 264.317 */        
+/* 264.318 */        
+/* 264.319 */        { => let caseConfig = Configuration()
+/* 264.320 */            
+/* 264.321 */            let test11TestFunc = { => test11();() }
+/* 264.322 */            suiteBuilder.add(
+/* 264.323 */            UnitTestCase.create(
+/* 264.324 */            "test11",
+/* 264.325 */            configuration: caseConfig,
+/* 264.326 */            body: test11TestFunc
+/* 264.327 */            )
+/* 264.328 */            )
+/* 264.329 */            
+/* 264.330 */        }()
+/* 264.331 */        
+/* 264.332 */        
+/* 264.333 */        { => let caseConfig = Configuration()
+/* 264.334 */            
+/* 264.335 */            let test12TestFunc = { => test12();() }
+/* 264.336 */            suiteBuilder.add(
+/* 264.337 */            UnitTestCase.create(
+/* 264.338 */            "test12",
+/* 264.339 */            configuration: caseConfig,
+/* 264.340 */            body: test12TestFunc
+/* 264.341 */            )
+/* 264.342 */            )
+/* 264.343 */            
+/* 264.344 */        }()
+/* 264.345 */        
+/* 264.346 */        
+/* 264.347 */        { => let caseConfig = Configuration()
+/* 264.348 */            
+/* 264.349 */            let test13TestFunc = { => test13();() }
+/* 264.350 */            suiteBuilder.add(
+/* 264.351 */            UnitTestCase.create(
+/* 264.352 */            "test13",
+/* 264.353 */            configuration: caseConfig,
+/* 264.354 */            body: test13TestFunc
+/* 264.355 */            )
+/* 264.356 */            )
+/* 264.357 */            
+/* 264.358 */        }()
+/* 264.359 */        
+/* 264.360 */        
+/* 264.361 */        { => let caseConfig = Configuration()
+/* 264.362 */            
+/* 264.363 */            let test14TestFunc = { => test14();() }
+/* 264.364 */            suiteBuilder.add(
+/* 264.365 */            UnitTestCase.create(
+/* 264.366 */            "test14",
+/* 264.367 */            configuration: caseConfig,
+/* 264.368 */            body: test14TestFunc
+/* 264.369 */            )
+/* 264.370 */            )
+/* 264.371 */            
+/* 264.372 */        }()
+/* 264.373 */        
+/* 264.374 */        
+/* 264.375 */        { => let caseConfig = Configuration()
+/* 264.376 */            
+/* 264.377 */            let test15TestFunc = { => test15();() }
+/* 264.378 */            suiteBuilder.add(
+/* 264.379 */            UnitTestCase.create(
+/* 264.380 */            "test15",
+/* 264.381 */            configuration: caseConfig,
+/* 264.382 */            body: test15TestFunc
+/* 264.383 */            )
+/* 264.384 */            )
+/* 264.385 */            
+/* 264.386 */        }()
+/* 264.387 */        
+/* 264.388 */        return suiteBuilder.build()
+/* 264.389 */    }
+/* 264.390 */}
+/* 264.391 */
+/* 264.392 */
+/* 264.393 */extend TestPackage {
+/* 264.394 */    @Attribute[TEST_REGISTER]
+/* 264.395 */    func registermultiplyTest() {
+/* 264.396 */        registerSuite({ => multiplyTest().asTestSuite() })
+/* 264.397 */    }
+/* 264.398 */}
+/* 264.399 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in calculator_test.cj:391:1 ===== */
+/* 391.1 */@Attribute[TEST_GENERATED] class modulusTest <: TestClass {
+/* 391.2 */    @Attribute[TestCase_89]
+/* 391.3 */    public func test1() {
+/* 391.4 */        let m1: Money = Money(- 12.3, "AED")
+/* 391.5 */        let m2: Money = Money(12.3, "AED")
+/* 391.6 */        let calculator: Calculator = Calculator()
+/* 391.7 */        let m: Money = calculator.calculate(m1, m2, modulus)
+/* 391.8 */        expectEqual("m.amount", "0", m.amount, 0)
+/* 391.9 */    }
+/* 391.10 */    
+/* 391.11 */    @Attribute[TestCase_90]
+/* 391.12 */    public func test2() {
+/* 391.13 */        let m1: Money = Money(- 112.305, "COP")
+/* 391.14 */        let m2: Money = Money(12.31, "COP")
+/* 391.15 */        let calculator: Calculator = Calculator()
+/* 391.16 */        let m: Money = calculator.calculate(m1, m2, modulus)
+/* 391.17 */        expectEqual("m.amount", "1079", m.amount, 1079)
+/* 391.18 */    }
+/* 391.19 */    
+/* 391.20 */    @Attribute[TestCase_91]
+/* 391.21 */    public func test3() {
+/* 391.22 */        let m1: Money = Money(122.3054333, "KWD")
+/* 391.23 */        let m2: Money = Money(- 18.0, "KWD")
+/* 391.24 */        let calculator: Calculator = Calculator()
+/* 391.25 */        let m: Money = calculator.calculate(m1, m2, modulus)
+/* 391.26 */        expectEqual("m.amount", "- 3695", m.amount, - 3695)
+/* 391.27 */    }
+/* 391.28 */    
+/* 391.29 */    @Attribute[TestCase_92]
+/* 391.30 */    public func test4() {
+/* 391.31 */        let m1: Money = Money(0.1, "PLN")
+/* 391.32 */        let m2: Money = Money(0.2, "PLN")
+/* 391.33 */        let calculator: Calculator = Calculator()
+/* 391.34 */        let m: Money = calculator.calculate(m1, m2, modulus)
+/* 391.35 */        expectEqual("m.amount", "10", m.amount, 10)
+/* 391.36 */    }
+/* 391.37 */    
+/* 391.38 */    @Attribute[TestCase_93]
+/* 391.39 */    public func test5() {
+/* 391.40 */        let m1: Money = Money(0.0, "PHP")
+/* 391.41 */        let m2: Money = Money(12.012, "PHP")
+/* 391.42 */        let calculator: Calculator = Calculator()
+/* 391.43 */        let m: Money = calculator.calculate(m1, m2, modulus)
+/* 391.44 */        expectEqual("m.amount", "0", m.amount, 0)
+/* 391.45 */    }
+/* 391.46 */    
+/* 391.47 */    @Attribute[TestCase_94]
+/* 391.48 */    public func test6() {
+/* 391.49 */        let m1: Money = Money(- 14.025, "TJS")
+/* 391.50 */        let m2: Money = Money(- 16.388, "TJS")
+/* 391.51 */        let calculator: Calculator = Calculator()
+/* 391.52 */        let m: Money = calculator.calculate(m1, m2, modulus)
+/* 391.53 */        expectEqual("m.amount", "- 1403", m.amount, - 1403)
+/* 391.54 */    }
+/* 391.55 */    
+/* 391.56 */    @Attribute[TestCase_95]
+/* 391.57 */    public func test7() {
+/* 391.58 */        let m1: Money = Money(- 14.025, "PHP")
+/* 391.59 */        let m2: Money = Money(- 16.388, "TJS")
+/* 391.60 */        let calculator: Calculator = Calculator()
+/* 391.61 */        try {
+/* 391.62 */            try {
+/* 391.63 */                let m: Money = calculator.calculate(m1, m2, modulus)
+/* 391.64 */                failExpect("@ExpectThrows" + ": Expected '" + "CurrencyNotSameException" + "' was not caught.")
+/* 391.65 */                None < CurrencyNotSameException >
+/* 391.66 */            } catch(e: CurrencyNotSameException) {
+/* 391.67 */                e
+/* 391.68 */            }
+/* 391.69 */        } catch(e: Exception) {
+/* 391.70 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 391.71 */                throw e
+/* 391.72 */            }
+/* 391.73 */            let message = "@ExpectThrows" + "(" + "CurrencyNotSameException" + ")"
+/* 391.74 */            expectCaughtUnexpectedE(message, "CurrencyNotSameException", e.toString())
+/* 391.75 */            None < CurrencyNotSameException >
+/* 391.76 */        }
+/* 391.77 */    }
+/* 391.78 */    
+/* 391.79 */    @Attribute[TestCase_96]
+/* 391.80 */    public func test8() {
+/* 391.81 */        let m1: Money = Money(- 14.025, "TJS")
+/* 391.82 */        let m2: Money = Money(0, "TJS")
+/* 391.83 */        let calculator: Calculator = Calculator()
+/* 391.84 */        try {
+/* 391.85 */            try {
+/* 391.86 */                let m: Money = calculator.calculate(m1, m2, modulus)
+/* 391.87 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 391.88 */                None < IllegalArgumentException >
+/* 391.89 */            } catch(e: IllegalArgumentException) {
+/* 391.90 */                e
+/* 391.91 */            }
+/* 391.92 */        } catch(e: Exception) {
+/* 391.93 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 391.94 */                throw e
+/* 391.95 */            }
+/* 391.96 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 391.97 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 391.98 */            None < IllegalArgumentException >
+/* 391.99 */        }
+/* 391.100 */    }
+/* 391.101 */    
+/* 391.102 */    @Attribute[TestCase_97]
+/* 391.103 */    public func test9() {
+/* 391.104 */        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+/* 391.105 */        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+/* 391.106 */        let calculator: Calculator = Calculator()
+/* 391.107 */        let m: BigMoney = calculator.calculate(m1, m2, modulus)
+/* 391.108 */        expectEqual("m.amount", "BigInt(0)", m.amount, BigInt(0))
+/* 391.109 */    }
+/* 391.110 */    
+/* 391.111 */    @Attribute[TestCase_98]
+/* 391.112 */    public func test10() {
+/* 391.113 */        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+/* 391.114 */        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+/* 391.115 */        let calculator: Calculator = Calculator()
+/* 391.116 */        let m: BigMoney = calculator.calculate(m1, m2, modulus)
+/* 391.117 */        expectEqual("m.amount", "BigInt(\"992967345731303198574568598\")", m.amount, BigInt("992967345731303198574568598"))
+/* 391.118 */    }
+/* 391.119 */    
+/* 391.120 */    @Attribute[TestCase_99]
+/* 391.121 */    public func test11() {
+/* 391.122 */        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+/* 391.123 */        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+/* 391.124 */        let calculator: Calculator = Calculator()
+/* 391.125 */        let m: BigMoney = calculator.calculate(m1, m2, modulus)
+/* 391.126 */        expectEqual("m.amount", "BigInt(\"-74037281521816352230127\")", m.amount, BigInt("-74037281521816352230127"))
+/* 391.127 */    }
+/* 391.128 */    
+/* 391.129 */    @Attribute[TestCase_100]
+/* 391.130 */    public func test12() {
+/* 391.131 */        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+/* 391.132 */        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+/* 391.133 */        let calculator: Calculator = Calculator()
+/* 391.134 */        let m: BigMoney = calculator.calculate(m1, m2, modulus)
+/* 391.135 */        expectEqual("m.amount", "BigInt(\"-123414555644234124254352345424\")", m.amount, BigInt("-123414555644234124254352345424"))
+/* 391.136 */    }
+/* 391.137 */    
+/* 391.138 */    @Attribute[TestCase_101]
+/* 391.139 */    public func test13() {
+/* 391.140 */        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
+/* 391.141 */        let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
+/* 391.142 */        let calculator: Calculator = Calculator()
+/* 391.143 */        try {
+/* 391.144 */            try {
+/* 391.145 */                let m: BigMoney = calculator.calculate(m1, m2, modulus)
+/* 391.146 */                failExpect("@ExpectThrows" + ": Expected '" + "CurrencyNotSameException" + "' was not caught.")
+/* 391.147 */                None < CurrencyNotSameException >
+/* 391.148 */            } catch(e: CurrencyNotSameException) {
+/* 391.149 */                e
+/* 391.150 */            }
+/* 391.151 */        } catch(e: Exception) {
+/* 391.152 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 391.153 */                throw e
+/* 391.154 */            }
+/* 391.155 */            let message = "@ExpectThrows" + "(" + "CurrencyNotSameException" + ")"
+/* 391.156 */            expectCaughtUnexpectedE(message, "CurrencyNotSameException", e.toString())
+/* 391.157 */            None < CurrencyNotSameException >
+/* 391.158 */        }
+/* 391.159 */    }
+/* 391.160 */    
+/* 391.161 */    init() {
+/* 391.162 */    }
+/* 391.163 */    private func classConfiguration(): Configuration {
+/* 391.164 */        let configuration = Configuration()
+/* 391.165 */        
+/* 391.166 */        return configuration
+/* 391.167 */    }
+/* 391.168 */    public override func asTestSuite(): TestSuite {
+/* 391.169 */        
+/* 391.170 */        let suiteConfiguration = classConfiguration()
+/* 391.171 */        let suiteBuilder = TestSuite.builder("modulusTest").configure(suiteConfiguration)
+/* 391.172 */        let m___ = TimeNow()
+/* 391.173 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 391.174 */        
+/* 391.175 */        { => let caseConfig = Configuration()
+/* 391.176 */            
+/* 391.177 */            let test1TestFunc = { => test1();() }
+/* 391.178 */            suiteBuilder.add(
+/* 391.179 */            UnitTestCase.create(
+/* 391.180 */            "test1",
+/* 391.181 */            configuration: caseConfig,
+/* 391.182 */            body: test1TestFunc
+/* 391.183 */            )
+/* 391.184 */            )
+/* 391.185 */            
+/* 391.186 */        }()
+/* 391.187 */        
+/* 391.188 */        
+/* 391.189 */        { => let caseConfig = Configuration()
+/* 391.190 */            
+/* 391.191 */            let test2TestFunc = { => test2();() }
+/* 391.192 */            suiteBuilder.add(
+/* 391.193 */            UnitTestCase.create(
+/* 391.194 */            "test2",
+/* 391.195 */            configuration: caseConfig,
+/* 391.196 */            body: test2TestFunc
+/* 391.197 */            )
+/* 391.198 */            )
+/* 391.199 */            
+/* 391.200 */        }()
+/* 391.201 */        
+/* 391.202 */        
+/* 391.203 */        { => let caseConfig = Configuration()
+/* 391.204 */            
+/* 391.205 */            let test3TestFunc = { => test3();() }
+/* 391.206 */            suiteBuilder.add(
+/* 391.207 */            UnitTestCase.create(
+/* 391.208 */            "test3",
+/* 391.209 */            configuration: caseConfig,
+/* 391.210 */            body: test3TestFunc
+/* 391.211 */            )
+/* 391.212 */            )
+/* 391.213 */            
+/* 391.214 */        }()
+/* 391.215 */        
+/* 391.216 */        
+/* 391.217 */        { => let caseConfig = Configuration()
+/* 391.218 */            
+/* 391.219 */            let test4TestFunc = { => test4();() }
+/* 391.220 */            suiteBuilder.add(
+/* 391.221 */            UnitTestCase.create(
+/* 391.222 */            "test4",
+/* 391.223 */            configuration: caseConfig,
+/* 391.224 */            body: test4TestFunc
+/* 391.225 */            )
+/* 391.226 */            )
+/* 391.227 */            
+/* 391.228 */        }()
+/* 391.229 */        
+/* 391.230 */        
+/* 391.231 */        { => let caseConfig = Configuration()
+/* 391.232 */            
+/* 391.233 */            let test5TestFunc = { => test5();() }
+/* 391.234 */            suiteBuilder.add(
+/* 391.235 */            UnitTestCase.create(
+/* 391.236 */            "test5",
+/* 391.237 */            configuration: caseConfig,
+/* 391.238 */            body: test5TestFunc
+/* 391.239 */            )
+/* 391.240 */            )
+/* 391.241 */            
+/* 391.242 */        }()
+/* 391.243 */        
+/* 391.244 */        
+/* 391.245 */        { => let caseConfig = Configuration()
+/* 391.246 */            
+/* 391.247 */            let test6TestFunc = { => test6();() }
+/* 391.248 */            suiteBuilder.add(
+/* 391.249 */            UnitTestCase.create(
+/* 391.250 */            "test6",
+/* 391.251 */            configuration: caseConfig,
+/* 391.252 */            body: test6TestFunc
+/* 391.253 */            )
+/* 391.254 */            )
+/* 391.255 */            
+/* 391.256 */        }()
+/* 391.257 */        
+/* 391.258 */        
+/* 391.259 */        { => let caseConfig = Configuration()
+/* 391.260 */            
+/* 391.261 */            let test7TestFunc = { => test7();() }
+/* 391.262 */            suiteBuilder.add(
+/* 391.263 */            UnitTestCase.create(
+/* 391.264 */            "test7",
+/* 391.265 */            configuration: caseConfig,
+/* 391.266 */            body: test7TestFunc
+/* 391.267 */            )
+/* 391.268 */            )
+/* 391.269 */            
+/* 391.270 */        }()
+/* 391.271 */        
+/* 391.272 */        
+/* 391.273 */        { => let caseConfig = Configuration()
+/* 391.274 */            
+/* 391.275 */            let test8TestFunc = { => test8();() }
+/* 391.276 */            suiteBuilder.add(
+/* 391.277 */            UnitTestCase.create(
+/* 391.278 */            "test8",
+/* 391.279 */            configuration: caseConfig,
+/* 391.280 */            body: test8TestFunc
+/* 391.281 */            )
+/* 391.282 */            )
+/* 391.283 */            
+/* 391.284 */        }()
+/* 391.285 */        
+/* 391.286 */        
+/* 391.287 */        { => let caseConfig = Configuration()
+/* 391.288 */            
+/* 391.289 */            let test9TestFunc = { => test9();() }
+/* 391.290 */            suiteBuilder.add(
+/* 391.291 */            UnitTestCase.create(
+/* 391.292 */            "test9",
+/* 391.293 */            configuration: caseConfig,
+/* 391.294 */            body: test9TestFunc
+/* 391.295 */            )
+/* 391.296 */            )
+/* 391.297 */            
+/* 391.298 */        }()
+/* 391.299 */        
+/* 391.300 */        
+/* 391.301 */        { => let caseConfig = Configuration()
+/* 391.302 */            
+/* 391.303 */            let test10TestFunc = { => test10();() }
+/* 391.304 */            suiteBuilder.add(
+/* 391.305 */            UnitTestCase.create(
+/* 391.306 */            "test10",
+/* 391.307 */            configuration: caseConfig,
+/* 391.308 */            body: test10TestFunc
+/* 391.309 */            )
+/* 391.310 */            )
+/* 391.311 */            
+/* 391.312 */        }()
+/* 391.313 */        
+/* 391.314 */        
+/* 391.315 */        { => let caseConfig = Configuration()
+/* 391.316 */            
+/* 391.317 */            let test11TestFunc = { => test11();() }
+/* 391.318 */            suiteBuilder.add(
+/* 391.319 */            UnitTestCase.create(
+/* 391.320 */            "test11",
+/* 391.321 */            configuration: caseConfig,
+/* 391.322 */            body: test11TestFunc
+/* 391.323 */            )
+/* 391.324 */            )
+/* 391.325 */            
+/* 391.326 */        }()
+/* 391.327 */        
+/* 391.328 */        
+/* 391.329 */        { => let caseConfig = Configuration()
+/* 391.330 */            
+/* 391.331 */            let test12TestFunc = { => test12();() }
+/* 391.332 */            suiteBuilder.add(
+/* 391.333 */            UnitTestCase.create(
+/* 391.334 */            "test12",
+/* 391.335 */            configuration: caseConfig,
+/* 391.336 */            body: test12TestFunc
+/* 391.337 */            )
+/* 391.338 */            )
+/* 391.339 */            
+/* 391.340 */        }()
+/* 391.341 */        
+/* 391.342 */        
+/* 391.343 */        { => let caseConfig = Configuration()
+/* 391.344 */            
+/* 391.345 */            let test13TestFunc = { => test13();() }
+/* 391.346 */            suiteBuilder.add(
+/* 391.347 */            UnitTestCase.create(
+/* 391.348 */            "test13",
+/* 391.349 */            configuration: caseConfig,
+/* 391.350 */            body: test13TestFunc
+/* 391.351 */            )
+/* 391.352 */            )
+/* 391.353 */            
+/* 391.354 */        }()
+/* 391.355 */        
+/* 391.356 */        return suiteBuilder.build()
+/* 391.357 */    }
+/* 391.358 */}
+/* 391.359 */
+/* 391.360 */
+/* 391.361 */extend TestPackage {
+/* 391.362 */    @Attribute[TEST_REGISTER]
+/* 391.363 */    func registermodulusTest() {
+/* 391.364 */        registerSuite({ => modulusTest().asTestSuite() })
+/* 391.365 */    }
+/* 391.366 */}
+/* 391.367 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in calculator_test.cj:503:1 ===== */
+/* 503.1 */@Attribute[TEST_GENERATED] class divideTest <: TestClass {
+/* 503.2 */    @Attribute[TestCase_102]
+/* 503.3 */    public func test1() {
+/* 503.4 */        let m1: Money = Money(- 12.3, "AED")
+/* 503.5 */        let m2: Money = Money(12.3, "AED")
+/* 503.6 */        let calculator: Calculator = Calculator()
+/* 503.7 */        let m: Money = calculator.calculate(m1, m2, divide)
+/* 503.8 */        expectEqual("m.amount", "- 100", m.amount, - 100)
+/* 503.9 */    }
+/* 503.10 */    
+/* 503.11 */    @Attribute[TestCase_103]
+/* 503.12 */    public func test2() {
+/* 503.13 */        let m1: Money = Money(- 112.305, "COP")
+/* 503.14 */        let m2: Money = Money(12.31, "COP")
+/* 503.15 */        let calculator: Calculator = Calculator()
+/* 503.16 */        let m: Money = calculator.calculate(m1, m2, divide)
+/* 503.17 */        expectEqual("m.amount", "- 912", m.amount, - 912)
+/* 503.18 */    }
+/* 503.19 */    
+/* 503.20 */    @Attribute[TestCase_104]
+/* 503.21 */    public func test3() {
+/* 503.22 */        let m1: Money = Money(122.3054333, "KWD")
+/* 503.23 */        let m2: Money = Money(- 18.0, "KWD")
+/* 503.24 */        let calculator: Calculator = Calculator()
+/* 503.25 */        let m: Money = calculator.calculate(m1, m2, divide)
+/* 503.26 */        expectEqual("m.amount", "- 6795", m.amount, - 6795)
+/* 503.27 */    }
+/* 503.28 */    
+/* 503.29 */    @Attribute[TestCase_105]
+/* 503.30 */    public func test4() {
+/* 503.31 */        let m1: Money = Money(0.1, "PLN")
+/* 503.32 */        let m2: Money = Money(0.2, "PLN")
+/* 503.33 */        let calculator: Calculator = Calculator()
+/* 503.34 */        let m: Money = calculator.calculate(m1, m2, divide)
+/* 503.35 */        expectEqual("m.amount", "50", m.amount, 50)
+/* 503.36 */    }
+/* 503.37 */    
+/* 503.38 */    @Attribute[TestCase_106]
+/* 503.39 */    public func test5() {
+/* 503.40 */        let m1: Money = Money(0.0, "PHP")
+/* 503.41 */        let m2: Money = Money(12.012, "PHP")
+/* 503.42 */        let calculator: Calculator = Calculator()
+/* 503.43 */        let m: Money = calculator.calculate(m1, m2, divide)
+/* 503.44 */        expectEqual("m.amount", "0", m.amount, 0)
+/* 503.45 */    }
+/* 503.46 */    
+/* 503.47 */    @Attribute[TestCase_107]
+/* 503.48 */    public func test6() {
+/* 503.49 */        let m1: Money = Money(- 14.025, "TJS")
+/* 503.50 */        let m2: Money = Money(- 16.388, "TJS")
+/* 503.51 */        let calculator: Calculator = Calculator()
+/* 503.52 */        let m: Money = calculator.calculate(m1, m2, divide)
+/* 503.53 */        expectEqual("m.amount", "86", m.amount, 86)
+/* 503.54 */    }
+/* 503.55 */    
+/* 503.56 */    @Attribute[TestCase_108]
+/* 503.57 */    public func test7() {
+/* 503.58 */        let m1: Money = Money(- 14.025, "PHP")
+/* 503.59 */        let m2: Money = Money(- 16.388, "TJS")
+/* 503.60 */        let calculator: Calculator = Calculator()
+/* 503.61 */        try {
+/* 503.62 */            try {
+/* 503.63 */                let m: Money = calculator.calculate(m1, m2, divide)
+/* 503.64 */                failExpect("@ExpectThrows" + ": Expected '" + "CurrencyNotSameException" + "' was not caught.")
+/* 503.65 */                None < CurrencyNotSameException >
+/* 503.66 */            } catch(e: CurrencyNotSameException) {
+/* 503.67 */                e
+/* 503.68 */            }
+/* 503.69 */        } catch(e: Exception) {
+/* 503.70 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 503.71 */                throw e
+/* 503.72 */            }
+/* 503.73 */            let message = "@ExpectThrows" + "(" + "CurrencyNotSameException" + ")"
+/* 503.74 */            expectCaughtUnexpectedE(message, "CurrencyNotSameException", e.toString())
+/* 503.75 */            None < CurrencyNotSameException >
+/* 503.76 */        }
+/* 503.77 */    }
+/* 503.78 */    
+/* 503.79 */    @Attribute[TestCase_109]
+/* 503.80 */    public func test8() {
+/* 503.81 */        let m1: Money = Money(- 14.025, "TJS")
+/* 503.82 */        let m2: Money = Money(0, "TJS")
+/* 503.83 */        let calculator: Calculator = Calculator()
+/* 503.84 */        try {
+/* 503.85 */            try {
+/* 503.86 */                let m: Money = calculator.calculate(m1, m2, divide)
+/* 503.87 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 503.88 */                None < IllegalArgumentException >
+/* 503.89 */            } catch(e: IllegalArgumentException) {
+/* 503.90 */                e
+/* 503.91 */            }
+/* 503.92 */        } catch(e: Exception) {
+/* 503.93 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 503.94 */                throw e
+/* 503.95 */            }
+/* 503.96 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 503.97 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 503.98 */            None < IllegalArgumentException >
+/* 503.99 */        }
+/* 503.100 */    }
+/* 503.101 */    
+/* 503.102 */    @Attribute[TestCase_110]
+/* 503.103 */    public func test9() {
+/* 503.104 */        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+/* 503.105 */        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+/* 503.106 */        let calculator: Calculator = Calculator()
+/* 503.107 */        let m: BigMoney = calculator.calculate(m1, m2, divide)
+/* 503.108 */        expectEqual("m.amount", "BigInt(- 100)", m.amount, BigInt(- 100))
+/* 503.109 */    }
+/* 503.110 */    
+/* 503.111 */    @Attribute[TestCase_111]
+/* 503.112 */    public func test10() {
+/* 503.113 */        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+/* 503.114 */        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+/* 503.115 */        let calculator: Calculator = Calculator()
+/* 503.116 */        let m: BigMoney = calculator.calculate(m1, m2, divide)
+/* 503.117 */        expectEqual("m.amount", "BigInt(\"-382658\")", m.amount, BigInt("-382658"))
+/* 503.118 */    }
+/* 503.119 */    
+/* 503.120 */    @Attribute[TestCase_112]
+/* 503.121 */    public func test11() {
+/* 503.122 */        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+/* 503.123 */        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+/* 503.124 */        let calculator: Calculator = Calculator()
+/* 503.125 */        let m: BigMoney = calculator.calculate(m1, m2, divide)
+/* 503.126 */        expectEqual("m.amount", "BigInt(\"-668937591\")", m.amount, BigInt("-668937591"))
+/* 503.127 */    }
+/* 503.128 */    
+/* 503.129 */    @Attribute[TestCase_113]
+/* 503.130 */    public func test12() {
+/* 503.131 */        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+/* 503.132 */        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+/* 503.133 */        let calculator: Calculator = Calculator()
+/* 503.134 */        let m: BigMoney = calculator.calculate(m1, m2, divide)
+/* 503.135 */        expectEqual("m.amount", "BigInt(0)", m.amount, BigInt(0))
+/* 503.136 */    }
+/* 503.137 */    
+/* 503.138 */    @Attribute[TestCase_114]
+/* 503.139 */    public func test13() {
+/* 503.140 */        let m1: BigMoney = BigMoney("-22452352345432532223444444444444444444444444423452314.024555555555551243253253252325", "PHP")
+/* 503.141 */        let m2: BigMoney = BigMoney("-11431455312451342144245325256476543252356.324353242452345432453253288", "TJS")
+/* 503.142 */        let calculator: Calculator = Calculator()
+/* 503.143 */        try {
+/* 503.144 */            try {
+/* 503.145 */                let m: BigMoney = calculator.calculate(m1, m2, divide)
+/* 503.146 */                failExpect("@ExpectThrows" + ": Expected '" + "CurrencyNotSameException" + "' was not caught.")
+/* 503.147 */                None < CurrencyNotSameException >
+/* 503.148 */            } catch(e: CurrencyNotSameException) {
+/* 503.149 */                e
+/* 503.150 */            }
+/* 503.151 */        } catch(e: Exception) {
+/* 503.152 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 503.153 */                throw e
+/* 503.154 */            }
+/* 503.155 */            let message = "@ExpectThrows" + "(" + "CurrencyNotSameException" + ")"
+/* 503.156 */            expectCaughtUnexpectedE(message, "CurrencyNotSameException", e.toString())
+/* 503.157 */            None < CurrencyNotSameException >
+/* 503.158 */        }
+/* 503.159 */    }
+/* 503.160 */    
+/* 503.161 */    init() {
+/* 503.162 */    }
+/* 503.163 */    private func classConfiguration(): Configuration {
+/* 503.164 */        let configuration = Configuration()
+/* 503.165 */        
+/* 503.166 */        return configuration
+/* 503.167 */    }
+/* 503.168 */    public override func asTestSuite(): TestSuite {
+/* 503.169 */        
+/* 503.170 */        let suiteConfiguration = classConfiguration()
+/* 503.171 */        let suiteBuilder = TestSuite.builder("divideTest").configure(suiteConfiguration)
+/* 503.172 */        let m___ = TimeNow()
+/* 503.173 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 503.174 */        
+/* 503.175 */        { => let caseConfig = Configuration()
+/* 503.176 */            
+/* 503.177 */            let test1TestFunc = { => test1();() }
+/* 503.178 */            suiteBuilder.add(
+/* 503.179 */            UnitTestCase.create(
+/* 503.180 */            "test1",
+/* 503.181 */            configuration: caseConfig,
+/* 503.182 */            body: test1TestFunc
+/* 503.183 */            )
+/* 503.184 */            )
+/* 503.185 */            
+/* 503.186 */        }()
+/* 503.187 */        
+/* 503.188 */        
+/* 503.189 */        { => let caseConfig = Configuration()
+/* 503.190 */            
+/* 503.191 */            let test2TestFunc = { => test2();() }
+/* 503.192 */            suiteBuilder.add(
+/* 503.193 */            UnitTestCase.create(
+/* 503.194 */            "test2",
+/* 503.195 */            configuration: caseConfig,
+/* 503.196 */            body: test2TestFunc
+/* 503.197 */            )
+/* 503.198 */            )
+/* 503.199 */            
+/* 503.200 */        }()
+/* 503.201 */        
+/* 503.202 */        
+/* 503.203 */        { => let caseConfig = Configuration()
+/* 503.204 */            
+/* 503.205 */            let test3TestFunc = { => test3();() }
+/* 503.206 */            suiteBuilder.add(
+/* 503.207 */            UnitTestCase.create(
+/* 503.208 */            "test3",
+/* 503.209 */            configuration: caseConfig,
+/* 503.210 */            body: test3TestFunc
+/* 503.211 */            )
+/* 503.212 */            )
+/* 503.213 */            
+/* 503.214 */        }()
+/* 503.215 */        
+/* 503.216 */        
+/* 503.217 */        { => let caseConfig = Configuration()
+/* 503.218 */            
+/* 503.219 */            let test4TestFunc = { => test4();() }
+/* 503.220 */            suiteBuilder.add(
+/* 503.221 */            UnitTestCase.create(
+/* 503.222 */            "test4",
+/* 503.223 */            configuration: caseConfig,
+/* 503.224 */            body: test4TestFunc
+/* 503.225 */            )
+/* 503.226 */            )
+/* 503.227 */            
+/* 503.228 */        }()
+/* 503.229 */        
+/* 503.230 */        
+/* 503.231 */        { => let caseConfig = Configuration()
+/* 503.232 */            
+/* 503.233 */            let test5TestFunc = { => test5();() }
+/* 503.234 */            suiteBuilder.add(
+/* 503.235 */            UnitTestCase.create(
+/* 503.236 */            "test5",
+/* 503.237 */            configuration: caseConfig,
+/* 503.238 */            body: test5TestFunc
+/* 503.239 */            )
+/* 503.240 */            )
+/* 503.241 */            
+/* 503.242 */        }()
+/* 503.243 */        
+/* 503.244 */        
+/* 503.245 */        { => let caseConfig = Configuration()
+/* 503.246 */            
+/* 503.247 */            let test6TestFunc = { => test6();() }
+/* 503.248 */            suiteBuilder.add(
+/* 503.249 */            UnitTestCase.create(
+/* 503.250 */            "test6",
+/* 503.251 */            configuration: caseConfig,
+/* 503.252 */            body: test6TestFunc
+/* 503.253 */            )
+/* 503.254 */            )
+/* 503.255 */            
+/* 503.256 */        }()
+/* 503.257 */        
+/* 503.258 */        
+/* 503.259 */        { => let caseConfig = Configuration()
+/* 503.260 */            
+/* 503.261 */            let test7TestFunc = { => test7();() }
+/* 503.262 */            suiteBuilder.add(
+/* 503.263 */            UnitTestCase.create(
+/* 503.264 */            "test7",
+/* 503.265 */            configuration: caseConfig,
+/* 503.266 */            body: test7TestFunc
+/* 503.267 */            )
+/* 503.268 */            )
+/* 503.269 */            
+/* 503.270 */        }()
+/* 503.271 */        
+/* 503.272 */        
+/* 503.273 */        { => let caseConfig = Configuration()
+/* 503.274 */            
+/* 503.275 */            let test8TestFunc = { => test8();() }
+/* 503.276 */            suiteBuilder.add(
+/* 503.277 */            UnitTestCase.create(
+/* 503.278 */            "test8",
+/* 503.279 */            configuration: caseConfig,
+/* 503.280 */            body: test8TestFunc
+/* 503.281 */            )
+/* 503.282 */            )
+/* 503.283 */            
+/* 503.284 */        }()
+/* 503.285 */        
+/* 503.286 */        
+/* 503.287 */        { => let caseConfig = Configuration()
+/* 503.288 */            
+/* 503.289 */            let test9TestFunc = { => test9();() }
+/* 503.290 */            suiteBuilder.add(
+/* 503.291 */            UnitTestCase.create(
+/* 503.292 */            "test9",
+/* 503.293 */            configuration: caseConfig,
+/* 503.294 */            body: test9TestFunc
+/* 503.295 */            )
+/* 503.296 */            )
+/* 503.297 */            
+/* 503.298 */        }()
+/* 503.299 */        
+/* 503.300 */        
+/* 503.301 */        { => let caseConfig = Configuration()
+/* 503.302 */            
+/* 503.303 */            let test10TestFunc = { => test10();() }
+/* 503.304 */            suiteBuilder.add(
+/* 503.305 */            UnitTestCase.create(
+/* 503.306 */            "test10",
+/* 503.307 */            configuration: caseConfig,
+/* 503.308 */            body: test10TestFunc
+/* 503.309 */            )
+/* 503.310 */            )
+/* 503.311 */            
+/* 503.312 */        }()
+/* 503.313 */        
+/* 503.314 */        
+/* 503.315 */        { => let caseConfig = Configuration()
+/* 503.316 */            
+/* 503.317 */            let test11TestFunc = { => test11();() }
+/* 503.318 */            suiteBuilder.add(
+/* 503.319 */            UnitTestCase.create(
+/* 503.320 */            "test11",
+/* 503.321 */            configuration: caseConfig,
+/* 503.322 */            body: test11TestFunc
+/* 503.323 */            )
+/* 503.324 */            )
+/* 503.325 */            
+/* 503.326 */        }()
+/* 503.327 */        
+/* 503.328 */        
+/* 503.329 */        { => let caseConfig = Configuration()
+/* 503.330 */            
+/* 503.331 */            let test12TestFunc = { => test12();() }
+/* 503.332 */            suiteBuilder.add(
+/* 503.333 */            UnitTestCase.create(
+/* 503.334 */            "test12",
+/* 503.335 */            configuration: caseConfig,
+/* 503.336 */            body: test12TestFunc
+/* 503.337 */            )
+/* 503.338 */            )
+/* 503.339 */            
+/* 503.340 */        }()
+/* 503.341 */        
+/* 503.342 */        
+/* 503.343 */        { => let caseConfig = Configuration()
+/* 503.344 */            
+/* 503.345 */            let test13TestFunc = { => test13();() }
+/* 503.346 */            suiteBuilder.add(
+/* 503.347 */            UnitTestCase.create(
+/* 503.348 */            "test13",
+/* 503.349 */            configuration: caseConfig,
+/* 503.350 */            body: test13TestFunc
+/* 503.351 */            )
+/* 503.352 */            )
+/* 503.353 */            
+/* 503.354 */        }()
+/* 503.355 */        
+/* 503.356 */        return suiteBuilder.build()
+/* 503.357 */    }
+/* 503.358 */}
+/* 503.359 */
+/* 503.360 */
+/* 503.361 */extend TestPackage {
+/* 503.362 */    @Attribute[TEST_REGISTER]
+/* 503.363 */    func registerdivideTest() {
+/* 503.364 */        registerSuite({ => divideTest().asTestSuite() })
+/* 503.365 */    }
+/* 503.366 */}
+/* 503.367 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in calculator_test.cj:615:1 ===== */
+/* 615.1 */@Attribute[TEST_GENERATED] class absoluteTest <: TestClass {
+/* 615.2 */    @Attribute[TestCase_115]
+/* 615.3 */    public func test1() {
+/* 615.4 */        let m1: Money = Money(- 12.3, "AED")
+/* 615.5 */        let calculator: Calculator = Calculator()
+/* 615.6 */        let m2: Money = calculator.calculate(m1, absolute)
+/* 615.7 */        expectEqual("m2.amount", "1230", m2.amount, 1230)
+/* 615.8 */    }
+/* 615.9 */    
+/* 615.10 */    @Attribute[TestCase_116]
+/* 615.11 */    public func test2() {
+/* 615.12 */        let m1: Money = Money(- 112.305, "COP")
+/* 615.13 */        let calculator: Calculator = Calculator()
+/* 615.14 */        let m2: Money = calculator.calculate(m1, absolute)
+/* 615.15 */        expectEqual("m2.amount", "11231", m2.amount, 11231)
+/* 615.16 */    }
+/* 615.17 */    
+/* 615.18 */    @Attribute[TestCase_117]
+/* 615.19 */    public func test3() {
+/* 615.20 */        let m1: Money = Money(122.3054333, "KWD")
+/* 615.21 */        let calculator: Calculator = Calculator()
+/* 615.22 */        let m2: Money = calculator.calculate(m1, absolute)
+/* 615.23 */        expectEqual("m2.amount", "122305", m2.amount, 122305)
+/* 615.24 */    }
+/* 615.25 */    
+/* 615.26 */    @Attribute[TestCase_118]
+/* 615.27 */    public func test4() {
+/* 615.28 */        let m1: Money = Money(0.1, "PLN")
+/* 615.29 */        let calculator: Calculator = Calculator()
+/* 615.30 */        let m2: Money = calculator.calculate(m1, absolute)
+/* 615.31 */        expectEqual("m2.amount", "10", m2.amount, 10)
+/* 615.32 */    }
+/* 615.33 */    
+/* 615.34 */    @Attribute[TestCase_119]
+/* 615.35 */    public func test5() {
+/* 615.36 */        let m1: Money = Money(0.0, "JEP")
+/* 615.37 */        let calculator: Calculator = Calculator()
+/* 615.38 */        let m2: Money = calculator.calculate(m1, absolute)
+/* 615.39 */        expectEqual("m2.amount", "0", m2.amount, 0)
+/* 615.40 */    }
+/* 615.41 */    
+/* 615.42 */    @Attribute[TestCase_120]
+/* 615.43 */    public func test6() {
+/* 615.44 */        let m1: Money = Money(12.012, "PHP")
+/* 615.45 */        let calculator: Calculator = Calculator()
+/* 615.46 */        let m2: Money = calculator.calculate(m1, absolute)
+/* 615.47 */        expectEqual("m2.amount", "1201", m2.amount, 1201)
+/* 615.48 */    }
+/* 615.49 */    
+/* 615.50 */    @Attribute[TestCase_121]
+/* 615.51 */    public func test7() {
+/* 615.52 */        let m1: Money = Money(- 16.388, "TJS")
+/* 615.53 */        let calculator: Calculator = Calculator()
+/* 615.54 */        let m2: Money = calculator.calculate(m1, absolute)
+/* 615.55 */        expectEqual("m2.amount", "1639", m2.amount, 1639)
+/* 615.56 */    }
+/* 615.57 */    
+/* 615.58 */    @Attribute[TestCase_122]
+/* 615.59 */    public func test8() {
+/* 615.60 */        let m1: BigMoney = BigMoney("11345443412352344235356444444465444444413435234532532522.30541324413241234122222333", "KWD")
+/* 615.61 */        let calculator: Calculator = Calculator()
+/* 615.62 */        let m2: BigMoney = calculator.calculate(m1, absolute)
+/* 615.63 */        expectEqual("m2.amount", "BigInt(\"11345443412352344235356444444465444444413435234532532522305\")", m2.amount, BigInt("11345443412352344235356444444465444444413435234532532522305"))
+/* 615.64 */    }
+/* 615.65 */    
+/* 615.66 */    @Attribute[TestCase_123]
+/* 615.67 */    public func test9() {
+/* 615.68 */        let m1: BigMoney = BigMoney("000000.00", "PLN")
+/* 615.69 */        let calculator: Calculator = Calculator()
+/* 615.70 */        let m2: BigMoney = calculator.calculate(m1, absolute)
+/* 615.71 */        expectEqual("m2.amount", "BigInt(\"0\")", m2.amount, BigInt("0"))
+/* 615.72 */    }
+/* 615.73 */    
+/* 615.74 */    @Attribute[TestCase_124]
+/* 615.75 */    public func test10() {
+/* 615.76 */        let m1: BigMoney = BigMoney("-794859823475872345892345823489578923458243657647.2345283975892734587328947598324", "PLN")
+/* 615.77 */        let calculator: Calculator = Calculator()
+/* 615.78 */        let m2: BigMoney = calculator.calculate(m1, absolute)
+/* 615.79 */        expectEqual("m2.amount", "BigInt(\"79485982347587234589234582348957892345824365764723\")", m2.amount, BigInt("79485982347587234589234582348957892345824365764723"))
+/* 615.80 */    }
+/* 615.81 */    
+/* 615.82 */    init() {
+/* 615.83 */    }
+/* 615.84 */    private func classConfiguration(): Configuration {
+/* 615.85 */        let configuration = Configuration()
+/* 615.86 */        
+/* 615.87 */        return configuration
+/* 615.88 */    }
+/* 615.89 */    public override func asTestSuite(): TestSuite {
+/* 615.90 */        
+/* 615.91 */        let suiteConfiguration = classConfiguration()
+/* 615.92 */        let suiteBuilder = TestSuite.builder("absoluteTest").configure(suiteConfiguration)
+/* 615.93 */        let m___ = TimeNow()
+/* 615.94 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 615.95 */        
+/* 615.96 */        { => let caseConfig = Configuration()
+/* 615.97 */            
+/* 615.98 */            let test1TestFunc = { => test1();() }
+/* 615.99 */            suiteBuilder.add(
+/* 615.100 */            UnitTestCase.create(
+/* 615.101 */            "test1",
+/* 615.102 */            configuration: caseConfig,
+/* 615.103 */            body: test1TestFunc
+/* 615.104 */            )
+/* 615.105 */            )
+/* 615.106 */            
+/* 615.107 */        }()
+/* 615.108 */        
+/* 615.109 */        
+/* 615.110 */        { => let caseConfig = Configuration()
+/* 615.111 */            
+/* 615.112 */            let test2TestFunc = { => test2();() }
+/* 615.113 */            suiteBuilder.add(
+/* 615.114 */            UnitTestCase.create(
+/* 615.115 */            "test2",
+/* 615.116 */            configuration: caseConfig,
+/* 615.117 */            body: test2TestFunc
+/* 615.118 */            )
+/* 615.119 */            )
+/* 615.120 */            
+/* 615.121 */        }()
+/* 615.122 */        
+/* 615.123 */        
+/* 615.124 */        { => let caseConfig = Configuration()
+/* 615.125 */            
+/* 615.126 */            let test3TestFunc = { => test3();() }
+/* 615.127 */            suiteBuilder.add(
+/* 615.128 */            UnitTestCase.create(
+/* 615.129 */            "test3",
+/* 615.130 */            configuration: caseConfig,
+/* 615.131 */            body: test3TestFunc
+/* 615.132 */            )
+/* 615.133 */            )
+/* 615.134 */            
+/* 615.135 */        }()
+/* 615.136 */        
+/* 615.137 */        
+/* 615.138 */        { => let caseConfig = Configuration()
+/* 615.139 */            
+/* 615.140 */            let test4TestFunc = { => test4();() }
+/* 615.141 */            suiteBuilder.add(
+/* 615.142 */            UnitTestCase.create(
+/* 615.143 */            "test4",
+/* 615.144 */            configuration: caseConfig,
+/* 615.145 */            body: test4TestFunc
+/* 615.146 */            )
+/* 615.147 */            )
+/* 615.148 */            
+/* 615.149 */        }()
+/* 615.150 */        
+/* 615.151 */        
+/* 615.152 */        { => let caseConfig = Configuration()
+/* 615.153 */            
+/* 615.154 */            let test5TestFunc = { => test5();() }
+/* 615.155 */            suiteBuilder.add(
+/* 615.156 */            UnitTestCase.create(
+/* 615.157 */            "test5",
+/* 615.158 */            configuration: caseConfig,
+/* 615.159 */            body: test5TestFunc
+/* 615.160 */            )
+/* 615.161 */            )
+/* 615.162 */            
+/* 615.163 */        }()
+/* 615.164 */        
+/* 615.165 */        
+/* 615.166 */        { => let caseConfig = Configuration()
+/* 615.167 */            
+/* 615.168 */            let test6TestFunc = { => test6();() }
+/* 615.169 */            suiteBuilder.add(
+/* 615.170 */            UnitTestCase.create(
+/* 615.171 */            "test6",
+/* 615.172 */            configuration: caseConfig,
+/* 615.173 */            body: test6TestFunc
+/* 615.174 */            )
+/* 615.175 */            )
+/* 615.176 */            
+/* 615.177 */        }()
+/* 615.178 */        
+/* 615.179 */        
+/* 615.180 */        { => let caseConfig = Configuration()
+/* 615.181 */            
+/* 615.182 */            let test7TestFunc = { => test7();() }
+/* 615.183 */            suiteBuilder.add(
+/* 615.184 */            UnitTestCase.create(
+/* 615.185 */            "test7",
+/* 615.186 */            configuration: caseConfig,
+/* 615.187 */            body: test7TestFunc
+/* 615.188 */            )
+/* 615.189 */            )
+/* 615.190 */            
+/* 615.191 */        }()
+/* 615.192 */        
+/* 615.193 */        
+/* 615.194 */        { => let caseConfig = Configuration()
+/* 615.195 */            
+/* 615.196 */            let test8TestFunc = { => test8();() }
+/* 615.197 */            suiteBuilder.add(
+/* 615.198 */            UnitTestCase.create(
+/* 615.199 */            "test8",
+/* 615.200 */            configuration: caseConfig,
+/* 615.201 */            body: test8TestFunc
+/* 615.202 */            )
+/* 615.203 */            )
+/* 615.204 */            
+/* 615.205 */        }()
+/* 615.206 */        
+/* 615.207 */        
+/* 615.208 */        { => let caseConfig = Configuration()
+/* 615.209 */            
+/* 615.210 */            let test9TestFunc = { => test9();() }
+/* 615.211 */            suiteBuilder.add(
+/* 615.212 */            UnitTestCase.create(
+/* 615.213 */            "test9",
+/* 615.214 */            configuration: caseConfig,
+/* 615.215 */            body: test9TestFunc
+/* 615.216 */            )
+/* 615.217 */            )
+/* 615.218 */            
+/* 615.219 */        }()
+/* 615.220 */        
+/* 615.221 */        
+/* 615.222 */        { => let caseConfig = Configuration()
+/* 615.223 */            
+/* 615.224 */            let test10TestFunc = { => test10();() }
+/* 615.225 */            suiteBuilder.add(
+/* 615.226 */            UnitTestCase.create(
+/* 615.227 */            "test10",
+/* 615.228 */            configuration: caseConfig,
+/* 615.229 */            body: test10TestFunc
+/* 615.230 */            )
+/* 615.231 */            )
+/* 615.232 */            
+/* 615.233 */        }()
+/* 615.234 */        
+/* 615.235 */        return suiteBuilder.build()
+/* 615.236 */    }
+/* 615.237 */}
+/* 615.238 */
+/* 615.239 */
+/* 615.240 */extend TestPackage {
+/* 615.241 */    @Attribute[TEST_REGISTER]
+/* 615.242 */    func registerabsoluteTest() {
+/* 615.243 */        registerSuite({ => absoluteTest().asTestSuite() })
+/* 615.244 */    }
+/* 615.245 */}
+/* 615.246 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in calculator_test.cj:691:1 ===== */
+/* 691.1 */@Attribute[TEST_GENERATED] class negativeTest <: TestClass {
+/* 691.2 */    @Attribute[TestCase_125]
+/* 691.3 */    public func test1() {
+/* 691.4 */        let m1: Money = Money(- 12.3, "AED")
+/* 691.5 */        let calculator: Calculator = Calculator()
+/* 691.6 */        let m2: Money = calculator.calculate(m1, negative)
+/* 691.7 */        expectEqual("m2.amount", "1230", m2.amount, 1230)
+/* 691.8 */    }
+/* 691.9 */    
+/* 691.10 */    @Attribute[TestCase_126]
+/* 691.11 */    public func test2() {
+/* 691.12 */        let m1: Money = Money(- 112.305, "COP")
+/* 691.13 */        let calculator: Calculator = Calculator()
+/* 691.14 */        let m2: Money = calculator.calculate(m1, negative)
+/* 691.15 */        expectEqual("m2.amount", "11231", m2.amount, 11231)
+/* 691.16 */    }
+/* 691.17 */    
+/* 691.18 */    @Attribute[TestCase_127]
+/* 691.19 */    public func test3() {
+/* 691.20 */        let m1: Money = Money(122.3054333, "KWD")
+/* 691.21 */        let calculator: Calculator = Calculator()
+/* 691.22 */        let m2: Money = calculator.calculate(m1, negative)
+/* 691.23 */        expectEqual("m2.amount", "- 122305", m2.amount, - 122305)
+/* 691.24 */    }
+/* 691.25 */    
+/* 691.26 */    @Attribute[TestCase_128]
+/* 691.27 */    public func test4() {
+/* 691.28 */        let m1: Money = Money(0.1, "PLN")
+/* 691.29 */        let calculator: Calculator = Calculator()
+/* 691.30 */        let m2: Money = calculator.calculate(m1, negative)
+/* 691.31 */        expectEqual("m2.amount", "- 10", m2.amount, - 10)
+/* 691.32 */    }
+/* 691.33 */    
+/* 691.34 */    @Attribute[TestCase_129]
+/* 691.35 */    public func test5() {
+/* 691.36 */        let m1: Money = Money(0.0, "JEP")
+/* 691.37 */        let calculator: Calculator = Calculator()
+/* 691.38 */        let m2: Money = calculator.calculate(m1, negative)
+/* 691.39 */        expectEqual("m2.amount", "0", m2.amount, 0)
+/* 691.40 */    }
+/* 691.41 */    
+/* 691.42 */    @Attribute[TestCase_130]
+/* 691.43 */    public func test6() {
+/* 691.44 */        let m1: Money = Money(12.012, "PHP")
+/* 691.45 */        let calculator: Calculator = Calculator()
+/* 691.46 */        let m2: Money = calculator.calculate(m1, negative)
+/* 691.47 */        expectEqual("m2.amount", "- 1201", m2.amount, - 1201)
+/* 691.48 */    }
+/* 691.49 */    
+/* 691.50 */    @Attribute[TestCase_131]
+/* 691.51 */    public func test7() {
+/* 691.52 */        let m1: Money = Money(- 16.388, "TJS")
+/* 691.53 */        let calculator: Calculator = Calculator()
+/* 691.54 */        let m2: Money = calculator.calculate(m1, negative)
+/* 691.55 */        expectEqual("m2.amount", "1639", m2.amount, 1639)
+/* 691.56 */    }
+/* 691.57 */    
+/* 691.58 */    @Attribute[TestCase_132]
+/* 691.59 */    public func test8() {
+/* 691.60 */        let m1: BigMoney = BigMoney("11345443412352344235356444444465444444413435234532532522.30541324413241234122222333", "KWD")
+/* 691.61 */        let calculator: Calculator = Calculator()
+/* 691.62 */        let m2: BigMoney = calculator.calculate(m1, negative)
+/* 691.63 */        expectEqual("m2.amount", "BigInt(\"-11345443412352344235356444444465444444413435234532532522305\")", m2.amount, BigInt("-11345443412352344235356444444465444444413435234532532522305"))
+/* 691.64 */    }
+/* 691.65 */    
+/* 691.66 */    @Attribute[TestCase_133]
+/* 691.67 */    public func test9() {
+/* 691.68 */        let m1: BigMoney = BigMoney("000000.00", "PLN")
+/* 691.69 */        let calculator: Calculator = Calculator()
+/* 691.70 */        let m2: BigMoney = calculator.calculate(m1, negative)
+/* 691.71 */        expectEqual("m2.amount", "BigInt(\"0\")", m2.amount, BigInt("0"))
+/* 691.72 */    }
+/* 691.73 */    
+/* 691.74 */    @Attribute[TestCase_134]
+/* 691.75 */    public func test10() {
+/* 691.76 */        let m1: BigMoney = BigMoney("-794859823475872345892345823489578923458243657647.2345283975892734587328947598324", "PLN")
+/* 691.77 */        let calculator: Calculator = Calculator()
+/* 691.78 */        let m2: BigMoney = calculator.calculate(m1, negative)
+/* 691.79 */        expectEqual("m2.amount", "BigInt(\"79485982347587234589234582348957892345824365764723\")", m2.amount, BigInt("79485982347587234589234582348957892345824365764723"))
+/* 691.80 */    }
+/* 691.81 */    
+/* 691.82 */    init() {
+/* 691.83 */    }
+/* 691.84 */    private func classConfiguration(): Configuration {
+/* 691.85 */        let configuration = Configuration()
+/* 691.86 */        
+/* 691.87 */        return configuration
+/* 691.88 */    }
+/* 691.89 */    public override func asTestSuite(): TestSuite {
+/* 691.90 */        
+/* 691.91 */        let suiteConfiguration = classConfiguration()
+/* 691.92 */        let suiteBuilder = TestSuite.builder("negativeTest").configure(suiteConfiguration)
+/* 691.93 */        let m___ = TimeNow()
+/* 691.94 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 691.95 */        
+/* 691.96 */        { => let caseConfig = Configuration()
+/* 691.97 */            
+/* 691.98 */            let test1TestFunc = { => test1();() }
+/* 691.99 */            suiteBuilder.add(
+/* 691.100 */            UnitTestCase.create(
+/* 691.101 */            "test1",
+/* 691.102 */            configuration: caseConfig,
+/* 691.103 */            body: test1TestFunc
+/* 691.104 */            )
+/* 691.105 */            )
+/* 691.106 */            
+/* 691.107 */        }()
+/* 691.108 */        
+/* 691.109 */        
+/* 691.110 */        { => let caseConfig = Configuration()
+/* 691.111 */            
+/* 691.112 */            let test2TestFunc = { => test2();() }
+/* 691.113 */            suiteBuilder.add(
+/* 691.114 */            UnitTestCase.create(
+/* 691.115 */            "test2",
+/* 691.116 */            configuration: caseConfig,
+/* 691.117 */            body: test2TestFunc
+/* 691.118 */            )
+/* 691.119 */            )
+/* 691.120 */            
+/* 691.121 */        }()
+/* 691.122 */        
+/* 691.123 */        
+/* 691.124 */        { => let caseConfig = Configuration()
+/* 691.125 */            
+/* 691.126 */            let test3TestFunc = { => test3();() }
+/* 691.127 */            suiteBuilder.add(
+/* 691.128 */            UnitTestCase.create(
+/* 691.129 */            "test3",
+/* 691.130 */            configuration: caseConfig,
+/* 691.131 */            body: test3TestFunc
+/* 691.132 */            )
+/* 691.133 */            )
+/* 691.134 */            
+/* 691.135 */        }()
+/* 691.136 */        
+/* 691.137 */        
+/* 691.138 */        { => let caseConfig = Configuration()
+/* 691.139 */            
+/* 691.140 */            let test4TestFunc = { => test4();() }
+/* 691.141 */            suiteBuilder.add(
+/* 691.142 */            UnitTestCase.create(
+/* 691.143 */            "test4",
+/* 691.144 */            configuration: caseConfig,
+/* 691.145 */            body: test4TestFunc
+/* 691.146 */            )
+/* 691.147 */            )
+/* 691.148 */            
+/* 691.149 */        }()
+/* 691.150 */        
+/* 691.151 */        
+/* 691.152 */        { => let caseConfig = Configuration()
+/* 691.153 */            
+/* 691.154 */            let test5TestFunc = { => test5();() }
+/* 691.155 */            suiteBuilder.add(
+/* 691.156 */            UnitTestCase.create(
+/* 691.157 */            "test5",
+/* 691.158 */            configuration: caseConfig,
+/* 691.159 */            body: test5TestFunc
+/* 691.160 */            )
+/* 691.161 */            )
+/* 691.162 */            
+/* 691.163 */        }()
+/* 691.164 */        
+/* 691.165 */        
+/* 691.166 */        { => let caseConfig = Configuration()
+/* 691.167 */            
+/* 691.168 */            let test6TestFunc = { => test6();() }
+/* 691.169 */            suiteBuilder.add(
+/* 691.170 */            UnitTestCase.create(
+/* 691.171 */            "test6",
+/* 691.172 */            configuration: caseConfig,
+/* 691.173 */            body: test6TestFunc
+/* 691.174 */            )
+/* 691.175 */            )
+/* 691.176 */            
+/* 691.177 */        }()
+/* 691.178 */        
+/* 691.179 */        
+/* 691.180 */        { => let caseConfig = Configuration()
+/* 691.181 */            
+/* 691.182 */            let test7TestFunc = { => test7();() }
+/* 691.183 */            suiteBuilder.add(
+/* 691.184 */            UnitTestCase.create(
+/* 691.185 */            "test7",
+/* 691.186 */            configuration: caseConfig,
+/* 691.187 */            body: test7TestFunc
+/* 691.188 */            )
+/* 691.189 */            )
+/* 691.190 */            
+/* 691.191 */        }()
+/* 691.192 */        
+/* 691.193 */        
+/* 691.194 */        { => let caseConfig = Configuration()
+/* 691.195 */            
+/* 691.196 */            let test8TestFunc = { => test8();() }
+/* 691.197 */            suiteBuilder.add(
+/* 691.198 */            UnitTestCase.create(
+/* 691.199 */            "test8",
+/* 691.200 */            configuration: caseConfig,
+/* 691.201 */            body: test8TestFunc
+/* 691.202 */            )
+/* 691.203 */            )
+/* 691.204 */            
+/* 691.205 */        }()
+/* 691.206 */        
+/* 691.207 */        
+/* 691.208 */        { => let caseConfig = Configuration()
+/* 691.209 */            
+/* 691.210 */            let test9TestFunc = { => test9();() }
+/* 691.211 */            suiteBuilder.add(
+/* 691.212 */            UnitTestCase.create(
+/* 691.213 */            "test9",
+/* 691.214 */            configuration: caseConfig,
+/* 691.215 */            body: test9TestFunc
+/* 691.216 */            )
+/* 691.217 */            )
+/* 691.218 */            
+/* 691.219 */        }()
+/* 691.220 */        
+/* 691.221 */        
+/* 691.222 */        { => let caseConfig = Configuration()
+/* 691.223 */            
+/* 691.224 */            let test10TestFunc = { => test10();() }
+/* 691.225 */            suiteBuilder.add(
+/* 691.226 */            UnitTestCase.create(
+/* 691.227 */            "test10",
+/* 691.228 */            configuration: caseConfig,
+/* 691.229 */            body: test10TestFunc
+/* 691.230 */            )
+/* 691.231 */            )
+/* 691.232 */            
+/* 691.233 */        }()
+/* 691.234 */        
+/* 691.235 */        return suiteBuilder.build()
+/* 691.236 */    }
+/* 691.237 */}
+/* 691.238 */
+/* 691.239 */
+/* 691.240 */extend TestPackage {
+/* 691.241 */    @Attribute[TEST_REGISTER]
+/* 691.242 */    func registernegativeTest() {
+/* 691.243 */        registerSuite({ => negativeTest().asTestSuite() })
+/* 691.244 */    }
+/* 691.245 */}
+/* 691.246 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in calculator_test.cj:767:1 ===== */
+/* 767.1 */@Attribute[TEST_GENERATED] class allocateTest <: TestClass {
+/* 767.2 */    @Attribute[TestCase_135]
+/* 767.3 */    public func test1() {
+/* 767.4 */        let m1: Money = Money(- 12.3, "AED")
+/* 767.5 */        let calculator: Calculator = Calculator()
+/* 767.6 */        let m2: Money = calculator.allocate(m1, 1, 2)
+/* 767.7 */        expectEqual("m2.amount", "- 615", m2.amount, - 615)
+/* 767.8 */    }
+/* 767.9 */    
+/* 767.10 */    @Attribute[TestCase_136]
+/* 767.11 */    public func test2() {
+/* 767.12 */        let m1: Money = Money(- 112.305, "COP")
+/* 767.13 */        let calculator: Calculator = Calculator()
+/* 767.14 */        let m2: Money = calculator.allocate(m1, 1, 13)
+/* 767.15 */        expectEqual("m2.amount", "- 863", m2.amount, - 863)
+/* 767.16 */    }
+/* 767.17 */    
+/* 767.18 */    @Attribute[TestCase_137]
+/* 767.19 */    public func test3() {
+/* 767.20 */        let m1: Money = Money(122.3054333, "KWD")
+/* 767.21 */        let calculator: Calculator = Calculator()
+/* 767.22 */        let m2: Money = calculator.allocate(m1, 2, 5)
+/* 767.23 */        expectEqual("m2.amount", "48922", m2.amount, 48922)
+/* 767.24 */    }
+/* 767.25 */    
+/* 767.26 */    @Attribute[TestCase_138]
+/* 767.27 */    public func test4() {
+/* 767.28 */        let m1: Money = Money(0.1, "PLN")
+/* 767.29 */        let calculator: Calculator = Calculator()
+/* 767.30 */        let m2: Money = calculator.allocate(m1, 0, 2)
+/* 767.31 */        expectEqual("m2.amount", "0", m2.amount, 0)
+/* 767.32 */    }
+/* 767.33 */    
+/* 767.34 */    @Attribute[TestCase_139]
+/* 767.35 */    public func test5() {
+/* 767.36 */        let m1: Money = Money(0.0, "JEP")
+/* 767.37 */        let calculator: Calculator = Calculator()
+/* 767.38 */        let m2: Money = calculator.allocate(m1, 3, 2)
+/* 767.39 */        expectEqual("m2.amount", "0", m2.amount, 0)
+/* 767.40 */    }
+/* 767.41 */    
+/* 767.42 */    @Attribute[TestCase_140]
+/* 767.43 */    public func test6() {
+/* 767.44 */        let m1: Money = Money(12.012, "PHP")
+/* 767.45 */        let calculator: Calculator = Calculator()
+/* 767.46 */        let m2: Money = calculator.allocate(m1, 3, 2)
+/* 767.47 */        expectEqual("m2.amount", "1801", m2.amount, 1801)
+/* 767.48 */    }
+/* 767.49 */    
+/* 767.50 */    @Attribute[TestCase_141]
+/* 767.51 */    public func test7() {
+/* 767.52 */        let m1: Money = Money(- 16.388, "TJS")
+/* 767.53 */        let calculator: Calculator = Calculator()
+/* 767.54 */        let m2: Money = calculator.allocate(m1, 49, 53)
+/* 767.55 */        expectEqual("m2.amount", "- 1515", m2.amount, - 1515)
+/* 767.56 */    }
+/* 767.57 */    
+/* 767.58 */    @Attribute[TestCase_142]
+/* 767.59 */    public func test8() {
+/* 767.60 */        let m1: Money = Money(- 16.388, "TJS")
+/* 767.61 */        let calculator: Calculator = Calculator()
+/* 767.62 */        try {
+/* 767.63 */            try {
+/* 767.64 */                let m2: Money = calculator.allocate(m1, 0, - 1)
+/* 767.65 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 767.66 */                None < IllegalArgumentException >
+/* 767.67 */            } catch(e: IllegalArgumentException) {
+/* 767.68 */                e
+/* 767.69 */            }
+/* 767.70 */        } catch(e: Exception) {
+/* 767.71 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 767.72 */                throw e
+/* 767.73 */            }
+/* 767.74 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 767.75 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 767.76 */            None < IllegalArgumentException >
+/* 767.77 */        }
+/* 767.78 */    }
+/* 767.79 */    
+/* 767.80 */    @Attribute[TestCase_143]
+/* 767.81 */    public func test9() {
+/* 767.82 */        let m: Money = Money(- 12.3, "AED")
+/* 767.83 */        let calculator: Calculator = Calculator()
+/* 767.84 */        let ms: ArrayList < Money >= calculator.allocate(m,[1, 2])
+/* 767.85 */        expectEqual("ms[0].amount", "- 410", ms[0].amount, - 410)
+/* 767.86 */        expectEqual("ms[1].amount", "- 820", ms[1].amount, - 820)
+/* 767.87 */    }
+/* 767.88 */    
+/* 767.89 */    @Attribute[TestCase_144]
+/* 767.90 */    public func test10() {
+/* 767.91 */        let m: Money = Money(- 112.305, "COP")
+/* 767.92 */        let calculator: Calculator = Calculator()
+/* 767.93 */        let ms: ArrayList < Money >= calculator.allocate(m,[1, 3])
+/* 767.94 */        expectEqual("ms[0].amount", "- 2808", ms[0].amount, - 2808)
+/* 767.95 */        expectEqual("ms[1].amount", "- 8423", ms[1].amount, - 8423)
+/* 767.96 */    }
+/* 767.97 */    
+/* 767.98 */    @Attribute[TestCase_145]
+/* 767.99 */    public func test11() {
+/* 767.100 */        let m: Money = Money(122.3054333, "KWD")
+/* 767.101 */        let calculator: Calculator = Calculator()
+/* 767.102 */        let ms: ArrayList < Money >= calculator.allocate(m,[2, 3, 2])
+/* 767.103 */        expectEqual("ms[0].amount", "34945", ms[0].amount, 34945)
+/* 767.104 */        expectEqual("ms[1].amount", "52416", ms[1].amount, 52416)
+/* 767.105 */        expectEqual("ms[2].amount", "34944", ms[2].amount, 34944)
+/* 767.106 */    }
+/* 767.107 */    
+/* 767.108 */    @Attribute[TestCase_146]
+/* 767.109 */    public func test12() {
+/* 767.110 */        let m: Money = Money(0.1, "PLN")
+/* 767.111 */        let calculator: Calculator = Calculator()
+/* 767.112 */        let ms: ArrayList < Money >= calculator.allocate(m,[0, 1, 2])
+/* 767.113 */        expectEqual("ms[0].amount", "1", ms[0].amount, 1)
+/* 767.114 */        expectEqual("ms[1].amount", "3", ms[1].amount, 3)
+/* 767.115 */        expectEqual("ms[2].amount", "6", ms[2].amount, 6)
+/* 767.116 */    }
+/* 767.117 */    
+/* 767.118 */    @Attribute[TestCase_147]
+/* 767.119 */    public func test13() {
+/* 767.120 */        let m: Money = Money(0.0, "JEP")
+/* 767.121 */        let calculator: Calculator = Calculator()
+/* 767.122 */        let ms: ArrayList < Money >= calculator.allocate(m,[0, 1, 2])
+/* 767.123 */        expectEqual("ms[0].amount", "0", ms[0].amount, 0)
+/* 767.124 */        expectEqual("ms[1].amount", "0", ms[1].amount, 0)
+/* 767.125 */        expectEqual("ms[2].amount", "0", ms[2].amount, 0)
+/* 767.126 */    }
+/* 767.127 */    
+/* 767.128 */    @Attribute[TestCase_148]
+/* 767.129 */    public func test14() {
+/* 767.130 */        let m: Money = Money(12.012, "PHP")
+/* 767.131 */        let calculator: Calculator = Calculator()
+/* 767.132 */        let ms: ArrayList < Money >= calculator.allocate(m,[1, 2, 2])
+/* 767.133 */        expectEqual("ms[0].amount", "241", ms[0].amount, 241)
+/* 767.134 */        expectEqual("ms[1].amount", "480", ms[1].amount, 480)
+/* 767.135 */        expectEqual("ms[2].amount", "480", ms[2].amount, 480)
+/* 767.136 */    }
+/* 767.137 */    
+/* 767.138 */    @Attribute[TestCase_149]
+/* 767.139 */    public func test15() {
+/* 767.140 */        let m: Money = Money(- 16.388, "TJS")
+/* 767.141 */        let calculator: Calculator = Calculator()
+/* 767.142 */        let ms: ArrayList < Money >= calculator.allocate(m,[2, 2])
+/* 767.143 */        expectEqual("ms[0].amount", "- 820", ms[0].amount, - 820)
+/* 767.144 */        expectEqual("ms[1].amount", "- 819", ms[1].amount, - 819)
+/* 767.145 */    }
+/* 767.146 */    
+/* 767.147 */    @Attribute[TestCase_150]
+/* 767.148 */    public func test16() {
+/* 767.149 */        let m: Money = Money(- 16.388, "TJS")
+/* 767.150 */        let calculator: Calculator = Calculator()
+/* 767.151 */        try {
+/* 767.152 */            try {
+/* 767.153 */                let ms: ArrayList < Money >= calculator.allocate(m,[])
+/* 767.154 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 767.155 */                None < IllegalArgumentException >
+/* 767.156 */            } catch(e: IllegalArgumentException) {
+/* 767.157 */                e
+/* 767.158 */            }
+/* 767.159 */        } catch(e: Exception) {
+/* 767.160 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 767.161 */                throw e
+/* 767.162 */            }
+/* 767.163 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 767.164 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 767.165 */            None < IllegalArgumentException >
+/* 767.166 */        }
+/* 767.167 */    }
+/* 767.168 */    
+/* 767.169 */    @Attribute[TestCase_151]
+/* 767.170 */    public func test17() {
+/* 767.171 */        let m: Money = Money(- 16.388, "TJS")
+/* 767.172 */        let calculator: Calculator = Calculator()
+/* 767.173 */        try {
+/* 767.174 */            try {
+/* 767.175 */                let ms: ArrayList < Money >= calculator.allocate(m,[0, 9, - 1])
+/* 767.176 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 767.177 */                None < IllegalArgumentException >
+/* 767.178 */            } catch(e: IllegalArgumentException) {
+/* 767.179 */                e
+/* 767.180 */            }
+/* 767.181 */        } catch(e: Exception) {
+/* 767.182 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 767.183 */                throw e
+/* 767.184 */            }
+/* 767.185 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 767.186 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 767.187 */            None < IllegalArgumentException >
+/* 767.188 */        }
+/* 767.189 */    }
+/* 767.190 */    
+/* 767.191 */    @Attribute[TestCase_152]
+/* 767.192 */    public func test18() {
+/* 767.193 */        let m1: BigMoney = BigMoney("248792374509827345872943578923578293472834.2432432345", "AED")
+/* 767.194 */        let calculator: Calculator = Calculator()
+/* 767.195 */        let m2: BigMoney = calculator.allocate(m1, 1, 2)
+/* 767.196 */        expectEqual("m2.amount", "BigInt(\"12439618725491367293647178946178914673641712\")", m2.amount, BigInt("12439618725491367293647178946178914673641712"))
+/* 767.197 */    }
+/* 767.198 */    
+/* 767.199 */    @Attribute[TestCase_153]
+/* 767.200 */    public func test19() {
+/* 767.201 */        let m1: BigMoney = BigMoney("-84973252498376987234863426136491238475648739568347282362843.2342532252353254325", "COP")
+/* 767.202 */        let calculator: Calculator = Calculator()
+/* 767.203 */        let m2: BigMoney = calculator.allocate(m1, 5, 13)
+/* 767.204 */        expectEqual("m2.amount", "BigInt(\"-3268202019168345662879362543711201479832643829551818552417047\")", m2.amount, BigInt("-3268202019168345662879362543711201479832643829551818552417047"))
+/* 767.205 */    }
+/* 767.206 */    
+/* 767.207 */    @Attribute[TestCase_154]
+/* 767.208 */    public func test20() {
+/* 767.209 */        let m1: BigMoney = BigMoney("0.00", "COP")
+/* 767.210 */        let calculator: Calculator = Calculator()
+/* 767.211 */        let m2: BigMoney = calculator.allocate(m1, 5, 13)
+/* 767.212 */        expectEqual("m2.amount", "BigInt(0)", m2.amount, BigInt(0))
+/* 767.213 */    }
+/* 767.214 */    
+/* 767.215 */    @Attribute[TestCase_155]
+/* 767.216 */    public func test21() {
+/* 767.217 */        let m1: BigMoney = BigMoney("-1324531432453256.32544234523588", "TJS")
+/* 767.218 */        let calculator: Calculator = Calculator()
+/* 767.219 */        try {
+/* 767.220 */            try {
+/* 767.221 */                let m2: BigMoney = calculator.allocate(m1, 0, - 1)
+/* 767.222 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 767.223 */                None < IllegalArgumentException >
+/* 767.224 */            } catch(e: IllegalArgumentException) {
+/* 767.225 */                e
+/* 767.226 */            }
+/* 767.227 */        } catch(e: Exception) {
+/* 767.228 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 767.229 */                throw e
+/* 767.230 */            }
+/* 767.231 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 767.232 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 767.233 */            None < IllegalArgumentException >
+/* 767.234 */        }
+/* 767.235 */    }
+/* 767.236 */    
+/* 767.237 */    @Attribute[TestCase_156]
+/* 767.238 */    public func test22() {
+/* 767.239 */        let m: BigMoney = BigMoney("54328798964283462879435872328346328767328757834758347856324876578234.234523532532534322334", "KWD")
+/* 767.240 */        let calculator: Calculator = Calculator()
+/* 767.241 */        let ms: ArrayList < BigMoney >= calculator.allocate(m,[2, 3, 2])
+/* 767.242 */        expectEqual("ms[0].amount", "BigInt(\"15522513989795275108410249236670379647808216524216670816092821879495496\")", ms[0].amount, BigInt("15522513989795275108410249236670379647808216524216670816092821879495496"))
+/* 767.243 */        expectEqual("ms[1].amount", "BigInt(\"23283770984692912662615373855005569471712324786325006224139232819243244\")", ms[1].amount, BigInt("23283770984692912662615373855005569471712324786325006224139232819243244"))
+/* 767.244 */        expectEqual("ms[2].amount", "BigInt(\"15522513989795275108410249236670379647808216524216670816092821879495495\")", ms[2].amount, BigInt("15522513989795275108410249236670379647808216524216670816092821879495495"))
+/* 767.245 */    }
+/* 767.246 */    
+/* 767.247 */    @Attribute[TestCase_157]
+/* 767.248 */    public func test23() {
+/* 767.249 */        let m: BigMoney = BigMoney("-724382786724386734587324578925027984328747328562347857824378.1284542345234234", "PLN")
+/* 767.250 */        let calculator: Calculator = Calculator()
+/* 767.251 */        let ms: ArrayList < BigMoney >= calculator.allocate(m,[0, 1, 2])
+/* 767.252 */        expectEqual("ms[0].amount", "BigInt(\"-1\")", ms[0].amount, BigInt("-1"))
+/* 767.253 */        expectEqual("ms[1].amount", "BigInt(\"-24146092890812891152910819297500932810958244285411595260812604\")", ms[1].amount, BigInt("-24146092890812891152910819297500932810958244285411595260812604"))
+/* 767.254 */        expectEqual("ms[2].amount", "BigInt(\"-48292185781625782305821638595001865621916488570823190521625208\")", ms[2].amount, BigInt("-48292185781625782305821638595001865621916488570823190521625208"))
+/* 767.255 */    }
+/* 767.256 */    
+/* 767.257 */    @Attribute[TestCase_158]
+/* 767.258 */    public func test24() {
+/* 767.259 */        let m: BigMoney = BigMoney("-18724378234786234563287452345782362738972783458342765327856.323422222222222223542352388", "TJS")
+/* 767.260 */        let calculator: Calculator = Calculator()
+/* 767.261 */        try {
+/* 767.262 */            try {
+/* 767.263 */                let ms: ArrayList < BigMoney >= calculator.allocate(m,[])
+/* 767.264 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 767.265 */                None < IllegalArgumentException >
+/* 767.266 */            } catch(e: IllegalArgumentException) {
+/* 767.267 */                e
+/* 767.268 */            }
+/* 767.269 */        } catch(e: Exception) {
+/* 767.270 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 767.271 */                throw e
+/* 767.272 */            }
+/* 767.273 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 767.274 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 767.275 */            None < IllegalArgumentException >
+/* 767.276 */        }
+/* 767.277 */    }
+/* 767.278 */    
+/* 767.279 */    @Attribute[TestCase_159]
+/* 767.280 */    public func test25() {
+/* 767.281 */        let m: BigMoney = BigMoney("-1423543253252354325325235334562533455463634565425325234436.423432423335634663436534535688", "TJS")
+/* 767.282 */        let calculator: Calculator = Calculator()
+/* 767.283 */        try {
+/* 767.284 */            try {
+/* 767.285 */                let ms: ArrayList < BigMoney >= calculator.allocate(m,[0, 9, - 1])
+/* 767.286 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 767.287 */                None < IllegalArgumentException >
+/* 767.288 */            } catch(e: IllegalArgumentException) {
+/* 767.289 */                e
+/* 767.290 */            }
+/* 767.291 */        } catch(e: Exception) {
+/* 767.292 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 767.293 */                throw e
+/* 767.294 */            }
+/* 767.295 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 767.296 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 767.297 */            None < IllegalArgumentException >
+/* 767.298 */        }
+/* 767.299 */    }
+/* 767.300 */    
+/* 767.301 */    init() {
+/* 767.302 */    }
+/* 767.303 */    private func classConfiguration(): Configuration {
+/* 767.304 */        let configuration = Configuration()
+/* 767.305 */        
+/* 767.306 */        return configuration
+/* 767.307 */    }
+/* 767.308 */    public override func asTestSuite(): TestSuite {
+/* 767.309 */        
+/* 767.310 */        let suiteConfiguration = classConfiguration()
+/* 767.311 */        let suiteBuilder = TestSuite.builder("allocateTest").configure(suiteConfiguration)
+/* 767.312 */        let m___ = TimeNow()
+/* 767.313 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 767.314 */        
+/* 767.315 */        { => let caseConfig = Configuration()
+/* 767.316 */            
+/* 767.317 */            let test1TestFunc = { => test1();() }
+/* 767.318 */            suiteBuilder.add(
+/* 767.319 */            UnitTestCase.create(
+/* 767.320 */            "test1",
+/* 767.321 */            configuration: caseConfig,
+/* 767.322 */            body: test1TestFunc
+/* 767.323 */            )
+/* 767.324 */            )
+/* 767.325 */            
+/* 767.326 */        }()
+/* 767.327 */        
+/* 767.328 */        
+/* 767.329 */        { => let caseConfig = Configuration()
+/* 767.330 */            
+/* 767.331 */            let test2TestFunc = { => test2();() }
+/* 767.332 */            suiteBuilder.add(
+/* 767.333 */            UnitTestCase.create(
+/* 767.334 */            "test2",
+/* 767.335 */            configuration: caseConfig,
+/* 767.336 */            body: test2TestFunc
+/* 767.337 */            )
+/* 767.338 */            )
+/* 767.339 */            
+/* 767.340 */        }()
+/* 767.341 */        
+/* 767.342 */        
+/* 767.343 */        { => let caseConfig = Configuration()
+/* 767.344 */            
+/* 767.345 */            let test3TestFunc = { => test3();() }
+/* 767.346 */            suiteBuilder.add(
+/* 767.347 */            UnitTestCase.create(
+/* 767.348 */            "test3",
+/* 767.349 */            configuration: caseConfig,
+/* 767.350 */            body: test3TestFunc
+/* 767.351 */            )
+/* 767.352 */            )
+/* 767.353 */            
+/* 767.354 */        }()
+/* 767.355 */        
+/* 767.356 */        
+/* 767.357 */        { => let caseConfig = Configuration()
+/* 767.358 */            
+/* 767.359 */            let test4TestFunc = { => test4();() }
+/* 767.360 */            suiteBuilder.add(
+/* 767.361 */            UnitTestCase.create(
+/* 767.362 */            "test4",
+/* 767.363 */            configuration: caseConfig,
+/* 767.364 */            body: test4TestFunc
+/* 767.365 */            )
+/* 767.366 */            )
+/* 767.367 */            
+/* 767.368 */        }()
+/* 767.369 */        
+/* 767.370 */        
+/* 767.371 */        { => let caseConfig = Configuration()
+/* 767.372 */            
+/* 767.373 */            let test5TestFunc = { => test5();() }
+/* 767.374 */            suiteBuilder.add(
+/* 767.375 */            UnitTestCase.create(
+/* 767.376 */            "test5",
+/* 767.377 */            configuration: caseConfig,
+/* 767.378 */            body: test5TestFunc
+/* 767.379 */            )
+/* 767.380 */            )
+/* 767.381 */            
+/* 767.382 */        }()
+/* 767.383 */        
+/* 767.384 */        
+/* 767.385 */        { => let caseConfig = Configuration()
+/* 767.386 */            
+/* 767.387 */            let test6TestFunc = { => test6();() }
+/* 767.388 */            suiteBuilder.add(
+/* 767.389 */            UnitTestCase.create(
+/* 767.390 */            "test6",
+/* 767.391 */            configuration: caseConfig,
+/* 767.392 */            body: test6TestFunc
+/* 767.393 */            )
+/* 767.394 */            )
+/* 767.395 */            
+/* 767.396 */        }()
+/* 767.397 */        
+/* 767.398 */        
+/* 767.399 */        { => let caseConfig = Configuration()
+/* 767.400 */            
+/* 767.401 */            let test7TestFunc = { => test7();() }
+/* 767.402 */            suiteBuilder.add(
+/* 767.403 */            UnitTestCase.create(
+/* 767.404 */            "test7",
+/* 767.405 */            configuration: caseConfig,
+/* 767.406 */            body: test7TestFunc
+/* 767.407 */            )
+/* 767.408 */            )
+/* 767.409 */            
+/* 767.410 */        }()
+/* 767.411 */        
+/* 767.412 */        
+/* 767.413 */        { => let caseConfig = Configuration()
+/* 767.414 */            
+/* 767.415 */            let test8TestFunc = { => test8();() }
+/* 767.416 */            suiteBuilder.add(
+/* 767.417 */            UnitTestCase.create(
+/* 767.418 */            "test8",
+/* 767.419 */            configuration: caseConfig,
+/* 767.420 */            body: test8TestFunc
+/* 767.421 */            )
+/* 767.422 */            )
+/* 767.423 */            
+/* 767.424 */        }()
+/* 767.425 */        
+/* 767.426 */        
+/* 767.427 */        { => let caseConfig = Configuration()
+/* 767.428 */            
+/* 767.429 */            let test9TestFunc = { => test9();() }
+/* 767.430 */            suiteBuilder.add(
+/* 767.431 */            UnitTestCase.create(
+/* 767.432 */            "test9",
+/* 767.433 */            configuration: caseConfig,
+/* 767.434 */            body: test9TestFunc
+/* 767.435 */            )
+/* 767.436 */            )
+/* 767.437 */            
+/* 767.438 */        }()
+/* 767.439 */        
+/* 767.440 */        
+/* 767.441 */        { => let caseConfig = Configuration()
+/* 767.442 */            
+/* 767.443 */            let test10TestFunc = { => test10();() }
+/* 767.444 */            suiteBuilder.add(
+/* 767.445 */            UnitTestCase.create(
+/* 767.446 */            "test10",
+/* 767.447 */            configuration: caseConfig,
+/* 767.448 */            body: test10TestFunc
+/* 767.449 */            )
+/* 767.450 */            )
+/* 767.451 */            
+/* 767.452 */        }()
+/* 767.453 */        
+/* 767.454 */        
+/* 767.455 */        { => let caseConfig = Configuration()
+/* 767.456 */            
+/* 767.457 */            let test11TestFunc = { => test11();() }
+/* 767.458 */            suiteBuilder.add(
+/* 767.459 */            UnitTestCase.create(
+/* 767.460 */            "test11",
+/* 767.461 */            configuration: caseConfig,
+/* 767.462 */            body: test11TestFunc
+/* 767.463 */            )
+/* 767.464 */            )
+/* 767.465 */            
+/* 767.466 */        }()
+/* 767.467 */        
+/* 767.468 */        
+/* 767.469 */        { => let caseConfig = Configuration()
+/* 767.470 */            
+/* 767.471 */            let test12TestFunc = { => test12();() }
+/* 767.472 */            suiteBuilder.add(
+/* 767.473 */            UnitTestCase.create(
+/* 767.474 */            "test12",
+/* 767.475 */            configuration: caseConfig,
+/* 767.476 */            body: test12TestFunc
+/* 767.477 */            )
+/* 767.478 */            )
+/* 767.479 */            
+/* 767.480 */        }()
+/* 767.481 */        
+/* 767.482 */        
+/* 767.483 */        { => let caseConfig = Configuration()
+/* 767.484 */            
+/* 767.485 */            let test13TestFunc = { => test13();() }
+/* 767.486 */            suiteBuilder.add(
+/* 767.487 */            UnitTestCase.create(
+/* 767.488 */            "test13",
+/* 767.489 */            configuration: caseConfig,
+/* 767.490 */            body: test13TestFunc
+/* 767.491 */            )
+/* 767.492 */            )
+/* 767.493 */            
+/* 767.494 */        }()
+/* 767.495 */        
+/* 767.496 */        
+/* 767.497 */        { => let caseConfig = Configuration()
+/* 767.498 */            
+/* 767.499 */            let test14TestFunc = { => test14();() }
+/* 767.500 */            suiteBuilder.add(
+/* 767.501 */            UnitTestCase.create(
+/* 767.502 */            "test14",
+/* 767.503 */            configuration: caseConfig,
+/* 767.504 */            body: test14TestFunc
+/* 767.505 */            )
+/* 767.506 */            )
+/* 767.507 */            
+/* 767.508 */        }()
+/* 767.509 */        
+/* 767.510 */        
+/* 767.511 */        { => let caseConfig = Configuration()
+/* 767.512 */            
+/* 767.513 */            let test15TestFunc = { => test15();() }
+/* 767.514 */            suiteBuilder.add(
+/* 767.515 */            UnitTestCase.create(
+/* 767.516 */            "test15",
+/* 767.517 */            configuration: caseConfig,
+/* 767.518 */            body: test15TestFunc
+/* 767.519 */            )
+/* 767.520 */            )
+/* 767.521 */            
+/* 767.522 */        }()
+/* 767.523 */        
+/* 767.524 */        
+/* 767.525 */        { => let caseConfig = Configuration()
+/* 767.526 */            
+/* 767.527 */            let test16TestFunc = { => test16();() }
+/* 767.528 */            suiteBuilder.add(
+/* 767.529 */            UnitTestCase.create(
+/* 767.530 */            "test16",
+/* 767.531 */            configuration: caseConfig,
+/* 767.532 */            body: test16TestFunc
+/* 767.533 */            )
+/* 767.534 */            )
+/* 767.535 */            
+/* 767.536 */        }()
+/* 767.537 */        
+/* 767.538 */        
+/* 767.539 */        { => let caseConfig = Configuration()
+/* 767.540 */            
+/* 767.541 */            let test17TestFunc = { => test17();() }
+/* 767.542 */            suiteBuilder.add(
+/* 767.543 */            UnitTestCase.create(
+/* 767.544 */            "test17",
+/* 767.545 */            configuration: caseConfig,
+/* 767.546 */            body: test17TestFunc
+/* 767.547 */            )
+/* 767.548 */            )
+/* 767.549 */            
+/* 767.550 */        }()
+/* 767.551 */        
+/* 767.552 */        
+/* 767.553 */        { => let caseConfig = Configuration()
+/* 767.554 */            
+/* 767.555 */            let test18TestFunc = { => test18();() }
+/* 767.556 */            suiteBuilder.add(
+/* 767.557 */            UnitTestCase.create(
+/* 767.558 */            "test18",
+/* 767.559 */            configuration: caseConfig,
+/* 767.560 */            body: test18TestFunc
+/* 767.561 */            )
+/* 767.562 */            )
+/* 767.563 */            
+/* 767.564 */        }()
+/* 767.565 */        
+/* 767.566 */        
+/* 767.567 */        { => let caseConfig = Configuration()
+/* 767.568 */            
+/* 767.569 */            let test19TestFunc = { => test19();() }
+/* 767.570 */            suiteBuilder.add(
+/* 767.571 */            UnitTestCase.create(
+/* 767.572 */            "test19",
+/* 767.573 */            configuration: caseConfig,
+/* 767.574 */            body: test19TestFunc
+/* 767.575 */            )
+/* 767.576 */            )
+/* 767.577 */            
+/* 767.578 */        }()
+/* 767.579 */        
+/* 767.580 */        
+/* 767.581 */        { => let caseConfig = Configuration()
+/* 767.582 */            
+/* 767.583 */            let test20TestFunc = { => test20();() }
+/* 767.584 */            suiteBuilder.add(
+/* 767.585 */            UnitTestCase.create(
+/* 767.586 */            "test20",
+/* 767.587 */            configuration: caseConfig,
+/* 767.588 */            body: test20TestFunc
+/* 767.589 */            )
+/* 767.590 */            )
+/* 767.591 */            
+/* 767.592 */        }()
+/* 767.593 */        
+/* 767.594 */        
+/* 767.595 */        { => let caseConfig = Configuration()
+/* 767.596 */            
+/* 767.597 */            let test21TestFunc = { => test21();() }
+/* 767.598 */            suiteBuilder.add(
+/* 767.599 */            UnitTestCase.create(
+/* 767.600 */            "test21",
+/* 767.601 */            configuration: caseConfig,
+/* 767.602 */            body: test21TestFunc
+/* 767.603 */            )
+/* 767.604 */            )
+/* 767.605 */            
+/* 767.606 */        }()
+/* 767.607 */        
+/* 767.608 */        
+/* 767.609 */        { => let caseConfig = Configuration()
+/* 767.610 */            
+/* 767.611 */            let test22TestFunc = { => test22();() }
+/* 767.612 */            suiteBuilder.add(
+/* 767.613 */            UnitTestCase.create(
+/* 767.614 */            "test22",
+/* 767.615 */            configuration: caseConfig,
+/* 767.616 */            body: test22TestFunc
+/* 767.617 */            )
+/* 767.618 */            )
+/* 767.619 */            
+/* 767.620 */        }()
+/* 767.621 */        
+/* 767.622 */        
+/* 767.623 */        { => let caseConfig = Configuration()
+/* 767.624 */            
+/* 767.625 */            let test23TestFunc = { => test23();() }
+/* 767.626 */            suiteBuilder.add(
+/* 767.627 */            UnitTestCase.create(
+/* 767.628 */            "test23",
+/* 767.629 */            configuration: caseConfig,
+/* 767.630 */            body: test23TestFunc
+/* 767.631 */            )
+/* 767.632 */            )
+/* 767.633 */            
+/* 767.634 */        }()
+/* 767.635 */        
+/* 767.636 */        
+/* 767.637 */        { => let caseConfig = Configuration()
+/* 767.638 */            
+/* 767.639 */            let test24TestFunc = { => test24();() }
+/* 767.640 */            suiteBuilder.add(
+/* 767.641 */            UnitTestCase.create(
+/* 767.642 */            "test24",
+/* 767.643 */            configuration: caseConfig,
+/* 767.644 */            body: test24TestFunc
+/* 767.645 */            )
+/* 767.646 */            )
+/* 767.647 */            
+/* 767.648 */        }()
+/* 767.649 */        
+/* 767.650 */        
+/* 767.651 */        { => let caseConfig = Configuration()
+/* 767.652 */            
+/* 767.653 */            let test25TestFunc = { => test25();() }
+/* 767.654 */            suiteBuilder.add(
+/* 767.655 */            UnitTestCase.create(
+/* 767.656 */            "test25",
+/* 767.657 */            configuration: caseConfig,
+/* 767.658 */            body: test25TestFunc
+/* 767.659 */            )
+/* 767.660 */            )
+/* 767.661 */            
+/* 767.662 */        }()
+/* 767.663 */        
+/* 767.664 */        return suiteBuilder.build()
+/* 767.665 */    }
+/* 767.666 */}
+/* 767.667 */
+/* 767.668 */
+/* 767.669 */extend TestPackage {
+/* 767.670 */    @Attribute[TEST_REGISTER]
+/* 767.671 */    func registerallocateTest() {
+/* 767.672 */        registerSuite({ => allocateTest().asTestSuite() })
+/* 767.673 */    }
+/* 767.674 */}
+/* 767.675 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in calculator_test.cj:972:1 ===== */
+/* 972.1 */@Attribute[TEST_GENERATED] class roundTest <: TestClass {
+/* 972.2 */    @Attribute[TestCase_160]
+/* 972.3 */    public func test1() {
+/* 972.4 */        let m1: Money = Money(- 12.3, "AED")
+/* 972.5 */        let calculator: Calculator = Calculator()
+/* 972.6 */        let m2: Money = calculator.round(m1, 2)
+/* 972.7 */        expectEqual("m2.amount", "- 1200", m2.amount, - 1200)
+/* 972.8 */    }
+/* 972.9 */    
+/* 972.10 */    @Attribute[TestCase_161]
+/* 972.11 */    public func test2() {
+/* 972.12 */        let m1: Money = Money(- 112.305, "COP")
+/* 972.13 */        let calculator: Calculator = Calculator()
+/* 972.14 */        let m2: Money = calculator.round(m1, 1)
+/* 972.15 */        expectEqual("m2.amount", "- 11230", m2.amount, - 11230)
+/* 972.16 */    }
+/* 972.17 */    
+/* 972.18 */    @Attribute[TestCase_162]
+/* 972.19 */    public func test3() {
+/* 972.20 */        let m1: Money = Money(122.3054333, "KWD")
+/* 972.21 */        let calculator: Calculator = Calculator()
+/* 972.22 */        let m2: Money = calculator.round(m1, 1)
+/* 972.23 */        expectEqual("m2.amount", "122310", m2.amount, 122310)
+/* 972.24 */    }
+/* 972.25 */    
+/* 972.26 */    @Attribute[TestCase_163]
+/* 972.27 */    public func test4() {
+/* 972.28 */        let m1: Money = Money(0.1, "PLN")
+/* 972.29 */        println(m1.amount)
+/* 972.30 */        let calculator: Calculator = Calculator()
+/* 972.31 */        let m2: Money = calculator.round(m1, 1)
+/* 972.32 */        expectEqual("m2.amount", "10", m2.amount, 10)
+/* 972.33 */    }
+/* 972.34 */    
+/* 972.35 */    @Attribute[TestCase_164]
+/* 972.36 */    public func test5() {
+/* 972.37 */        let m1: Money = Money(0.0, "JEP")
+/* 972.38 */        let calculator: Calculator = Calculator()
+/* 972.39 */        let m2: Money = calculator.round(m1, 1)
+/* 972.40 */        expectEqual("m2.amount", "0", m2.amount, 0)
+/* 972.41 */    }
+/* 972.42 */    
+/* 972.43 */    @Attribute[TestCase_165]
+/* 972.44 */    public func test6() {
+/* 972.45 */        let m1: Money = Money(12.012, "PHP")
+/* 972.46 */        let calculator: Calculator = Calculator()
+/* 972.47 */        let m2: Money = calculator.round(m1, 1)
+/* 972.48 */        expectEqual("m2.amount", "1200", m2.amount, 1200)
+/* 972.49 */    }
+/* 972.50 */    
+/* 972.51 */    @Attribute[TestCase_166]
+/* 972.52 */    public func test7() {
+/* 972.53 */        let m1: Money = Money(- 16.388, "TJS")
+/* 972.54 */        let calculator: Calculator = Calculator()
+/* 972.55 */        let m2: Money = calculator.round(m1, 1)
+/* 972.56 */        expectEqual("m2.amount", "- 1640", m2.amount, - 1640)
+/* 972.57 */    }
+/* 972.58 */    
+/* 972.59 */    @Attribute[TestCase_167]
+/* 972.60 */    public func test8() {
+/* 972.61 */        let m1: Money = Money(- 16.388, "TJS")
+/* 972.62 */        let calculator: Calculator = Calculator()
+/* 972.63 */        try {
+/* 972.64 */            try {
+/* 972.65 */                let m2: Money = calculator.round(m1, 0)
+/* 972.66 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 972.67 */                None < IllegalArgumentException >
+/* 972.68 */            } catch(e: IllegalArgumentException) {
+/* 972.69 */                e
+/* 972.70 */            }
+/* 972.71 */        } catch(e: Exception) {
+/* 972.72 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 972.73 */                throw e
+/* 972.74 */            }
+/* 972.75 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 972.76 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 972.77 */            None < IllegalArgumentException >
+/* 972.78 */        }
+/* 972.79 */    }
+/* 972.80 */    
+/* 972.81 */    @Attribute[TestCase_168]
+/* 972.82 */    public func test9() {
+/* 972.83 */        let m1: BigMoney = BigMoney("-1782538723487872363268234542353253253253253252345234575634272.32345325325786783426785322", "AED")
+/* 972.84 */        let calculator: Calculator = Calculator()
+/* 972.85 */        let m2: BigMoney = calculator.round(m1, 2)
+/* 972.86 */        expectEqual("m2.amount", "BigInt(\"-178253872348787236326823454235325325325325325234523457563427200\")", m2.amount, BigInt("-178253872348787236326823454235325325325325325234523457563427200"))
+/* 972.87 */    }
+/* 972.88 */    
+/* 972.89 */    @Attribute[TestCase_169]
+/* 972.90 */    public func test10() {
+/* 972.91 */        let m1: BigMoney = BigMoney("-167342785432785432767342785437843278734743276346832674876342643287634284312.98435235734279789437734287938794387905", "COP")
+/* 972.92 */        let calculator: Calculator = Calculator()
+/* 972.93 */        let m2: BigMoney = calculator.round(m1, 1)
+/* 972.94 */        expectEqual("m2.amount", "BigInt(\"-16734278543278543276734278543784327873474327634683267487634264328763428431300\")", m2.amount, BigInt("-16734278543278543276734278543784327873474327634683267487634264328763428431300"))
+/* 972.95 */    }
+/* 972.96 */    
+/* 972.97 */    @Attribute[TestCase_170]
+/* 972.98 */    public func test11() {
+/* 972.99 */        let m1: BigMoney = BigMoney("19243809478293582937832097328932897328973289893278932893289732853285892322.3054333", "KWD")
+/* 972.100 */        let calculator: Calculator = Calculator()
+/* 972.101 */        let m2: BigMoney = calculator.round(m1, 1)
+/* 972.102 */        expectEqual("m2.amount", "BigInt(\"19243809478293582937832097328932897328973289893278932893289732853285892322310\")", m2.amount, BigInt("19243809478293582937832097328932897328973289893278932893289732853285892322310"))
+/* 972.103 */    }
+/* 972.104 */    
+/* 972.105 */    init() {
+/* 972.106 */    }
+/* 972.107 */    private func classConfiguration(): Configuration {
+/* 972.108 */        let configuration = Configuration()
+/* 972.109 */        
+/* 972.110 */        return configuration
+/* 972.111 */    }
+/* 972.112 */    public override func asTestSuite(): TestSuite {
+/* 972.113 */        
+/* 972.114 */        let suiteConfiguration = classConfiguration()
+/* 972.115 */        let suiteBuilder = TestSuite.builder("roundTest").configure(suiteConfiguration)
+/* 972.116 */        let m___ = TimeNow()
+/* 972.117 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 972.118 */        
+/* 972.119 */        { => let caseConfig = Configuration()
+/* 972.120 */            
+/* 972.121 */            let test1TestFunc = { => test1();() }
+/* 972.122 */            suiteBuilder.add(
+/* 972.123 */            UnitTestCase.create(
+/* 972.124 */            "test1",
+/* 972.125 */            configuration: caseConfig,
+/* 972.126 */            body: test1TestFunc
+/* 972.127 */            )
+/* 972.128 */            )
+/* 972.129 */            
+/* 972.130 */        }()
+/* 972.131 */        
+/* 972.132 */        
+/* 972.133 */        { => let caseConfig = Configuration()
+/* 972.134 */            
+/* 972.135 */            let test2TestFunc = { => test2();() }
+/* 972.136 */            suiteBuilder.add(
+/* 972.137 */            UnitTestCase.create(
+/* 972.138 */            "test2",
+/* 972.139 */            configuration: caseConfig,
+/* 972.140 */            body: test2TestFunc
+/* 972.141 */            )
+/* 972.142 */            )
+/* 972.143 */            
+/* 972.144 */        }()
+/* 972.145 */        
+/* 972.146 */        
+/* 972.147 */        { => let caseConfig = Configuration()
+/* 972.148 */            
+/* 972.149 */            let test3TestFunc = { => test3();() }
+/* 972.150 */            suiteBuilder.add(
+/* 972.151 */            UnitTestCase.create(
+/* 972.152 */            "test3",
+/* 972.153 */            configuration: caseConfig,
+/* 972.154 */            body: test3TestFunc
+/* 972.155 */            )
+/* 972.156 */            )
+/* 972.157 */            
+/* 972.158 */        }()
+/* 972.159 */        
+/* 972.160 */        
+/* 972.161 */        { => let caseConfig = Configuration()
+/* 972.162 */            
+/* 972.163 */            let test4TestFunc = { => test4();() }
+/* 972.164 */            suiteBuilder.add(
+/* 972.165 */            UnitTestCase.create(
+/* 972.166 */            "test4",
+/* 972.167 */            configuration: caseConfig,
+/* 972.168 */            body: test4TestFunc
+/* 972.169 */            )
+/* 972.170 */            )
+/* 972.171 */            
+/* 972.172 */        }()
+/* 972.173 */        
+/* 972.174 */        
+/* 972.175 */        { => let caseConfig = Configuration()
+/* 972.176 */            
+/* 972.177 */            let test5TestFunc = { => test5();() }
+/* 972.178 */            suiteBuilder.add(
+/* 972.179 */            UnitTestCase.create(
+/* 972.180 */            "test5",
+/* 972.181 */            configuration: caseConfig,
+/* 972.182 */            body: test5TestFunc
+/* 972.183 */            )
+/* 972.184 */            )
+/* 972.185 */            
+/* 972.186 */        }()
+/* 972.187 */        
+/* 972.188 */        
+/* 972.189 */        { => let caseConfig = Configuration()
+/* 972.190 */            
+/* 972.191 */            let test6TestFunc = { => test6();() }
+/* 972.192 */            suiteBuilder.add(
+/* 972.193 */            UnitTestCase.create(
+/* 972.194 */            "test6",
+/* 972.195 */            configuration: caseConfig,
+/* 972.196 */            body: test6TestFunc
+/* 972.197 */            )
+/* 972.198 */            )
+/* 972.199 */            
+/* 972.200 */        }()
+/* 972.201 */        
+/* 972.202 */        
+/* 972.203 */        { => let caseConfig = Configuration()
+/* 972.204 */            
+/* 972.205 */            let test7TestFunc = { => test7();() }
+/* 972.206 */            suiteBuilder.add(
+/* 972.207 */            UnitTestCase.create(
+/* 972.208 */            "test7",
+/* 972.209 */            configuration: caseConfig,
+/* 972.210 */            body: test7TestFunc
+/* 972.211 */            )
+/* 972.212 */            )
+/* 972.213 */            
+/* 972.214 */        }()
+/* 972.215 */        
+/* 972.216 */        
+/* 972.217 */        { => let caseConfig = Configuration()
+/* 972.218 */            
+/* 972.219 */            let test8TestFunc = { => test8();() }
+/* 972.220 */            suiteBuilder.add(
+/* 972.221 */            UnitTestCase.create(
+/* 972.222 */            "test8",
+/* 972.223 */            configuration: caseConfig,
+/* 972.224 */            body: test8TestFunc
+/* 972.225 */            )
+/* 972.226 */            )
+/* 972.227 */            
+/* 972.228 */        }()
+/* 972.229 */        
+/* 972.230 */        
+/* 972.231 */        { => let caseConfig = Configuration()
+/* 972.232 */            
+/* 972.233 */            let test9TestFunc = { => test9();() }
+/* 972.234 */            suiteBuilder.add(
+/* 972.235 */            UnitTestCase.create(
+/* 972.236 */            "test9",
+/* 972.237 */            configuration: caseConfig,
+/* 972.238 */            body: test9TestFunc
+/* 972.239 */            )
+/* 972.240 */            )
+/* 972.241 */            
+/* 972.242 */        }()
+/* 972.243 */        
+/* 972.244 */        
+/* 972.245 */        { => let caseConfig = Configuration()
+/* 972.246 */            
+/* 972.247 */            let test10TestFunc = { => test10();() }
+/* 972.248 */            suiteBuilder.add(
+/* 972.249 */            UnitTestCase.create(
+/* 972.250 */            "test10",
+/* 972.251 */            configuration: caseConfig,
+/* 972.252 */            body: test10TestFunc
+/* 972.253 */            )
+/* 972.254 */            )
+/* 972.255 */            
+/* 972.256 */        }()
+/* 972.257 */        
+/* 972.258 */        
+/* 972.259 */        { => let caseConfig = Configuration()
+/* 972.260 */            
+/* 972.261 */            let test11TestFunc = { => test11();() }
+/* 972.262 */            suiteBuilder.add(
+/* 972.263 */            UnitTestCase.create(
+/* 972.264 */            "test11",
+/* 972.265 */            configuration: caseConfig,
+/* 972.266 */            body: test11TestFunc
+/* 972.267 */            )
+/* 972.268 */            )
+/* 972.269 */            
+/* 972.270 */        }()
+/* 972.271 */        
+/* 972.272 */        return suiteBuilder.build()
+/* 972.273 */    }
+/* 972.274 */}
+/* 972.275 */
+/* 972.276 */
+/* 972.277 */extend TestPackage {
+/* 972.278 */    @Attribute[TEST_REGISTER]
+/* 972.279 */    func registerroundTest() {
+/* 972.280 */        registerSuite({ => roundTest().asTestSuite() })
+/* 972.281 */    }
+/* 972.282 */}
+/* 972.283 */
+/* ===== End of the Emit ===== */
+
+/* ===== Emitted by MacroCall @Test in calculator_test.cj:1057:1 ===== */
+/* 1057.1 */@Attribute[TEST_GENERATED] class splitTest <: TestClass {
+/* 1057.2 */    @Attribute[TestCase_171]
+/* 1057.3 */    public func test1() {
+/* 1057.4 */        let m: Money = Money(- 12.3, "AED")
+/* 1057.5 */        let calculator: Calculator = Calculator()
+/* 1057.6 */        let ms: ArrayList < Money >= calculator.split(m, 3)
+/* 1057.7 */        expectEqual("ms[0].amount", "- 410", ms[0].amount, - 410)
+/* 1057.8 */        expectEqual("ms[1].amount", "- 410", ms[1].amount, - 410)
+/* 1057.9 */        expectEqual("ms[2].amount", "- 410", ms[2].amount, - 410)
+/* 1057.10 */    }
+/* 1057.11 */    
+/* 1057.12 */    @Attribute[TestCase_172]
+/* 1057.13 */    public func test2() {
+/* 1057.14 */        let m: Money = Money(- 112.305, "COP")
+/* 1057.15 */        let calculator: Calculator = Calculator()
+/* 1057.16 */        let ms: ArrayList < Money >= calculator.split(m, 4)
+/* 1057.17 */        expectEqual("ms[0].amount", "- 2808", ms[0].amount, - 2808)
+/* 1057.18 */        expectEqual("ms[1].amount", "- 2808", ms[1].amount, - 2808)
+/* 1057.19 */        expectEqual("ms[2].amount", "- 2808", ms[2].amount, - 2808)
+/* 1057.20 */        expectEqual("ms[3].amount", "- 2807", ms[3].amount, - 2807)
+/* 1057.21 */    }
+/* 1057.22 */    
+/* 1057.23 */    @Attribute[TestCase_173]
+/* 1057.24 */    public func test3() {
+/* 1057.25 */        let m: Money = Money(122.3054333, "KWD")
+/* 1057.26 */        let calculator: Calculator = Calculator()
+/* 1057.27 */        let ms: ArrayList < Money >= calculator.split(m, 7)
+/* 1057.28 */        expectEqual("ms[0].amount", "17473", ms[0].amount, 17473)
+/* 1057.29 */        expectEqual("ms[1].amount", "17472", ms[1].amount, 17472)
+/* 1057.30 */        expectEqual("ms[2].amount", "17472", ms[2].amount, 17472)
+/* 1057.31 */        expectEqual("ms[3].amount", "17472", ms[3].amount, 17472)
+/* 1057.32 */        expectEqual("ms[1].amount", "17472", ms[1].amount, 17472)
+/* 1057.33 */        expectEqual("ms[2].amount", "17472", ms[2].amount, 17472)
+/* 1057.34 */        expectEqual("ms[3].amount", "17472", ms[3].amount, 17472)
+/* 1057.35 */    }
+/* 1057.36 */    
+/* 1057.37 */    @Attribute[TestCase_174]
+/* 1057.38 */    public func test4() {
+/* 1057.39 */        let m: Money = Money(0.1, "PLN")
+/* 1057.40 */        let calculator: Calculator = Calculator()
+/* 1057.41 */        let ms: ArrayList < Money >= calculator.split(m, 3)
+/* 1057.42 */        expectEqual("ms[0].amount", "4", ms[0].amount, 4)
+/* 1057.43 */        expectEqual("ms[1].amount", "3", ms[1].amount, 3)
+/* 1057.44 */        expectEqual("ms[2].amount", "3", ms[2].amount, 3)
+/* 1057.45 */    }
+/* 1057.46 */    
+/* 1057.47 */    @Attribute[TestCase_175]
+/* 1057.48 */    public func test5() {
+/* 1057.49 */        let m: Money = Money(0.0, "JEP")
+/* 1057.50 */        let calculator: Calculator = Calculator()
+/* 1057.51 */        let ms: ArrayList < Money >= calculator.split(m, 142)
+/* 1057.52 */        for(i in ms) {
+/* 1057.53 */            expectEqual("i.amount", "0", i.amount, 0)
+/* 1057.54 */        }
+/* 1057.55 */    }
+/* 1057.56 */    
+/* 1057.57 */    @Attribute[TestCase_176]
+/* 1057.58 */    public func test6() {
+/* 1057.59 */        let m: Money = Money(12.012, "PHP")
+/* 1057.60 */        let calculator: Calculator = Calculator()
+/* 1057.61 */        let ms: ArrayList < Money >= calculator.split(m, 5)
+/* 1057.62 */        expectEqual("ms[0].amount", "241", ms[0].amount, 241)
+/* 1057.63 */        expectEqual("ms[1].amount", "240", ms[1].amount, 240)
+/* 1057.64 */        expectEqual("ms[2].amount", "240", ms[2].amount, 240)
+/* 1057.65 */        expectEqual("ms[3].amount", "240", ms[3].amount, 240)
+/* 1057.66 */        expectEqual("ms[4].amount", "240", ms[4].amount, 240)
+/* 1057.67 */    }
+/* 1057.68 */    
+/* 1057.69 */    @Attribute[TestCase_177]
+/* 1057.70 */    public func test7() {
+/* 1057.71 */        let m: Money = Money(- 16.388, "TJS")
+/* 1057.72 */        let calculator: Calculator = Calculator()
+/* 1057.73 */        let ms: ArrayList < Money >= calculator.split(m, 4)
+/* 1057.74 */        expectEqual("ms[0].amount", "- 410", ms[0].amount, - 410)
+/* 1057.75 */        expectEqual("ms[1].amount", "- 410", ms[1].amount, - 410)
+/* 1057.76 */        expectEqual("ms[2].amount", "- 410", ms[2].amount, - 410)
+/* 1057.77 */        expectEqual("ms[3].amount", "- 409", ms[3].amount, - 409)
+/* 1057.78 */    }
+/* 1057.79 */    
+/* 1057.80 */    @Attribute[TestCase_178]
+/* 1057.81 */    public func test8() {
+/* 1057.82 */        let m: Money = Money(- 16.388, "TJS")
+/* 1057.83 */        let calculator: Calculator = Calculator()
+/* 1057.84 */        try {
+/* 1057.85 */            try {
+/* 1057.86 */                let ms: ArrayList < Money >= calculator.split(m, 0)
+/* 1057.87 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 1057.88 */                None < IllegalArgumentException >
+/* 1057.89 */            } catch(e: IllegalArgumentException) {
+/* 1057.90 */                e
+/* 1057.91 */            }
+/* 1057.92 */        } catch(e: Exception) {
+/* 1057.93 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 1057.94 */                throw e
+/* 1057.95 */            }
+/* 1057.96 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 1057.97 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 1057.98 */            None < IllegalArgumentException >
+/* 1057.99 */        }
+/* 1057.100 */    }
+/* 1057.101 */    
+/* 1057.102 */    @Attribute[TestCase_179]
+/* 1057.103 */    public func test9() {
+/* 1057.104 */        let m: BigMoney = BigMoney("-28793546872437852634532875382753212534325325235879679672.243532532532532513223", "AED")
+/* 1057.105 */        let calculator: Calculator = Calculator()
+/* 1057.106 */        let ms: ArrayList < BigMoney >= calculator.split(m, 3)
+/* 1057.107 */        expectEqual("ms[0].amount", "BigInt(\"-959784895747928421151095846091773751144177507862655989075\")", ms[0].amount, BigInt("-959784895747928421151095846091773751144177507862655989075"))
+/* 1057.108 */        expectEqual("ms[1].amount", "BigInt(\"-959784895747928421151095846091773751144177507862655989075\")", ms[1].amount, BigInt("-959784895747928421151095846091773751144177507862655989075"))
+/* 1057.109 */        expectEqual("ms[2].amount", "BigInt(\"-959784895747928421151095846091773751144177507862655989074\")", ms[2].amount, BigInt("-959784895747928421151095846091773751144177507862655989074"))
+/* 1057.110 */    }
+/* 1057.111 */    
+/* 1057.112 */    @Attribute[TestCase_180]
+/* 1057.113 */    public func test10() {
+/* 1057.114 */        let m: BigMoney = BigMoney("278457823687232873627368726782473887258723587275437827867457878287465.1345235325325324332", "PLN")
+/* 1057.115 */        let calculator: Calculator = Calculator()
+/* 1057.116 */        let ms: ArrayList < BigMoney >= calculator.split(m, 4)
+/* 1057.117 */        expectEqual("ms[0].amount", "BigInt(\"6961445592180821840684218169561847181468089681885945696686446957186629\")", ms[0].amount, BigInt("6961445592180821840684218169561847181468089681885945696686446957186629"))
+/* 1057.118 */        expectEqual("ms[1].amount", "BigInt(\"6961445592180821840684218169561847181468089681885945696686446957186628\")", ms[1].amount, BigInt("6961445592180821840684218169561847181468089681885945696686446957186628"))
+/* 1057.119 */        expectEqual("ms[2].amount", "BigInt(\"6961445592180821840684218169561847181468089681885945696686446957186628\")", ms[2].amount, BigInt("6961445592180821840684218169561847181468089681885945696686446957186628"))
+/* 1057.120 */        expectEqual("ms[3].amount", "BigInt(\"6961445592180821840684218169561847181468089681885945696686446957186628\")", ms[3].amount, BigInt("6961445592180821840684218169561847181468089681885945696686446957186628"))
+/* 1057.121 */    }
+/* 1057.122 */    
+/* 1057.123 */    @Attribute[TestCase_181]
+/* 1057.124 */    public func test11() {
+/* 1057.125 */        let m: BigMoney = BigMoney("0.0", "JEP")
+/* 1057.126 */        let calculator: Calculator = Calculator()
+/* 1057.127 */        let ms: ArrayList < BigMoney >= calculator.split(m, 142)
+/* 1057.128 */        for(i in ms) {
+/* 1057.129 */            expectEqual("i.amount", "BigInt(\"0\")", i.amount, BigInt("0"))
+/* 1057.130 */        }
+/* 1057.131 */    }
+/* 1057.132 */    
+/* 1057.133 */    @Attribute[TestCase_182]
+/* 1057.134 */    public func test12() {
+/* 1057.135 */        let m: BigMoney = BigMoney("-12345325235322353223532235343425435634647666666655557423244444444444566.325342353252388", "TJS")
+/* 1057.136 */        let calculator: Calculator = Calculator()
+/* 1057.137 */        try {
+/* 1057.138 */            try {
+/* 1057.139 */                let ms: ArrayList < BigMoney >= calculator.split(m, 0)
+/* 1057.140 */                failExpect("@ExpectThrows" + ": Expected '" + "IllegalArgumentException" + "' was not caught.")
+/* 1057.141 */                None < IllegalArgumentException >
+/* 1057.142 */            } catch(e: IllegalArgumentException) {
+/* 1057.143 */                e
+/* 1057.144 */            }
+/* 1057.145 */        } catch(e: Exception) {
+/* 1057.146 */            if(e is AssertException || e is AssertIntermediateException) {
+/* 1057.147 */                throw e
+/* 1057.148 */            }
+/* 1057.149 */            let message = "@ExpectThrows" + "(" + "IllegalArgumentException" + ")"
+/* 1057.150 */            expectCaughtUnexpectedE(message, "IllegalArgumentException", e.toString())
+/* 1057.151 */            None < IllegalArgumentException >
+/* 1057.152 */        }
+/* 1057.153 */    }
+/* 1057.154 */    
+/* 1057.155 */    init() {
+/* 1057.156 */    }
+/* 1057.157 */    private func classConfiguration(): Configuration {
+/* 1057.158 */        let configuration = Configuration()
+/* 1057.159 */        
+/* 1057.160 */        return configuration
+/* 1057.161 */    }
+/* 1057.162 */    public override func asTestSuite(): TestSuite {
+/* 1057.163 */        
+/* 1057.164 */        let suiteConfiguration = classConfiguration()
+/* 1057.165 */        let suiteBuilder = TestSuite.builder("splitTest").configure(suiteConfiguration)
+/* 1057.166 */        let m___ = TimeNow()
+/* 1057.167 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 1057.168 */        
+/* 1057.169 */        { => let caseConfig = Configuration()
+/* 1057.170 */            
+/* 1057.171 */            let test1TestFunc = { => test1();() }
+/* 1057.172 */            suiteBuilder.add(
+/* 1057.173 */            UnitTestCase.create(
+/* 1057.174 */            "test1",
+/* 1057.175 */            configuration: caseConfig,
+/* 1057.176 */            body: test1TestFunc
+/* 1057.177 */            )
+/* 1057.178 */            )
+/* 1057.179 */            
+/* 1057.180 */        }()
+/* 1057.181 */        
+/* 1057.182 */        
+/* 1057.183 */        { => let caseConfig = Configuration()
+/* 1057.184 */            
+/* 1057.185 */            let test2TestFunc = { => test2();() }
+/* 1057.186 */            suiteBuilder.add(
+/* 1057.187 */            UnitTestCase.create(
+/* 1057.188 */            "test2",
+/* 1057.189 */            configuration: caseConfig,
+/* 1057.190 */            body: test2TestFunc
+/* 1057.191 */            )
+/* 1057.192 */            )
+/* 1057.193 */            
+/* 1057.194 */        }()
+/* 1057.195 */        
+/* 1057.196 */        
+/* 1057.197 */        { => let caseConfig = Configuration()
+/* 1057.198 */            
+/* 1057.199 */            let test3TestFunc = { => test3();() }
+/* 1057.200 */            suiteBuilder.add(
+/* 1057.201 */            UnitTestCase.create(
+/* 1057.202 */            "test3",
+/* 1057.203 */            configuration: caseConfig,
+/* 1057.204 */            body: test3TestFunc
+/* 1057.205 */            )
+/* 1057.206 */            )
+/* 1057.207 */            
+/* 1057.208 */        }()
+/* 1057.209 */        
+/* 1057.210 */        
+/* 1057.211 */        { => let caseConfig = Configuration()
+/* 1057.212 */            
+/* 1057.213 */            let test4TestFunc = { => test4();() }
+/* 1057.214 */            suiteBuilder.add(
+/* 1057.215 */            UnitTestCase.create(
+/* 1057.216 */            "test4",
+/* 1057.217 */            configuration: caseConfig,
+/* 1057.218 */            body: test4TestFunc
+/* 1057.219 */            )
+/* 1057.220 */            )
+/* 1057.221 */            
+/* 1057.222 */        }()
+/* 1057.223 */        
+/* 1057.224 */        
+/* 1057.225 */        { => let caseConfig = Configuration()
+/* 1057.226 */            
+/* 1057.227 */            let test5TestFunc = { => test5();() }
+/* 1057.228 */            suiteBuilder.add(
+/* 1057.229 */            UnitTestCase.create(
+/* 1057.230 */            "test5",
+/* 1057.231 */            configuration: caseConfig,
+/* 1057.232 */            body: test5TestFunc
+/* 1057.233 */            )
+/* 1057.234 */            )
+/* 1057.235 */            
+/* 1057.236 */        }()
+/* 1057.237 */        
+/* 1057.238 */        
+/* 1057.239 */        { => let caseConfig = Configuration()
+/* 1057.240 */            
+/* 1057.241 */            let test6TestFunc = { => test6();() }
+/* 1057.242 */            suiteBuilder.add(
+/* 1057.243 */            UnitTestCase.create(
+/* 1057.244 */            "test6",
+/* 1057.245 */            configuration: caseConfig,
+/* 1057.246 */            body: test6TestFunc
+/* 1057.247 */            )
+/* 1057.248 */            )
+/* 1057.249 */            
+/* 1057.250 */        }()
+/* 1057.251 */        
+/* 1057.252 */        
+/* 1057.253 */        { => let caseConfig = Configuration()
+/* 1057.254 */            
+/* 1057.255 */            let test7TestFunc = { => test7();() }
+/* 1057.256 */            suiteBuilder.add(
+/* 1057.257 */            UnitTestCase.create(
+/* 1057.258 */            "test7",
+/* 1057.259 */            configuration: caseConfig,
+/* 1057.260 */            body: test7TestFunc
+/* 1057.261 */            )
+/* 1057.262 */            )
+/* 1057.263 */            
+/* 1057.264 */        }()
+/* 1057.265 */        
+/* 1057.266 */        
+/* 1057.267 */        { => let caseConfig = Configuration()
+/* 1057.268 */            
+/* 1057.269 */            let test8TestFunc = { => test8();() }
+/* 1057.270 */            suiteBuilder.add(
+/* 1057.271 */            UnitTestCase.create(
+/* 1057.272 */            "test8",
+/* 1057.273 */            configuration: caseConfig,
+/* 1057.274 */            body: test8TestFunc
+/* 1057.275 */            )
+/* 1057.276 */            )
+/* 1057.277 */            
+/* 1057.278 */        }()
+/* 1057.279 */        
+/* 1057.280 */        
+/* 1057.281 */        { => let caseConfig = Configuration()
+/* 1057.282 */            
+/* 1057.283 */            let test9TestFunc = { => test9();() }
+/* 1057.284 */            suiteBuilder.add(
+/* 1057.285 */            UnitTestCase.create(
+/* 1057.286 */            "test9",
+/* 1057.287 */            configuration: caseConfig,
+/* 1057.288 */            body: test9TestFunc
+/* 1057.289 */            )
+/* 1057.290 */            )
+/* 1057.291 */            
+/* 1057.292 */        }()
+/* 1057.293 */        
+/* 1057.294 */        
+/* 1057.295 */        { => let caseConfig = Configuration()
+/* 1057.296 */            
+/* 1057.297 */            let test10TestFunc = { => test10();() }
+/* 1057.298 */            suiteBuilder.add(
+/* 1057.299 */            UnitTestCase.create(
+/* 1057.300 */            "test10",
+/* 1057.301 */            configuration: caseConfig,
+/* 1057.302 */            body: test10TestFunc
+/* 1057.303 */            )
+/* 1057.304 */            )
+/* 1057.305 */            
+/* 1057.306 */        }()
+/* 1057.307 */        
+/* 1057.308 */        
+/* 1057.309 */        { => let caseConfig = Configuration()
+/* 1057.310 */            
+/* 1057.311 */            let test11TestFunc = { => test11();() }
+/* 1057.312 */            suiteBuilder.add(
+/* 1057.313 */            UnitTestCase.create(
+/* 1057.314 */            "test11",
+/* 1057.315 */            configuration: caseConfig,
+/* 1057.316 */            body: test11TestFunc
+/* 1057.317 */            )
+/* 1057.318 */            )
+/* 1057.319 */            
+/* 1057.320 */        }()
+/* 1057.321 */        
+/* 1057.322 */        
+/* 1057.323 */        { => let caseConfig = Configuration()
+/* 1057.324 */            
+/* 1057.325 */            let test12TestFunc = { => test12();() }
+/* 1057.326 */            suiteBuilder.add(
+/* 1057.327 */            UnitTestCase.create(
+/* 1057.328 */            "test12",
+/* 1057.329 */            configuration: caseConfig,
+/* 1057.330 */            body: test12TestFunc
+/* 1057.331 */            )
+/* 1057.332 */            )
+/* 1057.333 */            
+/* 1057.334 */        }()
+/* 1057.335 */        
+/* 1057.336 */        return suiteBuilder.build()
+/* 1057.337 */    }
+/* 1057.338 */}
+/* 1057.339 */
+/* 1057.340 */
+/* 1057.341 */extend TestPackage {
+/* 1057.342 */    @Attribute[TEST_REGISTER]
+/* 1057.343 */    func registersplitTest() {
+/* 1057.344 */        registerSuite({ => splitTest().asTestSuite() })
+/* 1057.345 */    }
+/* 1057.346 */}
+/* 1057.347 */
+/* ===== End of the Emit ===== */

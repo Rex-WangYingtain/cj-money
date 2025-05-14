@@ -1,0 +1,318 @@
+package cj_money
+
+import std.unittest.*
+import std.unittest.testmacro.*
+
+/* ===== Emitted by MacroCall @Test in util_test.cj:6:1 ===== */
+/* 6.1 */@Attribute[TEST_GENERATED] class Float64ToInt64RoundTest <: TestClass {
+/* 6.2 */    @Attribute[TestCase_0]
+/* 6.3 */    public func test1() {
+/* 6.4 */        expectEqual("0", "Float64ToInt64Round(0.0)", 0, Float64ToInt64Round(0.0))
+/* 6.5 */    }
+/* 6.6 */    
+/* 6.7 */    @Attribute[TestCase_1]
+/* 6.8 */    public func test2() {
+/* 6.9 */        expectEqual("0", "Float64ToInt64Round(0.3)", 0, Float64ToInt64Round(0.3))
+/* 6.10 */    }
+/* 6.11 */    
+/* 6.12 */    @Attribute[TestCase_2]
+/* 6.13 */    public func test3() {
+/* 6.14 */        expectEqual("1", "Float64ToInt64Round(0.5)", 1, Float64ToInt64Round(0.5))
+/* 6.15 */    }
+/* 6.16 */    
+/* 6.17 */    @Attribute[TestCase_3]
+/* 6.18 */    public func test4() {
+/* 6.19 */        expectEqual("0", "Float64ToInt64Round(- 0.0)", 0, Float64ToInt64Round(- 0.0))
+/* 6.20 */    }
+/* 6.21 */    
+/* 6.22 */    @Attribute[TestCase_4]
+/* 6.23 */    public func test5() {
+/* 6.24 */        expectEqual("0", "Float64ToInt64Round(- 0.4)", 0, Float64ToInt64Round(- 0.4))
+/* 6.25 */    }
+/* 6.26 */    
+/* 6.27 */    @Attribute[TestCase_5]
+/* 6.28 */    public func test6() {
+/* 6.29 */        expectEqual("- 1", "Float64ToInt64Round(- 0.5)", - 1, Float64ToInt64Round(- 0.5))
+/* 6.30 */    }
+/* 6.31 */    
+/* 6.32 */    @Attribute[TestCase_6]
+/* 6.33 */    public func test7() {
+/* 6.34 */        expectEqual("- 2", "Float64ToInt64Round(- 1.5)", - 2, Float64ToInt64Round(- 1.5))
+/* 6.35 */    }
+/* 6.36 */    
+/* 6.37 */    @Attribute[TestCase_7]
+/* 6.38 */    public func test8() {
+/* 6.39 */        expectEqual("200", "Float64ToInt64Round(200.0)", 200, Float64ToInt64Round(200.0))
+/* 6.40 */    }
+/* 6.41 */    
+/* 6.42 */    @Attribute[TestCase_8]
+/* 6.43 */    public func test9() {
+/* 6.44 */        expectEqual("- 200", "Float64ToInt64Round(- 200.0)", - 200, Float64ToInt64Round(- 200.0))
+/* 6.45 */    }
+/* 6.46 */    
+/* 6.47 */    @Attribute[TestCase_9]
+/* 6.48 */    public func test10() {
+/* 6.49 */        expectEqual("- 970", "Float64ToInt64Round(- 970.0)", - 970, Float64ToInt64Round(- 970.0))
+/* 6.50 */    }
+/* 6.51 */    
+/* 6.52 */    @Attribute[TestCase_10]
+/* 6.53 */    public func test11() {
+/* 6.54 */        expectEqual("970", "Float64ToInt64Round(970.0)", 970, Float64ToInt64Round(970.0))
+/* 6.55 */    }
+/* 6.56 */    
+/* 6.57 */    @Attribute[TestCase_11]
+/* 6.58 */    public func test12() {
+/* 6.59 */        expectEqual("1020", "Float64ToInt64Round(1020.3)", 1020, Float64ToInt64Round(1020.3))
+/* 6.60 */    }
+/* 6.61 */    
+/* 6.62 */    @Attribute[TestCase_12]
+/* 6.63 */    public func test13() {
+/* 6.64 */        expectEqual("- 1020", "Float64ToInt64Round(- 1020.3)", - 1020, Float64ToInt64Round(- 1020.3))
+/* 6.65 */    }
+/* 6.66 */    
+/* 6.67 */    @Attribute[TestCase_13]
+/* 6.68 */    public func test14() {
+/* 6.69 */        expectEqual("1021", "Float64ToInt64Round(1020.5)", 1021, Float64ToInt64Round(1020.5))
+/* 6.70 */    }
+/* 6.71 */    
+/* 6.72 */    @Attribute[TestCase_14]
+/* 6.73 */    public func test15() {
+/* 6.74 */        expectEqual("- 1021", "Float64ToInt64Round(- 1020.5)", - 1021, Float64ToInt64Round(- 1020.5))
+/* 6.75 */    }
+/* 6.76 */    
+/* 6.77 */    init() {
+/* 6.78 */    }
+/* 6.79 */    private func classConfiguration(): Configuration {
+/* 6.80 */        let configuration = Configuration()
+/* 6.81 */        
+/* 6.82 */        return configuration
+/* 6.83 */    }
+/* 6.84 */    public override func asTestSuite(): TestSuite {
+/* 6.85 */        
+/* 6.86 */        let suiteConfiguration = classConfiguration()
+/* 6.87 */        let suiteBuilder = TestSuite.builder("Float64ToInt64RoundTest").configure(suiteConfiguration)
+/* 6.88 */        let m___ = TimeNow()
+/* 6.89 */        suiteConfiguration.set < Measurement >("measurement", m___)
+/* 6.90 */        
+/* 6.91 */        { => let caseConfig = Configuration()
+/* 6.92 */            
+/* 6.93 */            let test1TestFunc = { => test1();() }
+/* 6.94 */            suiteBuilder.add(
+/* 6.95 */            UnitTestCase.create(
+/* 6.96 */            "test1",
+/* 6.97 */            configuration: caseConfig,
+/* 6.98 */            body: test1TestFunc
+/* 6.99 */            )
+/* 6.100 */            )
+/* 6.101 */            
+/* 6.102 */        }()
+/* 6.103 */        
+/* 6.104 */        
+/* 6.105 */        { => let caseConfig = Configuration()
+/* 6.106 */            
+/* 6.107 */            let test2TestFunc = { => test2();() }
+/* 6.108 */            suiteBuilder.add(
+/* 6.109 */            UnitTestCase.create(
+/* 6.110 */            "test2",
+/* 6.111 */            configuration: caseConfig,
+/* 6.112 */            body: test2TestFunc
+/* 6.113 */            )
+/* 6.114 */            )
+/* 6.115 */            
+/* 6.116 */        }()
+/* 6.117 */        
+/* 6.118 */        
+/* 6.119 */        { => let caseConfig = Configuration()
+/* 6.120 */            
+/* 6.121 */            let test3TestFunc = { => test3();() }
+/* 6.122 */            suiteBuilder.add(
+/* 6.123 */            UnitTestCase.create(
+/* 6.124 */            "test3",
+/* 6.125 */            configuration: caseConfig,
+/* 6.126 */            body: test3TestFunc
+/* 6.127 */            )
+/* 6.128 */            )
+/* 6.129 */            
+/* 6.130 */        }()
+/* 6.131 */        
+/* 6.132 */        
+/* 6.133 */        { => let caseConfig = Configuration()
+/* 6.134 */            
+/* 6.135 */            let test4TestFunc = { => test4();() }
+/* 6.136 */            suiteBuilder.add(
+/* 6.137 */            UnitTestCase.create(
+/* 6.138 */            "test4",
+/* 6.139 */            configuration: caseConfig,
+/* 6.140 */            body: test4TestFunc
+/* 6.141 */            )
+/* 6.142 */            )
+/* 6.143 */            
+/* 6.144 */        }()
+/* 6.145 */        
+/* 6.146 */        
+/* 6.147 */        { => let caseConfig = Configuration()
+/* 6.148 */            
+/* 6.149 */            let test5TestFunc = { => test5();() }
+/* 6.150 */            suiteBuilder.add(
+/* 6.151 */            UnitTestCase.create(
+/* 6.152 */            "test5",
+/* 6.153 */            configuration: caseConfig,
+/* 6.154 */            body: test5TestFunc
+/* 6.155 */            )
+/* 6.156 */            )
+/* 6.157 */            
+/* 6.158 */        }()
+/* 6.159 */        
+/* 6.160 */        
+/* 6.161 */        { => let caseConfig = Configuration()
+/* 6.162 */            
+/* 6.163 */            let test6TestFunc = { => test6();() }
+/* 6.164 */            suiteBuilder.add(
+/* 6.165 */            UnitTestCase.create(
+/* 6.166 */            "test6",
+/* 6.167 */            configuration: caseConfig,
+/* 6.168 */            body: test6TestFunc
+/* 6.169 */            )
+/* 6.170 */            )
+/* 6.171 */            
+/* 6.172 */        }()
+/* 6.173 */        
+/* 6.174 */        
+/* 6.175 */        { => let caseConfig = Configuration()
+/* 6.176 */            
+/* 6.177 */            let test7TestFunc = { => test7();() }
+/* 6.178 */            suiteBuilder.add(
+/* 6.179 */            UnitTestCase.create(
+/* 6.180 */            "test7",
+/* 6.181 */            configuration: caseConfig,
+/* 6.182 */            body: test7TestFunc
+/* 6.183 */            )
+/* 6.184 */            )
+/* 6.185 */            
+/* 6.186 */        }()
+/* 6.187 */        
+/* 6.188 */        
+/* 6.189 */        { => let caseConfig = Configuration()
+/* 6.190 */            
+/* 6.191 */            let test8TestFunc = { => test8();() }
+/* 6.192 */            suiteBuilder.add(
+/* 6.193 */            UnitTestCase.create(
+/* 6.194 */            "test8",
+/* 6.195 */            configuration: caseConfig,
+/* 6.196 */            body: test8TestFunc
+/* 6.197 */            )
+/* 6.198 */            )
+/* 6.199 */            
+/* 6.200 */        }()
+/* 6.201 */        
+/* 6.202 */        
+/* 6.203 */        { => let caseConfig = Configuration()
+/* 6.204 */            
+/* 6.205 */            let test9TestFunc = { => test9();() }
+/* 6.206 */            suiteBuilder.add(
+/* 6.207 */            UnitTestCase.create(
+/* 6.208 */            "test9",
+/* 6.209 */            configuration: caseConfig,
+/* 6.210 */            body: test9TestFunc
+/* 6.211 */            )
+/* 6.212 */            )
+/* 6.213 */            
+/* 6.214 */        }()
+/* 6.215 */        
+/* 6.216 */        
+/* 6.217 */        { => let caseConfig = Configuration()
+/* 6.218 */            
+/* 6.219 */            let test10TestFunc = { => test10();() }
+/* 6.220 */            suiteBuilder.add(
+/* 6.221 */            UnitTestCase.create(
+/* 6.222 */            "test10",
+/* 6.223 */            configuration: caseConfig,
+/* 6.224 */            body: test10TestFunc
+/* 6.225 */            )
+/* 6.226 */            )
+/* 6.227 */            
+/* 6.228 */        }()
+/* 6.229 */        
+/* 6.230 */        
+/* 6.231 */        { => let caseConfig = Configuration()
+/* 6.232 */            
+/* 6.233 */            let test11TestFunc = { => test11();() }
+/* 6.234 */            suiteBuilder.add(
+/* 6.235 */            UnitTestCase.create(
+/* 6.236 */            "test11",
+/* 6.237 */            configuration: caseConfig,
+/* 6.238 */            body: test11TestFunc
+/* 6.239 */            )
+/* 6.240 */            )
+/* 6.241 */            
+/* 6.242 */        }()
+/* 6.243 */        
+/* 6.244 */        
+/* 6.245 */        { => let caseConfig = Configuration()
+/* 6.246 */            
+/* 6.247 */            let test12TestFunc = { => test12();() }
+/* 6.248 */            suiteBuilder.add(
+/* 6.249 */            UnitTestCase.create(
+/* 6.250 */            "test12",
+/* 6.251 */            configuration: caseConfig,
+/* 6.252 */            body: test12TestFunc
+/* 6.253 */            )
+/* 6.254 */            )
+/* 6.255 */            
+/* 6.256 */        }()
+/* 6.257 */        
+/* 6.258 */        
+/* 6.259 */        { => let caseConfig = Configuration()
+/* 6.260 */            
+/* 6.261 */            let test13TestFunc = { => test13();() }
+/* 6.262 */            suiteBuilder.add(
+/* 6.263 */            UnitTestCase.create(
+/* 6.264 */            "test13",
+/* 6.265 */            configuration: caseConfig,
+/* 6.266 */            body: test13TestFunc
+/* 6.267 */            )
+/* 6.268 */            )
+/* 6.269 */            
+/* 6.270 */        }()
+/* 6.271 */        
+/* 6.272 */        
+/* 6.273 */        { => let caseConfig = Configuration()
+/* 6.274 */            
+/* 6.275 */            let test14TestFunc = { => test14();() }
+/* 6.276 */            suiteBuilder.add(
+/* 6.277 */            UnitTestCase.create(
+/* 6.278 */            "test14",
+/* 6.279 */            configuration: caseConfig,
+/* 6.280 */            body: test14TestFunc
+/* 6.281 */            )
+/* 6.282 */            )
+/* 6.283 */            
+/* 6.284 */        }()
+/* 6.285 */        
+/* 6.286 */        
+/* 6.287 */        { => let caseConfig = Configuration()
+/* 6.288 */            
+/* 6.289 */            let test15TestFunc = { => test15();() }
+/* 6.290 */            suiteBuilder.add(
+/* 6.291 */            UnitTestCase.create(
+/* 6.292 */            "test15",
+/* 6.293 */            configuration: caseConfig,
+/* 6.294 */            body: test15TestFunc
+/* 6.295 */            )
+/* 6.296 */            )
+/* 6.297 */            
+/* 6.298 */        }()
+/* 6.299 */        
+/* 6.300 */        return suiteBuilder.build()
+/* 6.301 */    }
+/* 6.302 */}
+/* 6.303 */
+/* 6.304 */
+/* 6.305 */extend TestPackage {
+/* 6.306 */    @Attribute[TEST_REGISTER]
+/* 6.307 */    func registerFloat64ToInt64RoundTest() {
+/* 6.308 */        registerSuite({ => Float64ToInt64RoundTest().asTestSuite() })
+/* 6.309 */    }
+/* 6.310 */}
+/* 6.311 */
+/* ===== End of the Emit ===== */

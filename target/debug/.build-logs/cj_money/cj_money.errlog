@@ -1,0 +1,133 @@
+[33mwarning[0m: unused function:'serializeByCode'
+  [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\db.cj:18:1:
+   [36m| [0m
+[36m18[0m [36m| [0m  func serializeByCode(m: Money, separator!: String=DefaultDBMoneyValueSeparator): String{[0m
+   [36m| [0m [33m_[0m[33m^[0m
+[36m19[0m [36m| [0m[33m|[0m     /**[0m
+   [36m| [0m[33m|[0m ...[0m
+[36m28[0m [36m| [0m[33m|[0m }[0m
+   [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+   [36m| [0m
+   [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+[33mwarning[0m: unused function:'deserializeByCode'
+  [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\db.cj:30:1:
+   [36m| [0m
+[36m30[0m [36m| [0m  func deserializeByCode(st: String,  separator!: String=DefaultDBMoneyValueSeparator): Money{[0m
+   [36m| [0m [33m_[0m[33m^[0m
+[36m31[0m [36m| [0m[33m|[0m     /**[0m
+   [36m| [0m[33m|[0m ...[0m
+[36m45[0m [36m| [0m[33m|[0m }[0m
+   [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+   [36m| [0m
+   [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+[33mwarning[0m: unused function:'serializeAll'
+  [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\db.cj:47:1:
+   [36m| [0m
+[36m47[0m [36m| [0m  func serializeAll(m: Money, separator!: String=DefaultDBMoneyValueSeparator): String{[0m
+   [36m| [0m [33m_[0m[33m^[0m
+[36m48[0m [36m| [0m[33m|[0m     /**[0m
+   [36m| [0m[33m|[0m ...[0m
+[36m57[0m [36m| [0m[33m|[0m }[0m
+   [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+   [36m| [0m
+   [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+[33mwarning[0m: unused function:'deserializeAll'
+  [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\db.cj:59:1:
+   [36m| [0m
+[36m59[0m [36m| [0m  func deserializeAll(st: String,  separator!: String=DefaultDBMoneyValueSeparator): Money{[0m
+   [36m| [0m [33m_[0m[33m^[0m
+[36m60[0m [36m| [0m[33m|[0m     /**[0m
+   [36m| [0m[33m|[0m ...[0m
+[36m74[0m [36m| [0m[33m|[0m }[0m
+   [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+   [36m| [0m
+   [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+[33mwarning[0m: unused function:'add'
+   [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\Calculator.cj:188:1:
+    [36m| [0m
+[36m188[0m [36m| [0m  func add(a: Money, b: Money): Money {[0m
+    [36m| [0m [33m_[0m[33m^[0m
+[36m189[0m [36m| [0m[33m|[0m     /**[0m
+    [36m| [0m[33m|[0m ...[0m
+[36m198[0m [36m| [0m[33m|[0m }[0m
+    [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+    [36m| [0m
+    [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+[33mwarning[0m: unused function:'subtract'
+   [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\Calculator.cj:200:1:
+    [36m| [0m
+[36m200[0m [36m| [0m  func subtract(a: Money, b: Money): Money {[0m
+    [36m| [0m [33m_[0m[33m^[0m
+[36m201[0m [36m| [0m[33m|[0m     /**[0m
+    [36m| [0m[33m|[0m ...[0m
+[36m210[0m [36m| [0m[33m|[0m }[0m
+    [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+    [36m| [0m
+    [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+[33mwarning[0m: unused function:'multiply'
+   [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\Calculator.cj:212:1:
+    [36m| [0m
+[36m212[0m [36m| [0m  func multiply(a: Money, b: Money): Money {[0m
+    [36m| [0m [33m_[0m[33m^[0m
+[36m213[0m [36m| [0m[33m|[0m     /**[0m
+    [36m| [0m[33m|[0m ...[0m
+[36m236[0m [36m| [0m[33m|[0m }[0m
+    [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+    [36m| [0m
+    [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+[33mwarning[0m: unused function:'divide'
+   [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\Calculator.cj:238:1:
+    [36m| [0m
+[36m238[0m [36m| [0m  func divide(a: Money, b: Money): Money {[0m
+    [36m| [0m [33m_[0m[33m^[0m
+[36m239[0m [36m| [0m[33m|[0m     /**[0m
+    [36m| [0m[33m|[0m ...[0m
+[36m271[0m [36m| [0m[33m|[0m }[0m
+    [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+    [36m| [0m
+    [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+[33mwarning[0m: unused function:'modulus'
+   [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\Calculator.cj:273:1:
+    [36m| [0m
+[36m273[0m [36m| [0m  func modulus(a: Money, b: Money): Money {[0m
+    [36m| [0m [33m_[0m[33m^[0m
+[36m274[0m [36m| [0m[33m|[0m     /**[0m
+    [36m| [0m[33m|[0m ...[0m
+[36m294[0m [36m| [0m[33m|[0m }[0m
+    [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+    [36m| [0m
+    [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+[33mwarning[0m: unused function:'absolute'
+   [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\Calculator.cj:296:1:
+    [36m| [0m
+[36m296[0m [36m| [0m  func absolute(m: Money): Money {[0m
+    [36m| [0m [33m_[0m[33m^[0m
+[36m297[0m [36m| [0m[33m|[0m     /**[0m
+    [36m| [0m[33m|[0m ...[0m
+[36m305[0m [36m| [0m[33m|[0m }[0m
+    [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+    [36m| [0m
+    [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+[33mwarning[0m: unused function:'negative'
+   [36m==>[0m C:\Users\Rex\Desktop\cj-money\v0.2.0\cj-money\src\Calculator.cj:307:1:
+    [36m| [0m
+[36m307[0m [36m| [0m  func negative(m: Money): Money {[0m
+    [36m| [0m [33m_[0m[33m^[0m
+[36m308[0m [36m| [0m[33m|[0m     /**[0m
+    [36m| [0m[33m|[0m ...[0m
+[36m316[0m [36m| [0m[33m|[0m }[0m
+    [36m| [0m[33m|[0m[33m_[0m[33m^ unused function[0m
+    [36m| [0m
+    [36m#[0m [0mnote[0m: this warning can be suppressed by setting the compiler option `-Woff unused`
+
+11 warnings generated, 11 warnings printed.
