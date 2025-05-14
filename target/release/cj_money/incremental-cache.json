@@ -1,0 +1,14 @@
+{
+  "packageInformation": {
+    "cj_money": {
+      "rootPackageName": "cj_money",
+      "fileNameHash": "-8027873330795073710",
+      "timeStamp": 1743330537,
+      "buildFlag": true,
+      "exeName": "main",
+      "hasSubPkgs": false
+    }
+  },
+  "jsonHash": "9159775869834297167",
+  "rootPackageName": "cj_money"
+}

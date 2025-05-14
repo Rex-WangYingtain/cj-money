@@ -1,0 +1,23 @@
+{
+  "resolves": [
+    {
+      "rootPackageName": "cj_money",
+      "modulePath": ".",
+      "packagePath": "C:\\Users\\Rex\\Desktop\\cj-money\\v0.1.0\\cj-money\\src",
+      "fullName": "cj_money",
+      "isMacroPackage": false,
+      "output-type": "executable",
+      "compile-option": "",
+      "native-compile-option": "",
+      "customized-option": {},
+      "link-option": "",
+      "native-link-option": "",
+      "requires": [],
+      "c_libs": {},
+      "isTestPkg": false,
+      "accessLevel": "public"
+    }
+  ],
+  "binDeps": {},
+  "crossBinDeps": {}
+}
