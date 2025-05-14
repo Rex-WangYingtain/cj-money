@@ -1,0 +1,19 @@
+.git/
+.vscode/
+.idea/
+.cache/
+.devbrain/
+
+# cangjie
+build/
+target/
+output/
+module-resolve.json
+module-lock.json
+cjpm.lock
+.cjpm-history
+*.macrocall
+*.gcda
+*.gcno
+*.log
+*.html

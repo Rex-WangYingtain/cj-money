@@ -2,14 +2,25 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Cangjie (CJNative-unittest): cj_money.displayTest",
-            "program": "c:\\Users\\Rex\\Desktop\\cj-money\\v0.2.0\\cj-money\\target\\debug\\unittest_bin\\cj_money.exe",
+            "name": "Cangjie (CJNative-unittest): cj_money.multiplyTest.test1",
+            "program": "c:\\Users\\Rex\\Desktop\\cj-money\\v0.3.0\\cj-money\\target\\debug\\unittest_bin\\cj_money.exe",
             "request": "launch",
             "type": "cangjieDebug",
             "externalConsole": false,
             "env": {},
             "args": [
-                "--filter=displayTest.*"
+                "--filter=multiplyTest.test1"
+            ]
+        },
+        {
+            "name": "Cangjie (CJNative-unittest): cj_money.NumberStringToBigAmountTest.test11",
+            "program": "c:\\Users\\Rex\\Desktop\\cj-money\\v0.3.0\\cj-money\\target\\debug\\unittest_bin\\cj_money.exe",
+            "request": "launch",
+            "type": "cangjieDebug",
+            "externalConsole": false,
+            "env": {},
+            "args": [
+                "--filter=NumberStringToBigAmountTest.test11"
             ]
         }
     ]
