@@ -100,7 +100,7 @@ let m4: Money = Money("1.566666E2", "CNY", code_mode: "code", mode: "round")
 
 `BigMoney`对象同理。`amount`可以通过`BigInt`对象、数字字符串、科学计数法字符串声明。`currency`可以通过`Currency`对象、货币代码和货币数字代码声明。可以指定舍入模式。
 
-```
+```cangjie
 let bm1: BigMoney = BigMoney(BigInt("189732178342819734281273941864375134261342871234783429182347673843234"), currency)
 let bm2: BigMoney = BigMoney("-6428273457845568738192746871923498173429871346871349213464328756.134123412", "CNY")
 let bm3: BigMoney = BigMoney("10.132413242134e128", "CNY")
@@ -118,7 +118,7 @@ println(m1.display())
 
 `displayByScientificNotation`方法将`Money`对象或`BigMoney`对象转化为按照`template`模板的科学计数法字符串。
 
-```
+```cangjie
 println(m1.displayByScientificNotation(integer_len: 1, fractional_len: 2))
 ```
 
