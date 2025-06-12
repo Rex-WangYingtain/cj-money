@@ -5,16 +5,15 @@ import std.math.numeric.*
 import std.collection.*
 import std.math.*
 
-
+/**
+ * @brief      判断str中的字符是否都是char
+ *
+ * @param      str   受判断的String
+ * @param      char   判断的字符
+ *
+ * @return     是否都是的布尔值
+ */
 func StringAll(str: String, char: UInt8) {
-    /**
-     * @brief      判断str中的字符是否都是char
-     *
-     * @param      str   受判断的String
-     * @param      char   判断的字符
-     *
-     * @return     是否都是的布尔值
-     */
     for(tmp in str) {
         if (tmp != char) {
             return false
@@ -23,28 +22,28 @@ func StringAll(str: String, char: UInt8) {
     return true
 }
 
+/**
+ * @brief      判断一个ASCII字符是否是数字字符
+ *
+ * @param      char   判断的字符
+ *
+ * @return     是否都是的布尔值
+ */
 func isDigit(char: UInt8): Bool {
-    /**
-     * @brief      判断一个ASCII字符是否是数字字符
-     *
-     * @param      char   判断的字符
-     *
-     * @return     是否都是的布尔值
-     */
     if (char >= b'0' && char <= b'9') {
         return true
     }
     return false
 }
 
+/**
+ * @brief      将一个Float64的数精确地转为Int64，四舍五入
+ *
+ * @param      num   受转换的浮点数
+ *
+ * @return     得到的整型
+ */
 func Float64ToInt64Round(num: Float64): Int64 {
-    /**
-     * @brief      将一个Float64的数精确地转为Int64，四舍五入
-     *
-     * @param      num   受转换的浮点数
-     *
-     * @return     得到的整型
-     */
     var string_num: String = num.toString()
 
     let index: Int64 = string_num.indexOf(".").getOrThrow() // 不可能找不到
@@ -64,18 +63,18 @@ func Float64ToInt64Round(num: Float64): Int64 {
     return Int64.parse(string_num) - 1
 }
 
+/**
+ * @brief      有限状态机，解析一个数字字符串
+ *
+ * @param      number_string   数字字符串
+ *
+ * @return     一个元组。第一元素表示符号，类型是字符串，有"+"和"-"两种情况；
+ *                      第二元素表示整数部分，类型是字符串；
+ *                      第三元素表示小数部分，类型是字符串；
+ *                      第四元素表示指数部分的符号，类型是字符串，有"+"和"-"两种情况；
+ *                      第五元素表示指数部分，类型是字符串。
+ */
 func FSMNumberString(number_string: String) {
-    /**
-     * @brief      有限状态机，解析一个数字字符串
-     *
-     * @param      number_string   数字字符串
-     *
-     * @return     一个元组。第一元素表示符号，类型是字符串，有"+"和"-"两种情况；
-     *                      第二元素表示整数部分，类型是字符串；
-     *                      第三元素表示小数部分，类型是字符串；
-     *                      第四元素表示指数部分的符号，类型是字符串，有"+"和"-"两种情况；
-     *                      第五元素表示指数部分，类型是字符串。
-     */
     var current_state: String = "start"
     var sign: UInt8 = b'+'
     let integer: ArrayList<UInt8> = ArrayList<UInt8>()
@@ -172,16 +171,16 @@ func FSMNumberString(number_string: String) {
     return (sign, String(_integer), String(_fractional), exp_sign, String(_exponent))
 }
 
+/**
+ * @brief      将一个数字字符串转换为定点小数的整数表示。
+ *
+ * @param      number_string   数字字符串
+ * @param      fraction   定点小数的位数
+ * @param      mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
+ *
+ * @return     定点小数的整数表示，类型是Int64
+ */
 func NumberStringToSmallAmount(number_string: String, fraction: Int64, mode!: String = "round"): Int64 {
-    /**
-     * @brief      将一个数字字符串转换为定点小数的整数表示。
-     *
-     * @param      number_string   数字字符串
-     * @param      fraction   定点小数的位数
-     * @param      mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
-     *
-     * @return     定点小数的整数表示，类型是Int64
-     */
     let tuple = FSMNumberString(number_string)
     let sign = tuple[0]
     let integer = tuple[1]
@@ -290,16 +289,16 @@ func NumberStringToSmallAmount(number_string: String, fraction: Int64, mode!: St
     }
 }
 
+/**
+ * @brief      将一个数字字符串转换为定点小数的整数表示。
+ *
+ * @param      number_string   数字字符串
+ * @param      fraction   定点小数的位数
+ * @param      mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
+ *
+ * @return     定点小数的整数表示，类型是BigInt
+ */
 func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: String = "round"): BigInt {
-    /**
-     * @brief      将一个数字字符串转换为定点小数的整数表示。
-     *
-     * @param      number_string   数字字符串
-     * @param      fraction   定点小数的位数
-     * @param      mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round
-     *
-     * @return     定点小数的整数表示，类型是BigInt
-     */
     let tuple = FSMNumberString(number_string)
     let sign = tuple[0]
     let integer = tuple[1]
@@ -407,20 +406,20 @@ func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: Stri
     }
 }
 
+/**
+ * @brief      将一个数字字符串转换为科学计数法表示的信息元组
+ *
+ * @param      amount   数字字符串的整数部分
+ * @param      fraction   数字字符串的小数位数
+ * @param      integer_len   整数部分的长度
+ * @param      fractional_len   小数部分的最大长度
+ *
+ * @return     一个元组。第一元素表示符号，类型是字符串，有"+"和"-"两种情况；
+ *                      第二元素表示整数部分，类型是字符串；
+ *                      第三元素表示小数部分，类型是字符串；
+ *                      第四元素表示指数部分，类型是Int64。
+ */
 func ScientificNotation(amount: String, fraction: Int64, integer_len: Int64, fractional_len: Int64) {
-    /**
-     * @brief      将一个数字字符串转换为科学计数法表示的信息元组
-     *
-     * @param      amount   数字字符串的整数部分
-     * @param      fraction   数字字符串的小数位数
-     * @param      integer_len   整数部分的长度
-     * @param      fractional_len   小数部分的最大长度
-     *
-     * @return     一个元组。第一元素表示符号，类型是字符串，有"+"和"-"两种情况；
-     *                      第二元素表示整数部分，类型是字符串；
-     *                      第三元素表示小数部分，类型是字符串；
-     *                      第四元素表示指数部分，类型是Int64。
-     */
     let signal: String
     var positive_amount: String
     if (amount[0] == b'-') {

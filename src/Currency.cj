@@ -2,24 +2,38 @@ package cj_money
 
 import std.collection.HashMap
 
+/**
+ * @brief      Currency类用于储存一个类的ISO 4217标准
+ */
 struct Currency {
+    /**
+     * @brief      原子数据类型创建Currency对象
+     *
+     * @param      decimal   表示小数点符号，用于货币金额中的小数部分分隔符。
+     * @param      thousand    表示千分位符号，用于货币金额中的千位分隔符。
+     * @param      code   表示货币的ISO代码，根据ISO 4217标准定义的三位字母代码。
+     * @param      fraction   表示货币的最小单位，即货币的分或分以下单位的数量。
+     * @param      numericCode   表示货币的数字代码，根据ISO 4217标准定义的三位数字代码。
+     * @param      grapheme   表示货币符号，即货币的图形表示，如美元的"$"、欧元的"€"等。
+     * @param      template   表示货币的展示模板，定义了货币金额的显示格式。
+     */
     public Currency(
-        let decimal: String,    // 表示小数点符号，用于货币金额中的小数部分分隔符。
-        let thousand: String,   // 表示千分位符号，用于货币金额中的千位分隔符。
-        let code: String,   // 表示货币的ISO代码，根据ISO 4217标准定义的三位字母代码。
-        let fraction: Int64,    // 表示货币的最小单位，即货币的分或分以下单位的数量。
-        let numericCode: String,    // 表示货币的数字代码，根据ISO 4217标准定义的三位数字代码。
-        let grapheme: String,   // 表示货币符号，即货币的图形表示，如美元的"$"、欧元的"€"等。
-        let template: String    // 表示货币的展示模板，定义了货币金额的显示格式。
+        let decimal: String,
+        let thousand: String,
+        let code: String,
+        let fraction: Int64,
+        let numericCode: String,
+        let grapheme: String,
+        let template: String
     ) {}
 
+    /**
+     * @brief      通过货币的字母代码或者数字代码创建Currency对象
+     *
+     * @param      code   Currency对象对应的代号
+     * @param      code_mode   采用字母编号还是数字编号，code表示字母编号，numeric code表示数字编号，默认为code
+     */
     public init(code: String, mode!: String = "code") {
-        /**
-         * @brief      通过货币的字母代码或者数字代码创建Currency对象
-         *
-         * @param      code   Currency对象对应的代号
-         * @param      code_mode   采用字母编号还是数字编号，code表示字母编号，numeric code表示数字编号，默认为code
-         */
         let currencies: Currencies = Currencies.getCurrencies()
 
         let currency: Currency
@@ -47,34 +61,40 @@ struct Currency {
         this.thousand = currency.thousand
     }
 
+    /**
+     * @brief      格式化程序返回货币格式化程序表示
+     *
+     * @return     这个Currency对应的Formatter对象
+     */
     public func getFormatter(): Formatter {
-        /**
-         * @brief      格式化程序返回货币格式化程序表示
-         *
-         * @return     这个Currency对应的Formatter对象
-         */
         return Formatter(this.fraction, this.decimal, this.thousand, this.grapheme, this.template)
     }
 
+    /**
+     * @brief      根据唯一标识符code判断两个Currency对象是否相等
+     *
+     * @param      oc   相对比的Currency对象
+     *
+     * @return     是否相等的布尔值
+     */
     public func equalsByCode(oc: Currency): Bool {
-        /**
-         * @brief      根据唯一标识符code判断两个Currency对象是否相等
-         *
-         * @param      oc   相对比的Currency对象
-         *
-         * @return     是否相等的布尔值
-         */
         return this.code == oc.code
     }
 }
 
+/**
+ * @brief      Currencies类储存了货币的格式等标准，该类被设计为单例模式
+ */
 class Currencies {
-    // 这里储存了货币的格式等标准
-    // 设计为单例模式
     private static var instance: Option<Currencies> = None
 
     let currencies: HashMap<String, Currency>
 
+    /**
+     * @brief      获取Currencies对象
+     *
+     * @return     获取的Currencies对象
+     */
     public static func getCurrencies(): Currencies {
         if (instance.isNone()) {
             instance = Some(Currencies())
@@ -82,14 +102,14 @@ class Currencies {
         return instance.getOrThrow()
     }
 
+    /**
+     * @brief      根据ISO-4271中定义的数字代码，CurrencyByNumericCode返回货币。
+     *
+     * @param      numericCode   供检索的numericCode
+     *
+     * @return     numericCode对应的Currency对象
+     */
     public func currencyByNumericCode(numericCode: String): ?Currency {
-        /**
-         * @brief      根据ISO-4271中定义的数字代码，CurrencyByNumericCode返回货币。
-         *
-         * @param      numericCode   供检索的numericCode
-         *
-         * @return     numericCode对应的Currency对象
-         */
         for ((_, sc) in this.currencies) {
             if (sc.numericCode == numericCode) {
                 return sc
@@ -98,20 +118,23 @@ class Currencies {
         return None
     }
 
+    /**
+     * @brief      返回给定货币代码的货币。
+     *
+     * @param      code   供检索的货币代码
+     *
+     * @return     code对应的Currency对象
+     */
     public func currencyByCode(code: String): ?Currency {
-        /**
-         * @brief      返回给定货币代码的货币。
-         *
-         * @param      code   供检索的货币代码
-         *
-         * @return     code对应的Currency对象
-         */
         if (!this.currencies.contains(code)) {
             return None
         }
         return currencies[code]
     }
 
+    /**
+     * @brief      这里硬编码了ISO 4217标准
+     */
     private Currencies() {
         currencies = HashMap<String, Currency>(
             [
