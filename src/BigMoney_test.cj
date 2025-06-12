@@ -987,3 +987,52 @@ class BigMoneyDisplayByScientificNotationTest{
         @Expect("-9.861342E38\u{0192}", m.displayByScientificNotation(integer_len: 1, fractional_len: 6))
     }
 }
+
+@Test
+class BigMoneyOperatorTest{
+    @TestCase
+    public func test1(){
+        let m1: BigMoney = BigMoney("131412541314435364576657655624353421324.687453287643587", "AED")
+        let m2: BigMoney = BigMoney("-131412541314435364576657655624353421324.687453287643587", "AED")
+        
+        let m: BigMoney = m1 + m2
+        @Expect(m.amount, BigInt(0))
+    }
+    @TestCase
+    public func test2(){
+        let m1: BigMoney = BigMoney("-1234145556442341242543523454.24353252302234523452355", "TJS")
+        let m2: BigMoney = BigMoney("-162434524525634234513254531244425.38546456245325325464444444428", "TJS")
+        
+        let m: BigMoney = m1 - m2
+        @Expect(m.amount, BigInt("16243329038007779217201198772097115"))
+    }
+    @TestCase
+    public func test3(){
+        let m1: BigMoney = BigMoney("-89745682734872856827345823458.234523525423", "COP")
+        let m2: BigMoney = BigMoney("23453256443253245325145432.2342", "COP")
+        
+        let m: BigMoney = m1 % m2
+        @Expect(m.amount, BigInt("992967345731303198574568598"))
+    }
+    @TestCase
+    public func test4(){
+        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+        let m: BigMoney = m1 * m2
+        @Expect(m.amount, BigInt("-21971797978002054031917875765532458497894733462543"))
+    }
+    @TestCase
+    public func test5(){
+        let m1: BigMoney = BigMoney("121234325254644235325326462.3034543143232563654333245245245", "KWD")
+        let m2: BigMoney = BigMoney("-181234134242524355234.2345234154235235634657686789679650", "KWD")
+        let m: BigMoney = m1 / m2
+        @Expect(m.amount, BigInt("-668937591"))
+    }
+    @TestCase
+    public func test6(){
+        let m1: BigMoney = BigMoney("11345443412352344235356444444465444444413435234532532522.30541324413241234122222333", "KWD")
+        
+        let m2: BigMoney = -m1
+        @Expect(m2.amount, BigInt("-11345443412352344235356444444465444444413435234532532522305"))
+    }
+}

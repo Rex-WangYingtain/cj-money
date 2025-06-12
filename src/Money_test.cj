@@ -574,3 +574,51 @@ class displayByScientificNotationTest{
         @Expect("-9.8670E2\u{0192}", m.displayByScientificNotation(integer_len: 1, fractional_len: 6))
     }
 }
+
+@Test
+class MoneyOperatorTest{
+    @TestCase
+    public func test1(){
+        let m1: Money = Money(-112.305, "COP")
+        let m2: Money = Money(12.31, "COP")
+        let m: Money = m1 + m2
+        @Expect(m.amount, -10000)
+    }
+    @TestCase
+    public func test2(){
+        let m1: Money = Money(-112.305, "COP")
+        let m2: Money = Money(12.31, "COP")
+        
+        let m: Money = m1 - m2
+        @Expect(m.amount, -12462)
+    }
+    @TestCase
+    public func test3(){
+        let m1: Money = Money(122.3054333, "KWD")
+        let m2: Money = Money(-18.0, "KWD")
+        
+        let m: Money = m1 % m2
+        @Expect(m.amount, -3695)
+    }
+    @TestCase
+    public func test4(){
+        let m1: Money = Money(-12.3, "AED")
+        let m2: Money = Money(12.3, "AED")
+        let m: Money = m1 * m2
+        @Expect(m.amount, -15129)
+    }
+    @TestCase
+    public func test5(){
+        let m1: Money = Money(-112.305, "COP")
+        let m2: Money = Money(12.31, "COP")
+        let m: Money = m1 / m2
+        @Expect(m.amount, -912)
+    }
+    @TestCase
+    public func test6(){
+        let m1: Money = Money(-112.305, "COP")
+        
+        let m2: Money = -m1
+        @Expect(m2.amount, 11231)
+    }
+}

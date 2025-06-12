@@ -221,4 +221,48 @@ class BigMoney {
         }
         return this.currency.getFormatter().substitute(str)
     }
+
+    // 下面是操作符重载
+
+    /**
+     * @brief      相当于calculate(this: BigMoney, right: BigMoney, add)
+     */
+    public operator func +(right: BigMoney): BigMoney{
+        return calculate(this, right, add)
+    }
+
+    /**
+     * @brief      相当于calculate(this: BigMoney, right: BigMoney, subtract)
+     */
+    public operator func -(right: BigMoney): BigMoney{
+        return calculate(this, right, subtract)
+    }
+
+    /**
+     * @brief      相当于calculate(this: BigMoney, right: BigMoney, modulus)
+     */
+    public operator func %(right: BigMoney): BigMoney{
+        return calculate(this, right, modulus)
+    }
+
+    /**
+     * @brief      相当于calculate(this: BigMoney, right: BigMoney, multiply, "round")
+     */
+    public operator func *(right: BigMoney): BigMoney{
+        return calculate(this, right, multiply)
+    }
+
+    /**
+     * @brief      相当于calculate(this: BigMoney, right: BigMoney, divide, "round")
+     */
+    public operator func /(right: BigMoney): BigMoney{
+        return calculate(this, right, divide)
+    }
+
+    /**
+     * @brief      calculate(this: BigMoney, negative)
+     */
+    public operator func -(): BigMoney{
+        return calculate(this, negative)
+    }
 }

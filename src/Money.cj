@@ -263,4 +263,48 @@ class Money {
         }
         return this.currency.getFormatter().substitute(str)
     }
+
+    // 下面是操作符重载
+
+    /**
+     * @brief      相当于calculate(this: Money, right: Money, add)
+     */
+    public operator func +(right: Money): Money{
+        return calculate(this, right, add)
+    }
+
+    /**
+     * @brief      相当于calculate(this: Money, right: Money, subtract)
+     */
+    public operator func -(right: Money): Money{
+        return calculate(this, right, subtract)
+    }
+
+    /**
+     * @brief      相当于calculate(this: Money, right: Money, modulus)
+     */
+    public operator func %(right: Money): Money{
+        return calculate(this, right, modulus)
+    }
+
+    /**
+     * @brief      相当于calculate(this: Money, right: Money, multiply, "round")
+     */
+    public operator func *(right: Money): Money{
+        return calculate(this, right, multiply)
+    }
+
+    /**
+     * @brief      相当于calculate(this: Money, right: Money, divide, "round")
+     */
+    public operator func /(right: Money): Money{
+        return calculate(this, right, divide)
+    }
+
+    /**
+     * @brief      calculate(this: Money, negative)
+     */
+    public operator func -(): Money{
+        return calculate(this, negative)
+    }
 }

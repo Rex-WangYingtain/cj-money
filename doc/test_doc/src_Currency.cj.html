@@ -1,0 +1,2255 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Cangjie Code Coverage Report</title>
+  <style media="screen" type="text/css">
+  body
+{
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+/* Link formats: use maroon w/underlines */
+a:link
+{
+  color: navy;
+  text-decoration: underline;
+}
+a:visited
+{
+  color: maroon;
+  text-decoration: underline;
+}
+a:active
+{
+  color: navy;
+  text-decoration: underline;
+}
+
+/*** TD formats ***/
+td
+{
+  font-family: sans-serif;
+}
+td.title
+{
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+/* TD Header Information */
+td.headerName
+{
+  text-align: right;
+  color: black;
+  padding-right: 6px;
+  font-weight: bold;
+  vertical-align: top;
+  white-space: nowrap;
+}
+td.headerValue
+{
+  text-align: left;
+  color: #284FA8;
+  font-family: sans-serif;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+td.headerTableEntry
+{
+  text-align: right;
+  color: black;
+  font-weight: bold;
+  white-space: nowrap;
+  padding-left: 12px;
+  padding-right: 4px;
+  background-color: LightBlue;
+}
+td.headerValueLeg
+{
+  text-align: left;
+  color: black;
+  font-size: 80%;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+/* Color of horizontal ruler */
+td.hr
+{
+  background-color: navy;
+  height:3px;
+}
+/* Footer format */
+td.footer
+{
+  text-align: center;
+  padding-top: 3px;
+  font-family: sans-serif;
+}
+
+/* Coverage Table */
+
+td.coverTableHead
+{
+  text-align: center;
+  color: white;
+  background-color: SteelBlue;
+  font-family: sans-serif;
+  font-size: 120%;
+  white-space: nowrap;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+td.coverFile
+{
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 20px;
+  color: black;
+  background-color: LightBlue;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 110%;
+}
+td.coverBar
+{
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: LightBlue;
+}
+td.coverBarOutline
+{
+  background-color: white;
+}
+td.coverValue
+{
+  padding-top: 2px;
+  text-align: right;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: sans-serif;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+/* Link Details */
+a.detail:link
+{
+  color: #B8D0FF;
+  font-size:80%;
+}
+a.detail:visited
+{
+  color: #B8D0FF;
+  font-size:80%;
+}
+a.detail:active
+{
+  color: #FFFFFF;
+  font-size:80%;
+}
+
+.graphcont{
+    color:#000;
+    font-weight:700;
+    float:left
+}
+
+.graph{
+    float:left;
+    background-color: white;
+    position:relative;
+    width:280px;
+    padding:0
+}
+
+.graph .bar{
+    display:block;
+    position:relative;
+    border:black 1px solid;
+    text-align:center;
+    color:#fff;
+    height:10px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:12px;
+    line-height:1.9em
+}
+
+.graph .bar span{
+    position:absolute;
+    left:1em
+}
+
+td.coveredLine,
+span.coveredLine
+{
+    background-color: LightGreen!important;
+}
+
+td.uncoveredLine,
+span.uncoveredLine
+{
+    background-color: LightPink!important;
+}
+
+.linebranch, .linecount
+{
+    border-right: 1px gray solid;
+    background-color: lightgray;
+}
+
+.linebranchDetails
+{
+    position: relative;
+}
+.linebranchSummary
+{
+    cursor: help;
+}
+.linebranchContents
+{
+    font-family: sans-serif;
+    font-size: small;
+    text-align: left;
+    position: absolute;
+    width: 15em;
+    padding: 1em;
+    background: white;
+    border: solid gray 1px;
+    box-shadow: 5px 5px 10px gray;
+    z-index: 1; /* show in front of the table entries */
+}
+
+.takenBranch
+{
+    color: Green!important;
+    cursor: help;
+}
+
+.notTakenBranch
+{
+    color: Red!important;
+    cursor: help;
+}
+
+.src
+{
+    padding-left: 12px;
+}
+
+.srcHeader,
+span.takenBranch,
+span.notTakenBranch
+{
+    font-family: monospace;
+    font-weight: bold;
+}
+
+pre
+{
+    height : 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.lineno
+{
+    background-color: #EFE383;
+    border-right: 1px solid #BBB15F;
+}
+  </style>
+</head>
+
+<body>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr><td class="title">Cangjie Code Coverage Report</td></tr>
+    <tr><td class="hr"></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding="1" border="0" width="100%">
+          <tr>
+            <td class="headerName">File:</td>
+            <td class="headerValue">src\Currency.cj</td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerValue" style="text-align:right;">Hit</td>
+            <td width="10%" class="headerValue" style="text-align:right;">Total</td>
+            <td width="15%" class="headerValue" style="text-align:right;">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerName">Date:</td>
+            <td class="headerValue">2025-06-12 17:05:44</td>
+            <td></td>
+            <td class="headerName">Lines:</td>
+            <td class="headerTableEntry">222</td>
+            <td class="headerTableEntry">222</td>
+            <td class="headerTableEntry" style="background-color:LightGreen">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerName">Legend:</td>
+            <td class="headerValueLeg">
+              <span style="background-color:LightPink">low: &lt; 75.0 %</span>
+              <span style="background-color:Yellow">medium: &gt;= 75.0 %</span>
+              <span style="background-color:LightGreen">high: &gt;= 90.0 %</span>
+            </td>
+            <td></td>
+            <td class="headerName">Branches:</td>
+            <td class="headerTableEntry">-</td>
+            <td class="headerTableEntry">-</td>
+            <td class="headerTableEntry" style="background-color:LightGreen">-</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="hr"></td></tr>
+  </table>
+
+  <br>
+  <table cellspacing="0" cellpadding="1">
+     <tr>
+      <td width="5%" align="right" class="srcHeader">Line</td>
+      <td width="5%" align="right" class="srcHeader">Branch</td>
+      <td width="5%" align="center" class="srcHeader">Hit</td>
+      <td width="75%" align="left" class="srcHeader src">Source</td>
+    </tr>
+
+    <tr>
+<td align="right" class="lineno"><pre>1</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>package cj_money</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>2</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>3</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>import std.collection.HashMap</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>4</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>5</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>/**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>6</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @brief      Currency类用于储存一个类的ISO 4217标准</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>7</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>8</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>struct Currency {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>9</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>10</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @brief      原子数据类型创建Currency对象</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>11</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>12</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      decimal   表示小数点符号，用于货币金额中的小数部分分隔符。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>13</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      thousand    表示千分位符号，用于货币金额中的千位分隔符。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>14</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      code   表示货币的ISO代码，根据ISO 4217标准定义的三位字母代码。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>15</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      fraction   表示货币的最小单位，即货币的分或分以下单位的数量。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>16</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      numericCode   表示货币的数字代码，根据ISO 4217标准定义的三位数字代码。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>17</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      grapheme   表示货币符号，即货币的图形表示，如美元的"$"、欧元的"€"等。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>18</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      template   表示货币的展示模板，定义了货币金额的显示格式。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>19</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>20</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public Currency(</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>21</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let decimal: String,</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>22</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let thousand: String,</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>23</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let code: String,</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>24</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let fraction: Int64,</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>25</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let numericCode: String,</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>26</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let grapheme: String,</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>27</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let template: String</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>28</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    ) {}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>29</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>30</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>31</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @brief      通过货币的字母代码或者数字代码创建Currency对象</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>32</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>33</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      code   Currency对象对应的代号</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>34</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      code_mode   采用字母编号还是数字编号，code表示字母编号，numeric code表示数字编号，默认为code</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>35</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>36</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public init(code: String, mode!: String = "code") {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>37</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let currencies: Currencies = Currencies.getCurrencies()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>38</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>39</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        let currency: Currency</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>40</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>41</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (mode == "code") {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>42</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            currency = match (currencies.currencyByCode(code)) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>43</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                case None =&gt; throw NoneValueException("没有找到code为${code}的Currency")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>44</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                case Some(v) =&gt; v</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>45</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>            }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>46</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        } else if (mode == "numeric code") {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>47</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            currency = match (currencies.currencyByNumericCode(code)) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>48</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                case None =&gt; throw NoneValueException("没有找到numeric code为${code}的Currency")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>49</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                case Some(v) =&gt; v</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>50</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>            }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>51</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        } else {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>52</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            throw IllegalArgumentException("不存在使用${code}创建Currency对象的模式。")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>53</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>54</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>55</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        this.code = currency.code</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>56</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        this.numericCode = currency.numericCode</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>57</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        this.fraction = currency.fraction</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>58</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        this.grapheme = currency.grapheme</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>59</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        this.template = currency.template</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>60</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        this.decimal = currency.decimal</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>61</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        this.thousand = currency.thousand</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>62</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>63</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>64</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>65</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @brief      格式化程序返回货币格式化程序表示</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>66</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>67</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @return     这个Currency对应的Formatter对象</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>68</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>69</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func getFormatter(): Formatter {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>70</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        return Formatter(this.fraction, this.decimal, this.thousand, this.grapheme, this.template)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>71</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>72</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>73</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>74</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @brief      根据唯一标识符code判断两个Currency对象是否相等</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>75</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>76</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      oc   相对比的Currency对象</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>77</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>78</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @return     是否相等的布尔值</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>79</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>80</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func equalsByCode(oc: Currency): Bool {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>81</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        return this.code == oc.code</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>82</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>83</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>84</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>85</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>/**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>86</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @brief      Currencies类储存了货币的格式等标准，该类被设计为单例模式</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>87</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>88</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>class Currencies {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>89</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    private static var instance: Option&lt;Currencies&gt; = None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>90</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>91</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    let currencies: HashMap&lt;String, Currency&gt;</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>92</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>93</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>94</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @brief      获取Currencies对象</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>95</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>96</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @return     获取的Currencies对象</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>97</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>98</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public static func getCurrencies(): Currencies {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>99</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (instance.isNone()) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>100</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            instance = Some(Currencies())</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>101</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>102</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        return instance.getOrThrow()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>103</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>104</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>105</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>106</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @brief      根据ISO-4271中定义的数字代码，CurrencyByNumericCode返回货币。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>107</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>108</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      numericCode   供检索的numericCode</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>109</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>110</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @return     numericCode对应的Currency对象</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>111</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>112</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func currencyByNumericCode(numericCode: String): ?Currency {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>113</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        for ((_, sc) in this.currencies) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>114</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            if (sc.numericCode == numericCode) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>115</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return sc</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>116</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>            }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>117</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>118</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        return None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>119</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>120</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>121</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>122</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @brief      返回给定货币代码的货币。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>123</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>124</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @param      code   供检索的货币代码</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>125</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>126</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @return     code对应的Currency对象</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>127</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>128</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func currencyByCode(code: String): ?Currency {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>129</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (!this.currencies.contains(code)) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>130</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            return None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>131</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>132</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        return currencies[code]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>133</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>134</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>135</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>136</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @brief      这里硬编码了ISO 4217标准</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>137</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>138</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    private Currencies() {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>139</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        currencies = HashMap&lt;String, Currency&gt;(</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>140</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            [</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>141</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("AED", Currency(".", ",", "AED", 2, "784", ".\u{062f}.\u{0625}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>142</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("AFN", Currency(".", ",", "AFN", 2, "971", "\u{060b}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>143</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ALL", Currency(".", ",", "ALL", 2, "008", "L", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>144</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("AMD", Currency(".", ",", "AMD", 2, "051", "\u{0564}\u{0580}.", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>145</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ANG", Currency(",", ".", "ANG", 2, "532", "\u{0192}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>146</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("AOA", Currency(".", ",", "AOA", 2, "973", "Kz", "1$")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>147</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ARS", Currency(",", ".", "ARS", 2, "032", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>148</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("AUD", Currency(".", ",", "AUD", 2, "036", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>149</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("AWG", Currency(".", ",", "AWG", 2, "533", "\u{0192}", "1$")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>150</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("AZN", Currency(".", ",", "AZN", 2, "944", "\u{20bc}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>151</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BAM", Currency(".", ",", "BAM", 2, "977", "KM", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>152</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BBD", Currency(".", ",", "BBD", 2, "052", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>153</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BDT", Currency(".", ",", "BDT", 2, "050", "\u{09f3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>154</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BGN", Currency(".", ",", "BGN", 2, "975", "\u{043b}\u{0432}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>155</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BHD", Currency(".", ",", "BHD", 3, "048", ".\u{062f}.\u{0628}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>156</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BIF", Currency(".", ",", "BIF", 0, "108", "Fr", "1$")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>157</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BMD", Currency(".", ",", "BMD", 2, "060", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>158</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BND", Currency(".", ",", "BND", 2, "096", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>159</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BOB", Currency(".", ",", "BOB", 2, "068", "Bs.", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>160</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BRL", Currency(",", ".", "BRL", 2, "986", "R$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>161</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BSD", Currency(".", ",", "BSD", 2, "044", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>162</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BTN", Currency(".", ",", "BTN", 2, "064", "Nu.", "1$")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>163</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BWP", Currency(".", ",", "BWP", 2, "072", "P", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>164</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BYN", Currency(",", " ", "BYN", 2, "933", "p.", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>165</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BYR", Currency(",", " ", "BYR", 0, "", "p.", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>166</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("BZD", Currency(".", ",", "BZD", 2, "084", "BZ$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>167</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CAD", Currency(".", ",", "CAD", 2, "124", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>168</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CDF", Currency(".", ",", "CDF", 2, "976", "FC", "1$")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>169</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CHF", Currency(".", ",", "CHF", 2, "756", "CHF", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>170</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CLF", Currency(",", ".", "CLF", 4, "990", "UF", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>171</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CLP", Currency(",", ".", "CLP", 0, "152", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>172</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CNY", Currency(".", ",", "CNY", 2, "156", "\u{5143}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>173</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("COP", Currency(",", ".", "COP", 2, "170", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>174</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CRC", Currency(".", ",", "CRC", 2, "188", "\u{20a1}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>175</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CUC", Currency(".", ",", "CUC", 2, "931", "$", "1$")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>176</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CUP", Currency(".", ",", "CUP", 2, "192", "$MN", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>177</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CVE", Currency(".", ",", "CVE", 2, "132", "$", "1$")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>178</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("CZK", Currency(".", ",", "CZK", 2, "203", "K\u{010d}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>179</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("DJF", Currency(".", ",", "DJF", 0, "262", "Fdj", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>180</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("DKK", Currency(",", ".", "DKK", 2, "208", "kr", "$ 1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>181</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("DOP", Currency(".", ",", "DOP", 2, "214", "RD$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>182</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("DZD", Currency(".", ",", "DZD", 2, "012", ".\u{062f}.\u{062c}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>183</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("EEK", Currency(".", ",", "EEK", 2, "", "kr", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>184</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("EGP", Currency(".", ",", "EGP", 2, "818", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>185</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ERN", Currency(".", ",", "ERN", 2, "232", "Nfk", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>186</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ETB", Currency(".", ",", "ETB", 2, "230", "Br", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>187</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("EUR", Currency(".", ",", "EUR", 2, "978", "\u{20ac}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>188</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("FJD", Currency(".", ",", "FJD", 2, "242", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>189</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("FKP", Currency(".", ",", "FKP", 2, "238", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>190</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("GBP", Currency(".", ",", "GBP", 2, "826", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>191</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("GEL", Currency(".", ",", "GEL", 2, "981", "\u{10da}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>192</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("GGP", Currency(".", ",", "GGP", 2, "", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>193</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("GHC", Currency(".", ",", "GHC", 2, "", "\u{00a2}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>194</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("GHS", Currency(".", ",", "GHS", 2, "936", "\u{20b5}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>195</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("GIP", Currency(".", ",", "GIP", 2, "292", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>196</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("GMD", Currency(".", ",", "GMD", 2, "270", "D", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>197</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("GNF", Currency(".", ",", "GNF", 0, "324", "FG", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>198</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("GTQ", Currency(".", ",", "GTQ", 2, "320", "Q", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>199</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("GYD", Currency(".", ",", "GYD", 2, "328", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>200</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("HKD", Currency(".", ",", "HKD", 2, "344", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>201</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("HNL", Currency(".", ",", "HNL", 2, "340", "L", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>202</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("HRK", Currency(",", ".", "HRK", 2, "191", "kn", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>203</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("HTG", Currency(",", ".", "HTG", 2, "332", "G", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>204</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("HUF", Currency(",", ".", "HUF", 2, "348", "Ft", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>205</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("IDR", Currency(",", ".", "IDR", 2, "360", "Rp", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>206</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ILS", Currency(".", ",", "ILS", 2, "376", "\u{20aa}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>207</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("IMP", Currency(".", ",", "IMP", 2, "", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>208</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("INR", Currency(".", ",", "INR", 2, "356", "\u{20b9}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>209</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("IQD", Currency(".", ",", "IQD", 3, "368", ".\u{062f}.\u{0639}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>210</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("IRR", Currency(".", ",", "IRR", 2, "364", "\u{fdfc}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>211</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ISK", Currency(",", ".", "ISK", 0, "352", "kr", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>212</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("JEP", Currency(".", ",", "JEP", 2, "", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>213</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("JMD", Currency(".", ",", "JMD", 2, "388", "J$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>214</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("JOD", Currency(".", ",", "JOD", 3, "400", ".\u{062f}.\u{0625}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>215</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("JPY", Currency(".", ",", "JPY", 0, "392", "\u{00a5}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>216</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("KES", Currency(".", ",", "KES", 2, "404", "KSh", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>217</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("KGS", Currency(".", ",", "KGS", 2, "417", "\u{0441}\u{043e}\u{043c}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>218</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("KHR", Currency(".", ",", "KHR", 2, "116", "\u{17db}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>219</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("KMF", Currency(".", ",", "KMF", 0, "174", "CF", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>220</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("KPW", Currency(".", ",", "KPW", 2, "408", "\u{20a9}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>221</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("KRW", Currency(".", ",", "KRW", 0, "410", "\u{20a}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>222</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("KWD", Currency(".", ",", "KWD", 3, "414", ".\u{062f}.\u{0643}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>223</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("KYD", Currency(".", ",", "KYD", 2, "136", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>224</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("KZT", Currency(".", ",", "KZT", 2, "398", "\u{20b8}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>225</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("LAK", Currency(".", ",", "LAK", 2, "418", "\u{20ad}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>226</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("LBP", Currency(".", ",", "LBP", 2, "422", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>227</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("LKR", Currency(".", ",", "LKR", 2, "144", "\u{20a8}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>228</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("LRD", Currency(".", ",", "LRD", 2, "430", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>229</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("LSL", Currency(".", ",", "LSL", 2, "426", "L", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>230</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("LTL", Currency(".", ",", "LTL", 2, "", "Lt", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>231</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("LVL", Currency(".", ",", "LVL", 2, "", "Ls", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>232</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("LYD", Currency(".", ",", "LYD", 3, "434", ".\u{062f}.\u{0644}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>233</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MAD", Currency(".", ",", "MAD", 2, "504", ".\u{062f}.\u{0645}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>234</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MDL", Currency(".", ",", "MDL", 2, "498", "lei", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>235</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MGA", Currency(".", ",", "MGA", 2, "969", "Ar", "1$")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>236</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MKD", Currency(".", ",", "MKD", 2, "807", "\u{0434}\u{0435}\u{043d}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>237</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MMK", Currency(".", ",", "MMK", 2, "104", "K", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>238</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MNT", Currency(".", ",", "MNT", 2, "496", "\u{20ae}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>239</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MOP", Currency(".", ",", "MOP", 2, "446", "P", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>240</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MRU", Currency(".", ",", "MRU", 2, "929", "UM", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>241</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MUR", Currency(".", ",", "MUR", 2, "480", "\u{20a8}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>242</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MVR", Currency(".", ",", "MVR", 2, "462", "MVR", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>243</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MWK", Currency(".", ",", "MWK", 2, "454", "MK", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>244</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MXN", Currency(".", ",", "MXN", 2, "484", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>245</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MYR", Currency(".", ",", "MYR", 2, "458", "RM", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>246</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("MZN", Currency(".", ",", "MZN", 2, "943", "MT", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>247</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("NAD", Currency(".", ",", "NAD", 2, "516", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>248</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("NGN", Currency(".", ",", "NGN", 2, "566", "\u{20a6}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>249</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("NIO", Currency(".", ",", "NIO", 2, "558", "C$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>250</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("NOK", Currency(".", ",", "NOK", 2, "578", "kr", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>251</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("NPR", Currency(".", ",", "NPR", 2, "524", "\u{20a8}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>252</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("NZD", Currency(".", ",", "NZD", 2, "554", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>253</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("OMR", Currency(".", ",", "OMR", 3, "512", "\u{fdfc}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>254</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("PAB", Currency(".", ",", "PAB", 2, "590", "B/.", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>255</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("PEN", Currency(".", ",", "PEN", 2, "604", "S/", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>256</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("PGK", Currency(".", ",", "PGK", 2, "598", "K", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>257</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("PHP", Currency(".", ",", "PHP", 2, "608", "\u{20b1}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>258</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("PKR", Currency(".", ",", "PKR", 2, "586", "\u{20a8}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>259</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("PLN", Currency(".", ",", "PLN", 2, "985", "z\u{0142}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>260</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("PYG", Currency(".", ",", "PYG", 0, "600", "Gs", "1$")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>261</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("QAR", Currency(".", ",", "QAR", 2, "634", "\u{fdfc}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>262</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("RON", Currency(".", ",", "RON", 2, "946", "lei", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>263</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("RSD", Currency(".", ",", "RSD", 2, "941", "\u{0414}\u{0438}\u{043d}.", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>264</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("RUB", Currency(".", ",", "RUB", 2, "643", "\u{20bd}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>265</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("RUR", Currency(".", ",", "RUR", 2, "", "\u{20bd}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>266</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("RWF", Currency(".", ",", "RWF", 0, "646", "FRw", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>267</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SAR", Currency(".", ",", "SAR", 2, "682", "\u{fdfc}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>268</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SBD", Currency(".", ",", "SBD", 2, "090", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>269</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SCR", Currency(".", ",", "SCR", 2, "690", "\u{20a8}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>270</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SDG", Currency(".", ",", "SDG", 2, "938", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>271</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SEK", Currency(".", ",", "SEK", 2, "752", "kr", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>272</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SGD", Currency(".", ",", "SGD", 2, "702", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>273</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SHP", Currency(".", ",", "SHP", 2, "654", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>274</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SKK", Currency(".", ",", "SKK", 2, "", "Sk", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>275</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SLE", Currency(".", ",", "SLE", 2, "925", "Le", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>276</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SLL", Currency(".", ",", "SLL", 2, "694", "Le", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>277</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SOS", Currency(".", ",", "SOS", 2, "706", "Sh", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>278</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SRD", Currency(".", ",", "SRD", 2, "968", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>279</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SSP", Currency(".", ",", "SSP", 2, "728", "\u{00a3}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>280</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("STD", Currency(".", ",", "STD", 2, "", "Db", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>281</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("STN", Currency(".", ",", "STN", 2, "930", "Db", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>282</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SVC", Currency(".", ",", "SVC", 2, "222", "\u{20a1}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>283</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SYP", Currency(".", ",", "SYP", 2, "760", "\u{00a3}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>284</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("SZL", Currency(".", ",", "SZL", 2, "748", "\u{00a3}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>285</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("THB", Currency(".", ",", "THB", 2, "764", "\u{0e3f}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>286</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("TJS", Currency(".", ",", "TJS", 2, "972", "SM", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>287</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("TMT", Currency(".", ",", "TMT", 2, "934", "T", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>288</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("TND", Currency(".", ",", "TND", 3, "788", ".\u{062f}.\u{062a}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>289</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("TOP", Currency(".", ",", "TOP", 2, "776", "T$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>290</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("TRL", Currency(".", ",", "TRL", 2, "", "\u{20a4}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>291</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("TRY", Currency(".", ",", "TRY", 2, "949", "\u{20ba}", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>292</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("TTD", Currency(".", ",", "TTD", 2, "780", "TT$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>293</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("TWD", Currency(".", ",", "TWD", 2, "901", "NT$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>294</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("TZS", Currency(".", ",", "TZS", 0, "834", "TSh", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>295</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("UAH", Currency(".", ",", "UAH", 2, "980", "\u{20b4}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>296</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("UGX", Currency(".", ",", "UGX", 0, "800", "USh", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>297</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("USD", Currency(".", ",", "USD", 2, "840", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>298</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("UYU", Currency(".", ",", "UYU", 2, "858", "$U", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>299</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("UZS", Currency(".", ",", "UZS", 2, "860", "so\u{2019}m", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>300</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("VEF", Currency(".", ",", "VEF", 2, "937", "Bs", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>301</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("VES", Currency(".", ",", "VES", 2, "928", "Bs.S", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>302</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("VND", Currency(".", ",", "VND", 0, "704", "\u{20ab}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>303</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("VUV", Currency(".", ",", "VUV", 0, "548", "Vt", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>304</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("WST", Currency(".", ",", "WST", 2, "882", "T", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>305</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("XAF", Currency(".", ",", "XAF", 0, "950", "Fr", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>306</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("XAG", Currency(".", ",", "XAG", 0, "961", "oz t", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>307</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("XAU", Currency(".", ",", "XAU", 0, "959", "oz t", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>308</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("XCD", Currency(".", ",", "XCD", 2, "951", "$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>309</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("XDR", Currency(".", ",", "XDR", 0, "960", "SDR", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>310</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("XOF", Currency(".", ",", "XOF", 0, "952", "CFA", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>311</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("XPF", Currency(".", ",", "XPF", 0, "953", "₣", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>312</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("YER", Currency(".", ",", "YER", 2, "886", "\u{fdfc}", "1 $")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>313</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ZAR", Currency(".", ",", "ZAR", 2, "710", "R", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>314</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ZMW", Currency(".", ",", "ZMW", 2, "967", "ZK", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>315</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ZWD", Currency(".", ",", "ZWD", 2, "716", "Z$", "$1")),</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>316</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                ("ZWL", Currency(".", ",", "ZWL", 2, "932", "Z$", "$1"))</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>317</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>            ]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>318</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        )</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>319</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>320</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>}</pre></td>
+</tr>
+
+  </table>
+  <br>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr><td class="hr"><td></tr>
+    <tr><td class="footer">Generated by: cjcov (Version 1.0.0)</a></td></tr>
+  </table>
+  <br>
+
+</body>
+
+</html>
