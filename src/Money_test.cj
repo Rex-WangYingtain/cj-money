@@ -621,4 +621,67 @@ class MoneyOperatorTest{
         let m2: Money = -m1
         @Expect(m2.amount, 11231)
     }
+    @TestCase
+    public func test7(){
+        let m1: Money = Money(12999, "ZAR")
+        let m2: Money = Money(-123, "ZAR")
+
+        @Expect(false, m1==m2)
+    }
+    @TestCase
+    public func test8(){
+        let m1: Money = Money(81234341, "XPF")
+        let m2: Money = Money(13232.89, "XPF")
+        let m3: Money = Money(-13, "XPF")
+        let m4: Money = Money(-13.00000000001, "XPF")
+        let m5: Money = Money(-898, "XPF")
+
+        @Expect(m1 > m1, false)
+        @Expect(m1 > m2, true)
+        @Expect(m1 > m3, true)
+        @Expect(m1 > m4, true)
+        @Expect(m1 > m5, true)
+    }
+    @TestCase
+    public func test9(){
+        let m1: Money = Money(81234341, "XPF")
+        let m2: Money = Money(13232.89, "XPF")
+        let m3: Money = Money(-13, "XPF")
+        let m4: Money = Money(-13.00000000001, "XPF")
+        let m5: Money = Money(-898, "XPF")
+
+        @Expect(m1 >= m1, true)
+        @Expect(m1 >= m2, true)
+        @Expect(m1 >= m3, true)
+        @Expect(m1 >= m4, true)
+        @Expect(m1 >= m5, true)
+    }
+    @TestCase
+    public func test10(){
+        let m1: Money = Money(14532523.46, "SDG")
+        let m2: Money = Money(9436, "SDG")
+        let m3: Money = Money(-783, "SDG")
+        let m4: Money = Money(-7.83000000, "SDG")
+        let m5: Money = Money(-1324, "SDG")
+
+        @Expect(m1 < m1, false)
+        @Expect(m1 < m2, false)
+        @Expect(m1 < m3, false)
+        @Expect(m1 < m4, false)
+        @Expect(m1 < m5, false)
+    }
+    @TestCase
+    public func test11(){
+        let m1: Money = Money(1546587131, "UAH")
+        let m2: Money = Money(54645, "UAH")
+        let m3: Money = Money(13413, "UAH")
+        let m4: Money = Money(134.13, "UAH")
+        let m5: Money = Money(-5346.12341, "UAH")
+
+        @Expect(m1 <= m1, true)
+        @Expect(m1 <= m2, false)
+        @Expect(m1 <= m3, false)
+        @Expect(m1 <= m4, false)
+        @Expect(m1 <= m5, false)
+    }
 }

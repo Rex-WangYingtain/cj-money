@@ -260,9 +260,44 @@ class BigMoney {
     }
 
     /**
-     * @brief      calculate(this: BigMoney, negative)
+     * @brief      相当于calculate(this: BigMoney, negative)
      */
     public operator func -(): BigMoney{
         return calculate(this, negative)
+    }
+
+    /**
+     * @brief      相对于this.equals(obm)
+     */
+    public operator func ==(obm: BigMoney): Bool{
+        return this.equals(obm)
+    }
+
+    /**
+     * @brief      相对于this.greaterThan(obm)
+     */
+    public operator func >(obm: BigMoney): Bool{
+        return this.greaterThan(obm)
+    }
+
+    /**
+     * @brief      相对于this.greaterThanOrEqual(obm)
+     */
+    public operator func >=(obm: BigMoney): Bool{
+        return this.greaterThanOrEqual(obm)
+    }
+
+    /**
+     * @brief      相对于this.lessThan(obm)
+     */
+    public operator func <(obm: BigMoney): Bool{
+        return this.lessThan(obm)
+    }
+
+    /**
+     * @brief      相对于this.lessThanOrEqual(obm)
+     */
+    public operator func <=(obm: BigMoney): Bool{
+        return this.lessThanOrEqual(obm)
     }
 }

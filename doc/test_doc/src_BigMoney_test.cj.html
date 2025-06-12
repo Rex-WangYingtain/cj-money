@@ -284,12 +284,12 @@ pre
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2025-06-12 17:05:44</td>
+            <td class="headerValue">2025-06-12 21:04:18</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">723</td>
-            <td class="headerTableEntry">745</td>
-            <td class="headerTableEntry" style="background-color:LightGreen">97.0 %</td>
+            <td class="headerTableEntry">780</td>
+            <td class="headerTableEntry">803</td>
+            <td class="headerTableEntry" style="background-color:LightGreen">97.1 %</td>
           </tr>
           <tr>
             <td class="headerName">Legend:</td>
@@ -6544,6 +6544,450 @@ pre
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>1038</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @TestCase</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1039</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func test7(){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1040</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let currencies: Currencies = Currencies.getCurrencies()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1041</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let currency: Currency = match (currencies.currencyByCode("ZAR")) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1042</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>            case None =&gt; throw NoneValueException("没有找到Currency标准ZAR")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1043</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case Some(v) =&gt; v</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1044</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1045</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m1: BigMoney = BigMoney(BigInt("1299943123546543214532346543214256764513233425653453136567432124555555644432546879797635"), currency)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1046</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m2: BigMoney = BigMoney("-123987654345678999876545678998765431234356534231232435434231324354231", "ZAR")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1047</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m3: BigMoney = BigMoney("12999431235465432145323465432142567645132334256534531365674321245555556444325468797976.35", "ZAR")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1048</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1049</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(false, m1 == m2)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1050</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(true, m1 == m3)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1051</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(false, m2 == m3)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1052</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(false, m2 == m1)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1053</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(true, m3 == m1)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1054</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(false, m3 == m2)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1055</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1056</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @TestCase</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1057</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func test8(){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1058</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m1: BigMoney = BigMoney("994312452321243513234252341214525312331254322222222222222222222222222222222222222222222222222222222222222532452555531121241234999", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1059</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m2: BigMoney = BigMoney("531432421253432536125555555555555666666666666666666666666666666666666666666555555325432656.892341254112", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1060</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m3: BigMoney = BigMoney("12123542352353532541342412341234114", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1061</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m4: BigMoney = BigMoney("12123542352353532541342412341234114.0000000000001", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1062</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m5: BigMoney = BigMoney("-813412513424215555124414444444444444444444444444444444444444444444444444444444444444444444444444444444444254848", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1063</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1064</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt; m1, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1065</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt; m2, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1066</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt; m3, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1067</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt; m4, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1068</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt; m5, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1069</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1070</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @TestCase</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1071</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func test9(){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1072</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m1: BigMoney = BigMoney("994312452321243513234252341214525312331254322222222222222222222222222222222222222222222222222222222222222532452555531121241234999", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1073</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m2: BigMoney = BigMoney("531432421253432536125555555555555666666666666666666666666666666666666666666555555325432656.892341254112", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1074</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m3: BigMoney = BigMoney("12123542352353532541342412341234114", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1075</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m4: BigMoney = BigMoney("12123542352353532541342412341234114.0000000000001", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1076</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m5: BigMoney = BigMoney("-813412513424215555124414444444444444444444444444444444444444444444444444444444444444444444444444444444444254848", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1077</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1078</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt;= m1, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1079</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt;= m2, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1080</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt;= m3, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1081</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt;= m4, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1082</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt;= m5, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1083</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1084</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @TestCase</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1085</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func test10(){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1086</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m1: BigMoney = BigMoney("994312452321243513234252341214525312331254322222222222222222222222222222222222222222222222222222222222222532452555531121241234999", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1087</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m2: BigMoney = BigMoney("531432421253432536125555555555555666666666666666666666666666666666666666666555555325432656.892341254112", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1088</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m3: BigMoney = BigMoney("12123542352353532541342412341234114", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1089</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m4: BigMoney = BigMoney("12123542352353532541342412341234114.0000000000001", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1090</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m5: BigMoney = BigMoney("-813412513424215555124414444444444444444444444444444444444444444444444444444444444444444444444444444444444254848", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1091</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1092</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt; m1, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1093</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt; m2, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1094</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt; m3, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1095</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt; m4, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1096</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt; m5, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1097</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1098</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @TestCase</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1099</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func test11(){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1100</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m1: BigMoney = BigMoney("994312452321243513234252341214525312331254322222222222222222222222222222222222222222222222222222222222222532452555531121241234999", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1101</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m2: BigMoney = BigMoney("531432421253432536125555555555555666666666666666666666666666666666666666666555555325432656.892341254112", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1102</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m3: BigMoney = BigMoney("12123542352353532541342412341234114", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1103</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m4: BigMoney = BigMoney("12123542352353532541342412341234114.0000000000001", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1104</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m5: BigMoney = BigMoney("-813412513424215555124414444444444444444444444444444444444444444444444444444444444444444444444444444444444254848", "SHP")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1105</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1106</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt;= m1, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1107</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt;= m2, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1108</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt;= m3, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1109</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt;= m4, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1110</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt;= m5, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1111</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1112</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>}</pre></td>

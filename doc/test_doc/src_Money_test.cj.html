@@ -284,12 +284,12 @@ pre
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2025-06-12 17:05:44</td>
+            <td class="headerValue">2025-06-12 21:04:18</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">450</td>
-            <td class="headerTableEntry">454</td>
-            <td class="headerTableEntry" style="background-color:LightGreen">99.1 %</td>
+            <td class="headerTableEntry">498</td>
+            <td class="headerTableEntry">502</td>
+            <td class="headerTableEntry" style="background-color:LightGreen">99.2 %</td>
           </tr>
           <tr>
             <td class="headerName">Legend:</td>
@@ -4060,6 +4060,384 @@ pre
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>624</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @TestCase</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>625</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func test7(){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>626</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m1: Money = Money(12999, "ZAR")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>627</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m2: Money = Money(-123, "ZAR")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>628</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>629</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(false, m1==m2)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>630</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>631</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @TestCase</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>632</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func test8(){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>633</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m1: Money = Money(81234341, "XPF")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>634</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m2: Money = Money(13232.89, "XPF")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>635</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m3: Money = Money(-13, "XPF")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>636</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m4: Money = Money(-13.00000000001, "XPF")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>637</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m5: Money = Money(-898, "XPF")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>638</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>639</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt; m1, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>640</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt; m2, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>641</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt; m3, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>642</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt; m4, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>643</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt; m5, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>644</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>645</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @TestCase</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>646</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func test9(){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>647</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m1: Money = Money(81234341, "XPF")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>648</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m2: Money = Money(13232.89, "XPF")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>649</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m3: Money = Money(-13, "XPF")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>650</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m4: Money = Money(-13.00000000001, "XPF")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>651</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m5: Money = Money(-898, "XPF")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>652</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>653</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt;= m1, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>654</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt;= m2, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>655</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt;= m3, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>656</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt;= m4, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>657</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &gt;= m5, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>658</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>659</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @TestCase</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>660</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func test10(){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>661</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m1: Money = Money(14532523.46, "SDG")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>662</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m2: Money = Money(9436, "SDG")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>663</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m3: Money = Money(-783, "SDG")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>664</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m4: Money = Money(-7.83000000, "SDG")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>665</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m5: Money = Money(-1324, "SDG")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>666</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>667</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt; m1, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>668</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt; m2, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>669</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt; m3, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>670</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt; m4, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>671</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt; m5, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>672</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>673</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @TestCase</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>674</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func test11(){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>675</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m1: Money = Money(1546587131, "UAH")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>676</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m2: Money = Money(54645, "UAH")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>677</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m3: Money = Money(13413, "UAH")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>678</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m4: Money = Money(134.13, "UAH")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>679</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let m5: Money = Money(-5346.12341, "UAH")</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>680</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>681</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt;= m1, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>682</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt;= m2, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>683</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt;= m3, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>684</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt;= m4, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>685</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        @Expect(m1 &lt;= m5, false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>686</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>687</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>}</pre></td>

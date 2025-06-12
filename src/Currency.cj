@@ -3,7 +3,7 @@ package cj_money
 import std.collection.HashMap
 
 /**
- * @brief      Currency类用于储存一个类的ISO 4217标准
+ * @brief      Currency类用于储存一个货币的ISO 4217标准
  */
 struct Currency {
     /**

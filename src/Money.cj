@@ -5,7 +5,7 @@ import std.convert.*
 import std.math.numeric.*
 
 /**
- * @brief      BigMoney用Int64类型来模拟定点数，相对与BigMoney，表示范围受限，但理论上性能更快
+ * @brief      Money用Int64类型来模拟定点数，相对与BigMoney，表示范围受限，但理论上性能更快
  */
 class Money {
     /**
@@ -98,12 +98,12 @@ class Money {
         this.amount = NumberStringToSmallAmount(amount, this.currency.fraction, mode: mode)
     }
 
+    /**
+     * @brief      将Money实例转换为BigMoney实例并返回
+     *
+     * @return     返回的BigMoney实例
+     */
     public func toBigMoney() : BigMoney{
-        /**
-         * @brief      将Money实例转换为BigMoney实例并返回
-         *
-         * @return     返回的BigMoney实例
-         */
         return BigMoney(BigInt(this.amount), this.currency)
     }
 
@@ -302,9 +302,44 @@ class Money {
     }
 
     /**
-     * @brief      calculate(this: Money, negative)
+     * @brief      相当于calculate(this: Money, negative)
      */
     public operator func -(): Money{
         return calculate(this, negative)
+    }
+
+    /**
+     * @brief      相对于this.equals(om)
+     */
+    public operator func ==(om: Money): Bool{
+        return this.equals(om)
+    }
+
+    /**
+     * @brief      相对于this.greaterThan(om)
+     */
+    public operator func >(om: Money): Bool{
+        return this.greaterThan(om)
+    }
+
+    /**
+     * @brief      相对于this.greaterThanOrEqual(om)
+     */
+    public operator func >=(om: Money): Bool{
+        return this.greaterThanOrEqual(om)
+    }
+
+    /**
+     * @brief      相对于this.lessThan(om)
+     */
+    public operator func <(om: Money): Bool{
+        return this.lessThan(om)
+    }
+
+    /**
+     * @brief      相对于this.lessThanOrEqual(om)
+     */
+    public operator func <=(om: Money): Bool{
+        return this.lessThanOrEqual(om)
     }
 }
