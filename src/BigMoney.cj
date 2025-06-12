@@ -209,7 +209,7 @@ class BigMoney {
      * @param      integer_len      表示整数部分的长度，默认为1
      * @param      fractional_len   表示小数部分的最大长度，默认为2
      *
-     * @return
+     * @return     科学计数法字符串
      */
     public func displayByScientificNotation(integer_len!: Int64=1, fractional_len!: Int64=2): String {
         let tup = ScientificNotation(this.amount.toString(), this.currency.fraction, integer_len, fractional_len)
