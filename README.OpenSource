@@ -5,7 +5,7 @@
         "License File": "LICENSE",
         "Version Number": "0.4.0",
         "Owner" : "792572942@qq.com",
-        "Upstream URL": "https://github.com/Rex-WangYingtain/cj-money",
+        "Upstream URL": "https://github.com/Rhymond/go-money",
         "Description": "A library designed to address the floating-point number errors in the field of financial calculations."
     }
 ]
