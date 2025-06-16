@@ -234,7 +234,7 @@ let ms1: ArrayList<Money> = allocate(m1, [1, 2, 3])
 
 方法`split`将`Money`对象`m`的金额平均分为`n`份，并使用`Money`对象的`ArrayList`返回。除法后，剩余的金额将在各方之间进行循环分配。
 
-```
+```cangjie
 let ms2: ArrayList<Money> = split(m1, 3)
 ```
 
