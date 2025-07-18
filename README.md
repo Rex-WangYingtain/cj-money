@@ -84,7 +84,7 @@
 
 ## 使用说明
 
-一个示例程序见于[example.cj](./doc/example.cj)。完整功能详见[接口说明](./doc/feature_api.md)，下面是核心功能：
+一个简易的示例程序见于[cj-money-example](https://gitcode.com/m0_74803157/cj-money-example/tree/main)。完整功能详见[接口说明](./doc/feature_api.md)，下面是核心功能：
 
 ### 创建金钱对象
 
