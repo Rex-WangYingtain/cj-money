@@ -7,7 +7,7 @@ import std.math.numeric.*
 /**
  * @brief      BigMoney用BigInt这个数据类型来模拟定点数，以适应大数运算
  */
-class BigMoney {
+public class BigMoney {
     /**
      * @brief      从BigInt创建并返回BigMoney的新实例。使用BigInt创建时，不是真实值转换，而是直接赋值
      *

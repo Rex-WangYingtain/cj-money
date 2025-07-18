@@ -13,7 +13,7 @@ import std.math.*
  *
  * @return     是否都是的布尔值
  */
-func StringAll(str: String, char: UInt8) {
+public func StringAll(str: String, char: UInt8) {
     for(tmp in str) {
         if (tmp != char) {
             return false
@@ -29,7 +29,7 @@ func StringAll(str: String, char: UInt8) {
  *
  * @return     是否都是的布尔值
  */
-func isDigit(char: UInt8): Bool {
+public func isDigit(char: UInt8): Bool {
     if (char >= b'0' && char <= b'9') {
         return true
     }
@@ -43,7 +43,7 @@ func isDigit(char: UInt8): Bool {
  *
  * @return     得到的整型
  */
-func Float64ToInt64Round(num: Float64): Int64 {
+public func Float64ToInt64Round(num: Float64): Int64 {
     var string_num: String = num.toString()
 
     let index: Int64 = string_num.indexOf(".").getOrThrow() // 不可能找不到
@@ -74,7 +74,7 @@ func Float64ToInt64Round(num: Float64): Int64 {
  *                      第四元素表示指数部分的符号，类型是字符串，有"+"和"-"两种情况；
  *                      第五元素表示指数部分，类型是字符串。
  */
-func FSMNumberString(number_string: String) {
+public func FSMNumberString(number_string: String) {
     var current_state: String = "start"
     var sign: UInt8 = b'+'
     let integer: ArrayList<UInt8> = ArrayList<UInt8>()
@@ -180,7 +180,7 @@ func FSMNumberString(number_string: String) {
  *
  * @return     定点小数的整数表示，类型是Int64
  */
-func NumberStringToSmallAmount(number_string: String, fraction: Int64, mode!: String = "round"): Int64 {
+public func NumberStringToSmallAmount(number_string: String, fraction: Int64, mode!: String = "round"): Int64 {
     let tuple = FSMNumberString(number_string)
     let sign = tuple[0]
     let integer = tuple[1]
@@ -298,7 +298,7 @@ func NumberStringToSmallAmount(number_string: String, fraction: Int64, mode!: St
  *
  * @return     定点小数的整数表示，类型是BigInt
  */
-func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: String = "round"): BigInt {
+public func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: String = "round"): BigInt {
     let tuple = FSMNumberString(number_string)
     let sign = tuple[0]
     let integer = tuple[1]
@@ -419,7 +419,7 @@ func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: Stri
  *                      第三元素表示小数部分，类型是字符串；
  *                      第四元素表示指数部分，类型是Int64。
  */
-func ScientificNotation(amount: String, fraction: Int64, integer_len: Int64, fractional_len: Int64) {
+public func ScientificNotation(amount: String, fraction: Int64, integer_len: Int64, fractional_len: Int64) {
     let signal: String
     var positive_amount: String
     if (amount[0] == b'-') {

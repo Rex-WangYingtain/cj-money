@@ -4,12 +4,10 @@ import std.math.*
 import std.convert.*
 import std.math.numeric.*
 
-public interface IMoney {}
-
 /**
  * @brief      Money用Int64类型来模拟定点数，相对与BigMoney，表示范围受限，但理论上性能更快
  */
-class Money <: IMoney {
+public class Money {
     /**
      * @brief      从Int64创建并返回Money的新实例。使用整数创建时，不是真实值转换，而是直接赋值
      *

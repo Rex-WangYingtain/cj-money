@@ -24,7 +24,7 @@ import std.convert.*
  *
  * @return     序列化生成的字符串
  */
-func serializeByCode(m: Money, separator!: String=DefaultDBMoneyValueSeparator): String{
+public func serializeByCode(m: Money, separator!: String=DefaultDBMoneyValueSeparator): String{
     return m.amount.toString() + separator + m.currency.code
 }
 
@@ -36,7 +36,7 @@ func serializeByCode(m: Money, separator!: String=DefaultDBMoneyValueSeparator):
  *
  * @return     序列化生成的字符串
  */
-func serializeByCode(m: BigMoney, separator!: String=DefaultDBMoneyValueSeparator): String{
+public func serializeByCode(m: BigMoney, separator!: String=DefaultDBMoneyValueSeparator): String{
     return m.amount.toString() + separator + m.currency.code
 }
 
@@ -48,7 +48,7 @@ func serializeByCode(m: BigMoney, separator!: String=DefaultDBMoneyValueSeparato
  *
  * @return     反序列化生成的Money对象
  */
-func deserializeByCode(st: String,  separator!: String=DefaultDBMoneyValueSeparator): Money{
+public func deserializeByCode(st: String,  separator!: String=DefaultDBMoneyValueSeparator): Money{
     let st_array : Array<String> = st.split(separator)
     if (st_array.size != 2){
         throw IllegalFormatException("无法用分隔符 " + separator + " 正确地划分Money序列")
@@ -65,7 +65,7 @@ func deserializeByCode(st: String,  separator!: String=DefaultDBMoneyValueSepara
  *
  * @return     反序列化生成的BigMoney对象
  */
-func deserializeBigMoneyByCode(st: String,  separator!: String=DefaultDBMoneyValueSeparator): BigMoney{
+public func deserializeBigMoneyByCode(st: String,  separator!: String=DefaultDBMoneyValueSeparator): BigMoney{
     let st_array : Array<String> = st.split(separator)
     if (st_array.size != 2){
         throw IllegalFormatException("无法用分隔符 " + separator + " 正确地划分Money序列")
@@ -84,7 +84,7 @@ func deserializeBigMoneyByCode(st: String,  separator!: String=DefaultDBMoneyVal
  *
  * @return     序列化生成的字符串 amount|code|numericCode|fraction|grapheme|template|decimal|thousand
  */
-func serializeAll(m: Money, separator!: String=DefaultDBMoneyValueSeparator): String{
+public func serializeAll(m: Money, separator!: String=DefaultDBMoneyValueSeparator): String{
     return m.amount.toString() + separator + m.currency.code + separator + m.currency.numericCode + separator + "${m.currency.fraction}" + separator + m.currency.grapheme + separator + m.currency.template + separator + m.currency.decimal + separator + m.currency.thousand
 }
 
@@ -96,7 +96,7 @@ func serializeAll(m: Money, separator!: String=DefaultDBMoneyValueSeparator): St
  *
  * @return     序列化生成的字符串 amount|code|numericCode|fraction|grapheme|template|decimal|thousand
  */
-func serializeAll(m: BigMoney, separator!: String=DefaultDBMoneyValueSeparator): String{
+public func serializeAll(m: BigMoney, separator!: String=DefaultDBMoneyValueSeparator): String{
     return m.amount.toString() + separator + m.currency.code + separator + m.currency.numericCode + separator + "${m.currency.fraction}" + separator + m.currency.grapheme + separator + m.currency.template + separator + m.currency.decimal + separator + m.currency.thousand
 }
 
@@ -108,7 +108,7 @@ func serializeAll(m: BigMoney, separator!: String=DefaultDBMoneyValueSeparator):
  *
  * @return     反序列化生成的Money对象
  */
-func deserializeAll(st: String,  separator!: String=DefaultDBMoneyValueSeparator): Money{
+public func deserializeAll(st: String,  separator!: String=DefaultDBMoneyValueSeparator): Money{
     let st_array : Array<String> = st.split(separator)
     if (st_array.size != 8){
         throw IllegalFormatException("无法用分隔符 " + separator + " 正确地划分Money序列")
@@ -125,7 +125,7 @@ func deserializeAll(st: String,  separator!: String=DefaultDBMoneyValueSeparator
  *
  * @return     反序列化生成的BigMoney对象
  */
-func deserializeBigMoneyAll(st: String,  separator!: String=DefaultDBMoneyValueSeparator): BigMoney{
+public func deserializeBigMoneyAll(st: String,  separator!: String=DefaultDBMoneyValueSeparator): BigMoney{
     let st_array : Array<String> = st.split(separator)
     
     if (st_array.size != 8){

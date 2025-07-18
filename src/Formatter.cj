@@ -7,7 +7,7 @@ import std.math.numeric.*
 /**
  * @brief      Formatter类将Money和BigMoney按照ISO 4217标准格式化为符合标准的字符串或其他
  */
-class Formatter {
+public class Formatter {
     /**
      * @brief      Formatter类的构造函数
      *

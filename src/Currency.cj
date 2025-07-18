@@ -5,7 +5,7 @@ import std.collection.HashMap
 /**
  * @brief      Currency类用于储存一个货币的ISO 4217标准
  */
-struct Currency {
+public struct Currency {
     /**
      * @brief      原子数据类型创建Currency对象
      *
@@ -85,7 +85,7 @@ struct Currency {
 /**
  * @brief      Currencies类储存了货币的格式等标准，该类被设计为单例模式
  */
-class Currencies {
+public class Currencies {
     private static var instance: Option<Currencies> = None
 
     let currencies: HashMap<String, Currency>

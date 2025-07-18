@@ -17,7 +17,7 @@ import std.math.numeric.*
  *
  * @return     计算得到的Money对象
  */
-func calculate(a: Money, b: Money, calculator: (Money, Money) -> Money): Money {
+public func calculate(a: Money, b: Money, calculator: (Money, Money) -> Money): Money {
     if (!a.sameCurrency(b)) {
         throw CurrencyNotSameException("a的Currency的code为${a.currency.code}，b的Currency的code为${b.currency.code}")
     }
@@ -36,7 +36,7 @@ func calculate(a: Money, b: Money, calculator: (Money, Money) -> Money): Money {
  *
  * @return     计算得到的Money对象
  */
-func calculate(a: Money, b: Money, calculator: (Money, Money, String) -> Money, mode!: String="round"): Money {
+public func calculate(a: Money, b: Money, calculator: (Money, Money, String) -> Money, mode!: String="round"): Money {
     if (!a.sameCurrency(b)) {
         throw CurrencyNotSameException("a的Currency的code为${a.currency.code}，b的Currency的code为${b.currency.code}")
     }
@@ -51,7 +51,7 @@ func calculate(a: Money, b: Money, calculator: (Money, Money, String) -> Money, 
  *
  * @return     计算得到的Money对象
  */
-func calculate(m: Money, calculator: (Money) -> Money): Money {
+public func calculate(m: Money, calculator: (Money) -> Money): Money {
     return calculator(m)
 }
 
@@ -66,7 +66,7 @@ func calculate(m: Money, calculator: (Money) -> Money): Money {
  *
  * @return     计算得到的Money对象
  */
-func allocate(m: Money, r: Int64, s: Int64): Money {
+public func allocate(m: Money, r: Int64, s: Int64): Money {
 
     if (s <= 0) {
         throw IllegalArgumentException("划分比例s不能小于等于零")
@@ -84,7 +84,7 @@ func allocate(m: Money, r: Int64, s: Int64): Money {
  *
  * @return     Money对象的ArrayList
  */
-func allocate(m: Money, rs: Array<Int64>): ArrayList<Money> {
+public func allocate(m: Money, rs: Array<Int64>): ArrayList<Money> {
     if (rs.size == 0) {
         throw IllegalArgumentException("划分比例的数组rs不能为空。")
     }
@@ -133,7 +133,7 @@ func allocate(m: Money, rs: Array<Int64>): ArrayList<Money> {
  *
  * @return     计算得到的Money对象
  */
-func round(m: Money, e: Int64): Money {
+public func round(m: Money, e: Int64): Money {
     if (e <= 0) {
         throw IllegalArgumentException("精度 e 为正整数。")
     }
@@ -166,7 +166,7 @@ func round(m: Money, e: Int64): Money {
  *
  * @return     Money对象的ArrayList
  */
-func split(m: Money, n: Int64): ArrayList<Money> {
+public func split(m: Money, n: Int64): ArrayList<Money> {
     if (n <= 0) {
         throw IllegalArgumentException("划分份数应该为大于0的整数。")
     }
@@ -205,7 +205,7 @@ func split(m: Money, n: Int64): ArrayList<Money> {
  *
  * @return     计算得到的Money对象
  */
-func add(a: Money, b: Money): Money {
+public func add(a: Money, b: Money): Money {
     return Money(a.amount + b.amount, a.currency)
 }
 
@@ -217,7 +217,7 @@ func add(a: Money, b: Money): Money {
  *
  * @return     计算得到的Money对象
  */
-func subtract(a: Money, b: Money): Money {
+public func subtract(a: Money, b: Money): Money {
     return Money(a.amount - b.amount, a.currency)
 }
 
@@ -230,7 +230,7 @@ func subtract(a: Money, b: Money): Money {
  *
  * @return     计算得到的Money对象
  */
-func multiply(a: Money, b: Money, mode!: String="round"): Money {
+public func multiply(a: Money, b: Money, mode!: String="round"): Money {
     let fraction: Int64 = a.currency.fraction
     let exp: Int64 = Int64(pow(10.0, fraction))
     var res: Int64 = a.amount * b.amount / exp
@@ -271,7 +271,7 @@ func multiply(a: Money, b: Money, mode!: String="round"): Money {
  *
  * @return     计算得到的Money对象
  */
-func divide(a: Money, b: Money, mode!: String="round"): Money {
+public func divide(a: Money, b: Money, mode!: String="round"): Money {
     if (b.isZero()) {
         throw IllegalArgumentException("除以零错误")
     }
@@ -315,7 +315,7 @@ func divide(a: Money, b: Money, mode!: String="round"): Money {
  *
  * @return     计算得到的Money对象
  */
-func modulus(a: Money, b: Money): Money {
+public func modulus(a: Money, b: Money): Money {
     if (b.isZero()) {
         throw IllegalArgumentException("对零取模错误")
     }
@@ -333,7 +333,7 @@ func modulus(a: Money, b: Money): Money {
  *
  * @return     计算得到的Money对象
  */
-func absolute(m: Money): Money {
+public func absolute(m: Money): Money {
     return Money(abs(m.amount), m.currency)
 }
 
@@ -344,7 +344,7 @@ func absolute(m: Money): Money {
  *
  * @return     计算得到的Money对象
  */
-func negative(m: Money): Money {
+public func negative(m: Money): Money {
     return Money(-m.amount, m.currency)
 }
 
@@ -361,7 +361,7 @@ func negative(m: Money): Money {
  *
  * @return     计算得到的BigMoney对象
  */
-func calculate(a: BigMoney, b: BigMoney, calculator: (BigMoney, BigMoney) -> BigMoney): BigMoney {
+public func calculate(a: BigMoney, b: BigMoney, calculator: (BigMoney, BigMoney) -> BigMoney): BigMoney {
     if (!a.sameCurrency(b)) {
         throw CurrencyNotSameException("a的Currency的code为${a.currency.code}，b的Currency的code为${b.currency.code}")
     }
@@ -380,7 +380,7 @@ func calculate(a: BigMoney, b: BigMoney, calculator: (BigMoney, BigMoney) -> Big
  *
  * @return     计算得到的BigMoney对象
  */
-func calculate(a: BigMoney, b: BigMoney, calculator: (BigMoney, BigMoney, String) -> BigMoney, mode!: String="round"): BigMoney {
+public func calculate(a: BigMoney, b: BigMoney, calculator: (BigMoney, BigMoney, String) -> BigMoney, mode!: String="round"): BigMoney {
     if (!a.sameCurrency(b)) {
         throw CurrencyNotSameException("a的Currency的code为${a.currency.code}，b的Currency的code为${b.currency.code}")
     }
@@ -395,7 +395,7 @@ func calculate(a: BigMoney, b: BigMoney, calculator: (BigMoney, BigMoney, String
  *
  * @return     计算得到的BigMoney对象
  */
-func calculate(m: BigMoney, calculator: (BigMoney) -> BigMoney): BigMoney {
+public func calculate(m: BigMoney, calculator: (BigMoney) -> BigMoney): BigMoney {
     return calculator(m)
 }
 
@@ -410,7 +410,7 @@ func calculate(m: BigMoney, calculator: (BigMoney) -> BigMoney): BigMoney {
  *
  * @return     计算得到的BigMoney对象
  */
-func allocate(m: BigMoney, r: Int64, s: Int64): BigMoney {
+public func allocate(m: BigMoney, r: Int64, s: Int64): BigMoney {
     if (s <= 0) {
         throw IllegalArgumentException("划分比例s不能小于等于零")
     }
@@ -427,7 +427,7 @@ func allocate(m: BigMoney, r: Int64, s: Int64): BigMoney {
  *
  * @return     BigMoney对象的ArrayList
  */
-func allocate(m: BigMoney, rs: Array<Int64>): ArrayList<BigMoney> {
+public func allocate(m: BigMoney, rs: Array<Int64>): ArrayList<BigMoney> {
     if (rs.size == 0) {
         throw IllegalArgumentException("划分比例的数组rs不能为空。")
     }
@@ -476,7 +476,7 @@ func allocate(m: BigMoney, rs: Array<Int64>): ArrayList<BigMoney> {
  *
  * @return     计算得到的Money对象
  */
-func round(m: BigMoney, e: Int64): BigMoney {
+public func round(m: BigMoney, e: Int64): BigMoney {
     if (e <= 0) {
         throw IllegalArgumentException("精度 e 为正整数。")
     }
@@ -515,7 +515,7 @@ func round(m: BigMoney, e: Int64): BigMoney {
  *
  * @return     BigMoney对象的ArrayList
  */
-func split(m: BigMoney, n: Int64): ArrayList<BigMoney> {
+public func split(m: BigMoney, n: Int64): ArrayList<BigMoney> {
     if (n <= 0) {
         throw IllegalArgumentException("划分份数应该为大于0的整数。")
     }
@@ -561,7 +561,7 @@ func split(m: BigMoney, n: Int64): ArrayList<BigMoney> {
  *
  * @return     计算得到的BigMoney对象
  */
-func add(a: BigMoney, b: BigMoney): BigMoney {
+public func add(a: BigMoney, b: BigMoney): BigMoney {
     return BigMoney(a.amount + b.amount, a.currency)
 }
 
@@ -573,7 +573,7 @@ func add(a: BigMoney, b: BigMoney): BigMoney {
  *
  * @return     计算得到的BigMoney对象
  */
-func subtract(a: BigMoney, b: BigMoney): BigMoney {
+public func subtract(a: BigMoney, b: BigMoney): BigMoney {
     return BigMoney(a.amount - b.amount, a.currency)
 }
 
@@ -586,7 +586,7 @@ func subtract(a: BigMoney, b: BigMoney): BigMoney {
  *
  * @return     计算得到的BigMoney对象
  */
-func multiply(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
+public func multiply(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
     let fraction: Int64 = a.currency.fraction
     let exp: BigInt = BigInt(Int64(pow(10.0, fraction)))
     var res: BigInt = a.amount * b.amount / exp
@@ -627,7 +627,7 @@ func multiply(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
  *
  * @return     计算得到的BigMoney对象
  */
-func divide(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
+public func divide(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
     if (b.isZero()) {
         throw IllegalArgumentException("除以零错误")
     }
@@ -670,7 +670,7 @@ func divide(a: BigMoney, b: BigMoney, mode!: String="round"): BigMoney {
  *
  * @return     计算得到的BigMoney对象
  */
-func modulus(a: BigMoney, b: BigMoney): BigMoney {
+public func modulus(a: BigMoney, b: BigMoney): BigMoney {
     if (b.isZero()) {
         throw IllegalArgumentException("对零取模错误")
     }
@@ -689,7 +689,7 @@ func modulus(a: BigMoney, b: BigMoney): BigMoney {
  *
  * @return     计算得到的BigMoney对象
  */
-func absolute(m: BigMoney): BigMoney {
+public func absolute(m: BigMoney): BigMoney {
     return BigMoney(abs(m.amount), m.currency)
 }
 
@@ -700,6 +700,6 @@ func absolute(m: BigMoney): BigMoney {
  *
  * @return     计算得到的BigMoney对象
  */
-func negative(m: BigMoney): BigMoney {
+public func negative(m: BigMoney): BigMoney {
     return BigMoney(-m.amount, m.currency)
 }
