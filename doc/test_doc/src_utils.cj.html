@@ -284,11 +284,11 @@ pre
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2025-06-12 21:04:18</td>
+            <td class="headerValue">2025-07-19 01:49:34</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">256</td>
-            <td class="headerTableEntry">256</td>
+            <td class="headerTableEntry">282</td>
+            <td class="headerTableEntry">282</td>
             <td class="headerTableEntry" style="background-color:LightGreen">100.0 %</td>
           </tr>
           <tr>
@@ -414,7 +414,7 @@ pre
 <td align="right" class="lineno"><pre>16</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>func StringAll(str: String, char: UInt8) {</pre></td>
+<td align="left" class="src coveredLine"><pre>public func StringAll(str: String, char: UInt8) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>17</pre></td>
@@ -510,7 +510,7 @@ pre
 <td align="right" class="lineno"><pre>32</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>func isDigit(char: UInt8): Bool {</pre></td>
+<td align="left" class="src coveredLine"><pre>public func isDigit(char: UInt8): Bool {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>33</pre></td>
@@ -594,7 +594,7 @@ pre
 <td align="right" class="lineno"><pre>46</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>func Float64ToInt64Round(num: Float64): Int64 {</pre></td>
+<td align="left" class="src coveredLine"><pre>public func Float64ToInt64Round(num: Float64): Int64 {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>47</pre></td>
@@ -780,7 +780,7 @@ pre
 <td align="right" class="lineno"><pre>77</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>func FSMNumberString(number_string: String) {</pre></td>
+<td align="left" class="src coveredLine"><pre>public func FSMNumberString(number_string: String) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>78</pre></td>
@@ -1416,7 +1416,7 @@ pre
 <td align="right" class="lineno"><pre>183</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>func NumberStringToSmallAmount(number_string: String, fraction: Int64, mode!: String = "round"): Int64 {</pre></td>
+<td align="left" class="src coveredLine"><pre>public func NumberStringToSmallAmount(number_string: String, fraction: Int64, mode!: String = "round"): Int64 {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>184</pre></td>
@@ -1572,7 +1572,7 @@ pre
 <td align="right" class="lineno"><pre>209</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>210</pre></td>
@@ -1584,7 +1584,7 @@ pre
 <td align="right" class="lineno"><pre>211</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return -Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return -Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>212</pre></td>
@@ -1692,7 +1692,7 @@ pre
 <td align="right" class="lineno"><pre>229</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>230</pre></td>
@@ -1704,7 +1704,7 @@ pre
 <td align="right" class="lineno"><pre>231</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return -Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return -Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>232</pre></td>
@@ -1860,7 +1860,7 @@ pre
 <td align="right" class="lineno"><pre>257</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>258</pre></td>
@@ -1872,7 +1872,7 @@ pre
 <td align="right" class="lineno"><pre>259</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return -Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return -Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>260</pre></td>
@@ -2076,7 +2076,7 @@ pre
 <td align="right" class="lineno"><pre>293</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @brief      将一个数字字符串转换为定点小数的整数表示。</pre></td>
+<td align="left" class="src "><pre> * @brief      计算大整数幂</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>294</pre></td>
@@ -2088,133 +2088,133 @@ pre
 <td align="right" class="lineno"><pre>295</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @param      number_string   数字字符串</pre></td>
+<td align="left" class="src "><pre> * @param      base   基数</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>296</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @param      fraction   定点小数的位数</pre></td>
+<td align="left" class="src "><pre> * @param      exponent   指数</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>297</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @param      mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round</pre></td>
+<td align="left" class="src "><pre> *</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>298</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> *</pre></td>
+<td align="left" class="src "><pre> * @return     幂</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>299</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @return     定点小数的整数表示，类型是BigInt</pre></td>
+<td align="left" class="src "><pre> *</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>300</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> */</pre></td>
+<td align="left" class="src "><pre> * @notes      不支持负指数</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>301</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: String = "round"): BigInt {</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> */</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>302</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    let tuple = FSMNumberString(number_string)</pre></td>
+<td align="left" class="src coveredLine"><pre>func BigIntPow(base: BigInt, exponent: BigInt): BigInt {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>303</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    let sign = tuple[0]</pre></td>
+<td align="left" class="src coveredLine"><pre>    if (exponent &lt; BigInt_ZERO) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>304</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    let integer = tuple[1]</pre></td>
+<td align="left" class="src coveredLine"><pre>        throw NegativeExponentNotSupportException("不支持负指数")</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>305</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    let fractional = tuple[2]</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>306</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    let exp_sign = tuple[3]</pre></td>
+<td align="left" class="src coveredLine"><pre>    if (exponent == BigInt_ZERO) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>307</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    let exponent = tuple[4]</pre></td>
+<td align="left" class="src coveredLine"><pre>        return BigInt_ONE</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>308</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>309</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    let integer_len = integer.size</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>310</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    let fractional_len = fractional.size</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>311</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
+<td align="right" class="lineno"><pre>310</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    var b = base</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>311</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    var e = exponent</pre></td>
+</tr>
+<tr>
 <td align="right" class="lineno"><pre>312</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    var exponent_val = 0</pre></td>
+<td align="left" class="src coveredLine"><pre>    var result = BigInt_ONE</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>313</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    if (exponent != ""){</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>314</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        exponent_val = Int64.parse(exponent)</pre></td>
+<td align="left" class="src coveredLine"><pre>    while (e &gt; BigInt_ZERO) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>315</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        if (exp_sign == b'-'){</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (e % BigInt_TWO == BigInt_ONE) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>316</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            exponent_val = -exponent_val</pre></td>
+<td align="left" class="src coveredLine"><pre>            result = result * b</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>317</pre></td>
@@ -2225,20 +2225,20 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>318</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        b = b * b</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>319</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        e = e / BigInt_TWO</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>320</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    var current_point = integer_len + exponent_val + fraction</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>321</pre></td>
@@ -2250,127 +2250,127 @@ pre
 <td align="right" class="lineno"><pre>322</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    if (mode == "truncate") {</pre></td>
+<td align="left" class="src coveredLine"><pre>    return result</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>323</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        if (current_point &gt; 0) {</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>}</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>324</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            let string_num = integer + fractional</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>325</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            if (current_point &gt; integer_len + fractional_len) {</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>/**</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>326</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                if (sign == b'+'){</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @brief      计算整数幂</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>327</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> *</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>328</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                } else {</pre></td>
+<td align="left" class="src "><pre> * @param      base   基数</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>329</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return -BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @param      exponent   指数</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>330</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                }</pre></td>
+<td align="left" class="src "><pre> *</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>331</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>            } else {</pre></td>
+<td align="left" class="src "><pre> * @return     幂</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>332</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                if (sign == b'+'){</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> *</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>333</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return BigInt(string_num[0..current_point])</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @notes      不支持负指数</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>334</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                } else {</pre></td>
+<td align="left" class="src "><pre> */</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>335</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return -BigInt(string_num[0..current_point])</pre></td>
+<td align="left" class="src coveredLine"><pre>func IntPow(base: Int64, exponent: Int64): Int64 {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>336</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                }</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    if (exponent &lt; 0) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>337</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>            }</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        throw NegativeExponentNotSupportException("不支持负指数")</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>338</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        } else {</pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>339</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            return BigInt_ZERO</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>340</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        }</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    var b = base</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>341</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    } else if (mode == "ceil") {</pre></td>
+<td align="left" class="src coveredLine"><pre>    var e = exponent</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>342</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        var string_num: String = integer + fractional</pre></td>
+<td align="left" class="src coveredLine"><pre>    var result: Int64 = 1</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>343</pre></td>
@@ -2382,241 +2382,241 @@ pre
 <td align="right" class="lineno"><pre>344</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        if (current_point &gt; 0) {</pre></td>
+<td align="left" class="src coveredLine"><pre>    while (e &gt; 0) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>345</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            if (current_point &gt; integer_len + fractional_len) {</pre></td>
+<td align="left" class="src coveredLine"><pre>        if ((e &amp; 1) == 1) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>346</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                if (sign == b'+'){</pre></td>
+<td align="left" class="src coveredLine"><pre>            result *= b</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>347</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>348</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                } else {</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>349</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return -BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>350</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                }</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>351</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>            } else {</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>352</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                string_num = string_num[0..current_point]</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>353</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                var ret: BigInt = BigInt(string_num[0..current_point])</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>354</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                if (sign == b'-') {</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>355</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    ret = - ret</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>356</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                }</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>357</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                if (StringAll(string_num, b'0')){</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>358</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return ret</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>359</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                }</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>360</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                return ret + BigInt_ONE</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>361</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>            }</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>362</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        } else {</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>363</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            if (StringAll(string_num, b'0')){</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>364</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                return BigInt_ZERO</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>365</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>            }</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>366</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>            else {</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>367</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                return BigInt_ONE</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>368</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>            }</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>369</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>        }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>370</pre></td>
+<td align="right" class="lineno"><pre>348</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    } else if (mode == "round") {</pre></td>
+<td align="left" class="src coveredLine"><pre>        b *= b</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>371</pre></td>
+<td align="right" class="lineno"><pre>349</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        var string_num: String = integer + fractional</pre></td>
+<td align="left" class="src coveredLine"><pre>        e &gt;&gt;= 1</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>372</pre></td>
+<td align="right" class="lineno"><pre>350</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>351</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    return result</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>352</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>353</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
+<td align="right" class="lineno"><pre>354</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>355</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>/**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>356</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @brief      将一个数字字符串转换为定点小数的整数表示。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>357</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>358</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @param      number_string   数字字符串</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>359</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @param      fraction   定点小数的位数</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>360</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @param      mode    舍入模式（round四舍五入，truncate截断舍入，ceil向前舍入），默认为round</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>361</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>362</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @return     定点小数的整数表示，类型是BigInt</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>363</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>364</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>public func NumberStringToBigAmount(number_string: String, fraction: Int64, mode!: String = "round"): BigInt {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>365</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    let tuple = FSMNumberString(number_string)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>366</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    let sign = tuple[0]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>367</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    let integer = tuple[1]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>368</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    let fractional = tuple[2]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>369</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    let exp_sign = tuple[3]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>370</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    let exponent = tuple[4]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>371</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>372</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    let integer_len = integer.size</pre></td>
+</tr>
+<tr>
 <td align="right" class="lineno"><pre>373</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        if (current_point &gt; 0) {</pre></td>
+<td align="left" class="src coveredLine"><pre>    let fractional_len = fractional.size</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>374</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            if (current_point &gt; integer_len + fractional_len) {</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>375</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                if (sign == b'+'){</pre></td>
+<td align="left" class="src coveredLine"><pre>    var exponent_val = 0</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>376</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))</pre></td>
+<td align="left" class="src coveredLine"><pre>    if (exponent != ""){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>377</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                } else {</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        exponent_val = Int64.parse(exponent)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>378</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return -BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (exp_sign == b'-'){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>379</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                }</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            exponent_val = -exponent_val</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>380</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>            } else {</pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>381</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                let remain: String = string_num[current_point..]</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>382</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                string_num = string_num[0..current_point]</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>383</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                var ret: BigInt = BigInt(string_num[0..current_point])</pre></td>
+<td align="left" class="src coveredLine"><pre>    var current_point = integer_len + exponent_val + fraction</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>384</pre></td>
@@ -2628,103 +2628,103 @@ pre
 <td align="right" class="lineno"><pre>385</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                if (remain.size &gt; 0 &amp;&amp; remain[0] &gt; b'4'){</pre></td>
+<td align="left" class="src coveredLine"><pre>    if (mode == "truncate") {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>386</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    ret += BigInt_ONE</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (current_point &gt; 0) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>387</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                }</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            let string_num = integer + fractional</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>388</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            if (current_point &gt; integer_len + fractional_len) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>389</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                if (sign == b'-') {</pre></td>
+<td align="left" class="src coveredLine"><pre>                if (sign == b'+'){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>390</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    ret = - ret</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>391</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>                }</pre></td>
+<td align="left" class="src "><pre>                } else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>392</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                return ret</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return -BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>393</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>            }</pre></td>
+<td align="left" class="src "><pre>                }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>394</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        } else {</pre></td>
+<td align="left" class="src "><pre>            } else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>395</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            if (current_point == 0 &amp;&amp; string_num[0] &gt; b'4'){</pre></td>
+<td align="left" class="src coveredLine"><pre>                if (sign == b'+'){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>396</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                if (sign == b'-'){</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return BigInt(string_num[0..current_point])</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>397</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return BigInt_MINUS_ONE</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>398</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>                } else {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>399</pre></td>
+<td align="right" class="lineno"><pre>398</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>                    return BigInt_ONE</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return -BigInt(string_num[0..current_point])</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>400</pre></td>
+<td align="right" class="lineno"><pre>399</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>                }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>401</pre></td>
+<td align="right" class="lineno"><pre>400</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>            }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>401</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        } else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>402</pre></td>
@@ -2741,533 +2741,911 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>404</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    } else {</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    } else if (mode == "ceil") {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>405</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        throw IllegalArgumentException("没有舍入模式" + mode)</pre></td>
+<td align="left" class="src coveredLine"><pre>        var string_num: String = integer + fractional</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>406</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>407</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>}</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (current_point &gt; 0) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>408</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            if (current_point &gt; integer_len + fractional_len) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>409</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>/**</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                if (sign == b'+'){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>410</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @brief      将一个数字字符串转换为科学计数法表示的信息元组</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>411</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> *</pre></td>
+<td align="left" class="src "><pre>                } else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>412</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @param      amount   数字字符串的整数部分</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return -BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>413</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @param      fraction   数字字符串的小数位数</pre></td>
+<td align="left" class="src "><pre>                }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>414</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @param      integer_len   整数部分的长度</pre></td>
+<td align="left" class="src "><pre>            } else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>415</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @param      fractional_len   小数部分的最大长度</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                string_num = string_num[0..current_point]</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>416</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> *</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                var ret: BigInt = BigInt(string_num[0..current_point])</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>417</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> * @return     一个元组。第一元素表示符号，类型是字符串，有"+"和"-"两种情况；</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                if (sign == b'-') {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>418</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> *                      第二元素表示整数部分，类型是字符串；</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    ret = - ret</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>419</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> *                      第三元素表示小数部分，类型是字符串；</pre></td>
+<td align="left" class="src "><pre>                }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>420</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> *                      第四元素表示指数部分，类型是Int64。</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                if (StringAll(string_num, b'0')){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>421</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre> */</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return ret</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>422</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>func ScientificNotation(amount: String, fraction: Int64, integer_len: Int64, fractional_len: Int64) {</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>                }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>423</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    let signal: String</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return ret + BigInt_ONE</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>424</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    var positive_amount: String</pre></td>
+<td align="left" class="src "><pre>            }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>425</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    if (amount[0] == b'-') {</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        } else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>426</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        signal = "-"</pre></td>
+<td align="left" class="src coveredLine"><pre>            if (StringAll(string_num, b'0')){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>427</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        positive_amount = amount[1..]</pre></td>
+<td align="left" class="src coveredLine"><pre>                return BigInt_ZERO</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>428</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    } else {</pre></td>
+<td align="left" class="src "><pre>            }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>429</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        signal = "+"</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>            else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>430</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        positive_amount = amount</pre></td>
+<td align="left" class="src coveredLine"><pre>                return BigInt_ONE</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>431</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
+<td align="left" class="src "><pre>            }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>432</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>433</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    // 构造整数部分和小数部分</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    } else if (mode == "round") {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>434</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    var integer_part: String</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        var string_num: String = integer + fractional</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>435</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    var fractional_part: String</pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>436</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    if (positive_amount.size &gt; fraction) {</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (current_point &gt; 0) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>437</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        integer_part = positive_amount[0..(positive_amount.size - fraction)]</pre></td>
+<td align="left" class="src coveredLine"><pre>            if (current_point &gt; integer_len + fractional_len) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>438</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        fractional_part = positive_amount[(positive_amount.size - fraction)..]</pre></td>
+<td align="left" class="src coveredLine"><pre>                if (sign == b'+'){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>439</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    } else {</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>440</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        integer_part = "0"</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>                } else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>441</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        fractional_part = "0" * (fraction - positive_amount.size) + positive_amount</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return -BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>442</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
+<td align="left" class="src "><pre>                }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>443</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
+<td align="left" class="src "><pre>            } else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>444</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    let merged_str = integer_part + fractional_part</pre></td>
+<td align="left" class="src coveredLine"><pre>                let remain: String = string_num[current_point..]</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>445</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    let original_point = integer_part.size</pre></td>
+<td align="left" class="src coveredLine"><pre>                string_num = string_num[0..current_point]</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>446</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                var ret: BigInt = BigInt(string_num[0..current_point])</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>447</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    // 找到第一个非零字符的位置</pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>448</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    var first_non_zero = -1</pre></td>
+<td align="left" class="src coveredLine"><pre>                if (remain.size &gt; 0 &amp;&amp; remain[0] &gt; b'4'){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>449</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    for (index in 0..merged_str.size) {</pre></td>
+<td align="left" class="src coveredLine"><pre>                    ret += BigInt_ONE</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>450</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        if (merged_str[index] != b'0') {</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>                }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>451</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            first_non_zero = index</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>452</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            break</pre></td>
+<td align="left" class="src coveredLine"><pre>                if (sign == b'-') {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>453</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        }</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    ret = - ret</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>454</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
+<td align="left" class="src "><pre>                }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>455</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return ret</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>456</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    // 处理全零的情况</pre></td>
+<td align="left" class="src "><pre>            }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>457</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    if (first_non_zero == -1) {</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        } else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>458</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        return ("+", "0", "", 0)</pre></td>
+<td align="left" class="src coveredLine"><pre>            if (current_point == 0 &amp;&amp; string_num[0] &gt; b'4'){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>459</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                if (sign == b'-'){</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>460</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return BigInt_MINUS_ONE</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>461</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    var fractional_str: String</pre></td>
+<td align="left" class="src "><pre>                } else {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>462</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    var integer_str: String</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return BigInt_ONE</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>463</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    let exponent: Int64</pre></td>
+<td align="left" class="src "><pre>                }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>464</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    if (integer_len &gt; 0) {</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>            }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>465</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        // 计算新的小数点的位置</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            return BigInt_ZERO</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>466</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        let new_point = first_non_zero + integer_len</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>467</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        let start = first_non_zero</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>468</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        let end = start + integer_len</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>469</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>470</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        // 提取整数部分并补零</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>471</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        integer_str = merged_str[start..min(end, merged_str.size)]</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>472</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>473</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        if (integer_str.size &lt; integer_len) {</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>474</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            integer_str += "0" * (integer_len - integer_str.size)</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>475</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>        }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>476</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>477</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        // 剩余部分作为小数部分</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>478</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        fractional_str = merged_str[min(end, merged_str.size)..]</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>479</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>480</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        // 计算指数</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>481</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        exponent = original_point - new_point</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>482</pre></td>
+<td align="right" class="lineno"><pre>467</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    } else {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>483</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        // 整数部分为0的特殊处理</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>484</pre></td>
+<td align="right" class="lineno"><pre>468</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        let new_point = first_non_zero</pre></td>
+<td align="left" class="src coveredLine"><pre>        throw IllegalArgumentException("没有舍入模式" + mode)</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>485</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        integer_str = "0"</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>486</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        fractional_str = merged_str[new_point..]</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>487</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        exponent = original_point - new_point</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>488</pre></td>
+<td align="right" class="lineno"><pre>469</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>489</pre></td>
+<td align="right" class="lineno"><pre>470</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    // 截断小数部分到指定长度</pre></td>
+<td align="left" class="src "><pre>}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>471</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>472</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>/**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>473</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @brief      将一个数字字符串转换为科学计数法表示的信息元组</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>474</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>475</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @param      amount   数字字符串的整数部分</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>476</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @param      fraction   数字字符串的小数位数</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>477</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @param      integer_len   整数部分的长度</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>478</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @param      fractional_len   小数部分的最大长度</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>479</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>480</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> * @return     一个元组。第一元素表示符号，类型是字符串，有"+"和"-"两种情况；</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>481</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> *                      第二元素表示整数部分，类型是字符串；</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>482</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> *                      第三元素表示小数部分，类型是字符串；</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>483</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> *                      第四元素表示指数部分，类型是Int64。</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>484</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre> */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>485</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>public func ScientificNotation(amount: String, fraction: Int64, integer_len: Int64, fractional_len: Int64) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>486</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    let signal: String</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>487</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    var positive_amount: String</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>488</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    if (amount[0] == b'-') {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>489</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        signal = "-"</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>490</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    fractional_str = fractional_str[..min(fractional_len, fractional_str.size)]</pre></td>
+<td align="left" class="src coveredLine"><pre>        positive_amount = amount[1..]</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>491</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    } else {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>492</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        signal = "+"</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>493</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        positive_amount = amount</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>494</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>495</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>496</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    // 构造整数部分和小数部分</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>497</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    var integer_part: String</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>498</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    var fractional_part: String</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>499</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    if (positive_amount.size &gt; fraction) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>500</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        integer_part = positive_amount[0..(positive_amount.size - fraction)]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>501</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        fractional_part = positive_amount[(positive_amount.size - fraction)..]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>502</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    } else {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>503</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        integer_part = "0"</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>504</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        fractional_part = "0" * (fraction - positive_amount.size) + positive_amount</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>505</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>506</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>507</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    let merged_str = integer_part + fractional_part</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>508</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    let original_point = integer_part.size</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>509</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>510</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    // 找到第一个非零字符的位置</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>511</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    var first_non_zero = -1</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>512</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    for (index in 0..merged_str.size) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>513</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (merged_str[index] != b'0') {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>514</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            first_non_zero = index</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>515</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            break</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>516</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>517</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>518</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>519</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    // 处理全零的情况</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>520</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    if (first_non_zero == -1) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>521</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        return ("+", "0", "", 0)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>522</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>523</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>524</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    var fractional_str: String</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>525</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    var integer_str: String</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>526</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    let exponent: Int64</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>527</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    if (integer_len &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>528</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        // 计算新的小数点的位置</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>529</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let new_point = first_non_zero + integer_len</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>530</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let start = first_non_zero</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>531</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let end = start + integer_len</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>532</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>533</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        // 提取整数部分并补零</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>534</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        integer_str = merged_str[start..min(end, merged_str.size)]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>535</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>536</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (integer_str.size &lt; integer_len) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>537</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            integer_str += "0" * (integer_len - integer_str.size)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>538</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>539</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>540</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        // 剩余部分作为小数部分</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>541</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        fractional_str = merged_str[min(end, merged_str.size)..]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>542</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>543</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        // 计算指数</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>544</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        exponent = original_point - new_point</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>545</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    } else {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>546</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        // 整数部分为0的特殊处理</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>547</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let new_point = first_non_zero</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>548</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        integer_str = "0"</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>549</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        fractional_str = merged_str[new_point..]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>550</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        exponent = original_point - new_point</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>551</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>552</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    // 截断小数部分到指定长度</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>553</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    fractional_str = fractional_str[..min(fractional_len, fractional_str.size)]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>554</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>    return (signal, integer_str, fractional_str, exponent)</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>492</pre></td>
+<td align="right" class="lineno"><pre>555</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>}</pre></td>

@@ -2,12 +2,12 @@
 
 [package]
   cjc-version = "0.53.18"
-  compile-option = ""
+  compile-option = "-Woff unused"
   description = ""
   link-option = ""
   name = "cj_money"
   output-type = "static"
   src-dir = ""
   target-dir = ""
-  version = "0.3.0"
+  version = "0.5.0"
   package-configuration = {}

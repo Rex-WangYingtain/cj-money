@@ -494,3 +494,35 @@ class ScientificNotationTest{
         @Expect(tup[3], -2)
     }
 }
+
+@Test
+class PowTest {
+    @TestCase
+    func test1() {
+        @Expect(IntPow(2, 3), 8)
+    }
+    @TestCase
+    func test2() {
+        @ExpectThrows[NegativeExponentNotSupportException]({
+            IntPow(2, -1)
+        })
+    }
+    @TestCase
+    func test3() {
+        @Expect(IntPow(2, 0), 1)
+    }
+    @TestCase
+    func test4() {
+        @Expect(BigIntPow(BigInt(2), BigInt(3)), BigInt(8))
+    }
+    @TestCase
+    func test5() {
+        @ExpectThrows[NegativeExponentNotSupportException]({
+            BigIntPow(BigInt(2), BigInt(-1))
+        })
+    }
+    @TestCase
+    func test6() {
+        @Expect(BigIntPow(BigInt(100), BigInt(0)), BigInt(1))
+    }
+}

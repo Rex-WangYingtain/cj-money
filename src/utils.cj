@@ -206,9 +206,9 @@ public func NumberStringToSmallAmount(number_string: String, fraction: Int64, mo
             let string_num = integer + fractional
             if (current_point > integer_len + fractional_len) {
                 if (sign == b'+'){
-                    return Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))
+                    return Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)
                 } else {
-                    return -Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))
+                    return -Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)
                 }
             } else {
                 if (sign == b'+'){
@@ -226,9 +226,9 @@ public func NumberStringToSmallAmount(number_string: String, fraction: Int64, mo
         if (current_point > 0) {
             if (current_point > integer_len + fractional_len) {
                 if (sign == b'+'){
-                    return Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))
+                    return Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)
                 } else {
-                    return -Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))
+                    return -Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)
                 }
             } else {
                 string_num = string_num[0..current_point]
@@ -254,9 +254,9 @@ public func NumberStringToSmallAmount(number_string: String, fraction: Int64, mo
         if (current_point > 0) {
             if (current_point > integer_len + fractional_len) {
                 if (sign == b'+'){
-                    return Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))
+                    return Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)
                 } else {
-                    return -Int64.parse(string_num) * Int64(pow(10.0, current_point - integer_len - fractional_len))
+                    return -Int64.parse(string_num) * IntPow(10, current_point - integer_len - fractional_len)
                 }
             } else {
                 let remain: String = string_num[current_point..]
@@ -288,6 +288,69 @@ public func NumberStringToSmallAmount(number_string: String, fraction: Int64, mo
         throw IllegalArgumentException("没有舍入模式" + mode)
     }
 }
+
+/**
+ * @brief      计算大整数幂
+ *
+ * @param      base   基数
+ * @param      exponent   指数
+ *
+ * @return     幂
+ *
+ * @notes      不支持负指数
+ */
+func BigIntPow(base: BigInt, exponent: BigInt): BigInt {
+    if (exponent < BigInt_ZERO) {
+        throw NegativeExponentNotSupportException("不支持负指数")
+    }
+    if (exponent == BigInt_ZERO) {
+        return BigInt_ONE
+    }
+
+    var b = base
+    var e = exponent
+    var result = BigInt_ONE
+
+    while (e > BigInt_ZERO) {
+        if (e % BigInt_TWO == BigInt_ONE) {
+            result = result * b
+        }
+        b = b * b
+        e = e / BigInt_TWO
+    }
+
+    return result
+}
+
+/**
+ * @brief      计算整数幂
+ *
+ * @param      base   基数
+ * @param      exponent   指数
+ *
+ * @return     幂
+ *
+ * @notes      不支持负指数
+ */
+func IntPow(base: Int64, exponent: Int64): Int64 {
+    if (exponent < 0) {
+        throw NegativeExponentNotSupportException("不支持负指数")
+    }
+
+    var b = base
+    var e = exponent
+    var result: Int64 = 1
+
+    while (e > 0) {
+        if ((e & 1) == 1) {
+            result *= b
+        }
+        b *= b
+        e >>= 1
+    }
+    return result
+}
+
 
 /**
  * @brief      将一个数字字符串转换为定点小数的整数表示。
@@ -324,9 +387,9 @@ public func NumberStringToBigAmount(number_string: String, fraction: Int64, mode
             let string_num = integer + fractional
             if (current_point > integer_len + fractional_len) {
                 if (sign == b'+'){
-                    return BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))
+                    return BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))
                 } else {
-                    return -BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))
+                    return -BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))
                 }
             } else {
                 if (sign == b'+'){
@@ -344,9 +407,9 @@ public func NumberStringToBigAmount(number_string: String, fraction: Int64, mode
         if (current_point > 0) {
             if (current_point > integer_len + fractional_len) {
                 if (sign == b'+'){
-                    return BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))
+                    return BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))
                 } else {
-                    return -BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))
+                    return -BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))
                 }
             } else {
                 string_num = string_num[0..current_point]
@@ -373,9 +436,9 @@ public func NumberStringToBigAmount(number_string: String, fraction: Int64, mode
         if (current_point > 0) {
             if (current_point > integer_len + fractional_len) {
                 if (sign == b'+'){
-                    return BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))
+                    return BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))
                 } else {
-                    return -BigInt(string_num) * BigInt(Int64(pow(10.0, current_point - integer_len - fractional_len)))
+                    return -BigInt(string_num) * BigIntPow(BigInt_TEN, BigInt(current_point - integer_len - fractional_len))
                 }
             } else {
                 let remain: String = string_num[current_point..]
