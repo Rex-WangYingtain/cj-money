@@ -48,7 +48,6 @@
 .
 ├── doc                         # 文档目录
 │   └── test_doc          		# 测试覆盖文档
-│   └── example.cj              # 示例程序
 │   └── feature_api.md          # 特性接口文档
 ├── src                         # 源码目录
 │   └── BigMoney.cj             # 大金额金钱类型定义
